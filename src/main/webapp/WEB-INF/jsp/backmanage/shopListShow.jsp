@@ -1,8 +1,8 @@
-    <%--
+<%--
   Created by IntelliJ IDEA.
-  User: lovegod
-  Date: 2017/3/17
-  Time: 20:44
+  User: win8.1
+  Date: 2017/7/10
+  Time: 19:31
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -29,32 +29,45 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="utf-8"/>
-    <title>添加版块</title>
+    <title>版块信息</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+          type="text/css">
+    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/font-awesome/css/font-awesome.min.css"
+          rel="stylesheet" type="text/css">
+    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/simple-line-icons/simple-line-icons.min.css"
+          rel="stylesheet" type="text/css">
+    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet" type="text/css">
+    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/uniform/css/uniform.default.css"
+          rel="stylesheet" type="text/css">
+    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
+          rel="stylesheet" type="text/css"/>
 
-    <link href="<%=request.getContextPath()%>/back/assets/global/css/components-rounded.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/back/assets/global/css/components-rounded.css" rel="stylesheet"
+          type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL STYLES -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/assets/global/plugins/select2/select2.css"/>
-    <%--<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>--%>
+    <link rel="stylesheet" type="text/css"
+          href="<%=request.getContextPath()%>/back/assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="<%=request.getContextPath()%>/back/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
     <!-- END PAGE LEVEL STYLES -->
     <!-- BEGIN THEME STYLES -->
-    <link href="<%=request.getContextPath()%>/back/assets/global/css/components-md.css" id="style_components" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/back/assets/global/css/components-md.css" id="style_components"
+          rel="stylesheet" type="text/css"/>
     <link href="<%=request.getContextPath()%>/back/assets/global/css/plugins-md.css" rel="stylesheet" type="text/css"/>
-    <link href="<%=request.getContextPath()%>/back/assets/admin/layout4/css/layout.css" rel="stylesheet" type="text/css"/>
-    <link id="style_color" href="<%=request.getContextPath()%>/back/assets/admin/layout4/css/themes/light.css" rel="stylesheet" type="text/css"/>
-    <link href="<%=request.getContextPath()%>/back/assets/admin/layout4/css/custom.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/back/assets/admin/layout4/css/layout.css" rel="stylesheet"
+          type="text/css"/>
+    <link id="style_color" href="<%=request.getContextPath()%>/back/assets/admin/layout4/css/themes/light.css"
+          rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/back/assets/admin/layout4/css/custom.css" rel="stylesheet"
+          type="text/css"/>
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
 </head>
@@ -85,14 +98,15 @@ License: You must have a valid license purchased only from themeforest(the above
         </div>
         <!-- END LOGO -->
         <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+           data-target=".navbar-collapse">
         </a>
         <!-- END RESPONSIVE MENU TOGGLER -->
         <!-- BEGIN PAGE TOP -->
         <div class="page-top">
             <!-- BEGIN HEADER SEARCH BOX -->
             <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-            <form class="search-form" action="#" method="post">
+            <form class="search-form" action="#" method="GET">
                 <div class="input-group">
                     <input type="text" class="form-control input-sm" placeholder="Search..." name="query">
                     <span class="input-group-btn">
@@ -110,11 +124,13 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN USER LOGIN DROPDOWN -->
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user dropdown-dark">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                           data-close-others="true">
 						<span class="username username-hide-on-mobile">
 						Admin </span>
                             <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-                            <img alt="" class="img-circle" src="<%=request.getContextPath()%>/back/assets/admin/layout4/img/avatar9.jpg"/>
+                            <img alt="" class="img-circle"
+                                 src="<%=request.getContextPath()%>/back/assets/admin/layout4/img/avatar9.jpg"/>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
@@ -182,7 +198,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <span class="title">管理主页</span>
                     </a>
                 </li>
-                <li>
+                <li >
                     <a href="javascript:;">
                         <i class="icon-rocket"></i>
                         <span class="title">帖子管理</span>
@@ -277,7 +293,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </li>
                         <li>
                             <a href="${pageContext.request.contextPath }/sectionList.form">
-                                查看版块</a>
+                                查看用户</a>
                         </li>
                     </ul>
                 </li>
@@ -290,7 +306,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <div class="page-content-wrapper">
         <div class="page-content">
             <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-            <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -316,7 +333,9 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="page-head">
                 <!-- BEGIN PAGE TITLE -->
                 <div class="page-title">
-                    <h1>版块信息 <small>添加版块信息</small></h1>
+                    <h1>版块信息
+                        <small>所有的版块信息</small>
+                    </h1>
                 </div>
                 <!-- END PAGE TITLE -->
                 <!-- BEGIN PAGE TOOLBAR -->
@@ -421,7 +440,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <a href="#">添加版块</a>
+                    <a href="#">版块信息管理</a>
                 </li>
             </ul>
             <!-- END PAGE BREADCRUMB -->
@@ -429,44 +448,103 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- BEGIN PAGE CONTENT-->
             <div class="row">
                 <div class="col-md-12">
-                    <!-- BEGIN SAMPLE FORM PORTLET-->
-                    <div class="portlet box blue">
+                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                    <div class="portlet box grey-cascade">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-gift"></i>添加版块
+                                <i class="fa fa-globe"></i>版块信息
                             </div>
                             <div class="tools">
-                                <a href="" class="collapse">
+                                <a href="javascript:;" class="collapse">
                                 </a>
                                 <a href="#portlet-config" data-toggle="modal" class="config">
                                 </a>
-                                <a href="" class="reload">
+                                <a href="javascript:;" class="reload">
                                 </a>
-                                <a href="" class="remove">
+                                <a href="javascript:;" class="remove">
                                 </a>
                             </div>
                         </div>
-                        <div class="portlet-body form">
-                            <form role="form"  action="${pageContext.request.contextPath }/adSecSub.form"
-                                  method="post" enctype="multipart/form-data">
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label for="name">版块名称</label>
-                                        <input type="text" class="form-control" id="name" name="title" placeholder="请输入版块名称">
+                        <div class="portlet-body">
+                            <div class="table-toolbar">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <%--<div class="btn-group">--%>
+                                        <%--<button id="sample_editable_1_new" class="btn green">--%>
+                                        <%--Add New <i class="fa fa-plus"></i>--%>
+                                        <%--</button>--%>
+                                        <%--</div>--%>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="des">版块描述</label>
-                                        <textarea type="text" class="form-control" id="des" name="describle" placeholder="请输入版块介绍"></textarea>
+                                    <div class="col-md-6">
+                                        <div class="btn-group pull-right">
+                                            <button class="btn dropdown-toggle" data-toggle="dropdown">工具 <i
+                                                    class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        删除 </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-actions">
-                                    <button type="submit" class="btn blue">提交</button>
-                                    <button type="button" class="btn default">取消</button>
-                                </div>
-                            </form>
+                            </div>
+                            <table class="table table-striped table-bordered table-hover" id="sample_1">
+                                <thead>
+                                <tr>
+                                    <th class="table-checkbox">
+                                        <input type="checkbox" class="group-checkable"
+                                               data-set="#sample_1 .checkboxes"/>
+                                    </th>
+                                    <th>
+                                        店铺id
+                                    </th>
+                                    <th>
+                                        店铺名
+                                    </th>
+                                    <th>
+                                        等级
+                                    </th>
+                                    <th>
+                                        销售量
+                                    </th>
+                                    <th>
+                                        地址
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${shops}" var="shop">
+                                    <tr class="odd gradeX">
+                                        <td>
+                                            <input type="checkbox" class="checkboxes" value="1"/>
+                                        </td>
+                                        <td>
+                                                ${shop.sid}
+                                        </td>
+
+                                        <td>
+                                                ${shop.shopname}
+                                        </td>
+                                        <td>
+                                                ${shop.slevel}
+                                        </td>
+                                        <td>
+                                                ${shop.salesvo}
+                                        </td>
+                                        <td>
+                                                ${shop.saddress}
+                                        </td>
+                                    </tr>
+
+                                </c:forEach>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <!-- END SAMPLE FORM PORTLET-->
+                    <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
             </div>
 
@@ -492,43 +570,52 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="<%=request.getContextPath()%>/back/assets/global/plugins/excanvas.min.js"></script>
 <![endif]-->
 <script src="<%=request.getContextPath()%>/back/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/back/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/back/assets/global/plugins/jquery-migrate.min.js"
+        type="text/javascript"></script>
 <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-<script src="<%=request.getContextPath()%>/back/assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/back/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/back/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/back/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/back/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/back/assets/global/plugins/jquery-ui/jquery-ui.min.js"
+        type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap/js/bootstrap.min.js"
+        type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
+        type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/back/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+        type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/back/assets/global/plugins/jquery.blockui.min.js"
+        type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/back/assets/global/plugins/jquery.cokie.min.js"
+        type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/back/assets/global/plugins/uniform/jquery.uniform.min.js"
+        type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
+        type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/global/plugins/select2/select2.min.js"></script>
-<%--<script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>--%>
-<%--<script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>--%>
+<script type="text/javascript"
+        src="<%=request.getContextPath()%>/back/assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript"
+        src="<%=request.getContextPath()%>/back/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"
+        src="<%=request.getContextPath()%>/back/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<%=request.getContextPath()%>/back/assets/global/scripts/metronic.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/back/assets/admin/layout4/scripts/layout.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/back/assets/admin/layout4/scripts/demo.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/back/assets/admin/pages/scripts/table-managed.js"></script>
-<script src="<%=request.getContextPath()%>/back/assets/global/scripts/datatable.js"></script>
-
-
-<script src="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
-
-
 <script>
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function () {
         Metronic.init(); // init metronic core components
         Layout.init(); // init current layout
         Demo.init(); // init demo features
+        TableManaged.init();
     });
 </script>
 <script type="text/javascript">
-    <c:if test="${!empty error_msg}">alert("${error_msg}");</c:if>
+    <c:if test="${!empty error_msg}">alert("${error_msg}");
+    </c:if>
 </script>
 </body>
 <!-- END BODY -->
 </html>
+

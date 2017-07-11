@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xoqao.web.dao.ShopMapper" >
+
+    <!--查询所有的商铺-->
+    <select id="findAllShops" resultType="com.xoqao.web.bean.shop.Shop">
+        SELECT * FROM  shop
+    </select>
+
+    <!--添加一个商铺-->
+    <select id="saveShops" resultType="com.xoqao.web.bean.shop.Shop">
+        insert into shop(shopname,type,phone,bossname,city,scope,subscrib) values('${shopname}','${type}','${phone}','${bossname}','${city}','${scope}','${subscrib}')
+    </select>
+</mapper>

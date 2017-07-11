@@ -1,4 +1,4 @@
-<%--
+    <%--
   Created by IntelliJ IDEA.
   User: lovegod
   Date: 2017/3/17
@@ -92,7 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="page-top">
             <!-- BEGIN HEADER SEARCH BOX -->
             <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-            <form class="search-form" action="#" method="GET">
+            <form class="search-form" action="#" method="post">
                 <div class="input-group">
                     <input type="text" class="form-control input-sm" placeholder="Search..." name="query">
                     <span class="input-group-btn">
