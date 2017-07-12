@@ -15,11 +15,10 @@ public class Shop implements Serializable {
     private String shopname;
     private String showpic;
     private double slevel;
-    private String phone;
+    private String stel;
     private String subscrib;
     private String type;
     private String headershow;
-    private String bossname;
     private String bossnick;
     private String bosspass;
     private String bosspic;
@@ -123,21 +122,15 @@ public class Shop implements Serializable {
         this.latitude = latitude;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getStel() {
+        return stel;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setStel(String stel) {
+        this.stel = stel;
     }
 
-    public String getBossname() {
-        return bossname;
-    }
 
-    public void setBossname(String bossname) {
-        this.bossname = bossname;
-    }
 
     public String getBossnick() {
         return bossnick;
@@ -199,11 +192,10 @@ public class Shop implements Serializable {
                 ", shopname='" + shopname + '\'' +
                 ", showpic='" + showpic + '\'' +
                 ", slevel=" + slevel +
-                ", phone='" + phone + '\'' +
+                ", phone='" + stel + '\'' +
                 ", subscrib='" + subscrib + '\'' +
                 ", type='" + type + '\'' +
                 ", headershow='" + headershow + '\'' +
-                ", bossname='" + bossname + '\'' +
                 ", bossnick='" + bossnick + '\'' +
                 ", bosspass='" + bosspass + '\'' +
                 ", bosspic='" + bosspic + '\'' +

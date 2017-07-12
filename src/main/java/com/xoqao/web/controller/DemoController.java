@@ -2,8 +2,10 @@ package com.xoqao.web.controller;
 
 import com.xoqao.web.bean.user.User;
 import com.xoqao.web.bean.shop.Shop;
+import com.xoqao.web.bean.boss.Boss;
 import com.xoqao.web.service.UserService;
 import com.xoqao.web.service.ShopService;
+import com.xoqao.web.service.BossService;
 import jdk.nashorn.internal.ir.RuntimeNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,9 @@ public class DemoController {
 
     @Autowired
     ShopService shopService;
+
+    @Autowired
+    BossService bossService;
 
     @RequestMapping("/backlogin")
     public String backlogin(Model model) throws Exception {
@@ -74,16 +79,52 @@ public class DemoController {
     public String insertShop(Shop shop) throws Exception{
         shop.setShopname(shop.getShopname());
         shop.setType(shop.getType());
-        shop.setPhone(shop.getPhone());
-        shop.setBossname(shop.getBossname());
+        shop.setStel(shop.getStel());
         shop.setCity(shop.getCity());
         shop.setScope(shop.getScope());
         shop.setSubscrib(shop.getSubscrib());
         if(shop.getShopname()!=null) {
-            shopService.saveShops(shop);
-            return null;
+            try {
+                shopService.saveShops(shop);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            return "backmanage/shopListShow";
+
         }else {
+            System.out.print("SHOP为空");
             return "backmanage/shopAdd";
+        }
+    }
+
+    /**
+     * @param boss
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/bossAdd")
+    public String insertBoss(Boss boss) throws Exception{
+        boss.setPic(boss.getPic());
+        boss.setId(boss.getId());
+        boss.setName(boss.getName());
+        boss.setNickname(boss.getNickname());
+        boss.setPassword(boss.getPassword());
+        boss.setPhone(boss.getPhone());
+        boss.setSid(boss.getSid());
+        if(boss.getName()!=null) {
+            System.out.print(boss.getName());
+            Boss boss1;
+            boss1=bossService.selectBossBynickname(boss);
+            if(boss1.getNickname()==null) {
+                bossService.saveBoss(boss);
+                return "backmanage/shopAdd";
+            }else{
+                return "backmanage/bossAdd";
+            }
+
+        }else {
+            System.out.print("boss为空");
+            return "backmanage/bossAdd";
         }
     }
 }

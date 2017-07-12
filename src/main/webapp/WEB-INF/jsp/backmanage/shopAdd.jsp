@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: win8.1
+  User: lcy
   Date: 2017/7/11
   Time: 11:04
   To change this template use File | Settings | File Templates.
@@ -116,10 +116,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="col-md-4">
                                                 <div class="radio-list" data-error-container="#form_2_membership_error">
                                                     <label>
-                                                        <input type="radio" name="membership" value="线上商店"/>
+                                                        <input type="radio" name="type" value="线上商店"/>
                                                         线上商店 </label>
                                                     <label>
-                                                        <input type="radio" name="membership" value="线下实体店"/>
+                                                        <input type="radio" name="type" value="线下实体店"/>
                                                         线下实体店 </label>
                                                 </div>
                                                 <div id="form_2_membership_error">
@@ -131,13 +131,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											* </span>
                                             </label>
                                             <div class="col-md-4">
-                                                <input type="text" name="phone" data-required="1" class="form-control"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">店主姓名&nbsp;&nbsp;</label>
-                                            <div class="col-md-4">
-                                                <input name="bossname" type="text" class="form-control"/>
+                                                <input type="text" name="stel" data-required="1" class="form-control"/>
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +174,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="form-actions">
                                         <div class="row">
                                             <div class="col-md-offset-3 col-md-9">
-                                                <button type="submit" class="btn green"><a href="<%=request.getContextPath()%>/shopListShow">submit</a></button>
+                                                <button type="submit" class="btn green">submit</button>
                                                 <button type="button" class="btn default">Cancel</button>
                                             </div>
                                         </div>

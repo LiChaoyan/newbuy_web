@@ -9,6 +9,6 @@
 
     <!--添加一个商铺-->
     <select id="saveShops" resultType="com.xoqao.web.bean.shop.Shop">
-        insert into shop(shopname,type,phone,bossname,city,scope,subscrib) values('${shopname}','${type}','${phone}','${bossname}','${city}','${scope}','${subscrib}')
+        insert into shop(shopname,type,stel,city,scope,subscrib) values('${shopname}','${type}','${stel}','${city}','${scope}','${subscrib}')
     </select>
 </mapper>

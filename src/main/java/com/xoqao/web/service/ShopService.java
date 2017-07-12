@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Author: lcy
- * Created by win8.1 on 2017/7/10.
+ * Created by lcy on 2017/7/10.
  */
 public interface ShopService {
 
