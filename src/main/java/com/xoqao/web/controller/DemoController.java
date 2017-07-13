@@ -97,13 +97,16 @@ public class DemoController {
         }
     }
 
+
+
     /**
      * @param boss
      * @return
      * @throws Exception
      */
+
     @RequestMapping("/bossAdd")
-    public String insertBoss(Boss boss) throws Exception{
+    public String insertBoss(Boss boss ) throws Exception {
         boss.setPic(boss.getPic());
         boss.setId(boss.getId());
         boss.setName(boss.getName());
@@ -111,20 +114,25 @@ public class DemoController {
         boss.setPassword(boss.getPassword());
         boss.setPhone(boss.getPhone());
         boss.setSid(boss.getSid());
-        if(boss.getName()!=null) {
-            System.out.print(boss.getName());
-            Boss boss1;
-            boss1=bossService.selectBossBynickname(boss);
-            if(boss1.getNickname()==null) {
-                bossService.saveBoss(boss);
-                return "backmanage/shopAdd";
-            }else{
-                return "backmanage/bossAdd";
-            }
+        if (boss.getNickname() != null) {
+            List<Boss> bosss = bossService.selectBossBynickname(boss);
+            List<Boss> bosss2 = bossService.selectBossByphone(boss);
+            List<Boss> bosss3 = bossService.selectBossBysid(boss);
+            if (bosss.size()==0&&bosss2.size()==0&&bosss3.size()==0) {
+                //成功
 
-        }else {
-            System.out.print("boss为空");
+                return "backmanage/shopAdd";
+            } else {
+                //失败,该昵称已存在
+                return "backmanage/bossAdd";
+
+            }
+        } else {
+            //刚开始请求时
             return "backmanage/bossAdd";
         }
+
+    }
+
     }
 }

@@ -5,8 +5,16 @@
     <select id="saveBoss" resultType="com.xoqao.web.bean.boss.Boss">
         insert into boss(id,name,nickname,password,phone,pic,sid) values('${id}','${name}','${nickname}','${password}','${phone}','${pic}','${sid}')
     </select>
-    <!--查询-->
+    <!--昵称查询-->
     <select id="selectBossBynickname" resultType="com.xoqao.web.bean.boss.Boss">
         select * from boss where nickname like '${nickname}
+    </select>
+    <!--电话查询-->
+    <select id="selectBossByphone" resultType="com.xoqao.web.bean.boss.Boss">
+        select * from boss where nickname like '${phone}
+    </select>
+    <!--店铺号查询-->
+    <select id="selectBossByphone" resultType="com.xoqao.web.bean.boss.Boss">
+        select * from boss where nickname like '${sid}
     </select>
 </mapper>

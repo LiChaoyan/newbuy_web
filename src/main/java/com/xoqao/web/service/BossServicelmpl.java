@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.enterprise.inject.Alternative;
+import java.util.List;
 
 /**
  * Created by lcy on 2017/7/12.
@@ -21,10 +22,18 @@ public class BossServicelmpl implements BossService{
 
            return  bossMapper.saveBoss(boss);
     }
-    public Boss selectBossBynickname(Boss boss)throws Exception{
-       return  bossMapper.selectBossBynickname(boss);
 
-
+    public List<Boss> selectBossBynickname(Boss boss)throws Exception {
+        List<Boss> allBosss = selectBossBynickname(boss);
+        return allBosss;
+    }
+    public List<Boss> selectBossByphone(Boss boss)throws Exception {
+        List<Boss> allBosss = selectBossByphone(boss);
+        return allBosss;
+    }
+    public List<Boss> selectBossBysid(Boss boss)throws Exception {
+        List<Boss> allBosss = selectBossBysid(boss);
+        return allBosss;
     }
 
 }

@@ -1,152 +1,140 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lcy
-  Date: 2017/7/12
-  Time: 15:09
-  To change this template use File | Settings | File Templates.
---%>
+<!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>店主注册</title>
-    <!--用函数进行客户端验证-->
-    <script type="text/javascript">
-
-        function checkname(){
-            var name = document.getElementsById("name").value;
-            //使用正则校验
-            var reg = /^[/u4e00-/u9fa5]{0,}$/;
-            var  tipname  = document.getElementById("tipname");
-            if(!reg.test(name)){
-                //失败
-                tipname.innerHTML = "只能为汉字".fontcolor("red");
-                return false;
-            }
-            else{
-                tipname.innerHTML = "正确".fontcolor("green");
-                return true;
-            }
-
-        }
-
-        function checknickname(){
-            var nickname = document.getElementsById("nickname").value;
-            //使用正则校验
-            var reg = /^[a-zA-Z0-9]{4,20}$/;//^[/u4e00-/u9fa5]{0,}$
-            var  tipnickname  = document.getElementById("tipnickname");
-            if(!reg.test(nickname)){
-                //失败
-                tipnickname.innerHTML = "昵称4-20".fontcolor("red");
-                return false;
-            }else{
-                tipnickname.innerHTML = "正确".fontcolor("green");
-                return true;
-            }
-
-        }
-        function checkpassword(){
-            var password = document.getElementsById("password").value;
-            //使用正则校验
-            var reg = /^[a-zA-Z0-9]{6,20}$/;
-            var  tippassword  = document.getElementById("password");
-            if(!reg.test(password)){
-                //失败
-                tippassword.innerHTML = "密码6-20位".fontcolor("red");
-                return false;
-            }else{
-                tippassword.innerHTML = "正确".fontcolor("green");
-                return true;
-            }
-
-        }
-
-        function checkrepassword(){
-            var password=document.getElementsById("password").value;
-            var repassword=document.getElementsById("repassword").value;
-            var  tiprepassword  = document.getElementById("tiprepassword");
-            if(password!=repassword){
-                tiprepassword.innerHTML = "两次密码不一样".fontcolor("red");
-                return false;
-            }else{
-                tiprepassword.innerHTML = "正确".fontcolor("green");
-                return true;
-            }
+    <title>BootstrapValidator demo</title>
 
 
-        }
-        function checkphone(){
-            var phone=document.getElementById("phone");
-            var reg="/^13(\d{9})$|^15(\d{9})$|^189(\d{8})$/";        //定义验证手机号码的正则表达式
-            var  tipphone  = document.getElementById("tipphone");
-            if(!reg.test(phone)){
-                //失败
-                tipphone.innerHTML = "格式错误".fontcolor("red");
-                return false;
-            }else{
-                tipphone.innerHTML = "正确".fontcolor("green");
-                return true;
-            }
 
-        }
-        function checkid(){
-            var idCard=document.getElementById("id");
-            var  tipid  = document.getElementById("tipid");
-            //15位和18位身份证号码的正则表达式
-            var regIdCard=/^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/back/assets/validator/vendor/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/back/assets/validator/dist/css/bootstrapValidator.css"/>
 
-            //如果通过该验证，说明身份证格式正确，但准确性还需计算
-            if(regIdCard.test(idCard)){
-                if(idCard.length==18){
-                    var idCardWi=new Array( 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 ); //将前17位加权因子保存在数组里
-                    var idCardY=new Array( 1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2 ); //这是除以11后，可能产生的11位余数、验证码，也保存成数组
-                    var idCardWiSum=0; //用来保存前17位各自乖以加权因子后的总和
-                    for(var i=0;i<17;i++){
-                        idCardWiSum+=idCard.substring(i,i+1)*idCardWi[i];
-                    }
+    <script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/validator/vendor/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/validator/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/validator/dist/js/bootstrapValidator.js"></script>
 
-                    var idCardMod=idCardWiSum%11;//计算出校验码所在数组的位置
-                    var idCardLast=idCard.substring(17);//得到最后一位身份证号码
 
-                    //如果等于2，则说明校验码是10，身份证号码最后一位应该是X
-                    if(idCardMod==2){
-                        if(idCardLast=="X"||idCardLast=="x"){
-                            tipid.innerHTML = "正确".fontcolor("green");
-                        }else{
-                            tipid.innerHTML = "身份证号码错误！".fontcolor("red");
-                        }
-                    }else{
-                        //用计算出的验证码与最后一位身份证号码匹配，如果一致，说明通过，否则是无效的身份证号码
-                        if(!idCardLast==idCardY[idCardMod]){
-                            tipid.innerHTML = "身份证号码错误！".fontcolor("red");
-                        }else{
-                            tipid.innerHTML = "正确".fontcolor("green");
-                        }
-                    }
-                }
-            }else{
-                tipid.innerHTML = "身份证格式不正确！".fontcolor("red");
-            }
-        }
-        function reg(){
-            if(checkname()&&checknickname()&&checkpassword()&&checkid()&&checkphone()&&checkrepassword())
-            return true;
-            else
-                return false;
-        }
-    </script>
 </head>
-<body>
-<h2 align="left">店主注册</h2><br>
-<form align="center"action="#" method="get" onsubmit="return reg()">
-    <p></p><tr>头像: <img src="<%=request.getContextPath()%>/back/assets/admin/layout/img/bosspic.jpg" ></tr><br>
-    <p></p><tr>真实姓名: <input type="text" name="name"id="name" value=""onblur="checkname()"><span id="tipname"></span></tr><br>
-    <p></p><tr>昵称: <input type="text" name="nickname" id=nicknamevalue=""><span id="tipnickname"></span></tr><br>
-    <p></p><tr>密码: <input type="password" name="password" id=password" value="" onblur="checkpassword()"><span id="tippassword"></span></tr><br>
-    <p></p><tr>确认密码: <input type="password" name="repassword" value="" id="repassword" onblur="checkrepassword()"><span id="tiprepossword"></span></tr><br>
-    <p></p><tr>身份证号: <input type="text" name="id" value="" id="id" onblur="checkid()"><span id="tipid"></span></tr><br>
-    <p></p><tr>电话: <input type="text" name="phone" value="" id="phone" onblur="checkphone()"><span id="tipphone"></span></tr><br>
-    <p></p><tr>店铺号: <input type="text" name="sid" value=""></tr><br>
-    <p></p><tr><input type="submit" value="立即注册" ></tr>
-</form>
+<body style="background:#5c97bd">
+<div class="container">
+    <div class="row">
+        <!-- form: -->
+        <section>
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="page-header">
+                    <h2>Sign up</h2>
+                </div>
+
+                <form id="defaultForm" method="post" class="form-horizontal" action="bossAdd.jsp"
+                      data-bv-message="This value is not valid"
+                      data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                      data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                      data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+
+
+
+                    <p class="hint">
+                        Enter your personal details below:
+                    </p>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Picture</label>
+                        <div class="col-lg-5">
+                            <img src="<%=request.getContextPath()%>/back/assets/admin/layout/img/bosspic.jpg" style="height: 17px;" placeholder="头像" name="pic"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">name</label>
+                        <div class="col-lg-5">
+                            <input class="form-control" type="text" autocomplete="off" placeholder="真实姓名" name="name"
+                                   required data-bv-notempty-message="The  name is required and cannot be empty" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">ID</label>
+                        <div class="col-lg-5">
+                            <input class="form-control" type="text" autocomplete="off" placeholder="身份证号" name="id"
+                                   required data-bv-notempty-message="The  name is required and cannot be empty"
+                            />
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Phone</label>
+                        <div class="col-lg-5">
+                            <input class="form-control" type="text" autocomplete="off" placeholder="电话" name="phone"
+                                   required data-bv-notempty-message="The Phone is required and cannot be empty"
+                                   pattern="^1[3|5|8]{1}[0-9]{9}$" data-bv-regexp-message="The input is not a valid phone "
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Sid</label>
+                        <div class="col-lg-5">
+                            <input class="form-control" type="text" autocomplete="off" placeholder="店铺号" name="sid"
+                                   data-bv-message="The Sid is not valid"
+                                   required data-bv-notempty-message="The Sid is required and cannot be empty"
+                                   pattern="[0-9]+" data-bv-regexp-message="The Sid can only consist of number"
+                                   data-bv-stringlength="true" data-bv-stringlength-min="1" data-bv-stringlength-max="6" data-bv-stringlength-message="The Sid must be more than 1 and less than 6 characters long"
+                            />
+                        </div>
+                    </div>
+
+
+                    <p class="hint">
+                        Enter your account details below:
+                    </p>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Username</label>
+                        <div class="col-lg-5">
+                            <input class="form-control" type="text" autocomplete="off" placeholder="昵称" name="nickname"data-bv-message="The Username is not valid"
+                                   required data-bv-notempty-message="The Username is required and cannot be empty"
+                                   pattern="^[a-zA-Z0-9]{4,20}$" data-bv-regexp-message="昵称为4-20字符"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Password</label>
+                        <div class="col-lg-5">
+                            <input type="password" class="form-control" name="password"placeholder="密码"
+                                   required data-bv-notempty-message="The password is required and cannot be empty"
+                                   pattern="^[a-zA-Z0-9]{6,20}$" data-bv-regexp-message="密码为6-20字符"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Retype password</label>
+                        <div class="col-lg-5">
+                            <input type="password" class="form-control" name="repassword" placeholder="确认密码"
+                                   required data-bv-notempty-message="The confirm password is required and cannot be empty"
+                                   data-bv-identical="true" data-bv-identical-field="password" data-bv-identical-message="The password and its confirm are not the same"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="check">
+                            <input type="checkbox" name="tnc"/>
+                            <span class="loginblue-font">I agree to the </span>
+                            <a href="javascript:;" style="color: #d73b3b" class="loginblue-link">Terms of Service</a>
+                            <span class="loginblue-font">and</span>
+                            <a href="javascript:;" style="color: #d73b3b"  class="loginblue-link">Privacy Policy </a>
+                        </label>
+                        <div id="register_tnc_error">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button  type="submit" id="register-submit-btn" class="btn btn-primary uppercase pull-right">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- :form -->
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#defaultForm').bootstrapValidator();
+    });
+</script>
 </body>
 </html>
