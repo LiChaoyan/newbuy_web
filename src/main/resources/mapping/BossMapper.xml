@@ -7,14 +7,14 @@
     </select>
     <!--昵称查询-->
     <select id="selectBossBynickname" resultType="com.xoqao.web.bean.boss.Boss">
-        select * from boss where nickname like '${nickname}
+        SELECT id,name,nickname,password,phone,pic,sid FROM  boss where nickname LIKE  '${nickname}'
     </select>
     <!--电话查询-->
     <select id="selectBossByphone" resultType="com.xoqao.web.bean.boss.Boss">
-        select * from boss where nickname like '${phone}
+        select id,name,nickname,password,phone,pic,sid from boss where phone like '${phone}'
     </select>
     <!--店铺号查询-->
-    <select id="selectBossByphone" resultType="com.xoqao.web.bean.boss.Boss">
-        select * from boss where nickname like '${sid}
+    <select id="selectBossBysid" resultType="com.xoqao.web.bean.boss.Boss">
+        select id,name,nickname,password,phone,pic,sid from boss where sid like '${sid}'
     </select>
 </mapper>

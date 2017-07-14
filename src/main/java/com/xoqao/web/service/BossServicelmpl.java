@@ -23,16 +23,16 @@ public class BossServicelmpl implements BossService{
            return  bossMapper.saveBoss(boss);
     }
 
-    public List<Boss> selectBossBynickname(Boss boss)throws Exception {
-        List<Boss> allBosss = selectBossBynickname(boss);
+    public List<Boss> selectBossBynickname(String nickname)throws Exception {
+        List<Boss> allBosss = bossMapper.selectBossBynickname(nickname);
         return allBosss;
     }
-    public List<Boss> selectBossByphone(Boss boss)throws Exception {
-        List<Boss> allBosss = selectBossByphone(boss);
+    public List<Boss> selectBossByphone(String phone)throws Exception {
+        List<Boss> allBosss = bossMapper.selectBossByphone(phone);
         return allBosss;
     }
-    public List<Boss> selectBossBysid(Boss boss)throws Exception {
-        List<Boss> allBosss = selectBossBysid(boss);
+    public List<Boss> selectBossBysid(int sid )throws Exception {
+        List<Boss> allBosss = bossMapper.selectBossBysid(sid);
         return allBosss;
     }
 

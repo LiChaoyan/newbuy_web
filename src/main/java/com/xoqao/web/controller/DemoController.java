@@ -6,7 +6,6 @@ import com.xoqao.web.bean.boss.Boss;
 import com.xoqao.web.service.UserService;
 import com.xoqao.web.service.ShopService;
 import com.xoqao.web.service.BossService;
-import jdk.nashorn.internal.ir.RuntimeNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -97,16 +96,11 @@ public class DemoController {
         }
     }
 
-
-
-    /**
-     * @param boss
-     * @return
-     * @throws Exception
-     */
-
     @RequestMapping("/bossAdd")
-    public String insertBoss(Boss boss ) throws Exception {
+    public String insertBoss(Model model,Boss boss ) throws Exception {
+        String nickname=boss.getNickname();
+        String phone=boss.getPhone();
+        int sid=boss.getSid();
         boss.setPic(boss.getPic());
         boss.setId(boss.getId());
         boss.setName(boss.getName());
@@ -114,25 +108,41 @@ public class DemoController {
         boss.setPassword(boss.getPassword());
         boss.setPhone(boss.getPhone());
         boss.setSid(boss.getSid());
-        if (boss.getNickname() != null) {
-            List<Boss> bosss = bossService.selectBossBynickname(boss);
-            List<Boss> bosss2 = bossService.selectBossByphone(boss);
-            List<Boss> bosss3 = bossService.selectBossBysid(boss);
-            if (bosss.size()==0&&bosss2.size()==0&&bosss3.size()==0) {
-                //成功
-
-                return "backmanage/shopAdd";
-            } else {
-                //失败,该昵称已存在
+        if (nickname!= null&&phone!=null&&sid!=0) {
+            List<Boss> bosss=null;
+            System.err.print("提交表单"+nickname);
+            if(bossService.selectBossBynickname(nickname).size()>0){
+                //昵称已存在
+                System.err.print("注册失败昵称已存在");
+                String nicknameerror="昵称已存在";
+                model.addAttribute("nicknameerror",nicknameerror);
                 return "backmanage/bossAdd";
+            }else if(bossService.selectBossBynickname(phone).size()>0){
+               //电话号已绑定
+                System.err.print("注册失败电话号已绑定");
+                String phoneerror="昵称已存在";
+                model.addAttribute("phoneerror",phoneerror);
 
+                return "backmanage/bossAdd";
+            }else if(bossService.selectBossBysid(sid).size()>0){
+                //店铺号已存在
+                System.err.print("注册失败店铺号已存在");
+                String siderror="昵称已存在";
+                model.addAttribute("siderror",siderror);
+                return "backmanage/bossAdd";
+            }else{
+                bossService.saveBoss(boss);
+                System.err.print("成功注册");
+                return "backmanage/shopAdd";
             }
         } else {
             //刚开始请求时
+            System.err.print("刚开始请求");
             return "backmanage/bossAdd";
         }
 
-    }
 
     }
+
+
 }

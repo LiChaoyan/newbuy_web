@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>BootstrapValidator demo</title>
@@ -25,7 +28,7 @@
                     <h2>Sign up</h2>
                 </div>
 
-                <form id="defaultForm" method="post" class="form-horizontal" action="bossAdd.jsp"
+                <form id="defaultForm" method="get" class="form-horizontal" action="#"
                       data-bv-message="This value is not valid"
                       data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
                       data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
@@ -65,6 +68,7 @@
                                    required data-bv-notempty-message="The Phone is required and cannot be empty"
                                    pattern="^1[3|5|8]{1}[0-9]{9}$" data-bv-regexp-message="The input is not a valid phone "
                             />
+                            <p>${phoneerror}</p>
                         </div>
                     </div>
                     <div class="form-group">
@@ -76,6 +80,7 @@
                                    pattern="[0-9]+" data-bv-regexp-message="The Sid can only consist of number"
                                    data-bv-stringlength="true" data-bv-stringlength-min="1" data-bv-stringlength-max="6" data-bv-stringlength-message="The Sid must be more than 1 and less than 6 characters long"
                             />
+                            <p>${siderror}</p>
                         </div>
                     </div>
 
@@ -90,6 +95,7 @@
                                    required data-bv-notempty-message="The Username is required and cannot be empty"
                                    pattern="^[a-zA-Z0-9]{4,20}$" data-bv-regexp-message="昵称为4-20字符"
                             />
+                            <p>${nicknameerror}</p>
                         </div>
                     </div>
                     <div class="form-group">
