@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
   User: lcy
-  Date: 2017/7/11
+  Date: 2017/7/17
   Time: 11:04
   To change this template use File | Settings | File Templates.
 --%>
@@ -24,31 +24,42 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 uiv="Content-type" content="text/html; charset=utf-8">
-    <meta content="" name="description"/>
-    <meta content="" name="author"/>
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
-    <!-- END GLOBAL MANDATORY STYLES -->
-    <!-- BEGIN PAGE LEVEL STYLES -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/assets/global/plugins/select2/select2.css"/>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
-    <!-- END PAGE LEVEL SCRIPTS -->
-    <!-- BEGIN THEME STYLES -->
-    <link href="<%=request.getContextPath()%>/back/assets/global/css/components-md.css" id="style_components" rel="stylesheet" type="text/css"/>
-    <link href="<%=request.getContextPath()%>/back/assets/global/css/plugins-md.css" rel="stylesheet" type="text/css"/>
-    <link href="<%=request.getContextPath()%>/back/assets/admin/layout2/css/layout.css" rel="stylesheet" type="text/css"/>
-    <link id="style_color" href="<%=request.getContextPath()%>/back/assets/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css"/>
-    <link href="<%=request.getContextPath()%>/back/assets/admin/layout2/css/custom.css" rel="stylesheet" type="text/css"/>
-    <!-- END THEME STYLES -->
-    <link rel="shortcut icon" href="favicon.ico"/>
-
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/back/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/back/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/back/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/assets/global/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+<!-- END PAGE LEVEL SCRIPTS -->
+<!-- BEGIN THEME STYLES -->
+<link href="<%=request.getContextPath()%>/back/assets/global/css/components-md.css" id="style_components" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/back/assets/global/css/plugins-md.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/back/assets/admin/layout2/css/layout.css" rel="stylesheet" type="text/css"/>
+<link id="style_color" href="<%=request.getContextPath()%>/back/assets/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/back/assets/admin/layout2/css/custom.css" rel="stylesheet" type="text/css"/>
+<!-- END THEME STYLES -->
+<link rel="shortcut icon" href="favicon.ico"/>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        var shop=${shop};
+        request.getParameter("shopname").value=${shop.shopname};
+        request.getParameter("type").value=${shop.type};
+        request.getParameter("stel").value=${shop.stel};
+        request.getParameter("city").value=${shop.city};
+        request.getParameter("saddress").value=${shop.saddress};
+        request.getParameter("scope").value=${shop.scope};
+        request.getParameter("subscrib").value=${shop.subscrib};
+    }
+</script>
 
 </head>
 <!-- END HEAD -->
@@ -70,7 +81,7 @@ uiv="Content-type" content="text/html; charset=utf-8">
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-gift"></i>店铺信息录入
+                    <i class="fa fa-gift"></i>店铺信息修改
                 </div>
                 <div class="tools">
                     <a href="javascript:;" class="collapse">
@@ -83,7 +94,7 @@ uiv="Content-type" content="text/html; charset=utf-8">
                         <title>Metronic | Form Stuff - Form Validation</title>
                         <meta http-equiv="X-UA-Compatible" content="IE=edge">
                         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-                        <meta http-eq></a>
+                        <meta http-eq/>
                         <a href="javascript:;" class="remove">
                         </a>
                 </div>
@@ -106,7 +117,8 @@ uiv="Content-type" content="text/html; charset=utf-8">
 											* </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="shopname" data-required="1" class="form-control"/>
+
+                                <input type="text" name="shopname" value="" data-required="1" class="form-control"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -178,7 +190,6 @@ uiv="Content-type" content="text/html; charset=utf-8">
                             </div>
                         </div>
                     </div>
-
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
@@ -251,6 +262,7 @@ uiv="Content-type" content="text/html; charset=utf-8">
 <script src="<%=request.getContextPath()%>/back/assets/admin/pages/scripts/form-validation.js"></script>
 <!-- END PAGE LEVEL STYLES -->
 <script>
+
     jQuery(document).ready(function() {
         // initiate layout and plugins
         Metronic.init(); // init metronic core components
@@ -262,5 +274,4 @@ uiv="Content-type" content="text/html; charset=utf-8">
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
-
 </html>

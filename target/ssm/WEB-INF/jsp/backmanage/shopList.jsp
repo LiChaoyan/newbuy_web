@@ -295,6 +295,23 @@ License: You must have a valid license purchased only from themeforest(the above
                             <a href="${pageContext.request.contextPath }/sectionList.form">
                                 查看用户</a>
                         </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath }/bossAdd.form">
+                                <i class="icon-pencil"></i> 店主注册</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath }/shopAdd.form">
+                                <i class="icon-pencil"></i> 店铺注册</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath }/shopUpdate.form">
+                                <i class="icon-pencil"></i> 店铺注册信息修改</a>
+                        </li>
+
+                        <li>
+                            <a href="${pageContext.request.contextPath }/shopList.form">
+                                <i class="icon-pencil"></i> 店铺展示</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

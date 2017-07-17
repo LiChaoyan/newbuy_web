@@ -9,10 +9,7 @@ import com.xoqao.web.service.BossService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -62,7 +59,7 @@ public class DemoController {
     }
 
 
-    @RequestMapping("/shopListShow")
+    @RequestMapping("/shopList")
     public String selectShops(Model model) {
         List<Shop> allShops = null;
         try {
@@ -71,7 +68,7 @@ public class DemoController {
             e.printStackTrace();
         }
         model.addAttribute("shops", allShops);
-        return "backmanage/shopListShow";
+        return "backmanage/shopList";
     }
 
     @RequestMapping("/shopAdd")
@@ -80,6 +77,7 @@ public class DemoController {
         shop.setType(shop.getType());
         shop.setStel(shop.getStel());
         shop.setCity(shop.getCity());
+        shop.setSaddress(shop.getSaddress());
         shop.setScope(shop.getScope());
         shop.setSubscrib(shop.getSubscrib());
         if(shop.getShopname()!=null) {
@@ -88,7 +86,7 @@ public class DemoController {
             }catch(Exception e){
                 e.printStackTrace();
             }
-            return "backmanage/shopListShow";
+            return "backmanage/shopList";
 
         }else {
             System.out.print("SHOP为空");
@@ -99,49 +97,45 @@ public class DemoController {
     @RequestMapping("/bossAdd")
     public String insertBoss(Model model,Boss boss ) throws Exception {
         String nickname=boss.getNickname();
+        System.out.print("昵称："+nickname);
         String phone=boss.getPhone();
-        int sid=boss.getSid();
         boss.setPic(boss.getPic());
         boss.setId(boss.getId());
         boss.setName(boss.getName());
         boss.setNickname(boss.getNickname());
         boss.setPassword(boss.getPassword());
         boss.setPhone(boss.getPhone());
-        boss.setSid(boss.getSid());
-        if (nickname!= null&&phone!=null&&sid!=0) {
-            List<Boss> bosss=null;
-            System.err.print("提交表单"+nickname);
-            if(bossService.selectBossBynickname(nickname).size()>0){
+        if(nickname!=null) {
+            List<Boss> bosss = null;
+            if (bossService.selectBossBynickname(nickname).size() > 0) {
                 //昵称已存在
-                System.err.print("注册失败昵称已存在");
-                String nicknameerror="昵称已存在";
-                model.addAttribute("nicknameerror",nicknameerror);
+                String nicknameerror = "昵称已存在";
+                System.out.print("昵称存在");
+                model.addAttribute("nicknameerror", nicknameerror);
                 return "backmanage/bossAdd";
-            }else if(bossService.selectBossBynickname(phone).size()>0){
-               //电话号已绑定
-                System.err.print("注册失败电话号已绑定");
-                String phoneerror="昵称已存在";
-                model.addAttribute("phoneerror",phoneerror);
+            } else if (bossService.selectBossBynickname(phone).size() > 0) {
+                //电话号已绑定
+                String phoneerror = "电话号已存在";
+                System.out.print("电话号存在");
+                model.addAttribute("phoneerror", phoneerror);
 
                 return "backmanage/bossAdd";
-            }else if(bossService.selectBossBysid(sid).size()>0){
-                //店铺号已存在
-                System.err.print("注册失败店铺号已存在");
-                String siderror="昵称已存在";
-                model.addAttribute("siderror",siderror);
-                return "backmanage/bossAdd";
-            }else{
+            } else {
                 bossService.saveBoss(boss);
-                System.err.print("成功注册");
-                return "backmanage/shopAdd";
+                System.out.print("成功注册boss");
+                return "backmanage/shopList";
             }
-        } else {
-            //刚开始请求时
-            System.err.print("刚开始请求");
+        }else{
             return "backmanage/bossAdd";
         }
 
 
+
+    }
+    @RequestMapping("/shopUpdateShow")
+    public String updateshowShop(Model model,Shop shop) throws Exception{
+        shop=shopService.selectShopBynickname("zhang");
+        return "backmanage/shopUpdate";
     }
 
 

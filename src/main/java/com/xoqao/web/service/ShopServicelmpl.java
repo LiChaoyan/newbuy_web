@@ -25,4 +25,13 @@ public class ShopServicelmpl implements ShopService{
     public Shop saveShops(Shop shop)throws Exception{
         return shopMapper.saveShops(shop);
     }
+    public Shop updateShop(String stel)throws Exception{
+        return shopMapper.updateShop(stel);
+    }
+    public Shop selectShopBynickname(String nickname)throws Exception{
+        return shopMapper.selectShopBynickname(nickname);
+    }
+    public Shop selectShopBysid(Integer sid)throws Exception{
+        return shopMapper.selectShopBysid(sid);
+    }
 }

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: 123
-  Date: 2017/3/17
-  Time: 20:44
+  User: lcy
+  Date: 2017/7/10
+  Time: 19:31
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -307,6 +307,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <a href="${pageContext.request.contextPath }/shopUpdate.form">
                                 <i class="icon-pencil"></i> 店铺注册信息修改</a>
                         </li>
+
                         <li>
                             <a href="${pageContext.request.contextPath }/shopList.form">
                                 <i class="icon-pencil"></i> 店铺展示</a>
@@ -514,43 +515,43 @@ License: You must have a valid license purchased only from themeforest(the above
                                                data-set="#sample_1 .checkboxes"/>
                                     </th>
                                     <th>
-                                        用户id
+                                        店铺id
                                     </th>
                                     <th>
-                                        姓名
+                                        店铺名
                                     </th>
                                     <th>
-                                        手机号
+                                        等级
                                     </th>
                                     <th>
-                                        密码
+                                        销售量
                                     </th>
                                     <th>
-                                        用户名
+                                        地址
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${users}" var="user">
+                                <c:forEach items="${shops}" var="shop">
                                     <tr class="odd gradeX">
                                         <td>
                                             <input type="checkbox" class="checkboxes" value="1"/>
                                         </td>
                                         <td>
-                                                ${user.uid}
-                                        </td>
-                                        <td>
-                                                ${user.name}
-                                        </td>
-                                        <td>
-                                                ${user.phone}
-                                        </td>
-                                        <td class="center">
-                                         ${user.password}
+                                                ${shop.sid}
                                         </td>
 
                                         <td>
-                                           ${user.username}
+                                                ${shop.shopname}
+                                        </td>
+                                        <td>
+                                                ${shop.slevel}
+                                        </td>
+                                        <td>
+                                                ${shop.salesvo}
+                                        </td>
+                                        <td>
+                                                ${shop.saddress}
                                         </td>
                                     </tr>
 
@@ -634,3 +635,4 @@ License: You must have a valid license purchased only from themeforest(the above
 </body>
 <!-- END BODY -->
 </html>
+
