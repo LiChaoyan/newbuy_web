@@ -13,4 +13,10 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\东旭\AppData\Roaming\Subversion</configuration>
+  </component>
+>>>>>>> wordlu-master
 </project>
