@@ -224,6 +224,8 @@ public String upBossPhone(Model model , Boss boss) {
             int sid=7;
             List<Category> categorybiglist = categoryService.selectBig();
             model.addAttribute("categorybigs",categorybiglist);
+            List<Category> categoryListall=categoryService.selectCategoryBysid(sid);
+            model.addAttribute("Category",categoryListall);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -283,40 +285,20 @@ public String upBossPhone(Model model , Boss boss) {
             category.setSmall(small);
             category.setSecend(secend);
             category.setSid(sid);
-            if(big!=null){
-                if(small==null&&secend==null){
-                    categoryService.savecategory(category);
-                }
-                if(small!=null&&secend==null){
-                    Category category1=new Category();
-                    category1.setBig(big);
-                    category1.setSid(sid);
-                    List<Category> list=categoryService.selectCategory(category1);
-                    if(list.size()>0)
-                    {//存在,返回cgid，根据它更新
-                        category.setCgid(list.get(0).getCgid());
-                        categoryService.updateCategory(category);
-                    }else{
-                        //不存在
-                        categoryService.savecategory(category);
-                    }
-                }
-                if(small!=null&&secend!=null){
-                    Category category1=new Category();
-                    category1.setBig(big);
-                    category1.setSmall(small);
-                    category1.setSid(sid);
-                    List<Category> list=categoryService.selectCategory(category1);
-                    if(list.size()>0)
-                    {//存在,返回cgid，根据它更新
-                        category.setCgid(list.get(0).getCgid());
-                        categoryService.updateCategory(category);
-                    }else{
-                        //不存在
-                        categoryService.savecategory(category);
-                    }
-                }
+            String message;
+            int size=categoryService.selectCategory(category).size();
+            if(size==0){
+               categoryService.savecategory(category);
+               message="成功添加";
+            }else{
+                message="已存在";
             }
+                  response.setCharacterEncoding("UTF-8");
+                  response.setContentType("application/json; charset=utf-8");
+                  String json = JSONObject.toJSONString(message);
+                  response.getWriter().write(json.toString());
+                  response.getWriter().flush();
+                  response.getWriter().close();
         }
           @RequestMapping("/allcategory")
         public void selectallCategory(Model model)throws  Exception{

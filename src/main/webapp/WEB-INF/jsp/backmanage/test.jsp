@@ -5,7 +5,9 @@
   Time: 15:01
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ page import="com.xoqao.web.bean.category.Category"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page isELIgnored="false" %>
@@ -33,15 +35,15 @@ License: You must have a valid license purchased only from themeforest(the above
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
         $(function() {
-            var xbig;
-            var xsmall;
-            var xsecend;
+            var xbig=$("#big_input").val();
+            var xsmall=$("#small_input").val();
+            var xsecend=$("#secend_input").val();
             //2.根据一级返回值找二级返回值
             $("#big").change(function () {
                 //使#small只保留第一个选项子节点
-                $("#small option：not(：first)").remove();
-                var big_big=$(this).val();
-                $("#big_input").val(big_big);
+                $("#small option").remove();
+                $("#big_input").val($("#big option:selected").val());
+                var big_big =$("#big_input").val();
                 if (big_big != "") {
                     xbig = big_big;
                     var url = "<%=request.getContextPath()%>/categorysmall";
@@ -59,16 +61,16 @@ License: You must have a valid license purchased only from themeforest(the above
             });
             //2.根据二级返回值找三级返回值
             $("#small").change(function () {
-                $("#secend option：not(：first)").remove();
-                var small_small=$(this).val();
-                $("#small_input").val(small_small);
+                $("#secend option").remove();
+
+                $("#small_input").val($(this).val());
+                var small_small= $("#small_input").val();
                 xsmall = small_small;
                 if (small_small != "") {
                     var url = "<%=request.getContextPath()%>/categorysecend";
                     var args = {"big_big": xbig, "small_small": small_small, "time": new Date()};
                     $.getJSON(url, args, function (data) {
                         for (var i = 0; i < data.length; i++) {
-                            var secend_id = data[i].cgid;
                             var secend_secend = data[i].secend;
                             $("#secend").append("<option  value='" + secend_secend + "'>" + secend_secend + "</option>");
                         }
@@ -78,28 +80,26 @@ License: You must have a valid license purchased only from themeforest(the above
 
             //3.根据一级，二级，三级返回值把商铺类别绑定到店铺sid
             $("#secend").change(function () {
-                var secend_secend = $(this).val();
-                $("#secend_input").val(secend_secend);
+                $("#secend_input").val($(this).val());
+                var secend_secend =$("#secend_input").val() ;
                 xsecend = secend_secend;
             });
 
+
             //4.自定义或选择的把商铺类别绑定到店铺sid
+
             $("#add").click(function () {
+                xbig=$("#big_input").val();
+                xsmall=$("#small_input").val();
+                xsecend=$("#secend_input").val();
+                alert(xbig+" "+xsmall+" "+xsecend);
                 if (xbig != "") {
                     var url = "<%=request.getContextPath()%>/savecategory";
                     var args = {"xbig": xbig, "xsmall": xsmall, "xsecend": xsecend, "time": new Date()};
-                    $.getJSON(url, args, function (data) {
-                        alert(data + "(具体逻辑未实现）");
+                    $.post(url, args,function (data) {
+                        alert(data);
                     });
                 }
-            });
-
-            $("#read").onclick(function(){
-                var url = "<%=request.getContextPath()%>/allcategory";
-                var args = {"time": new Date()};
-                $.getJSON(url, args, function (data) {
-                    alert(data + "(具体逻辑未实现）");
-                });
             });
 
             $("#delect").onclick(function () {
@@ -491,33 +491,33 @@ License: You must have a valid license purchased only from themeforest(the above
             </ul>
             <!-- END PAGE BREADCRUMB -->
             <!-- END PAGE HEADER-->
-            <!-- BEGIN PAGE CONTENT-->
-            <!-- 自己的代码begin -->
+            <!-- BEGIN PAGE  CONTENT-->
+            <!-- 自己的代码begin ---->
 
             <span style="margin-left: 10px;">
     一级分类：<select id="big" style="width: 150px;height:22px;">
-                <option>请选择或输入</option>
+                <option>自定义</option>
             <c:forEach items="${categorybigs}" var="big">
                 <option  value=${big.big}>${big.big}</option>
             </c:forEach>
             </select>
-    <input id="big_input" value="" style="width: 135px;height:22px;margin-left:-156px;" tyoe="text">
-</span>
-            <span style="margin-left: 40px;">
+<input type="text" id="big_input" style="width: 135px;height:22px;margin-left:-156px;">
+            </span>
+                <span style="margin-left: 40px;">
     二级分类：<select id="small" style="width: 150px;height:22px;">
-                <option>请选择或输入</option>
             </select>
-    <input id="small_input" style="width: 130px;height:22px;margin-left:-156px;" tyoe="text">
+    <input id="small_input" style="width: 130px;height:22px;margin-left:-156px;" type="text">
 </span>
             <span style="margin-left: 50px;">
     三级分类：<select id="secend" style="width: 150px;height:22px;">
-             <option>请选择或输入</option>
             </select>
-    <input id="secend_input" style="width: 130px;height:22px;margin-left:-156px;" tyoe="text">
+    <input id="secend_input" style="width: 130px;height:22px;margin-left:-156px;" type="text">
 </span>
-            <input id="add" type="button" value="添加"style="margin-left: 70px;">
-            <hr>
+            <input id="add" type="button" value="添加"style="margin-left: 70px;" >
 
+<hr>
+            <a href="<%=request.getContextPath()%>/category"><input id="show" type="submit" value="查看"style="margin-left: 70px;" ></a>
+            <hr>
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -550,8 +550,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </th>
                             </tr>
                             </thead>
-                            <tbody id="showtr">
-                            <c:forEach items="${Category}" var="big">
+                            <tbody id="addtrshow">
+                            <c:forEach items="${Category}" var="category">
                             <tr class="odd gradeX">
                                 <td>
                                     <input type="checkbox" class="checkboxes" value="1"/>

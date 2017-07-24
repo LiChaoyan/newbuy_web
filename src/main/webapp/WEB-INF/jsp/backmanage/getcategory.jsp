@@ -89,20 +89,19 @@
     一级分类：<select id="big" style="width: 150px;height:21px;">
             <c:forEach items="${categorybigs}" var="big">
             <option  value=${big.big}>${big.big}</option>
-                <option value="华">华</option>
             </c:forEach>
             </select>
-    <input id="big_input" value="" style="width: 130px;height:15px;margin-left:-157px;" tyoe="text">
+    <input id="big_input" value="" style="width: 130px;height:15px;margin-left:-157px;" type="text">
 </span>
 <span style="margin-left: 40px;">
     二级分类：<select id="small" style="width: 150px;height:21px;">
             </select>
-    <input id="small_input" style="width: 130px;height:15px;margin-left:-157px;" tyoe="text">
+    <input id="small_input" style="width: 130px;height:15px;margin-left:-157px;" type="text">
 </span>
 <span style="margin-left: 50px;">
     三级分类：<select id="secend" style="width: 150px;height:21px;">
             </select>
-    <input id="secend_input" style="width: 130px;height:15px;margin-left:-157px;" tyoe="text">
+    <input id="secend_input" style="width: 130px;height:15px;margin-left:-157px;" type="text">
 </span>
 <input id="add" type="button" value="添加"style="margin-left: 70px;">
 <hr>
