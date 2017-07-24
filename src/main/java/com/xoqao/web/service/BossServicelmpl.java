@@ -2,6 +2,7 @@ package com.xoqao.web.service;
 
 import com.xoqao.web.bean.boss.Boss;
 import com.xoqao.web.dao.BossMapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +36,7 @@ public class BossServicelmpl implements BossService{
         List<Boss> allBosss = bossMapper.selectBossBysid(sid);
         return allBosss;
     }
-
+    public void upBossphone(Boss boss)throws Exception{
+        bossMapper.upBossphone(boss);
+    }
 }

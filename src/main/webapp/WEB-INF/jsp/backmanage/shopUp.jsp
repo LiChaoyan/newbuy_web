@@ -6,26 +6,30 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
+<!DOCTYPE html>
+    <!--
+    Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.2
+    Version: 3.7.0
+    Author: KeenThemes
+    Website: http://www.keenthemes.com/
+    Contact: support@keenthemes.com
+    Follow: www.twitter.com/keenthemes
+    Like: www.facebook.com/keenthemes
+    Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+    License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+    -->
+    <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+    <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+    <!--[if !IE]><!-->
 
-<!--
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.2
-Version: 3.7.0
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<head>
-<!--<![endif]-->
-<!-- BEGIN HEAD -->
-uiv="Content-type" content="text/html; charset=utf-8">
+    <html lang="en">
+    <head>
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+    uiv="Content-type" content="text/html; charset=utf-8">
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -51,19 +55,18 @@ uiv="Content-type" content="text/html; charset=utf-8">
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
 
-
-</head>
-<!-- END HEAD -->
-<!-- BEGIN BODY -->
-<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
-<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
-<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
-<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
-<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
-<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
-<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
-<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
-<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+    </head>
+    <!-- END HEAD -->
+    <!-- BEGIN BODY -->
+    <!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+    <!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+    <!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+    <!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+    <!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+    <!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+    <!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+    <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+    <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
 <body class="page-md page-boxed page-header-fixed page-container-bg-solid page-sidebar-closed-hide-logo ">
 <!--BEGIN店铺信息录入-->
 <div class="row">
@@ -72,7 +75,7 @@ uiv="Content-type" content="text/html; charset=utf-8">
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-gift"></i>店铺信息录入
+                    <i class="fa fa-gift"></i>店铺信息修改
                 </div>
                 <div class="tools">
                     <a href="javascript:;" class="collapse">
@@ -80,53 +83,39 @@ uiv="Content-type" content="text/html; charset=utf-8">
                     <a href="#portlet-config" data-toggle="modal" class="config">
                     </a>
                     <a href="javascript:;" class="reload">
-                       <head></head>
+                        <head></head>
                         <meta charset="utf-8"/>
                         <title>Metronic | Form Stuff - Form Validation</title>
                         <meta http-equiv="X-UA-Compatible" content="IE=edge">
                         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
                         <meta http-eq>
                     </a>
-                        <a href="javascript:;" class="remove">
-                        </a>
+                    <a href="javascript:;" class="remove">
+                    </a>
                 </div>
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="/newbuy/shopAdd" method="post" id="form_sample_3" class="form-horizontal">
+                <form action="/newbuy/shopUpdate" method="post" id="form_sample_3" class="form-horizontal">
                     <div class="form-body">
-                        <h3 class="form-section">Advance validation. </h3>
-                        <div class="alert alert-danger display-hide">
-                            <button class="close" data-close="alert"></button>
-                            You have some form errors. Please check below.
-                        </div>
-                        <div class="alert alert-success display-hide">
-                            <button class="close" data-close="alert"></button>
-                            Your form validation is successful!
-                        </div>
+
                         <div class="form-group">
                             <label class="control-label col-md-3">店铺名称<span class="required">
 											* </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="shopname" value="" data-required="1" class="form-control"/>
+                                <input type="text" name="shopname" data-required="1" class="form-control" value=${shop.shopname} />
                             </div>
                         </div>
+
+
                         <div class="form-group">
                             <label class="control-label col-md-3">店铺类型<span class="required">
 											* </span>
                             </label>
                             <div class="col-md-4">
-                                <div class="radio-list" data-error-container="#form_2_membership_error">
-                                    <label>
-                                        <input type="radio" name="type" value="线上商店"/>
-                                        线上商店 </label>
-                                    <label>
-                                        <input type="radio" name="type" value="线下实体店"/>
-                                        线下实体店 </label>
-                                </div>
-                                <div id="form_2_membership_error">
-                                </div>
+                                <input type="text" name="type"  data-required="1" class="form-control" value=${shop.type}/>
+                                1：线上商城&nbsp;&nbsp;0:线下实体店
                             </div>
                         </div>
                         <div class="form-group">
@@ -134,16 +123,16 @@ uiv="Content-type" content="text/html; charset=utf-8">
 											* </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="stel" data-required="1" class="form-control"/>
+                                <input type="text" name="stel" data-required="1" class="form-control" value=${shop.stel} />
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3">城市<span class="required">
-						saddress					* </span>
+                                            * </span>
                         </label>
                         <div class="col-md-4">
-                            <input type="text" name="city" data-required="1" class="form-control"/>
+                            <input type="text" name="city"  data-required="1" class="form-control" value=${shop.city}/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -151,7 +140,7 @@ uiv="Content-type" content="text/html; charset=utf-8">
 											* </span>
                         </label>
                         <div class="col-md-4">
-                            <input type="text" name="" data-required="1" class="form-control"/>
+                            <input type="text" name="saddress" data-required="1" class="form-control" value=${shop.saddress} />
                         </div>
                     </div>
                     <div class="form-group">
@@ -159,37 +148,24 @@ uiv="Content-type" content="text/html; charset=utf-8">
 											* </span>
                         </label>
                         <div class="col-md-4">
-                            <div class="checkbox-list" data-error-container="#form_2_services_error">
-                                <label>
-                                    <input type="checkbox" value="电器" name="scope"/> 电器 </label>
-                                <label>
-                                    <input type="checkbox" value="服装" name="scope"/> 服装 </label>
-                                <label>
-                                    <input type="checkbox" value="生活用品" name="scope"/> 生活用品 </label>
-                            </div>
-                            <span class="help-block">
-												(select at least two) </span>
-                            <div id="form_2_services_error">
-                            </div>
+                            <input type="text" name="scope"  data-required="1" class="form-control" value=${shop.scope} />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3">店铺描述&nbsp;&nbsp;</label>
                         <div class="col-md-9">
-                            <textarea name="subscrib" data-provide="markdown" rows="10" data-error-container="#editor_error"></textarea>
-                            <div id="editor_error">
-                            </div>
+                            <input name="subscrib" data-required="1" class="form-control" value=${shop.subscrib}/>
                         </div>
                     </div>
 
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green">submit</button>
-                                <button type="button" class="btn default">Cancel</button>
+                                <button type="submit" class="btn green">保存</button>
                             </div>
                         </div>
                     </div>
+                    ${message}
                 </form>
                 <!-- END FORM-->
             </div>
@@ -262,8 +238,15 @@ uiv="Content-type" content="text/html; charset=utf-8">
         FormValidation.init();
     });
 </script>
+<script type="text/javascript">
+        $("div.radio> span").ready(function(){
+            $(this).click();
+        });
+</script>
+
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
 
 </html>
+

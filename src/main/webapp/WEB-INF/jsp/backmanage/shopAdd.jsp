@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.2
 Version: 3.7.0
@@ -21,6 +22,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
+<head>
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 uiv="Content-type" content="text/html; charset=utf-8">
@@ -78,12 +80,13 @@ uiv="Content-type" content="text/html; charset=utf-8">
                     <a href="#portlet-config" data-toggle="modal" class="config">
                     </a>
                     <a href="javascript:;" class="reload">
-                        <head>
+                       <head></head>
                         <meta charset="utf-8"/>
                         <title>Metronic | Form Stuff - Form Validation</title>
                         <meta http-equiv="X-UA-Compatible" content="IE=edge">
                         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-                        <meta http-eq></a>
+                        <meta http-eq>
+                    </a>
                         <a href="javascript:;" class="remove">
                         </a>
                 </div>
@@ -106,7 +109,7 @@ uiv="Content-type" content="text/html; charset=utf-8">
 											* </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="shopname" data-required="1" class="form-control"/>
+                                <input type="text" name="shopname" value="" data-required="1" class="form-control"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -137,7 +140,7 @@ uiv="Content-type" content="text/html; charset=utf-8">
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3">城市<span class="required">
-											* </span>
+						saddress					* </span>
                         </label>
                         <div class="col-md-4">
                             <input type="text" name="city" data-required="1" class="form-control"/>
@@ -148,7 +151,7 @@ uiv="Content-type" content="text/html; charset=utf-8">
 											* </span>
                         </label>
                         <div class="col-md-4">
-                            <input type="text" name="saddress" data-required="1" class="form-control"/>
+                            <input type="text" name="" data-required="1" class="form-control"/>
                         </div>
                     </div>
                     <div class="form-group">

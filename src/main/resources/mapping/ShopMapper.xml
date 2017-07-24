@@ -12,9 +12,9 @@
         insert into shop(shopname,type,stel,city,saddress,scope,subscrib) values('${shopname}','${type}','${stel}','${city}','${saddress}','${scope}','${subscrib}')
     </select>
 
-    <!--根据店主昵称查询店铺固定电话-->
-    <select id="selectShopBynickname" resultType="com.xoqao.web.bean.shop.Shop">
-       select * from shop where sid = (select sid from boss where nickname='$nickname')
+    <!--根据店主bid查询店铺固定电话-->
+    <select id="selectShopBybid" resultType="com.xoqao.web.bean.shop.Shop">
+       select * from shop where sid = (select sid from boss where bid='${bid}')
     </select>
 
     <!--根据店主号查询店铺固定电话-->
@@ -22,8 +22,8 @@
         select * from shop where sid='$sid'
     </select>
 
-    <!--修改店铺固定电话-->
+    <!--修改店铺信息,根据sid-->
     <update id="updateShop" >
-        UPDATE shop stel='${stel}' where shopname='京东方'
+        UPDATE shop set shopname='${shopname}',type='${type}',stel='${stel}',city='${city}',saddress='${saddress}',scope='${scope}',subscrib='${subscrib}'  where bid=17
     </update>
 </mapper>

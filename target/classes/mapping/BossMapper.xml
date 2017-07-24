@@ -17,4 +17,8 @@
     <select id="selectBossBysid" resultType="com.xoqao.web.bean.boss.Boss">
         select id,name,nickname,password,phone,pic,sid from boss where sid like '${sid}'
     </select>
+    <!--店主phone修改-->
+    <update id="upBossphone" >
+       update boss set phone='${phone}'where nickname='${nickname}'
+    </update>
 </mapper>

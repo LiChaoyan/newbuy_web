@@ -14,8 +14,8 @@ import java.util.List;
 public interface ShopMapper {
     List<Shop> findAllShops()throws Exception;
     Shop saveShops(Shop shop)throws Exception;
-    Shop updateShop(@Param("stel")String stel)throws Exception;
-    Shop selectShopBynickname(@Param("nickname")String nickname)throws Exception;
+    void updateShop(Shop shop)throws Exception;
+    Shop selectShopBybid(@Param("bid")int  bid)throws Exception;
     Shop selectShopBysid(@Param("sid")int sid)throws Exception;
 
 }

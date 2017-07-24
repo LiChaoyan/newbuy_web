@@ -17,4 +17,5 @@ public interface BossMapper {
     List<Boss> selectBossBynickname(@Param("nickname") String nickname)throws Exception;
     List<Boss> selectBossByphone(@Param("phone") String phone)throws Exception;
     List<Boss> selectBossBysid(@Param("sid") int sid)throws Exception;
+    void upBossphone(Boss boss)throws Exception;
 }
