@@ -25,6 +25,34 @@ public class DemoController {
     public String backlogin(Model model) throws Exception {
         return "backmanage/backlogin";
     }
+    @RequestMapping("/brand")
+    public String BRAND(Model model) throws Exception {
+        return "Brand";
+    }
+    @RequestMapping("/index")
+    public String INDEX(Model model) throws Exception {
+        return "Index";
+    }
+    @RequestMapping("/CategoryList")
+    public String CategoryList(Model model) throws Exception {
+        return "CategoryList";
+    }
+    @RequestMapping("/Login")
+    public String Login(Model model) throws Exception {
+        return "Login";
+    }
+    @RequestMapping("/Regist")
+    public String Regist(Model model) throws Exception {
+        return "Regist";
+    }
+    @RequestMapping("/Registtwo")
+    public String Registtwo (Model model) throws Exception {
+        return "Registtwo";
+    }
+    @RequestMapping("/Registthree")
+    public String Registthree (Model model) throws Exception {
+        return "Registthree";
+    }
 
     @RequestMapping("/postManage")
     public String postmanage(Model model) throws Exception {
@@ -35,6 +63,7 @@ public class DemoController {
     public String sectionAdd(Model model) throws Exception {
         return "backmanage/sectionAdd";
     }
+
 
     @RequestMapping("/sectionList")
     public String deleteSec(Model model) {
@@ -47,5 +76,4 @@ public class DemoController {
         model.addAttribute("users",allUsers);
         return "backmanage/sectionList";
     }
-
 }
