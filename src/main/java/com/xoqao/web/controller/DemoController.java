@@ -53,7 +53,7 @@ public class DemoController {
     public String Registthree (Model model) throws Exception {
         return "Registthree";
     }
-    @RequestMapping("/Product")
+    @RequestMapping("/roduct")
     public String Product (Model model) throws Exception {
         return "Product";
     }
