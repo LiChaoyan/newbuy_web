@@ -53,6 +53,14 @@ public class DemoController {
     public String Registthree (Model model) throws Exception {
         return "Registthree";
     }
+    @RequestMapping("/Product")
+    public String Product (Model model) throws Exception {
+        return "Product";
+    }
+    @RequestMapping("/sousuo")
+    public String sousuo (Model model) throws Exception {
+        return "sousuo";
+    }
 
     @RequestMapping("/postManage")
     public String postmanage(Model model) throws Exception {
