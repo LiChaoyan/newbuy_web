@@ -42,6 +42,83 @@
 
 
     </script>
+
+    <style>
+        /*---------------首页（合作商品）---------------*/
+        .like{
+            width:1198px; height:300px; overflow:hidden; background-color:#FFF; border:1px solid #eaeaea; border-top:0;
+        }
+        .like #featureContainer1{
+            width:1198px; height:300px; overflow:hidden;
+        }
+        .like #feature1{
+            width:1198px; height:300px; overflow:hidden; position:relative;
+        }
+        .like #feature1 .button{
+            width:1198px; position:absolute; left:0px; top:0px;
+        }
+        .like #feature1 .l_prev{
+            width:32px; height:60px; overflow:hidden; background:url(../Images/b_left.png) no-repeat center top; display:block; text-indent:-9999px; float:left; position:absolute; left:0px; top:100px;
+        }
+        .like #feature1 .l_next{
+            width:32px; height:60px; overflow:hidden; background:url(../Images/b_right.png) no-repeat center top; display:block; text-indent:-9999px; float:left; position:absolute; right:0px; top:100px;
+        }
+        .like .featureUL{
+            width:2800px; height:300px; overflow:hidden; float:left; position:relative;
+        }
+        .like .featureBox{
+            width:238px; height:300px; overflow:hidden; background:url(../Images/line.gif) no-repeat right 122px; float:left; border-left:1px solid #eaeaea; border-right:1px solid #eaeaea; position:relative;
+        }
+        .like #botton-scroll{
+            width:1198px; height:300px; overflow:hidden; float:left; z-index:0;
+        }
+        .like #block1{
+            width:1198px; height:300px; overflow:hidden; position:relative; z-index:0;
+        }
+        .like #block1 .box {
+            width:238px; height:300px; overflow:hidden; margin:0 auto; position:relative;
+        }
+        .like #block1 .box .h_icon{
+            width:50px; height:50px; overflow:hidden; position:absolute; left:10px; top:10px; z-index:100;
+        }
+        .like #block1 .box .imgbg{
+            width:160px; height:136px; margin-top:5px;
+        }
+        .like #block1 .box .imgbg img{
+            -webkit-transition:all .5s; -moz-transition:all .5s; -o-transform:all .5s; -ms-transform:all .5s; transition:all .5s;
+        }
+        .like #block1 .box .imgbg:hover img{
+            -moz-transform:scale(1.1,1.1); -webkit-transform:scale(1.1,1.1); -o-transform:scale(1.1,1.1); -ms-transform:scale(1.1,1.1); transform:scale(1.1,1.1);
+        }
+        .like #block1 .box .name{
+            overflow:hidden; color:#888888; font-size:12px; text-align:center; margin-top:10px;
+        }
+        .like #block1 .box .name h2{
+            height:20px; line-height:20px; overflow:hidden; color:#555555; font-size:16px; text-align:center;
+        }
+        .like #block1 .box .name h2 a{
+            color:#555555;
+        }
+        .like #block1 .box .name h2 a:hover{
+            color:#555555; text-decoration:underline;
+        }
+        .like #block1 .box .name a{
+            color:#888888;
+        }
+        .like #block1 .box .name a:hover{
+            color:#888888; text-decoration:underline;
+        }
+        /*.like #block1 .box .price{
+            height:30px; line-height:30px; overflow:hidden; color:#999999; text-align:center; text-transform:uppercase;
+        }*/
+        .like #block1 .box .price font{
+            color:#ff4e00; font-size:14px;
+        }
+        .like #block1 .box .price span{
+            font-size:20px;
+        }
+
+    </style>
     
 <title>店铺首页</title>
 <meta name="keywords" content="小桥双线购项目购物商城" />
@@ -1222,15 +1299,17 @@
                                 <div class="box">
                                     <div class="imgbg">
                                         <a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_1.jpg" width="160" height="136" /></a>
-                                    </div>                                        
+                                    </div>
                                     <div class="name">
                                         <a href="#">
-                                        <h2>YOUYI百货商行&nbsp;<img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"></h2>
-                                        <span>总销量:12138件商品&nbsp;&nbsp;&nbsp;<img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
+                                            <h2>我是商品名称我是商品名称</h2>
                                         </a>
-                                    </div>
-                                    <div class="price">
-                                        主营:食品生鲜、美发护肤、洗化百货等
+                                        <div class="price">
+                                            <font>￥<span>2160.0</span></font> &nbsp; &nbsp;&nbsp;销量：15555<br>
+
+                                        </div>
+                                        <span><a href=""><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;">YOUYI百货商行&nbsp;&nbsp;</a><img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
+                                        <p>合作数量：11111 &nbsp;&nbsp;&nbsp;预合作数量：11111</p>
                                     </div>
                                 </div>
                             </li>
@@ -1295,70 +1374,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <!-- <li class="featureBox">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="#"><img src="Picture/hot2.jpg" width="160" height="136" /></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="#">
-                                        <h2>iphone 6S</h2>
-                                        Apple/苹果 iPhone 6s Plus公开版
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>5288</span></font> &nbsp; 25R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="#"><img src="Picture/hot3.jpg" width="160" height="136" /></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="#">
-                                        <h2>倩碧特惠组合套装</h2>
-                                        倩碧补水组合套装8折促销
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>368</span></font> &nbsp; 18R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="#"><img src="Picture/hot4.jpg" width="160" height="136" /></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="#">
-                                        <h2>品利特级橄榄油</h2>
-                                        750ml*4瓶装组合 西班牙原装进口
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>280</span></font> &nbsp; 30R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="#"><img src="Picture/hot4.jpg" width="160" height="136" /></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="#">
-                                        <h2>品利特级橄榄油</h2>
-                                        750ml*4瓶装组合 西班牙原装进口
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>280</span></font> &nbsp; 30R
-                                    </div>
-                                </div>
-                            </li> -->
+
                         </ul>
                     </div>
                 </div>
@@ -1438,19 +1454,6 @@
             <dd><a href="#">资讯合作</a></dd>
         </dl>
 
-        <!-- <div class="b_tel_bg">
-        	<a href="#" class="b_sh1">新浪微博</a>            
-        	<a href="#" class="b_sh2">腾讯微博</a>
-            <p>
-            服务热线：<br />
-            <span>400-123-4567</span>
-            </p>
-        </div>
-        <div class="b_er">
-            <div class="b_er_c"><img src="Picture/er.gif" width="118" height="118" /></div>
-            <img src="Picture/ss.png" />
-        </div>
-    </div>     -->
     <div class="btmbg">
 		<div class="btm">
         	<!-- 备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br /> -->

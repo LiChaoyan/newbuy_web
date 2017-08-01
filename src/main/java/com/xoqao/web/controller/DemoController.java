@@ -29,6 +29,24 @@ public class DemoController {
     public String BRAND(Model model) throws Exception {
         return "Brand";
     }
+    @RequestMapping("/Member_User")
+    public String Member_User(Model model) throws Exception {
+        return "Member_User";
+    }
+    @RequestMapping("/Member_Head")
+    public String Member_Head(Model model) throws Exception {
+        return "Member_Head";
+    }
+    @RequestMapping("/Member_Safehead")
+    public String Member_Safehead(Model model) throws Exception {
+        return "Member_Safehead";
+    }
+
+
+    @RequestMapping("/goodsadd")
+    public String Goodsadd(Model model) throws Exception {
+        return "Goodsadd";
+    }
     @RequestMapping("/index")
     public String INDEX(Model model) throws Exception {
         return "Index";
@@ -53,14 +71,11 @@ public class DemoController {
     public String Registthree (Model model) throws Exception {
         return "Registthree";
     }
-    @RequestMapping("/roduct")
+    @RequestMapping("/product")
     public String Product (Model model) throws Exception {
         return "Product";
     }
-    @RequestMapping("/sousuo")
-    public String sousuo (Model model) throws Exception {
-        return "sousuo";
-    }
+
 
     @RequestMapping("/postManage")
     public String postmanage(Model model) throws Exception {
