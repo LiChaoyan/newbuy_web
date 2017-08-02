@@ -65,6 +65,7 @@ public class DemoController {
     public String Sousuoshow(Model model) throws Exception {
         return "sousuo";
     }
+<<<<<<< HEAD
    @RequestMapping("brand")
    public  ModelAndView Brandshow(Page page,Model model)throws Exception{
        int size=0;
@@ -81,6 +82,26 @@ public class DemoController {
        modelAndView2.setViewName("Brand");
         return modelAndView2;
    }
+=======
+    @RequestMapping("/Member_User")
+    public String Member_User(Model model) throws Exception {
+        return "Member_User";
+    }
+    @RequestMapping("/Member_Head")
+    public String Member_Head(Model model) throws Exception {
+        return "Member_Head";
+    }
+    @RequestMapping("/Member_Safehead")
+    public String Member_Safehead(Model model) throws Exception {
+        return "Member_Safehead";
+    }
+
+
+    @RequestMapping("/goodsadd")
+    public String Goodsadd(Model model) throws Exception {
+        return "Goodsadd";
+    }
+>>>>>>> wordlu-master
     @RequestMapping("/index")
     public String INDEX(Model model) throws Exception {
         //动态添加商品分类
@@ -144,6 +165,11 @@ public class DemoController {
     public String Registthree (Model model) throws Exception {
         return "Registthree";
     }
+    @RequestMapping("/product")
+    public String Product (Model model) throws Exception {
+        return "Product";
+    }
+
 
     @RequestMapping("/postManage")
     public String postmanage(Model model) throws Exception {
