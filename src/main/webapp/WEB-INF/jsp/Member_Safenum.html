@@ -1,16 +1,37 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />        
+	<link type="text/css" rel="stylesheet" href="Css/style.css" />
+    <script type="text/javascript" src="Scripts/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="Scripts/menu.js"></script>    
+        
+	<script type="text/javascript" src="Scripts/select.js"></script>
+        
     
-<title>商品添加</title>
+<title>修改密码</title>
+<meta name="keywords" content="小桥双线购项目购物商城" />
+<meta name="description" content="线上线下商家加盟的商城" />
+
+<style type="text/css">
+.m_des{
+overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border-top:1px dotted #b6b6b6;border-bottom:1px dotted #b6b6b6;
+}
+.m_des .head td:hover {
+    cursor: pointer;
+    
+}
+.m_right{
+    width:970px; height:auto !important;/* min-height:737px;*/ height:737px; background-color:#FFF; float:right; display:inline; margin:5px; padding-bottom:50px; -webkit-box-shadow:0 0 5px #e0e0e0; -moz-box-shadow:0 0 5px #e0e0e0; box-shadow:0 0 5px #e0e0e0;
+}
+</style>
 </head>
 <body>  
+<!--Begin Header Begin-->
 <div class="soubg">
-	<div class="sou">
-    	<!--Begin 所在收货地区 Begin-->
-    	<span class="s_city_b">
+    <div class="sou">
+        <!--Begin 所在收货地区 Begin-->
+        <span class="s_city_b">
             <span class="fl"><div class="location"></div></span>
             <span class="s_city">
                 <span>北京</span>
@@ -86,7 +107,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login.html">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="/#">我的订单</a>&nbsp; -->|</span>
+            <span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
             <span class="ss">
                 <div class="ss_list">
                     <a href="#">我的</a>
@@ -132,12 +153,13 @@
 </div>
 <div class="m_top_bg">
     <div class="top">
-        <div class="m_logo"><a href="<%= request.getContextPath()%>/Index.html"><img src="<%= request.getContextPath()%>/Picture/logo1.png" /></a></div>
+        <div class="m_logo"><a href="Index.html"><img src="Picture/logo1.png" /></a></div>
         <div class="m_search">
             <form>
                 <input type="text" value="" class="m_ipt" />
                 <input type="submit" value="搜索" class="m_btn" />
             </form>                      
+            <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
         </div>
     </div>
 </div>
@@ -146,134 +168,97 @@
     <!--Begin 用户中心 Begin -->
 	<div class="m_content">
    		<div class="m_left">
-        	<div class="left_n">卖家中心</div>
+            <div class="left_n">个人中心</div>
             <div class="left_m">
-            	<div class="left_m_t t_bg1">商品管理</div>
+                <div class="left_m_t t_bg2">会员中心</div>
                 <ul>
-                	<li><a href="<%= request.getContextPath()%>/Goodsadd.jsp" class="now">发布商品</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Address.html">出售中的商品</a></li>
-                    <li><a href="#">下架的商品</a></li>
-                    <li><a href="#">体验中心</a></li>
+                    <li><a href="Member_User.jsp">个人信息</a></li>
+                    <li><a href="Member_Safe.html" class="now">修改个人信息</a></li>
+                    <li><a href="Member_Collect.html">我的收藏</a></li>
+                    <li><a href="Member_Msg.html">我的评价</a></li>
                 </ul>
             </div>
             <div class="left_m">
-            	<div class="left_m_t t_bg3">交易管理</div>
+                <div class="left_m_t t_bg1">订单中心</div>
                 <ul>
-                	<li><a href="<%= request.getContextPath()%>/Member_Safe.html">已卖出商品</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Packet.html">评价管理</a></li>
+                    <li><a href="Member_Order.html">我的订单</a></li>
+                    <li><a href="Member_Address.html">收货地址</a></li>
+                    <li><a href="#">我的购物车</a></li>
+                    <li><a href="#">已买到的商品</a></li>
                 </ul>
             </div>
+
             <div class="left_m">
-            	<div class="left_m_t t_bg4">物流管理</div>
+                <div class="left_m_t t_bg3">账户中心</div>
                 <ul>
-                	<li><a href="<%= request.getContextPath()%>/Member_Member.html">发货</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Results.html">物流工具</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Commission.html">物流服务</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Cash.html">寄快递</a></li>
-                </ul>
-            </div>
-            <div class="left_m">
-                <div class="left_m_t t_bg2">客户服务</div>
-                <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_User.html">退款管理</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Collect.html" >售后管理</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Msg.html">举报管理</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Links.html">违规管理</a></li>
+                    <li><a href="Member_Safe.html">账户安全</a></li>
+                    <li><a href="Member_Packet.html">我的红包</a></li>
+                    <li><a href="Member_Money.html">资金管理</a></li>
                 </ul>
             </div>
         </div>
 		<div class="m_right">
-            <p></p>
+            <p></p> 
             <div class="mem_tit">
-            	<strong>发布商品</strong>
+               <a href="Member_Safehead.jsp">&nbsp;&nbsp;头像/昵称修改&nbsp;&nbsp;</a>
+               <a href="Member_Safetel.html">&nbsp;&nbsp;手机号修改&nbsp;&nbsp;</a>
+               <a href="Member_Safenum.html">&nbsp;&nbsp;密码修改&nbsp;&nbsp;</a> 
             </div>
-             <!--内容详细-->
-<div class="content_style">
-  <div class="Release_product_style">
-
-    <form>
-    <table cellpadding="0" cellspacing="0" width="100%">
-      <tr>
-       <td class="label">店铺/公司名称：</td><td>香水之家</td></tr> 
-       <tr><td class="label">编辑商品标题：</td><td><input name="" type="text"  class="addtext"  style=" width:500px;"/></td></tr>
-       <tr><td class="label">设置商品分类：</td><td> 
-       <span>一级分类：</span><select name="" size="1">
-        <option value="1">电器智能</option>
-        <option value="1">服装鞋帽</option>
-        <option value="1">一级分类1</option>
-        <option value="1">一级分类2</option>
-      </select>
-       <span>二级分类：</span><select name="" size="1">
-        <option value="2">二级分类1</option>
-        <option value="2">二级分类2</option>
-        <option value="2">二级分类3</option>
-        <option value="2">二级分类4</option>
-      </select>
-       <span>三级分类：</span><select name="" size="1">
-        <option value="3">三级分类1</option>
-        <option value="3">三级分类2</option>
-        <option value="3">三级分类3</option>
-        <option value="3">三级分类4</option>
-      </select></td></tr>
-       <tr><td class="label">设置商品规格：</td><td>
-       <div class="add_Spec">
-       
-      
-       </td>
-       </tr>
-       <tr><td class="label">商品销售价格：</td><td><input name="" type="text"  class="addtext" style=" width:200px;"/></td></tr>
-       <tr><td class="label">商品促销价格：</td><td><input name="" type="text"  class="addtext" style=" width:200px; float:left" /> &nbsp;
-            <input type="checkbox" name="">使用优惠劵</td></tr>
-        <tr><td class="label">商品销售类别：</td><td><select name="" size="1">
-        <option value="1">一级分类</option>
-      </select></td></tr>                
-       <tr><td class="label">商品概要介绍：</td><td><textarea name="" cols="" rows="" placeholder="商品的概要介绍。该介绍将出现在商品名称下方。" class="textarea"></textarea></td></tr>
-       <tr><td class="label">商品宣传图片：</td><td>
-           <!-- 添加预览图片 -->
-            <div class="demo">
-              <div class="v-box" id="vbox">
-              </div>
-              <div class="b-box">
+            <div class="m_des">
                 <form>
-                  <input type="file" name="image" id="image" accept="image/*" multiple/>
+                <table border="0" style="width:880px;"  cellspacing="0" cellpadding="0">
+                  <tr height="45">
+                    <td width="80" align="right">原密码 &nbsp; &nbsp;</td>
+                    <td><input type="password" value="" class="add_ipt" style="width:180px;" />&nbsp; <font color="#ff4e00">*</font></td>
+                  </tr>
+                  <tr height="45">
+                    <td align="right">新密码 &nbsp; &nbsp;</td>
+                    <td><input type="password" value="" class="add_ipt" style="width:180px;" />&nbsp; <font color="#ff4e00">*</font></td>
+                    <td align="right">确认密码 &nbsp; &nbsp;</td>
+                    <td><input type="password" value="" class="add_ipt" style="width:180px;" />&nbsp; <font color="#ff4e00">*</font></td>
+                  </tr>
+                  <tr height="45">
+                   
+                  </tr>
+                   <tr height="45">
+                    &nbsp;
+                  </tr>
+                </table>
+                <input type="submit" value="确认修改" class="btn_tj" style="margin-top: 5px;" />
                 </form>
-              </div>
             </div>
-       </td></tr>
-       <tr><td class="label">商品详细介绍：</td><td>富文本编辑器</td></tr>
-     </table>
-     <a href="#" class="Next_btn">提交商品资料</a>
-     </form>
-     
-  </div>
-</div>
+
+
+
+
+            
         </div>
     </div>
 	<!--End 用户中心 End--> 
     <!--Begin Footer Begin -->
-     <div class="b_btm_bg b_btm_c">
+    <div class="b_btm_bg b_btm_c">
         <div class="b_btm">
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b1.png" width="62" height="62" /></td>
+                <td width="72"><img src="Picture/b1.png" width="62" height="62" /></td>
                 <td><h2>正品保障</h2>正品行货  放心购买</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b2.png" width="62" height="62" /></td>
+                <td width="72"><img src="Picture/b2.png" width="62" height="62" /></td>
                 <td><h2>最优选择</h2>线上线下 对比选购</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b3.png" width="62" height="62" /></td>
+                <td width="72"><img src="Picture/b3.png" width="62" height="62" /></td>
                 <td><h2>天天低价</h2>天天低价 畅选无忧</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b4.png" width="62" height="62" /></td>
+                <td width="72"><img src="Picture/b4.png" width="62" height="62" /></td>
                 <td><h2>准时送达</h2>线下提货 就近安排</td>
               </tr>
             </table>
@@ -285,7 +270,6 @@
             <dd><a href="#">售后流程</a></dd>
             <dd><a href="#">购物流程</a></dd>
             <dd><a href="#">订购方式</a></dd>
-
         </dl>
         <dl>
             <dt><a href="#">配送与支付</a></dt>
@@ -316,64 +300,15 @@
             <dd><a href="#">线上商家联系</a></dd>
             <dd><a href="#">线下商家联系</a></dd>
             <dd><a href="#">资讯合作</a></dd>
-        </dl> 
+        </dl>
+
     <div class="btmbg">
-		<div class="btm">
-            <img src="<%= request.getContextPath()%>/Picture/b_1.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_2.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_3.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_4.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_5.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_6.gif" width="98" height="33" />
-        </div>    	
+        <div class="btm">
+            <img src="Picture/b_1.gif" width="98" height="33" /><img src="Picture/b_2.gif" width="98" height="33" /><img src="Picture/b_3.gif" width="98" height="33" /><img src="Picture/b_4.gif" width="98" height="33" /><img src="Picture/b_5.gif" width="98" height="33" /><img src="Picture/b_6.gif" width="98" height="33" />
+        </div>      
     </div>
     <!--End Footer End -->    
 </div>
-<script type="text/javascript">
 
-        function addEvent(node,event,handler){
-            if (!!node.addEventListener){
-                node.addEventListener(event,handler,!1);
-            }else{
-                node.attachEvent('on'+event,handler);
-            }
-        }
-         // 高版本浏览器支持
-        // 低版本浏览器可以先上传图片至服务器或者采用flash支持
-        function file2dataurl(file,callback){
-            if (!window.FileReader){
-                throw 'Browser not support File API !';
-            }
-            var reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function(event){
-                callback(event.target.result);
-            };
-        }
-        // 添加预览图片
-        function appendImage(url){
-            // 添加预览图片容器
-            var div = document.createElement('div');
-            div.className = 'itbox';
-            document.getElementById('vbox').appendChild(div);
-            // 添加预览图片
-            var image = new Image();
-            div.appendChild(image);
-            image.src = url;
-        }
-        // 文件选择
-        addEvent(
-            document.getElementById('image'),
-            'change',function(event){
-                if (!event.target){
-                    throw 'Browser not support!';
-                }
-                var list = event.target.files;
-                if (!list||!list.length){
-                    return;
-                }
-                for(var i=0,l=list.length;i<l;i++){
-                    file2dataurl(list[i],appendImage);
-                }
-                event.target.parentNode.reset();
-            }
-        );
-</script>
 </body>
-
 </html>
