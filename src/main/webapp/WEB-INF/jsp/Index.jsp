@@ -48,7 +48,9 @@
 
 
     </script>
+
     <style type="text/css">
+
 
         /*---------------首页（合作商品）---------------*/
         .like{
@@ -127,7 +129,9 @@
     </style>
 
 
+
     <title>店铺首页</title>
+
 <meta name="keywords" content="小桥双线购项目购物商城" />
 <meta name="description" content="线上线下商家加盟的商城" />
 </head>
@@ -1107,6 +1111,7 @@
                 <div id="block1">
                     <div id="botton-scroll1">
                         <ul class="featureUL">
+<<<<<<< HEAD
                             <c:forEach items="${partshops}" var="partshop">
                                 <li class="featureBox">
                                     <div class="box">
@@ -1131,6 +1136,87 @@
                                     </div>
                                 </li>
                             </c:forEach>
+=======
+                            <li class="featureBox">
+                                <div class="box">
+                                    <div class="imgbg">
+                                        <a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_1.jpg" width="160" height="136" /></a>
+                                    </div>
+                                    <div class="name">
+                                        <a href="#">
+                                            <h2>我是商品名称我是商品名称</h2>
+                                        </a>
+                                        <div class="price">
+                                            <font>￥<span>2160.0</span></font> &nbsp; &nbsp;&nbsp;销量：15555<br>
+
+                                        </div>
+                                        <span><a href=""><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;">YOUYI百货商行&nbsp;&nbsp;</a><img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
+                                        <p>合作数量：11111 &nbsp;&nbsp;&nbsp;预合作数量：11111</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="featureBox">
+                                <div class="box">
+                                    <div class="imgbg">
+                                        <a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_3.jpg" width="160" height="136" /></a>
+                                    </div>                                        
+                                    <div class="name">
+                                        <a href="#">
+                                        <h2>YOUYI百货商行&nbsp;<img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"></h2>
+                                        <span>总销量:12138件商品&nbsp;&nbsp;&nbsp;<img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
+                                        </a>
+                                    </div>
+                                    <div class="price">
+                                        主营:食品生鲜、美发护肤、洗化百货等
+                                    </div>
+                                </div>
+                            </li><li class="featureBox">
+                                <div class="box">
+                                    <div class="imgbg">
+                                        <a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_4.jpg" width="160" height="136" /></a>
+                                    </div>                                        
+                                    <div class="name">
+                                        <a href="#">
+                                        <h2>YOUYI百货商行&nbsp;<img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"></h2>
+                                        <span>总销量:12138件商品&nbsp;&nbsp;&nbsp;<img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
+                                        </a>
+                                    </div>
+                                    <div class="price">
+                                        主营:食品生鲜、美发护肤、洗化百货等
+                                    </div>
+                                </div>
+                            </li><li class="featureBox">
+                                <div class="box">
+                                    <div class="imgbg">
+                                        <a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_3.jpg" width="160" height="136" /></a>
+                                    </div>                                        
+                                    <div class="name">
+                                        <a href="#">
+                                        <h2>YOUYI百货商行&nbsp;<img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"></h2>
+                                        <span>总销量:12138件商品&nbsp;&nbsp;&nbsp;<img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
+                                        </a>
+                                    </div>
+                                    <div class="price">
+                                        主营:食品生鲜、美发护肤、洗化百货等
+                                    </div>
+                                </div>
+                            </li><li class="featureBox">
+                                <div class="box">
+                                    <div class="imgbg">
+                                        <a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_2.jpg" width="160" height="136" /></a>
+                                    </div>                                        
+                                    <div class="name">
+                                        <a href="#">
+                                        <h2>YOUYI百货商行&nbsp;<img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"></h2>
+                                        <span>总销量:12138件商品&nbsp;&nbsp;&nbsp;<img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
+                                        </a>
+                                    </div>
+                                    <div class="price">
+                                        主营:食品生鲜、美发护肤、洗化百货等
+                                    </div>
+                                </div>
+                            </li>
+>>>>>>> wordlu-master
 
                         </ul>
                     </div>
@@ -1212,19 +1298,6 @@
             <dd><a href="#">资讯合作</a></dd>
         </dl>
 
-        <!-- <div class="b_tel_bg">
-        	<a href="#" class="b_sh1">新浪微博</a>            
-        	<a href="#" class="b_sh2">腾讯微博</a>
-            <p>
-            服务热线：<br />
-            <span>400-123-4567</span>
-            </p>
-        </div>
-        <div class="b_er">
-            <div class="b_er_c"><img src="Picture/er.gif" width="118" height="118" /></div>
-            <img src="Picture/ss.png" />
-        </div>
-    </div>     -->
     <div class="btmbg">
 		<div class="btm">
         	<!-- 备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br /> -->
