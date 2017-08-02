@@ -1,9 +1,11 @@
 package com.xoqao.web.dao;
 
+import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +13,7 @@ import java.util.List;
  */
 @Service
 public interface CategoryMapper {
+    ArrayList<BigCategory> select123List()throws Exception;
     List<Category> selectBig()throws Exception;
     List<Category> selectSmall(@Param("big_big")String big_big)throws  Exception;
     List<Category> selectSecend(@Param("big_big")String big_big,@Param("small_small")String small_small)throws Exception;

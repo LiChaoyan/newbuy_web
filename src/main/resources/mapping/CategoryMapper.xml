@@ -11,7 +11,7 @@
     </select>
     <!--初始化，查找所有的三级分类（second）-->
     <select id="selectSecend" resultType="com.xoqao.web.bean.category.Category">
-        select DISTINCT secend from category where big='${big_big}' and small='${small_small}'
+        select cgid,secend from category where big='${big_big}' and small='${small_small}'
     </select>
     <!--根据请求参数查询cgid，绑定店铺号sid-->
     <insert id="savecategory">

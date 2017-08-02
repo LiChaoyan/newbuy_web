@@ -1,29 +1,28 @@
 package com.xoqao.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.sun.javafx.collections.MappingChange;
+import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
+import com.xoqao.web.bean.category.SmallCategory;
+import com.xoqao.web.bean.commodity.CommodityShop;
+import com.xoqao.web.bean.commodity.Page;
+import com.xoqao.web.bean.commodity.Partshop;
+import com.xoqao.web.bean.shop.ShopCity;
 import com.xoqao.web.bean.user.User;
 import com.xoqao.web.bean.shop.Shop;
 import com.xoqao.web.bean.boss.Boss;
-import com.xoqao.web.service.UserService;
-import com.xoqao.web.service.ShopService;
-import com.xoqao.web.service.BossService;
-import com.xoqao.web.service.CategoryService;
+import com.xoqao.web.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+;
 
 /**
  * 说明：
@@ -46,32 +45,94 @@ public class DemoController {
     @Autowired
     CategoryService categoryService;
 
+    @Autowired
+    CommodityService commodityService;
+
     @RequestMapping("/xoqiao")
     public String begin(Model model) throws Exception {
         return "backmanage/xoqiao";
+    }
+    @RequestMapping("/xingji")
+    public String TEST(Model model) throws Exception {
+        return "backmanage/xingji";
     }
 
     @RequestMapping("/backlogin")
     public String backlogin(Model model) throws Exception {
         return "backmanage/backlogin";
     }
-    @RequestMapping("/brand")
-    public String BRAND(Model model) throws Exception {
-        return "Brand";
+    @RequestMapping("/sousuo")
+    public String Sousuoshow(Model model) throws Exception {
+        return "sousuo";
     }
+   @RequestMapping("brand")
+   public  ModelAndView Brandshow(Page page,Model model)throws Exception{
+       int size=0;
+       ModelAndView modelAndView2=new ModelAndView();
+        if(page.getShopname()!=null) {
+        size = shopService.selectShopsizeByname(page.getShopname());
+        page.setPage(page.getP(), size);
+        System.out.println(size + " " + page.getShopname());
+        ArrayList<ShopCity> shoparrayList = shopService.selectShopByname(page);
+        System.out.println(shoparrayList.size());
+        modelAndView2.addObject("ShopList", shoparrayList);
+       }
+       modelAndView2.addObject("Page",page);
+       modelAndView2.setViewName("Brand");
+        return modelAndView2;
+   }
     @RequestMapping("/index")
     public String INDEX(Model model) throws Exception {
+        //动态添加商品分类
+        ArrayList <BigCategory> list= categoryService.select123List();
+        model.addAttribute("List", list);
+        ArrayList <Partshop> partshops=commodityService.selectAllPartshop();
+        model.addAttribute("partshops",partshops);
         return "Index";
     }
-    @RequestMapping("/CategoryList")
-    public String CategoryList(Model model) throws Exception {
-        return "CategoryList";
+
+    @RequestMapping("/CategoryList" )
+    public ModelAndView showCategoryListpage(Page page,Model model)throws Exception {
+        ArrayList<CommodityShop> arrayList = new ArrayList<CommodityShop>();
+        //动态添加商品分类
+        ModelAndView modelAndView = new ModelAndView();
+        ArrayList<BigCategory> list = categoryService.select123List();
+        modelAndView.addObject("List", list);
+        //根据cgid分页查询
+        int size = 0;
+
+        if (page.getCgid() > 0) {
+            size = commodityService.selectCommodityShopsize(page.getCgid());
+            page.setPage(page.getP(), size);
+            arrayList = commodityService.selectCommodityShopBycgidpage(page);
+            //根据商品名字模糊分页查询
+        }
+        if (page.getProductname() != null) {//默认排序
+            size = commodityService.selectCommodityShopsizeByproductname(page.getProductname());
+            page.setPage(page.getP(), size);
+            arrayList = commodityService.selectCommodityShopByproductname(page);
+        }
+
+    // 放入转发参数
+    modelAndView.addObject("CommodityShopArrayList", arrayList);
+
+    // 放入jsp路径
+    modelAndView.addObject("Page",page);
+    modelAndView.addObject("List",list);
+    modelAndView.setViewName("CategoryList");
+
+        return modelAndView;
+
+    }
+    @RequestMapping("/Product")
+    public String Product(Model model) throws Exception {
+        return "Product";
     }
     @RequestMapping("/Login")
     public String Login(Model model) throws Exception {
         return "Login";
     }
-    @RequestMapping("/Regist")
+    @RequestMapping("/Redist")
     public String Regist(Model model) throws Exception {
         return "Regist";
     }
@@ -106,7 +167,7 @@ public class DemoController {
         model.addAttribute("users", allUsers);
         return "backmanage/sectionList";
     }
-<<<<<<< HEAD
+
 
 
     @RequestMapping("/shopList")
@@ -300,7 +361,7 @@ public String upBossPhone(Model model , Boss boss) {
         }
 
     }
-              @RequestMapping("/savecategory")
+        @RequestMapping("/savecategory")
         public void savecategory(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
         System.out.print("4.根据请求参数查询cgid，绑定店铺号sid");
         //1.big不为空，small，secend为空，添加操作
@@ -337,6 +398,4 @@ public String upBossPhone(Model model , Boss boss) {
             model.addAttribute("Category",categoryListall);
         }
 }
-=======
-}
->>>>>>> wordlu-master
+

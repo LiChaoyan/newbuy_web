@@ -189,6 +189,8 @@
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
+<hr>
+
 <!-- END PAGE CONTENT-->
 </body>
 </html>

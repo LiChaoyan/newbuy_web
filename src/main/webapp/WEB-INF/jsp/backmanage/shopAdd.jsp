@@ -93,7 +93,7 @@ uiv="Content-type" content="text/html; charset=utf-8">
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="/newbuy/shopAdd" method="post" id="form_sample_3" class="form-horizontal">
+                <form action="/newbuy/shopAdd" method="get" id="form_sample_3" class="form-horizontal">
                     <div class="form-body">
                         <h3 class="form-section">Advance validation. </h3>
                         <div class="alert alert-danger display-hide">

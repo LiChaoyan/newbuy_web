@@ -1,14 +1,16 @@
 package com.xoqao.web.service;
 
+import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
-import org.apache.ibatis.annotations.Param;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by win8.1 on 2017/7/20.
  */
 public interface CategoryService {
+    ArrayList<BigCategory> select123List()throws Exception;
     List<Category> selectBig()throws Exception;
     List<Category> selectSmall(String big_big)throws Exception;
     List<Category> selectSecend(String big_big,String small_small)throws Exception;
