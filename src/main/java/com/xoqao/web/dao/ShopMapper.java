@@ -1,9 +1,12 @@
 package com.xoqao.web.dao;
 
+import com.xoqao.web.bean.commodity.Page;
 import com.xoqao.web.bean.shop.Shop;
+import com.xoqao.web.bean.shop.ShopCity;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,5 +20,6 @@ public interface ShopMapper {
     void updateShop(Shop shop)throws Exception;
     Shop selectShopBybid(@Param("bid")int  bid)throws Exception;
     Shop selectShopBysid(@Param("sid")int sid)throws Exception;
-
+    int selectShopsizeByname(@Param("shopname") String shopname)throws Exception;
+    ArrayList<ShopCity> selectShopByname(@Param("page") Page page)throws Exception;
 }

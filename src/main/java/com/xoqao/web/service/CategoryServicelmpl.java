@@ -1,10 +1,13 @@
 package com.xoqao.web.service;
 
+import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
+import com.xoqao.web.bean.category.SmallCategory;
 import com.xoqao.web.dao.CategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,6 +18,36 @@ public class CategoryServicelmpl implements CategoryService{
     @Autowired
     private CategoryMapper categoryMapper;
 
+    public ArrayList<BigCategory> select123List()throws Exception{
+        //动态添加商品分类
+        ArrayList<BigCategory> list = new ArrayList<BigCategory>();
+        List<Category> categorybigList = categoryMapper.selectBig();
+        for (int i = 0; i < categorybigList.size(); i++) {
+            String big = categorybigList.get(i).getBig();
+            ArrayList<Category> categorysmallList = (ArrayList<Category>) categoryMapper.selectSmall(big);
+
+            BigCategory bigCategory = new BigCategory();
+            ArrayList<SmallCategory> smallCategories = new ArrayList<SmallCategory>();
+
+            for (int j = 0; j < categorysmallList.size(); j++) {
+                String small = categorysmallList.get(j).getSmall();
+
+                ArrayList<Category> categorysecendList = (ArrayList<Category>) categoryMapper.selectSecend(big, small);
+
+                SmallCategory smallCategory = new SmallCategory();
+                smallCategory.setSmall(small);
+                smallCategory.setCategoryList(categorysecendList);
+
+                smallCategories.add(smallCategory);
+
+            }
+            bigCategory.setBig(big);
+            bigCategory.setSmallCategoryList(smallCategories);
+            list.add(bigCategory);
+        }
+
+        return list;
+    }
     public List<Category> selectBig()throws Exception{
         return categoryMapper.selectBig();
     }
@@ -37,4 +70,5 @@ public class CategoryServicelmpl implements CategoryService{
     public List<Category>  selectCategoryBysid(int sid)throws Exception{
         return categoryMapper.selectCategoryBysid(sid);
     }
+
 }
