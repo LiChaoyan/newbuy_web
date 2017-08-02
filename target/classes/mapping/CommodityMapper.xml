@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xoqao.web.dao.CommodityMapper" >
+    <!--1.根据一级分类查询商品-->
+    <select id="selectCommodityShopBy1" resultType="com.xoqao.web.bean.commodity.CommodityShop">
+       select   category.cgid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname
+       from commodity,shop,category
+       where commodity.sid=shop.sid and commodity.cgid=category.cgid and big='${big}'
+    </select>
+    <!--2.根据一级分类，二级分类查询商品-->
+    <select id="selectCommodityShopBy2" resultType="com.xoqao.web.bean.commodity.CommodityShop">
+        select   category.cgid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname
+        from commodity,shop,category
+        where commodity.sid=shop.sid and commodity.cgid=category.cgid and big='${big}'and small='${small}'
+    </select>
+    <!--4.根据cgid查询商品信息集合-->
+    <select id="selectCommmodityShopBycgid" resultType="com.xoqao.web.bean.commodity.CommodityShop">
+        select  cgid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname
+        from commodity,shop
+        where commodity.sid=shop.sid and cgid='${cgid}'
+    </select>
+    <!--5.根据cgid查询商品数量-->
+    <select id="selectCommodityShopsize" resultType="int">
+        select count(*)
+        from commodity,shop
+        where commodity.sid=shop.sid and cgid='${cgid}'
+    </select>
+    <!--6.根据cgid分页查询商品-->
+    <select id="selectCommodityShopBycgidpage"   resultType="com.xoqao.web.bean.commodity.CommodityShop">
+        select cgid,cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname
+        from commodity,shop
+        where commodity.sid=shop.sid and cgid='${page.cgid}'
+        LIMIT ${page.start},${page.count}
+    </select>
+    <!--7.根据商品名字模糊查询长度-->
+    <select id="selectCommodityShopsizeByproductname" resultType="int">
+        select count(*)
+        from commodity,shop
+        where commodity.sid=shop.sid AND productname like '%${productname}%'
+    </select>
+    <!--8.根据商品名字模糊查询page结果集-->
+    <select id="selectCommodityShopByproductname" resultType="com.xoqao.web.bean.commodity.CommodityShop">
+        select cgid,cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname
+        from commodity,shop
+        where commodity.sid=shop.sid AND productname like '%${page.productname}%'
+       LIMIT ${page.start},${page.count}
+    </select>
+    <!--合作商品多表连接查询-->
+    <select id="selectAllPartshop" resultType="com.xoqao.web.bean.commodity.Partshop">
+       select part_shop.*,commodity.logo as productlogo,price,productname,salesvolu,bid,shop.logo as shoplogo,saddress,shopname,city.cityname
+       FROM part_shop,commodity,city,shop
+       where part_shop.ctid=city.cid and part_shop.cid=commodity.cid and part_shop.sid=shop.bid ;
+    </select>
+</mapper>
