@@ -1,19 +1,45 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.11.1.min_044d0927.js"></script>
+	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />
+
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.11.1.min_044d0927.js"></script>    
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/n_nav.js"></script>
+    <!-- <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/n_nav.js"></script>    -->
 
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/lrscroll_1.js"></script>
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/menu.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/lrscroll_1.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/menu.js"></script>    
+    
+    
+	<!-- <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/n_nav.js"></script> -->
 
-
-<title>店铺搜索</title>
+<title>商品搜索</title>
 <meta name="keywords" content="小桥双线购项目购物商城" />
 <meta name="description" content="线上线下商家加盟的商城" />
+<style type="text/css">
+.hover-show1{  
+  position: absolute;/*注意这两个盒子要设置为绝对定位*/  
+  width: 210px;  
+  height: 185px;  
+  background: #fff;  
+  text-align: center;  
+  color: #ff4e00;  
+  opacity: 0;  
+  margin-top: -180px;
+  font-size: 14px;
+  font-weight: bold;
+} 
+.big {
+    font-size: 17px;
+}
+ul li .img img {
+    position: absolute;
+} 
+.container-detailed:hover .hover-show1{  
+  opacity: 0.8;  
+}
+</style>
 </head>
 <body>  
 <!--Begin Header Begin-->
@@ -96,7 +122,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-            <span class="fl">你好，请<a href="Login">登录</a>&nbsp; <a href="Regist" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
+            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
             <span class="ss">
                 <div class="ss_list">
                     <a href="#">我的</a>
@@ -138,75 +164,43 @@
                     </div>    
                 </div>
             </span>
-            <!-- <span class="fl">|&nbsp;关注我们：</span>
-            <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="Picture/s_tel.png" align="absmiddle" /></a></span>
-        </span> -->
+
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
+    <div class="logo"><a href="<%= request.getContextPath()%>/Index"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
     <!-- 搜索框 -->
-    <div class="search">
-    <div class="searchbox">
+        <div class="search">
+            <form>
+                <input type="text" value="" class="s_ipt" />
+                <input type="submit" value="搜索" class="s_btn" />
+            </form>                      
+        </div>
+        <!-- <div class="searchbox">
         <ul id="ul_menus">
             <li><a href="#" class="style_1">商品</a></li>
             <li><a href="#">店铺</a></li>
         </ul>
         <div class="search_area" id="search_area">
-            <p style="display: block"><input type="text" value=""  class="input_1" placeholder="输入商品名称" /><button class="button_search_1">搜索</button></p>
-            <p><input type="text" value=""  class="input_2" placeholder="输入店铺名称" /><button class="button_search_2">搜索</button></p>
-        </div>
-        <!-- <div>
-        <form>
-            <p style="display: block;"><input type="text" value="" class="s_ipt input_1" /></p>
-            <p><input type="submit" value="搜索" class="s_btn" /></p>
-        </form> 
-        </div>  -->                    
-        <span class="fl" style="margin-left: 10px;"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
-    </div></div>
-    <div class="i_car">
-        <div class="car_t">购物车 [ <span>3</span> ]</div>
-        <div class="car_bg">
-            <!--Begin 购物车未登录 Begin-->
-            <div class="un_login">还未登录！<a href="Login" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
-            <!--End 购物车未登录 End-->
-            <!--Begin 购物车已登录 Begin-->
-            <ul class="cars">
-                <li>
-                    <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/car1.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
-                <!-- <li>
-                    <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/car2.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/car2.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li> -->
-            </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
-            <div class="price_a"><a href="#">去购物车结算</a></div>
-            <!--End 购物车已登录 End-->
-        </div>
-    </div>
+            <p style="display: block"><input type="text" value="" id="" class="input_1" placeholder="输入商品名称" /><button class="button_search_1">搜索</button></p>
+            <p><input type="text" value="" id="" class="input_2" placeholder="输入店铺名称" /><button class="button_search_2">搜索</button></p>
+        </div> -->
+                 
+        <!-- <span class="fl" style="margin-left: 10px;"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span> -->
+
 </div>
 <!--End Header End--> 
 <!--Begin Menu Begin-->
 <div class="menu_bg">
-    <div class="menu">
-        <!--Begin 商品分类详情 Begin-->    
-        <div class="nav">
-            <div class="nav_t">全部商品分类</div>
+	<div class="menu">
+    	<!--Begin 商品分类详情 Begin-->    
+    	<div class="nav">
+        	<div class="nav_t">全部商品分类</div>
             <div class="leftNav none">
                 <ul>      
                     <li>
-                        <div class="fj">
-                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav1.png" /></span>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav1.png" /></span>
                             <span class="fl">进口食品、生鲜</span>
                         </div>
                         <div class="zj">
@@ -255,8 +249,8 @@
                         </div>
                     </li>
                     <li>
-                        <div class="fj">
-                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav2.png" /></span>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav2.png" /></span>
                             <span class="fl">食品、饮料、酒</span>
                         </div>
                         <div class="zj" style="top:-40px;">
@@ -281,8 +275,8 @@
                         </div>
                     </li>
                     <li>
-                        <div class="fj">
-                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav3.png" /></span>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav3.png" /></span>
                             <span class="fl">母婴、玩具、童装</span>
                         </div>
                         <div class="zj" style="top:-80px;">
@@ -301,8 +295,8 @@
                         </div>
                     </li>
                     <li>
-                        <div class="fj">
-                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav4.png" /></span>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav4.png" /></span>
                             <span class="fl">家居、家庭清洁、纸品</span>
                         </div>
                         <div class="zj" style="top:-120px;">
@@ -321,8 +315,8 @@
                         </div>
                     </li>
                     <li>
-                        <div class="fj">
-                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav5.png" /></span>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav5.png" /></span>
                             <span class="fl">美妆、个人护理、洗护</span>
                         </div>
                         <div class="zj" style="top:-160px;">
@@ -341,8 +335,8 @@
                         </div>
                     </li>
                     <li>
-                        <div class="fj">
-                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav6.png" /></span>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav6.png" /></span>
                             <span class="fl">女装、内衣、中老年</span>
                         </div>
                         <div class="zj" style="top:-200px;">
@@ -361,8 +355,8 @@
                         </div>
                     </li>
                     <li>
-                        <div class="fj">
-                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav7.png" /></span>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav7.png" /></span>
                             <span class="fl">鞋靴、箱包、腕表配饰</span>
                         </div>
                         <div class="zj" style="top:-240px;">
@@ -381,8 +375,8 @@
                         </div>
                     </li>
                     <li>
-                        <div class="fj">
-                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav8.png" /></span>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav8.png" /></span>
                             <span class="fl">男装、运动</span>
                         </div>
                         <div class="zj" style="top:-280px;">
@@ -401,8 +395,8 @@
                         </div>
                     </li>
                     <li>
-                        <div class="fj">
-                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav9.png" /></span>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav9.png" /></span>
                             <span class="fl">手机、小家电、电脑</span>
                         </div>
                         <div class="zj" style="top:-320px;">
@@ -421,8 +415,8 @@
                         </div>
                     </li>                    
                     <li>
-                        <div class="fj">
-                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav10.png" /></span>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav10.png" /></span>
                             <span class="fl">礼品、充值</span>
                         </div>
                         <div class="zj" style="top:-360px;">
@@ -439,414 +433,301 @@
                                 <a href="#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
-                    </li>                       
+                    </li>                    	
                 </ul>            
             </div>
         </div>  
         <!--End 商品分类详情 End-->                                                     
-        <ul class="menu_r">                                                                                                                                               
-            <li><a href="Index">首页</a></li>
-            <li><a href="Food">美食</a></li>
-            <li><a href="Fresh">生鲜</a></li>
-            <li><a href="HomeDecoration">家居</a></li>
-            <li><a href="SuitDress">女装</a></li>
-            <li><a href="MakeUp">美妆</a></li>
-            <li><a href="Digital">数码</a></li>
-            <li><a href="GroupBuying">团购</a></li>
+    	<ul class="menu_r">                                                                                                                                               
+        	<li><a href="<%= request.getContextPath()%>/Index">首页</a></li>
+            <li><a href="<%= request.getContextPath()%>/Food">美食</a></li>
+            <li><a href="<%= request.getContextPath()%>/Fresh">生鲜</a></li>
+            <li><a href="<%= request.getContextPath()%>/HomeDecoration">家居</a></li>
+            <li><a href="<%= request.getContextPath()%>/SuitDress">女装</a></li>
+            <li><a href="<%= request.getContextPath()%>/MakeUp">美妆</a></li>
+            <li><a href="<%= request.getContextPath()%>/Digital">数码</a></li>
+            <li><a href="<%= request.getContextPath()%>/GroupBuying">团购</a></li>
         </ul>
-        <div class="m_ad letter">全部加盟商家</div>
+        <div class="m_ad">全部合作商品</div>
     </div>
 </div>
 <!--End Menu End--> 
 <div class="i_bg">
+	<div class="postion">
+    	<span class="fl">全部分类 > 美妆个护 > 香水 > </span>
+        <span class="n_ch">
+            <span class="fl">品牌：<font>香奈儿</font></span>
+        </span>
+    </div>
+    <!--Begin 筛选条件 Begin-->
+    <div class="content mar_10">
+    	<table border="0" class="choice" style="width:100%; font-family:'宋体'; margin:0 auto;" cellspacing="0" cellpadding="0">
+          <tr valign="top">
+            <td width="70">&nbsp; 品牌：</td>
+            <td class="td_a"><a href="#" class="now">香奈儿（Chanel）</a><a href="#">迪奥（Dior）</a><a href="#">范思哲（VERSACE）</a><a href="#">菲拉格慕（Ferragamo）</a><a href="#">兰蔻（LANCOME）</a><a href="#">爱马仕（HERMES）</a><a href="#">卡文克莱（Calvin Klein）</a><a href="#">古驰（GUCCI）</a><a href="#">宝格丽（BVLGARI）</a><a href="#">阿迪达斯（Adidas）</a><a href="#">卡尔文·克莱恩（CK）</a><a href="#">凌仕（LYNX）</a><a href="#">大卫杜夫（Davidoff）</a><a href="#">安娜苏（Anna sui）</a><a href="#">阿玛尼（ARMANI）</a><a href="#">娇兰（Guerlain）</a></td>
+          </tr>
+          <tr valign="top">
+            <td>&nbsp; 价格：</td>
+            <td class="td_a"><a href="#">0-199</a><a href="#" class="now">200-399</a><a href="#">400-599</a><a href="#">600-899</a><a href="#">900-1299</a><a href="#">1300-1399</a><a href="#">1400以上</a></td>
+          </tr>  
+          <tr>
+            <td>&nbsp; 含量：</td>
+            <td class="td_a"><a href="#">5ml以下</a><a href="#">5ml-10ml</a><a href="#">15ml</a><a href="#">20ml</a><a href="#">25ml</a><a href="#">30ml</a><a href="#">30ml以上</a></td>
+          </tr>                                           
+          <tr>
+            <td>&nbsp; 类型：</td>
+            <td class="td_a"><a href="#">女士香水</a><a href="#">男士香水</a><a href="#">Q版香水</a><a href="#">组合套装</a><a href="#">香体走珠</a><a href="#">其它</a></td>
+          <tr>
+            <td>&nbsp; 香型：</td>                                       
+            <td class="td_a"><a href="#">浓香水</a><a href="#">香精Parfum香水</a><a href="#">淡香精EDP淡香水</a><a href="#">香露EDT</a><a href="#">古龙水</a><a href="#">其它</a></td>
+          </tr>                                                             
+        </table>                                                                                 
+    </div>
+    <!--End 筛选条件 End-->
+    
     <div class="content mar_20">
-        <div class="l_history">
-            <div class="his_t">
-                <span class="fl">浏览历史</span>
-                <span class="fr"><a href="#">清空</a></span>
+    	<div class="l_history">
+        	<div class="his_t">
+            	<span class="fl">热门合作商品</span>
+                <span class="fr"><a href="#">换一换</a></span>
             </div>
-            <ul>
-                <li>
+        	<ul>
+            	<li>
                     <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/his_1.jpg" width="185" height="162" /></a></div>
-                    <div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
                     <div class="price">
-                        <font>￥<span>368.00</span></font> &nbsp; 18R
+                    	<font>￥<span>368.00</span></font> &nbsp; 合作人数：11111
                     </div>
                 </li>
                 <li>
                     <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/his_2.jpg" width="185" height="162" /></a></div>
-                    <div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
                     <div class="price">
-                        <font>￥<span>768.00</span></font> &nbsp; 18R
+                    	<font>￥<span>768.00</span></font> &nbsp; 合作人数：11111
                     </div>
                 </li>
                 <li>
                     <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/his_3.jpg" width="185" height="162" /></a></div>
-                    <div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
                     <div class="price">
-                        <font>￥<span>680.00</span></font> &nbsp; 18R
+                    	<font>￥<span>680.00</span></font> &nbsp; 合作人数：11111
                     </div>
                 </li>
                 <li>
                     <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/his_4.jpg" width="185" height="162" /></a></div>
-                    <div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
                     <div class="price">
-                        <font>￥<span>368.00</span></font> &nbsp; 18R
+                    	<font>￥<span>368.00</span></font> &nbsp;合作人数：11111
                     </div>
                 </li>
                 <li>
                     <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/his_5.jpg" width="185" height="162" /></a></div>
-                    <div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
                     <div class="price">
-                        <font>￥<span>368.00</span></font> &nbsp; 18R
+                    	<font>￥<span>368.00</span></font> &nbsp; 合作人数：11111
                     </div>
                 </li>
-            </ul>
+        	</ul>
         </div>
         <div class="l_list">
-            <div class="list_t">
-                <span class="fl list_or">
-                    <a href="#" class="now">默认</a>
+        	<div class="list_t">
+            	<span class="fl list_or">
+                	<a href="#" class="now">默认</a>
                     <a href="#">
-                        <span class="fl">销量</span>                        
-                        <span class="i_up">销量从低到高显示</span>
-                        <span class="i_down">销量从高到低显示</span>                                                     
+                    	<span class="fl">按合作数</span>
                     </a>
                     <a href="#">
-                        <span class="fl">信用</span>                        
-                        <span class="i_up">信用从低到高显示</span>
-                        <span class="i_down"信用格从高到低显示</span>     
+                    	<span class="fl">按意向数</span>                           
                     </a>
-                   <a href="#">
-                        <span class="fl">好评</span>                        
-                        <span class="i_up">好评率从低到高显示</span>
-                        <span class="i_down"好评率从高到低显示</span>     
-                    </a>
+                    
                 </span>
-                <div class="brand_search fr">
-            <span class="ss">
-            <div class="ss_list">
-                    <a href="#">所在地</a>
-                    <div class="ss_list_bg">
-                        <div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                            <table border="0" class="c_tab" style="width:235px; margin-top:10px;" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <th>A</th>
-                            <td class="c_h"><span>安徽</span><span>澳门</span></td>
-                          </tr>
-                          <tr>
-                            <th>B</th>
-                            <td class="c_h"><span class="c_check">北京</span></td>
-                          </tr>
-                          <tr>
-                            <th>C</th>
-                            <td class="c_h"><span>重庆</span></td>
-                          </tr>
-                          <tr>
-                            <th>F</th>
-                            <td class="c_h"><span>福建</span></td>
-                          </tr>
-                          <tr>
-                            <th>G</th>
-                            <td class="c_h"><span>广东</span><span>广西</span></td>
-                          </tr>
-                          <tr>
-                            <th>H</th>
-                            <td class="c_h"><span>河北</span><span>河南</span></td>
-                          </tr>
-                          <tr>
-                            <th>J</th>
-                            <td class="c_h"><span>江苏</span><span>吉林</span></td>
-                          </tr>
-                          <tr>
-                            <th>L</th>
-                            <td class="c_h"><span>辽宁</span></td>
-                          </tr>
-                          <tr>
-                            <th>N</th>
-                            <td class="c_h"><span>内蒙古</span><span>宁夏</span></td>
-                          </tr>
-                          <tr>
-                            <th>Q</th>
-                            <td class="c_h"><span>青海</span></td>
-                          </tr>
-                          <tr>
-                            <th>S</th>
-                            <td class="c_h"><span>上海</span><span>山东</span></td>
-                          </tr>
-                          <tr>
-                            <th>T</th>
-                            <td class="c_h"><span>台湾</span><span>天津</span></td>
-                          </tr>
-                          <tr>
-                            <th>X</th>
-                            <td class="c_h"><span>西藏</span><span>香港</span></td>
-                          </tr>
-                          <tr>
-                            <th>Y</th>
-                            <td class="c_h"><span>云南</span></td>
-                          </tr>
-                          <tr>
-                            <th>Z</th>
-                            <td class="c_h"><span>浙江</span></td>
-                          </tr>
-                        </table>
-                        </div>
-                    </div>    
-                </div>
-                <div class="ss_list">
-                    <a href="#">店铺类型</a>
-                    <div class="ss_list_bg">
-                        <div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                            <ul>
-                                <li><a href="#">线上商铺</a></li>
-                                <li><a href="#">线上商铺</a></li>
-                                <!-- <li><a href="#">我的收藏夹</a></li> -->
-                            </ul>
-                        </div>
-                    </div>     
-                </div>
-                <div class="ss_list">
-                    <a href="#">指定筛选</a>
-                    <div class="ss_list_bg">
-                        <div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                            <ul>
-                                <li><a href="#">店铺名称</a></li>
-                                <li><a href="#">旺旺名称</a></li>
-                                <li><a href="#">不限</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-                
-            </span>
-        </div>
-             <!-- 店铺筛选end -->
-
+                <span class="fr">共发现120件</span>
             </div>
             <div class="list_c">
-                
+            	
                 <ul class="cate_list">
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_1.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
+                	<li>
+                        <div class="container-detailed">
+                    	<div class="img"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></div>
+                        <div class="hover-show1">
+                            <p class="big">合作人数：11111</p>  
+                            <p>意向人数：11111</p>
+                            <a href="#">查看商品</a>
                         </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
                         </div>
-                    </li>
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_2.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
-                        </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_3.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"><img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
-                        </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_4.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
-                        </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_1.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
-                        </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_2.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
-                        </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_4.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"><img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
-                        </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_3.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
-                        </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_1.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
-                        </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_2.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
-                        </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_3.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"><img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
-                        </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_4.jpg" width="210" height="185"/></a></div>
-                        <div class="shop">
-                            <span class="name">YOUYI百货商行&nbsp;
-                            <img src="Images/xing.png"></span><br>
-                            <span class="classify">主营:食品生鲜、美发护肤、洗化百货、男装女装</span>
-                            <span><div class="fl">销量:1733件商品</div>
-                            <div class="fr"><img src="Images/location.png">北京</div></span>
-                        </div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏店铺</a>
-                            <a href="#" class="j_car">进入店铺</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_1.jpg" width="210" height="185" /></a></div>
                         <div class="price">
-                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                            <font>￥<span>198.00</span></font> &nbsp; 推荐指数：100%
                         </div>
                         <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏</a>
-                            <a href="#" class="j_car">加入购物车</a>
-                        </div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
                     </li>
                     <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_3.jpg" width="210" height="185" /></a></div>
+                        <div class="container-detailed">
+                        <div class="img"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></div>
+                        <div class="hover-show1">
+                            <p class="big">合作人数：11111</p>  
+                            <p>意向人数：11111</p>
+                            <a href="#">查看商品</a>
+                        </div>
+                        </div>
                         <div class="price">
-                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                            <font>￥<span>198.00</span></font> &nbsp; 推荐指数：100%
                         </div>
                         <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏</a>
-                            <a href="#" class="j_car">加入购物车</a>
-                        </div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
                     </li>
                     <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_1.jpg" width="210" height="185" /></a></div>
+                        <div class="container-detailed">
+                        <div class="img"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></div>
+                        <div class="hover-show1">
+                            <p class="big">合作人数：11111</p>  
+                            <p>意向人数：11111</p>
+                            <a href="#">查看商品</a>
+                        </div>
+                        </div>
                         <div class="price">
-                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                            <font>￥<span>198.00</span></font> &nbsp; 推荐指数：100%
                         </div>
                         <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏</a>
-                            <a href="#" class="j_car">加入购物车</a>
-                        </div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
                     </li>
                     <li>
-                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_2.jpg" width="210" height="185" /></a></div>
+                        <div class="container-detailed">
+                        <div class="img"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></div>
+                        <div class="hover-show1">
+                            <p class="big">合作人数：11111</p>  
+                            <p>意向人数：11111</p>
+                            <a href="#">查看商品</a>
+                        </div>
+                        </div>
                         <div class="price">
-                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                            <font>￥<span>198.00</span></font> &nbsp; 推荐指数：100%
                         </div>
                         <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
-                        <div class="carbg">
-                            <a href="#" class="ss">收藏</a>
-                            <a href="#" class="j_car">加入购物车</a>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
+                    </li>
+                    <li>
+                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 推荐指数：80%
                         </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
+                    </li>
+                    <li>
+                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 推荐指数：10%
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
+                    </li>
+                    <li>
+                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 10000人付款
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
+                    </li>
+                    <li>
+                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 10000人付款
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
+                    </li>
+                    <li>
+                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 10000人付款
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
+                    </li>
+                    <li>
+                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 10000人付款
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
+                    </li>
+                    <li>
+                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 10000人付款
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
+                    </li>
+                    <li>
+                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 10000人付款
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
+                    </li>
+                    <li>
+                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 10000人付款
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
+                    </li>
+                    <li>
+                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 10000人付款
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
+                    </li>
+                    <li>
+                        <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/per_1.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 10000人付款
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="pre">
+                        <a class="fl">店铺：香水之家</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">北京</div></div>
+                        <div class="price" style="color: #ff4e00">合作人数：11111&nbsp;&nbsp;意向人数：11111</div>
                     </li>
                 </ul>
                 
                 <div class="pages">
-                    <a href="#" class="p_pre">上一页</a><a href="#" class="cur">1</a><a href="#">2</a><a href="#">3</a>...<a href="#">20</a><a href="#" class="p_pre">下一页</a>
+                	<a href="#" class="p_pre">上一页</a><a href="#" class="cur">1</a><a href="#">2</a><a href="#">3</a>...<a href="#">20</a><a href="#" class="p_pre">下一页</a>
                 </div>
                 
                 
@@ -923,6 +804,7 @@
             <dd><a href="#">线下商家联系</a></dd>
             <dd><a href="#">资讯合作</a></dd>
         </dl>
+
     <div class="btmbg">
         <div class="btm">
             <img src="<%= request.getContextPath()%>/Picture/b_1.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_2.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_3.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_4.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_5.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_6.gif" width="98" height="33" />
@@ -930,5 +812,11 @@
     </div>
     <!--End Footer End -->    
 </div>
+
 </body>
+
+
+<!--[if IE 6]>
+<script src="<%= request.getContextPath()%>/Scripts/zh_cn.js"></script>
+<![endif]-->
 </html>

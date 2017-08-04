@@ -41,7 +41,7 @@
 <!--Begin Login Begin-->
 <div class="log_bg">	
     <div class="top">
-        <div class="logo"><a href="<%= request.getContextPath()%>/Index.html"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
+        <div class="logo"><a href="<%= request.getContextPath()%>/Index"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
     </div>
 	<div class="login">
     	<div class="log_img"><img src="<%= request.getContextPath()%>/Picture/l_img.png" width="611" height="425" /></div>

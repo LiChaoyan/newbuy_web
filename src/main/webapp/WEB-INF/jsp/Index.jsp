@@ -3,12 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>//Css/style.css" />
     <link href="<%= request.getContextPath()%>/Images/icon.ico" rel="<%= request.getContextPath()%>/shortcut icon">
-    <!--[if IE 6]>
-    <script src="<%= request.getContextPath()%>/Scripts/iepng.js" type="text/javascript"></script>
-        <script type="text/javascript">
-           EvPNG.fix('div, ul, img, li, input, a'); 
-        </script>
-    <![endif]-->    
+ 
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.11.1.min_044d0927.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery.bxslider_e88acd1b.js"></script>
     
@@ -205,7 +200,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-            <span class="fl">你好，请<a href="Login.jsp">登录</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
+            <span class="fl">你好，请<a href="Login">登录</a>&nbsp; <a href="Regist" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
             <span class="ss">
                 <div class="ss_list">
                     <a href="#">我的</a>
@@ -254,7 +249,7 @@
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.jsp"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
+    <div class="logo"><a href="Index"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
     <!-- 搜索框 -->
     <div class="search">
     <div class="searchbox">
@@ -266,19 +261,14 @@
             <p style="display: block"><input type="text" value="" id="" class="input_1" placeholder="输入商品名称" /><button class="button_search_1">搜索</button></p>
             <p><input type="text" value="" id="" class="input_2" placeholder="输入店铺名称" /><button class="button_search_2">搜索</button></p>
         </div>
-        <!-- <div>
-        <form>
-            <p style="display: block;"><input type="text" value="" class="s_ipt input_1" /></p>
-            <p><input type="submit" value="搜索" class="s_btn" /></p>
-        </form> 
-        </div>  -->                    
+                    
         <span class="fl" style="margin-left: 10px;"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
     </div></div>
     <div class="i_car">
         <div class="car_t">购物车 [ <span>3</span> ]</div>
         <div class="car_bg">
             <!--Begin 购物车未登录 Begin-->
-            <div class="un_login">还未登录！<a href="Login.jsp" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+            <div class="un_login">还未登录！<a href="Login" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
             <!--End 购物车未登录 End-->
             <!--Begin 购物车已登录 Begin-->
             <ul class="cars">
@@ -287,16 +277,7 @@
                     <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
                     <div class="price"><font color="#ff4e00">￥399</font> X1</div>
                 </li>
-                <!-- <li>
-                    <div class="img"><a href="#"><img src="Picture/car2.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="Picture/car2.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li> -->
+             
             </ul>
             <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
             <div class="price_a"><a href="#">去购物车结算</a></div>
@@ -554,14 +535,14 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
     	<ul class="menu_r">                                                                                                                                               
-        	<li><a href="Index.jsp">首页</a></li>
-            <li><a href="Food.html">美食</a></li>
-            <li><a href="Fresh.html">生鲜</a></li>
-            <li><a href="HomeDecoration.html">家居</a></li>
-            <li><a href="SuitDress.html">女装</a></li>
-            <li><a href="MakeUp.html">美妆</a></li>
-            <li><a href="Digital.html">数码</a></li>
-            <li><a href="GroupBuying.html">团购</a></li>
+        	<li><a href="Index">首页</a></li>
+            <li><a href="Food">美食</a></li>
+            <li><a href="Fresh">生鲜</a></li>
+            <li><a href="HomeDecoration">家居</a></li>
+            <li><a href="SuitDress">女装</a></li>
+            <li><a href="MakeUp">美妆</a></li>
+            <li><a href="Digital">数码</a></li>
+            <li><a href="GroupBuying">团购</a></li>
         </ul>
         <div class="m_ad">活动资讯&nbsp;|&nbsp;|&nbsp;旺铺推荐</div>
     </div>
@@ -613,28 +594,7 @@
                 <img src="<%= request.getContextPath()%>/Picture/hot2.png">
                 <img src="<%= request.getContextPath()%>/Picture/hot3.png">
             </div>
-            <!-- <table border="0" style="width:205px; margin-top:10px;" cellspacing="0" cellpadding="0">
-              <tr height="35">
-                <td width="33">号码</td>
-                <td><input type="text" value="" class="c_ipt" /></td>
-              </tr>
-              <tr height="35">
-                <td>面值</td>
-                <td>
-                	<select class="jj" name="city">
-                      <option value="0" selected="selected">100元</option>
-                      <option value="1">50元</option>
-                      <option value="2">30元</option>
-                      <option value="3">20元</option>
-                      <option value="4">10元</option>
-                    </select>
-                    <span style="color:#ff4e00; font-size:14px;">￥99.5</span>
-                </td>
-              </tr>
-              <tr height="35">
-                <td colspan="2"><input type="submit" value="立即充值" class="c_btn" /></td>
-              </tr>
-            </table> -->
+    
             </form>
         </div>
     </div>
