@@ -48,7 +48,9 @@
 
 
     </script>
+
     <style type="text/css">
+
 
         /*---------------首页（合作商品）---------------*/
         .like{
@@ -64,16 +66,16 @@
             width:1198px; position:absolute; left:0px; top:0px;
         }
         .like #feature1 .l_prev{
-            width:32px; height:60px; overflow:hidden; background:url(../Images/b_left.png) no-repeat center top; display:block; text-indent:-9999px; float:left; position:absolute; left:0px; top:100px;
+            width:32px; height:60px; overflow:hidden; background:url(<%=request.getContextPath()%>/Images/b_left.png) no-repeat center top; display:block; text-indent:-9999px; float:left; position:absolute; left:0px; top:100px;
         }
         .like #feature1 .l_next{
-            width:32px; height:60px; overflow:hidden; background:url(../Images/b_right.png) no-repeat center top; display:block; text-indent:-9999px; float:left; position:absolute; right:0px; top:100px;
+            width:32px; height:60px; overflow:hidden; background:url(<%=request.getContextPath()%>/Images/b_right.png) no-repeat center top; display:block; text-indent:-9999px; float:left; position:absolute; right:0px; top:100px;
         }
         .like .featureUL{
             width:2800px; height:300px; overflow:hidden; float:left; position:relative;
         }
         .like .featureBox{
-            width:238px; height:300px; overflow:hidden; background:url(../Images/line.gif) no-repeat right 122px; float:left; border-left:1px solid #eaeaea; border-right:1px solid #eaeaea; position:relative;
+            width:238px; height:300px; overflow:hidden; background:url(<%=request.getContextPath()%>/Images/line.gif) no-repeat right 122px; float:left; border-left:1px solid #eaeaea; border-right:1px solid #eaeaea; position:relative;
         }
         .like #botton-scroll{
             width:1198px; height:300px; overflow:hidden; float:left; z-index:0;
@@ -127,7 +129,9 @@
     </style>
 
 
+
     <title>店铺首页</title>
+
 <meta name="keywords" content="小桥双线购项目购物商城" />
 <meta name="description" content="线上线下商家加盟的商城" />
 </head>
@@ -1107,6 +1111,7 @@
                 <div id="block1">
                     <div id="botton-scroll1">
                         <ul class="featureUL">
+
                             <c:forEach items="${partshops}" var="partshop">
                                 <li class="featureBox">
                                     <div class="box">
@@ -1135,8 +1140,8 @@
                         </ul>
                     </div>
                 </div>
-                <a class="l_prev" href="javascript:void();">Previous</a>
-                <a class="l_next" href="javascript:void();">Next</a>
+                <a class="l_prev" href="#">Previous</a>
+                <a class="l_next" href="#">Next</a>
             </div>
         </div>
     </div>
@@ -1212,19 +1217,6 @@
             <dd><a href="#">资讯合作</a></dd>
         </dl>
 
-        <!-- <div class="b_tel_bg">
-        	<a href="#" class="b_sh1">新浪微博</a>            
-        	<a href="#" class="b_sh2">腾讯微博</a>
-            <p>
-            服务热线：<br />
-            <span>400-123-4567</span>
-            </p>
-        </div>
-        <div class="b_er">
-            <div class="b_er_c"><img src="Picture/er.gif" width="118" height="118" /></div>
-            <img src="Picture/ss.png" />
-        </div>
-    </div>     -->
     <div class="btmbg">
 		<div class="btm">
         	<!-- 备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br /> -->

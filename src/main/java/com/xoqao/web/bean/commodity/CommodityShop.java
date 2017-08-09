@@ -40,7 +40,11 @@ public class CommodityShop {
     private String bosspic;
     private String permitpic;
     private String scope;
-    private String city;
+    private int city;
+
+
+    //城市信息
+    private String cityname;
 
 
     public int getCid() {
@@ -307,11 +311,19 @@ public class CommodityShop {
         this.scope = scope;
     }
 
-    public String getCity() {
+    public int getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(int city) {
         this.city = city;
+    }
+
+    public String getCityname() {
+        return cityname;
+    }
+
+    public void setCityname(String cityname) {
+        this.cityname = cityname;
     }
 }

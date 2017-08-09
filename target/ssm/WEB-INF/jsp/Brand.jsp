@@ -727,11 +727,11 @@
                     var GG = {
                         "kk":function(mm){
                             // console.log("hellos");
-                            window.location.href="CategoryList?cgid=${page.cgid}&productname=${page.productname}&p="+mm;
+                            window.location.href="brand?shopname=${page.shopname}&p="+mm;
                             //alert(mm);
                         }
                     }
-                    $("#page").initPage(100,${page.p},GG.kk);
+                    $("#page").initPage(${page.pagesize},${page.p},GG.kk);
 
                 </script>
                 <script type="text/javascript">

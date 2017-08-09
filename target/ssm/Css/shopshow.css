@@ -5,7 +5,7 @@ li{list-style:none;}
 /* tsShopContainer Download by http://www.codefans.net*/
 #tsShopContainer li,#tsShopContainer img{vertical-align:top;}
 #tsShopContainer{width:392px; height:495px; float:left; /*position:relative;*/ }
-#tsShopContainer #tsImgS{text-align:center;width:100%; border:1px solid #eaeaea; }
+#tsShopContainer #tsImgS{text-align:center;width:100%;/* border:1px solid #eaeaea;*/ }
 #tsShopContainer #tsImgS a{display:block;text-align:center;margin:0px auto;}
 /*#tsShopContainer #tsImgS img{border:0px; width:390px; height:390px;}*/
 #tsShopContainer #tsPicContainer{width:100%;height:90px;position:relative;background:url(../Images/scrollpicbg.gif) repeat-x 0px 0px; margin-top:10px; }
