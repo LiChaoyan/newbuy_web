@@ -1,10 +1,7 @@
 package com.xoqao.web.service;
 
 import com.github.pagehelper.sqlsource.PageProviderSqlSource;
-import com.xoqao.web.bean.commodity.Commodity;
-import com.xoqao.web.bean.commodity.CommodityShop;
-import com.xoqao.web.bean.commodity.Page;
-import com.xoqao.web.bean.commodity.Partshop;
+import com.xoqao.web.bean.commodity.*;
 import com.xoqao.web.dao.CommodityMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +45,35 @@ public class CommodityServicelmpl implements CommodityService{
     }
 
 
-//合作商品
+    //合作商品
     public ArrayList<Partshop> selectAllPartshop()throws Exception{
         return commodityMapper.selectAllPartshop();
     }
+    //热销商品
+    public ArrayList<Commodity> selecthootBycid(int cid)throws Exception{
+        return commodityMapper.selecthootBycid(cid);
+    }
+    //商品详情页对象
+    public CommodityShop selectProductBycid(int cid)throws Exception{
+        return commodityMapper.selectProductBycid(cid);
+    }
+    //查找好评差评个数
+    public int selectGA(int cid)throws Exception{
+        return commodityMapper.selectGA(cid);
+    }
+    public int selectMA(int cid)throws Exception{
+        return commodityMapper.selectMA(cid);
+    }
+    public int selectBA(int cid)throws Exception{
+        return commodityMapper.selectBA(cid);
+    }
+    public int selectAssesssizeBycid(int cid)throws Exception{
+        return commodityMapper.selectAssesssizeBycid(cid);
+    }
+    //查找评论
+    public ArrayList<Assess> selectAssess(APage page)throws Exception{
+        return commodityMapper.selectAssess(page);
+    }
+
+
 }

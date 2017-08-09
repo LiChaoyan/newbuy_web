@@ -387,7 +387,7 @@
                                 <font>￥<span>${CommodityShop.price}</span></font> &nbsp; ${CommodityShop.salesvolu}人付款
                             </div>
                             <div class="name"><a href="#">${CommodityShop.productname}</a></div>
-                            <div class="pre"><a class="fl">店铺：${CommodityShop.shopname}</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">${CommodityShop.city}</div></div>
+                            <div class="pre"><a class="fl">店铺：${CommodityShop.shopname}</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">${CommodityShop.cityname}</div></div>
                             <div class="carbg">
                                 <a href="#" class="ss">收藏</a>
                                 <a href="#" class="j_car">加入购物车</a>
@@ -412,7 +412,7 @@
                             window.location.href="CategoryList?cgid=${page.cgid}&productname=${page.productname}&p="+mm;
                         }
                     }
-                    $("#page").initPage(100,${page.p},GG.kk);
+                    $("#page").initPage(${page.pagesize},${page.p},GG.kk);
                 </script>
             </div>
         </div>

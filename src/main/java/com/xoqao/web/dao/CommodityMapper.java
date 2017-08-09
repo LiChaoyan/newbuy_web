@@ -1,9 +1,6 @@
 package com.xoqao.web.dao;
 
-import com.xoqao.web.bean.commodity.Commodity;
-import com.xoqao.web.bean.commodity.CommodityShop;
-import com.xoqao.web.bean.commodity.Page;
-import com.xoqao.web.bean.commodity.Partshop;
+import com.xoqao.web.bean.commodity.*;
 import org.apache.ibatis.annotations.Param;
 import org.junit.runners.Parameterized;
 import org.springframework.stereotype.Service;
@@ -25,6 +22,17 @@ public interface CommodityMapper {
     ArrayList<CommodityShop> selectCommodityShopByproductname(@Param("page")Page page)throws Exception;
     ArrayList<CommodityShop> selectCommodityShopByshopname(@Param("page")Page page)throws Exception;
     ArrayList<CommodityShop> selectCommodityShopBycgid(@Param("cgid") int cgid)throws Exception;
-//合作商品
+    //合作商品
     ArrayList<Partshop> selectAllPartshop()throws Exception;
+    //热销商品
+    ArrayList<Commodity> selecthootBycid(@Param("cid") int cid)throws Exception;
+    //商品详情页对象
+    CommodityShop selectProductBycid(@Param("cid")int cid)throws Exception;
+    //查找好评中评差评个数
+    int selectGA(@Param("cid") int cid)throws Exception;
+    int selectMA(@Param("cid") int cid)throws Exception;
+    int selectBA(@Param("cid") int cid)throws Exception;
+    int selectAssesssizeBycid(@Param("cid") int cid)throws Exception;
+    //查找评论
+    ArrayList<Assess> selectAssess(@Param("page")APage page)throws Exception;
 }

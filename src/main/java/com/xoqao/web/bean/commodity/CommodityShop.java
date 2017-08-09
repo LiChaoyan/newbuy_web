@@ -40,7 +40,17 @@ public class CommodityShop {
     private String bosspic;
     private String permitpic;
     private String scope;
-    private String city;
+    private int city;
+
+
+    //城市信息
+    private String cityname;
+
+   //类别信息
+    private String big;
+    private String small;
+    private String secend;
+
 
 
     public int getCid() {
@@ -307,11 +317,43 @@ public class CommodityShop {
         this.scope = scope;
     }
 
-    public String getCity() {
+    public int getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(int city) {
         this.city = city;
+    }
+
+    public String getCityname() {
+        return cityname;
+    }
+
+    public void setCityname(String cityname) {
+        this.cityname = cityname;
+    }
+
+    public String getBig() {
+        return big;
+    }
+
+    public void setBig(String big) {
+        this.big = big;
+    }
+
+    public String getSmall() {
+        return small;
+    }
+
+    public void setSmall(String small) {
+        this.small = small;
+    }
+
+    public String getSecend() {
+        return secend;
+    }
+
+    public void setSecend(String secend) {
+        this.secend = secend;
     }
 }

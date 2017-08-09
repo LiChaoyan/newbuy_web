@@ -66,16 +66,16 @@
             width:1198px; position:absolute; left:0px; top:0px;
         }
         .like #feature1 .l_prev{
-            width:32px; height:60px; overflow:hidden; background:url(../Images/b_left.png) no-repeat center top; display:block; text-indent:-9999px; float:left; position:absolute; left:0px; top:100px;
+            width:32px; height:60px; overflow:hidden; background:url(<%=request.getContextPath()%>/Images/b_left.png) no-repeat center top; display:block; text-indent:-9999px; float:left; position:absolute; left:0px; top:100px;
         }
         .like #feature1 .l_next{
-            width:32px; height:60px; overflow:hidden; background:url(../Images/b_right.png) no-repeat center top; display:block; text-indent:-9999px; float:left; position:absolute; right:0px; top:100px;
+            width:32px; height:60px; overflow:hidden; background:url(<%=request.getContextPath()%>/Images/b_right.png) no-repeat center top; display:block; text-indent:-9999px; float:left; position:absolute; right:0px; top:100px;
         }
         .like .featureUL{
             width:2800px; height:300px; overflow:hidden; float:left; position:relative;
         }
         .like .featureBox{
-            width:238px; height:300px; overflow:hidden; background:url(../Images/line.gif) no-repeat right 122px; float:left; border-left:1px solid #eaeaea; border-right:1px solid #eaeaea; position:relative;
+            width:238px; height:300px; overflow:hidden; background:url(<%=request.getContextPath()%>/Images/line.gif) no-repeat right 122px; float:left; border-left:1px solid #eaeaea; border-right:1px solid #eaeaea; position:relative;
         }
         .like #botton-scroll{
             width:1198px; height:300px; overflow:hidden; float:left; z-index:0;
@@ -1111,7 +1111,7 @@
                 <div id="block1">
                     <div id="botton-scroll1">
                         <ul class="featureUL">
-<<<<<<< HEAD
+
                             <c:forEach items="${partshops}" var="partshop">
                                 <li class="featureBox">
                                     <div class="box">
@@ -1136,93 +1136,12 @@
                                     </div>
                                 </li>
                             </c:forEach>
-=======
-                            <li class="featureBox">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_1.jpg" width="160" height="136" /></a>
-                                    </div>
-                                    <div class="name">
-                                        <a href="#">
-                                            <h2>我是商品名称我是商品名称</h2>
-                                        </a>
-                                        <div class="price">
-                                            <font>￥<span>2160.0</span></font> &nbsp; &nbsp;&nbsp;销量：15555<br>
-
-                                        </div>
-                                        <span><a href=""><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;">YOUYI百货商行&nbsp;&nbsp;</a><img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
-                                        <p>合作数量：11111 &nbsp;&nbsp;&nbsp;预合作数量：11111</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_3.jpg" width="160" height="136" /></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="#">
-                                        <h2>YOUYI百货商行&nbsp;<img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"></h2>
-                                        <span>总销量:12138件商品&nbsp;&nbsp;&nbsp;<img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        主营:食品生鲜、美发护肤、洗化百货等
-                                    </div>
-                                </div>
-                            </li><li class="featureBox">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_4.jpg" width="160" height="136" /></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="#">
-                                        <h2>YOUYI百货商行&nbsp;<img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"></h2>
-                                        <span>总销量:12138件商品&nbsp;&nbsp;&nbsp;<img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        主营:食品生鲜、美发护肤、洗化百货等
-                                    </div>
-                                </div>
-                            </li><li class="featureBox">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_3.jpg" width="160" height="136" /></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="#">
-                                        <h2>YOUYI百货商行&nbsp;<img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"></h2>
-                                        <span>总销量:12138件商品&nbsp;&nbsp;&nbsp;<img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        主营:食品生鲜、美发护肤、洗化百货等
-                                    </div>
-                                </div>
-                            </li><li class="featureBox">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="#"><img src="<%= request.getContextPath()%>/Picture/shop_2.jpg" width="160" height="136" /></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="#">
-                                        <h2>YOUYI百货商行&nbsp;<img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"><img src="<%= request.getContextPath()%>/Images/xing.png" style="width: 15px;height: 15px;"></h2>
-                                        <span>总销量:12138件商品&nbsp;&nbsp;&nbsp;<img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        主营:食品生鲜、美发护肤、洗化百货等
-                                    </div>
-                                </div>
-                            </li>
->>>>>>> wordlu-master
 
                         </ul>
                     </div>
                 </div>
-                <a class="l_prev" href="javascript:void();">Previous</a>
-                <a class="l_next" href="javascript:void();">Next</a>
+                <a class="l_prev" href="#">Previous</a>
+                <a class="l_next" href="#">Next</a>
             </div>
         </div>
     </div>

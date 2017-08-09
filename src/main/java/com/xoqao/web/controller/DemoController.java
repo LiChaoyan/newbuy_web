@@ -4,9 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
 import com.xoqao.web.bean.category.SmallCategory;
-import com.xoqao.web.bean.commodity.CommodityShop;
-import com.xoqao.web.bean.commodity.Page;
-import com.xoqao.web.bean.commodity.Partshop;
+import com.xoqao.web.bean.commodity.*;
 import com.xoqao.web.bean.shop.ShopCity;
 import com.xoqao.web.bean.user.User;
 import com.xoqao.web.bean.shop.Shop;
@@ -65,7 +63,7 @@ public class DemoController {
     public String Sousuoshow(Model model) throws Exception {
         return "sousuo";
     }
-<<<<<<< HEAD
+
    @RequestMapping("brand")
    public  ModelAndView Brandshow(Page page,Model model)throws Exception{
        int size=0;
@@ -82,7 +80,7 @@ public class DemoController {
        modelAndView2.setViewName("Brand");
         return modelAndView2;
    }
-=======
+
     @RequestMapping("/Member_User")
     public String Member_User(Model model) throws Exception {
         return "Member_User";
@@ -101,7 +99,7 @@ public class DemoController {
     public String Goodsadd(Model model) throws Exception {
         return "Goodsadd";
     }
->>>>>>> wordlu-master
+
     @RequestMapping("/index")
     public String INDEX(Model model) throws Exception {
         //动态添加商品分类
@@ -145,10 +143,7 @@ public class DemoController {
         return modelAndView;
 
     }
-    @RequestMapping("/Product")
-    public String Product(Model model) throws Exception {
-        return "Product";
-    }
+
     @RequestMapping("/Login")
     public String Login(Model model) throws Exception {
         return "Login";
@@ -165,10 +160,46 @@ public class DemoController {
     public String Registthree (Model model) throws Exception {
         return "Registthree";
     }
+
     @RequestMapping("/product")
-    public String Product (Model model) throws Exception {
-        return "Product";
+    public ModelAndView Product (int cid,APage page,Model model) throws Exception {
+
+        ModelAndView productmodelAndView=new ModelAndView();
+        //基本信息填充（包括评论信息）
+        //动态添加商品分类
+        if(cid!=-1) {
+            ArrayList<BigCategory> list = categoryService.selectShopBycid(cid);
+            //productmodelAndView.addObject("List", list);
+            //热销商品
+            ArrayList<Commodity> hootList = commodityService.selecthootBycid(cid);
+            productmodelAndView.addObject("hootList", hootList);
+            //商品基本信息查询()
+            CommodityShop product = commodityService.selectProductBycid(cid);
+            productmodelAndView.addObject("Product", product);
+
+            //评论展示（默认p=1，ping=0）
+            try {
+                int gass = commodityService.selectGA(cid);
+                int mass = commodityService.selectMA(cid);
+                int bass = commodityService.selectBA(cid);
+                int listsize = commodityService.selectAssesssizeBycid(cid);
+                page.setAPage(page.getP(), listsize, gass, mass, bass);
+                productmodelAndView.addObject("page", page);
+                ArrayList<Assess> assessArrayList = commodityService.selectAssess(page);
+                productmodelAndView.addObject("AssessList", assessArrayList);
+                System.out.println(page.getCount()+" "+page.getStart()+" "+page.getCid());
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        productmodelAndView.setViewName("Product");
+        return productmodelAndView;
     }
+
+
+
+
 
 
     @RequestMapping("/postManage")
