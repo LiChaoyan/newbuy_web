@@ -48,8 +48,17 @@ public class CommodityServicelmpl implements CommodityService{
     }
 
 
-//合作商品
+    //合作商品
     public ArrayList<Partshop> selectAllPartshop()throws Exception{
         return commodityMapper.selectAllPartshop();
     }
+    //热销商品
+    public ArrayList<Commodity> selecthootBycid(int cid)throws Exception{
+        return commodityMapper.selecthootBycid(cid);
+    }
+    //商品详情页对象
+    public CommodityShop selectProductBycid(int cid)throws Exception{
+        return commodityMapper.selectProductBycid(cid);
+    }
+
 }

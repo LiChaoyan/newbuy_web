@@ -51,4 +51,24 @@
        FROM part_shop,commodity,city,shop
        where part_shop.ctid=city.cid and part_shop.cid=commodity.cid and part_shop.sid=shop.bid ;
     </select>
+    <!--热销商品-->
+    <select id="selecthootBycid" resultType="com.xoqao.web.bean.commodity.Commodity">
+        select commodity.*
+        from commodity
+        where sid = (select sid from commodity where cid='${cid}')
+        ORDER BY salesvolu desc
+        limit 5;
+    </select>
+    <!--根据商品cid查找商品详细信息-->
+    <select id="selectProductBycid" resultType="com.xoqao.web.bean.commodity.CommodityShop">
+        SELECT commodity.cid,commodity.cgid,commodity.sid,
+        bluetoothmac,detailshow,x,y,param1,param2,param3,
+        commodity.logo,commodity.headershow,price,productname,salesvolu,stock,
+        big,small,secend,
+        shop.city,shop.logo as shoplogo,shop.salesvo,shop.shopname,shop.slevel,
+        cityname
+        FROM commodity,city,shop,category
+        where commodity.cgid=category.cgid AND commodity.sid=shop.sid AND
+        shop.city=city.cid AND commodity.cid='${cid}';
+    </select>
 </mapper>

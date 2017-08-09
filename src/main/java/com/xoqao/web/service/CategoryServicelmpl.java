@@ -70,5 +70,45 @@ public class CategoryServicelmpl implements CategoryService{
     public List<Category>  selectCategoryBysid(int sid)throws Exception{
         return categoryMapper.selectCategoryBysid(sid);
     }
+    //查找店铺内部分类
+    public ArrayList<BigCategory> selectShopBycid(int cid)throws Exception{
+        //动态添加商品分类
+        ArrayList<BigCategory> list = new ArrayList<BigCategory>();
+        List<Category> categorybigList = categoryMapper.selectBigBycid(cid);
+        for (int i = 0; i < categorybigList.size(); i++) {
+            String big = categorybigList.get(i).getBig();
+            ArrayList<Category> categorysmallList = (ArrayList<Category>) categoryMapper.selectSmallBycid(cid,big);
 
+            BigCategory bigCategory = new BigCategory();
+            ArrayList<SmallCategory> smallCategories = new ArrayList<SmallCategory>();
+
+            for (int j = 0; j < categorysmallList.size(); j++) {
+                String small = categorysmallList.get(j).getSmall();
+
+                ArrayList<Category> categorysecendList = (ArrayList<Category>) categoryMapper.selectSecendBycid(cid,big,small);
+
+                SmallCategory smallCategory = new SmallCategory();
+                smallCategory.setSmall(small);
+                smallCategory.setCategoryList(categorysecendList);
+                System.out.println("big:"+big+" small:"+small+" secend:"+categorysecendList.get(0).getSecend());
+                smallCategories.add(smallCategory);
+
+            }
+            bigCategory.setBig(big);
+            bigCategory.setSmallCategoryList(smallCategories);
+            list.add(bigCategory);
+        }
+
+
+        return list;
+    }
+    public List<Category> selectBigBycid(int cid)throws Exception{
+        return categoryMapper.selectBigBycid(cid);
+    }
+    public List<Category> selectSmallBycid(int cid,String big_big)throws Exception{
+        return categoryMapper.selectSmallBycid(cid,big_big);
+    }
+    public List<Category> selectSecendBycid(int cid,String big_big,String small_small)throws Exception{
+        return categoryMapper.selectSecendBycid(cid,big_big,small_small);
+    }
 }

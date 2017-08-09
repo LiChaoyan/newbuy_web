@@ -46,6 +46,12 @@ public class CommodityShop {
     //城市信息
     private String cityname;
 
+   //类别信息
+    private String big;
+    private String small;
+    private String secend;
+
+
 
     public int getCid() {
         return cid;
@@ -325,5 +331,29 @@ public class CommodityShop {
 
     public void setCityname(String cityname) {
         this.cityname = cityname;
+    }
+
+    public String getBig() {
+        return big;
+    }
+
+    public void setBig(String big) {
+        this.big = big;
+    }
+
+    public String getSmall() {
+        return small;
+    }
+
+    public void setSmall(String small) {
+        this.small = small;
+    }
+
+    public String getSecend() {
+        return secend;
+    }
+
+    public void setSecend(String secend) {
+        this.secend = secend;
     }
 }

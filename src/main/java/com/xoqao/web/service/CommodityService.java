@@ -29,6 +29,10 @@ public interface CommodityService {
     ArrayList<CommodityShop> selectCommodityShopByproductname(Page page) throws Exception;
 
     ArrayList<CommodityShop> selectCommodityShopByshopname(Page page) throws Exception;
-//合作商品
-ArrayList<Partshop> selectAllPartshop()throws Exception;
+    //合作商品
+    ArrayList<Partshop> selectAllPartshop()throws Exception;
+    //热销商品
+    ArrayList<Commodity> selecthootBycid(int cid)throws Exception;
+    //商品详情页对象
+    CommodityShop selectProductBycid(int cid)throws Exception;
 }

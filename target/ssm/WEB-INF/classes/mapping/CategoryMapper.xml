@@ -29,4 +29,22 @@
     <select id="selectCategoryBysid" resultType="com.xoqao.web.bean.category.Category">
         select * from category where sid='${sid}'
     </select>
+    <!--初始化，cid查找所有的一级分类（big）-->
+    <select id="selectBigBycid" resultType="com.xoqao.web.bean.category.Category">
+        select DISTINCT big
+        from category,commodity
+        where category.sid=commodity.sid and commodity.cid='${cid}'
+    </select>
+    <!--初始化，cid查找所有的二级分类（small）-->
+    <select id="selectSmallBycid" resultType="com.xoqao.web.bean.category.Category">
+        select DISTINCT small
+        from category,commodity
+        where category.sid=commodity.sid and commodity.cid='${cid}'and big='${big_big}'
+    </select>
+    <!--初始化，cid查找所有的三级分类（second）-->
+    <select id="selectSecendBycid" resultType="com.xoqao.web.bean.category.Category">
+        select category.cgid,secend
+        from category,commodity
+        where category.sid=commodity.sid and commodity.cid='${cid}'and big='${big_big}' and small='${small_small}'
+    </select>
 </mapper>

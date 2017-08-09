@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
 import com.xoqao.web.bean.category.SmallCategory;
+import com.xoqao.web.bean.commodity.Commodity;
 import com.xoqao.web.bean.commodity.CommodityShop;
 import com.xoqao.web.bean.commodity.Page;
 import com.xoqao.web.bean.commodity.Partshop;
@@ -162,10 +163,34 @@ public class DemoController {
     public String Registthree (Model model) throws Exception {
         return "Registthree";
     }
+
     @RequestMapping("/product")
-    public String Product (Model model) throws Exception {
-        return "Product";
+    public ModelAndView Product (int cid,Model model) throws Exception {
+
+        ModelAndView productmodelAndView=new ModelAndView();
+        //基本信息填充（包括评论信息）
+        //动态添加商品分类
+        if(cid!=-1) {
+            ArrayList<BigCategory> list = categoryService.selectShopBycid(cid);
+            //productmodelAndView.addObject("List", list);
+            //热销商品
+            ArrayList<Commodity> hootList = commodityService.selecthootBycid(cid);
+            productmodelAndView.addObject("hootList", hootList);
+            //商品基本信息查询()
+            CommodityShop product = commodityService.selectProductBycid(cid);
+            productmodelAndView.addObject("Product", product);
+            System.out.println(product);
+
+
+        }
+
+        productmodelAndView.setViewName("Product");
+        return productmodelAndView;
     }
+
+
+
+
 
 
     @RequestMapping("/postManage")
