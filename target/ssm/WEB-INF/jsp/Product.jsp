@@ -24,8 +24,13 @@
     
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/shade.js"></script>   <!-- 控制弹窗 -->
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery.1.4.2-min.js"></script>
-    
-<title>商品详情</title>
+
+    <!--星级评价1.4的jquery就行-->
+    <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/back/assets/xingji/demo/css/application.css">
+    <script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/xingji/lib/jquery.raty.js"></script>
+
+
+    <title>商品详情</title>
 <style type="text/css">
 .preview1{width:400px; height:465px;}
 /* bigImg1 */
@@ -844,20 +849,20 @@
                         <table border="0" class="jud_tab" cellspacing="0" cellpadding="0">
                   <tr>
                     <td width="175" class="jud_per">
-                        <p>80.0%</p>好评度
+                        <p>${page.gasslv}%</p>好评度
                     </td>
                     <td width="300">
                         <table border="0" style="width:100%;" cellspacing="0" cellpadding="0">
                           <tr>
-                            <td width="90">好评<font color="#999999">（80%）</font></td>
+                            <td width="90">好评<font color="#999999">（${page.gasslv}%）</font></td>
                             <td><img src="<%= request.getContextPath()%>/Picture/pl.gif" align="absmiddle" /></td>
                           </tr>
                           <tr>
-                            <td>中评<font color="#999999">（20%）</font></td>
+                            <td>中评<font color="#999999">（${page.masslv}%）</font></td>
                             <td><img src="<%= request.getContextPath()%>/Picture/pl.gif" align="absmiddle" /></td>
                           </tr>
                           <tr>
-                            <td>差评<font color="#999999">（0%）</font></td>
+                            <td>差评<font color="#999999">（${page.basslv}%）</font></td>
                             <td><img src="<%= request.getContextPath()%>/Picture/pl.gif" align="absmiddle" /></td>
                           </tr>
                         </table>
@@ -869,57 +874,38 @@
                   </tr>
                 </table>
                 
-                
+                <form border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
+                    <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=0&p=1"><input type="button" value="全部评价(${page.allassess}+)" /></a>
+                    <a href="<%=request.getContextPath()%>/assessTu?cid=${page.cid}&tu=1"><input type="button" value="晒图"/></a>
+                    <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=1&p=1"><input type="button" value="好评(${page.gass}+)" /></a>
+                    <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=2&p=1"><input type="button" value="中评(${page.mass})" /></a>
+                    <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=3&p=1"><input type="button" value="差评(${page.bass})" /></a>
+                </form>
                                 
                 <table border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
-                  <tr valign="top">
-                    <td width="160"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" width="20" height="20" align="absmiddle" />&nbsp;向死而生</td>
-                    <td width="180">
-                        颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                        <img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><br>
-                        产品很好，香味很喜欢，必须给赞。 <br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="<%= request.getContextPath()%>/Picture/peo2.jpg" width="20" height="20" align="absmiddle" />&nbsp;就是这么想的</td>
-                    <td width="180">
-                        颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                        <img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><br>
-                        送朋友，她很喜欢，大爱。 <br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="<%= request.getContextPath()%>/Picture/peo3.jpg" width="20" height="20" align="absmiddle" />&nbsp;墨镜墨镜</td>
-                    <td width="180">
-                        颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                        <img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><br>
-                        大家都说不错<br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="<%= request.getContextPath()%>/Picture/peo4.jpg" width="20" height="20" align="absmiddle" />&nbsp;那*****洋 <br /><font color="#999999">（匿名用户）</font></td>
-                    <td width="180">
-                        颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                        <img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><br>
-                        下次还会来买，推荐。<br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
+                    <c:forEach items="${AssessList}" var="assess">
+                    <tr valign="top">
+                        <td width="160"><img src="${assess.headerpic}" width="20" height="20" align="absmiddle" />&nbsp;${assess.username}<br />
+                            <br/> <span class="assessreadOnly">${assess.grade}</span>
+                        </td>
+                        <td>
+                            ${assess.hollrall} <br />
+                            ${assess.detail}<br/>
+                            <c:forEach items="${fn:split(assess.pics,';')}" var="pic" begin="0" end="${fn:length(fn:split(assess.pics,';'))}" varStatus="stat">
+                                <a class="pic" href="${pic}"><img src="${pic}" class="ping"/></a>
+                            </c:forEach>
+                            <br/>
+                            颜色分类：<font color="#999999">粉色</font>&nbsp;&nbsp;&nbsp;&nbsp;
+                            型号：<font color="#999999">50ml</font>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <font color="#999999">${assess.date}</font>
+                            <hr style="border : 1px dashed #999999;" />
+                            <span style="color: #FF4855">
+                            店主回复:<br>
+                            ${assess.bossback}
+                             </span>
+                        </td>
+                    </tr>
+                    </c:forEach>
                 </table>
 
                     
@@ -930,8 +916,21 @@
             
                     </div>
                 </div>
-            </div>    </div>
-    
+            </div>
+        </div>
+        
+        <!--星级插件展示-->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#readOnly-shop").raty({ readOnly: true, score:${Product.slevel} });
+                $('.assessreadOnly').each(function (index) {
+                    var slevel=$(this).text();
+                    $(this).raty({ readOnly: true, score:slevel });
+
+                })
+
+            });
+        </script>
     
     <!--Begin 弹出层-收藏成功 Begin-->
     <div id="fade" class="black_overlay"></div>

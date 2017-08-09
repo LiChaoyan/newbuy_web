@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
 import com.xoqao.web.bean.category.SmallCategory;
-import com.xoqao.web.bean.commodity.Commodity;
-import com.xoqao.web.bean.commodity.CommodityShop;
-import com.xoqao.web.bean.commodity.Page;
-import com.xoqao.web.bean.commodity.Partshop;
+import com.xoqao.web.bean.commodity.*;
 import com.xoqao.web.bean.shop.ShopCity;
 import com.xoqao.web.bean.user.User;
 import com.xoqao.web.bean.shop.Shop;
@@ -165,7 +162,7 @@ public class DemoController {
     }
 
     @RequestMapping("/product")
-    public ModelAndView Product (int cid,Model model) throws Exception {
+    public ModelAndView Product (int cid,APage page,Model model) throws Exception {
 
         ModelAndView productmodelAndView=new ModelAndView();
         //基本信息填充（包括评论信息）
@@ -179,9 +176,21 @@ public class DemoController {
             //商品基本信息查询()
             CommodityShop product = commodityService.selectProductBycid(cid);
             productmodelAndView.addObject("Product", product);
-            System.out.println(product);
 
-
+            //评论展示（默认p=1，ping=0）
+            try {
+                int gass = commodityService.selectGA(cid);
+                int mass = commodityService.selectMA(cid);
+                int bass = commodityService.selectBA(cid);
+                int listsize = commodityService.selectAssesssizeBycid(cid);
+                page.setAPage(page.getP(), listsize, gass, mass, bass);
+                productmodelAndView.addObject("page", page);
+                ArrayList<Assess> assessArrayList = commodityService.selectAssess(page);
+                productmodelAndView.addObject("AssessList", assessArrayList);
+                System.out.println(page.getCount()+" "+page.getStart()+" "+page.getCid());
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
 
         productmodelAndView.setViewName("Product");

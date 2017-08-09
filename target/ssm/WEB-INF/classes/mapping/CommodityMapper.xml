@@ -71,4 +71,49 @@
         where commodity.cgid=category.cgid AND commodity.sid=shop.sid AND
         shop.city=city.cid AND commodity.cid='${cid}';
     </select>
+    <!--查找好评个数-->
+    <select id="selectGA" resultType="int">
+        select count(*)
+        from assess
+        where cid='${cid}'AND grade>=4
+    </select>
+    <!--查找中评个数-->
+    <select id="selectMA" resultType="int">
+        select count(*)
+        from assess
+        where cid='${cid}'AND grade BETWEEN 3 and 4 AND grade!=4
+    </select>
+    <!--查找差评个数-->
+    <select id="selectBA" resultType="int">
+        select count(*)
+        from assess
+        where cid='${cid}'AND grade BETWEEN 0 and 3 AND grade!=3
+    </select>
+    <!--查询商品cid对应的评论-->
+    <select id="selectAssesssizeBycid" resultType="int">
+        select count(*)
+        FROM assess,user
+        where assess.uid=user.uid AND assess.cid='${cid}'
+    </select>
+    <select id="selectAssess" resultType="com.xoqao.web.bean.commodity.Assess">
+        select assess.*,user.headerpic
+        FROM assess,user
+        where assess.uid=user.uid AND assess.cid='${page.cid}'
+        <choose>
+            <when test="page.ping==1">
+                AND grade>=4
+            </when>
+            <when test="page.ping==2">
+                AND grade BETWEEN 3 and 4 AND grade!=4
+            </when>
+            <when test="page.ping==3">
+                AND grade BETWEEN 0 and 3 AND grade!=3
+            </when>
+            <when test="page.ping==0">
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+        limit ${page.start},${page.count}
+    </select>
 </mapper>
