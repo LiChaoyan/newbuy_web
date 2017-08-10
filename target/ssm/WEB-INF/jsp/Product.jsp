@@ -876,7 +876,7 @@
                 
                 <form border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
                     <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=0&p=1"><input type="button" value="全部评价(${page.allassess}+)" /></a>
-                    <a href="<%=request.getContextPath()%>/assessTu?cid=${page.cid}&tu=1"><input type="button" value="晒图"/></a>
+                    <a href="<%=request.getContextPath()%>/assessTu?cid=${page.cid}"><input type="button" value="晒图"/></a>
                     <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=1&p=1"><input type="button" value="好评(${page.gass}+)" /></a>
                     <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=2&p=1"><input type="button" value="中评(${page.mass})" /></a>
                     <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=3&p=1"><input type="button" value="差评(${page.bass})" /></a>
@@ -918,7 +918,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!--星级插件展示-->
         <script type="text/javascript">
             $(document).ready(function(){
