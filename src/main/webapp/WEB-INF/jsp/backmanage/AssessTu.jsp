@@ -17,7 +17,7 @@
     <meta charset="utf-8"/>
     <title>评论轮播图</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="<%=request.getContextPath()%>/back/assets/lbt/images/rural2015.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%=request.getContextPath()%>/back/assets/lbt/images/rural2015.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery.1.4.2-min.js"></script>
 
@@ -28,7 +28,7 @@
     <script type="text/javascript">
         <!--星级插件展示-->
         $(function() {
-            $('.assessreadOnly').each(function (index) {
+            $('.assesstureadOnly').each(function (index) {
                 var slevel=$(this).text();
                 $(this).raty({ readOnly: true, score:slevel });
 
@@ -38,13 +38,13 @@
     </script>
 </head>
 <body>
-
+<div class="content_Assess" style="width: 100%;">
 <div class="slider">
     <div class="focus_img">
         <ul>
-            <c:forEach items="${AssessList}" var="assess">
-                <c:forEach items="${fn:split(assess.pics,';')}" var="pic" begin="0" end="${fn:length(fn:split(assess.pics,';'))}" varStatus="stat">
-                    <li><img src="${pic}" border="0" /></li>
+            <c:forEach items="${AssessList}" var="tuassess">
+                <c:forEach items="${fn:split(tuassess.pics,';')}" var="tupic" begin="0" end="${fn:length(fn:split(tuassess.pics,';'))}" varStatus="stat">
+                    <li class="aaa1" style="width:900px;"><img src="${tupic}" border="0" /></li>
                 </c:forEach>
             </c:forEach>
         </ul>
@@ -52,9 +52,9 @@
     <div class="focus_nav">
 
         <ul>
-            <c:forEach items="${AssessList}" var="assess">
-                <c:forEach items="${fn:split(assess.pics,';')}" var="pic" begin="0" end="${fn:length(fn:split(assess.pics,';'))}" varStatus="stat">
-                    <li><img src="${pic}" border="0" /></li>
+            <c:forEach items="${AssessList}" var="tuassess">
+                <c:forEach items="${fn:split(tuassess.pics,';')}" var="tupic" begin="0" end="${fn:length(fn:split(tuassess.pics,';'))}" varStatus="stat">
+                    <li class="aaa2" style="width:197px;"><img src="${tupic}" border="0" /></li>
                 </c:forEach>
             </c:forEach>
         </ul>
@@ -62,22 +62,22 @@
     </div>
     <div class="focus_text" >
         <ul id="focus_content_list">
-            <c:forEach items="${AssessList}" var="assess">
-                <c:forEach items="${fn:split(assess.pics,';')}" var="pic" begin="0" end="${fn:length(fn:split(assess.pics,';'))}" varStatus="stat">
-                    <li>
-                        <p><img src="${assess.headerpic}" width="20" height="20" align="absmiddle" />&nbsp;${assess.username}<br/>
-                            <span class="assessreadOnly">${assess.grade}</span>
+            <c:forEach items="${AssessList}" var="tuassess">
+                <c:forEach items="${fn:split(tuassess.pics,';')}" var="tupic" begin="0" end="${fn:length(fn:split(tuassess.pics,';'))}" varStatus="stat">
+                    <li class="aaa">
+                        <p><img src="${tuassess.headerpic}" width="20" height="20" align="absmiddle" />&nbsp;${tuassess.username}<br/>
+                            <span class="assesstureadOnly">${tuassess.grade}</span>
                         </p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${assess.hollrall} <br />
-                            ${assess.detail}<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${tuassess.hollrall} <br />
+                            ${tuassess.detail}<br/>
                             <br/>
                             颜色分类：<font color="#999999">粉色</font>&nbsp;&nbsp;&nbsp;&nbsp;
                             型号：<font color="#999999">50ml</font>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <font color="#999999">${assess.date}</font>
+                            <font color="#999999">${tuassess.date}</font>
                             <hr style="border : 1px dashed #999999;" />
                             <span style="color: #FF4855">
                             店主回复:<br>
-                            ${assess.bossback}
+                            ${tuassess.bossback}
                             </span>
 
                     </li>
@@ -96,7 +96,7 @@
 </div>
 
 
-
+</div>
 <script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/lbt/images/jquery.SuperSlide.2.1.1.source.js"></script>
 
 <script type="text/javascript">
@@ -141,7 +141,7 @@
         nextCell: ".navNext",
         effect: "leftLoop",
         vis:5,
-        scroll:5,
+        scroll:1,
         delayTime:500,
         autoPage:true,
         pnLoop:true,

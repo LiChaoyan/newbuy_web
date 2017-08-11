@@ -193,14 +193,16 @@ public class DemoController {
     }
 
     @RequestMapping("/assesstu")
-    public String AssessLPT(int cid,Model model) throws Exception {
+    public ModelAndView AssessLPT(int cid,Model model) throws Exception {
         //查询所有评论以图片为单位，轮播展示
+        ModelAndView modelAndView=new ModelAndView();
         int size=commodityService.selectAssesssizeBycid(cid);
         APage page=new APage();
         page.setCid(cid);page.setP(1);page.setPing(0);page.setCount(size);
         ArrayList<Assess> assessList=commodityService.selectAssess(page);
-        model.addAttribute("AssessList",assessList);
-        return "backmanage/AssessTu";
+        modelAndView.addObject("AssessList",assessList);
+        modelAndView.setViewName("backmanage/AssessTu");
+        return modelAndView;
     }
 
     @RequestMapping("/postManage")

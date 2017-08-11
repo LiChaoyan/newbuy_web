@@ -874,50 +874,113 @@
                   </tr>
                 </table>
                 
-                <form border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
-                    <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=0&p=1"><input type="button" value="全部评价(${page.allassess}+)" /></a>
-                    <a href="<%=request.getContextPath()%>/assessTu?cid=${page.cid}"><input type="button" value="晒图"/></a>
-                    <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=1&p=1"><input type="button" value="好评(${page.gass}+)" /></a>
-                    <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=2&p=1"><input type="button" value="中评(${page.mass})" /></a>
-                    <a href="<%=request.getContextPath()%>/product?cid=${page.cid}&ping=3&p=1"><input type="button" value="差评(${page.bass})" /></a>
-                </form>
-                                
-                <table border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
-                    <c:forEach items="${AssessList}" var="assess">
-                    <tr valign="top">
-                        <td width="160"><img src="${assess.headerpic}" width="20" height="20" align="absmiddle" />&nbsp;${assess.username}<br />
-                            <br/> <span class="assessreadOnly">${assess.grade}</span>
-                        </td>
-                        <td>
-                            ${assess.hollrall} <br />
-                            ${assess.detail}<br/>
-                            <c:forEach items="${fn:split(assess.pics,';')}" var="pic" begin="0" end="${fn:length(fn:split(assess.pics,';'))}" varStatus="stat">
-                                <a class="pic" href="${pic}"><img src="${pic}" class="ping"/></a>
-                            </c:forEach>
-                            <br/>
-                            颜色分类：<font color="#999999">粉色</font>&nbsp;&nbsp;&nbsp;&nbsp;
-                            型号：<font color="#999999">50ml</font>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <font color="#999999">${assess.date}</font>
-                            <hr style="border : 1px dashed #999999;" />
-                            <span style="color: #FF4855">
-                            店主回复:<br>
-                            ${assess.bossback}
-                             </span>
-                        </td>
-                    </tr>
-                    </c:forEach>
-                </table>
 
-                    
-                    
-                <div class="pages">
-                    <a href="<%= request.getContextPath()%>/#" class="p_pre">上一页</a><a href="<%= request.getContextPath()%>/#" class="cur">1</a><a href="<%= request.getContextPath()%>/#">2</a><a href="<%= request.getContextPath()%>/#">3</a>...<a href="<%= request.getContextPath()%>/#">20</a><a href="<%= request.getContextPath()%>/#" class="p_pre">下一页</a>
-                </div>    
-            
-                    </div>
+                <script type="text/javascript">
+                    //实现异步刷新
+                    $(function () {
+                        //请求相册
+                        $("#xc").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/assesstu?cid="+cid+"";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping0").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=0&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping1").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=1&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping2").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=2&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping3").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=3&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+
+                    })
+                </script>
+                        <div class="pro_con margin-t55" style="overflow:hidden;">
+                            <div class="pro_tab">
+                                <ul>
+                                    <li class="cur">评价</li>
+                                    <li>轮播图</li>
+                                </ul>
+                            </div>
+                            <div class="conlist">
+                                <div class="conbox" style="display:block;">
+                                    <form border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
+                                        <input type="button" class="ping0" value="全部评价(${page.allassess}+)" />
+                                        <input type="button" id="xc" value="晒图"/>
+                                        <input type="button" class="ping1" value="好评(${page.gass}+)" /></a>
+                                        <input type="button" class="ping2" value="中评(${page.mass})" />
+                                        <input type="button" class="ping3" value="差评(${page.bass})" />
+                                    </form>
+                                    <table class="content_Assess" border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
+                                        <c:forEach items="${AssessList}" var="assess">
+                                            <tr valign="top">
+                                                <td width="160"><img src="${assess.headerpic}" width="20" height="20" align="absmiddle" />&nbsp;${assess.username}<br />
+                                                    <br/> <span class="assessreadOnly">${assess.grade}</span>
+                                                </td>
+                                                <td>
+                                                        ${assess.hollrall} <br />
+                                                        ${assess.detail}<br/>
+                                                    <c:forEach items="${fn:split(assess.pics,';')}" var="pic" begin="0" end="${fn:length(fn:split(assess.pics,';'))}" varStatus="stat">
+                                                        <a class="pic" href="${pic}"><img src="${pic}" class="ping"/></a>
+                                                    </c:forEach>
+                                                    <br/>
+                                                    颜色分类：<font color="#999999">粉色</font>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    型号：<font color="#999999">50ml</font>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#999999">${assess.date}</font>
+                                                    <hr style="border : 1px dashed #999999;" />
+                                                    <span style="color: #FF4855">
+                                                     店主回复:<br>
+                                                      ${assess.bossback}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+
+                                    <div class="pages">
+                                        <a href="<%= request.getContextPath()%>/#" class="p_pre">上一页</a><a href="<%= request.getContextPath()%>/#" class="cur">1</a><a href="<%= request.getContextPath()%>/#">2</a><a href="<%= request.getContextPath()%>/#">3</a>...<a href="<%= request.getContextPath()%>/#">20</a><a href="<%= request.getContextPath()%>/#" class="p_pre">下一页</a>
+                                    </div>
+
+                                </div>
+                            <div class="conbox">
+
+                                 <%@include file="backmanage/AssessTu.jsp"%>
+
+                            </div>
+
+                            </div>
+                        <!-- 主要内容 -->
+
                 </div>
-            </div>
-        </div>
+                </div>
+                </div>
 
         <!--星级插件展示-->
         <script type="text/javascript">

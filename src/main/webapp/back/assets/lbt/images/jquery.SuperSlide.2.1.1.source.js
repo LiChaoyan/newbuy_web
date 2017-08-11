@@ -58,8 +58,9 @@
 
 			var navObj = $(opts.titCell, slider);//导航子元素结合
 			var navObjSize = navObj.size();
-			var conBox = $(opts.mainCell , slider);//内容元素父层对象
-			var conBoxSize=conBox.children().size();
+			var conBox1 = $(opts.mainCell , slider);//内容元素父层对象
+			var conBox1Size=conBox1.children().size();
+
 			var sLoad=opts.switchLoad;
 			var tarObj = $(opts.targetCell, slider);
 
@@ -94,12 +95,12 @@
 
 
 			var _ind = index;
-			var cloneNum = conBoxSize>=vis?( conBoxSize%scroll!=0?conBoxSize%scroll:scroll):0; 
+			var cloneNum = conBox1Size>=vis?( conBox1Size%scroll!=0?conBox1Size%scroll:scroll):0;
 			var _tar;
 			var isMarq = effect=="leftMarquee" || effect=="topMarquee"?true:false;
 
-			var doStartFun=function(){ if ( $.isFunction( opts.startFun) ){ opts.startFun( index,navObjSize,slider,$(opts.titCell, slider),conBox,tarObj,prevBtn,nextBtn ) } }
-			var doEndFun=function(){ if ( $.isFunction( opts.endFun ) ){ opts.endFun( index,navObjSize,slider,$(opts.titCell, slider),conBox,tarObj,prevBtn,nextBtn ) } }
+			var doStartFun=function(){ if ( $.isFunction( opts.startFun) ){ opts.startFun( index,navObjSize,slider,$(opts.titCell, slider),conBox1,tarObj,prevBtn,nextBtn ) } }
+			var doEndFun=function(){ if ( $.isFunction( opts.endFun ) ){ opts.endFun( index,navObjSize,slider,$(opts.titCell, slider),conBox1,tarObj,prevBtn,nextBtn ) } }
 			var resetOn=function(){ navObj.removeClass(titOn); if( defaultPlay ) navObj.eq(defaultIndex).addClass(titOn)  }
 
 
@@ -140,13 +141,13 @@
 
 			
 			//处理分页
-			if( navObjSize==0 )navObjSize=conBoxSize;//只有左右按钮
+			if( navObjSize==0 )navObjSize=conBox1Size;//只有左右按钮
 			if( isMarq ) navObjSize=2;
 			if( autoPage ){
-				if(conBoxSize>=vis){
-					if( effect=="leftLoop" || effect=="topLoop" ){ navObjSize=conBoxSize%scroll!=0?(conBoxSize/scroll^0)+1:conBoxSize/scroll; }
+				if(conBox1Size>=vis){
+					if( effect=="leftLoop" || effect=="topLoop" ){ navObjSize=conBox1Size%scroll!=0?(conBox1Size/scroll^0)+1:conBox1Size/scroll; }
 					else{ 
-							var tempS = conBoxSize-vis;
+							var tempS = conBox1Size-vis;
 							navObjSize=1+parseInt(tempS%scroll!=0?(tempS/scroll+1):(tempS/scroll)); 
 							if(navObjSize<=0)navObjSize=1; 
 					}
@@ -164,31 +165,42 @@
 			}
 
 
-			if(conBoxSize>=vis){ //当内容个数少于可视个数，不执行效果。
-				conBox.children().each(function(){ //取最大值
-					if( $(this).width()>selfW ){ selfW=$(this).width(); slideW=$(this).outerWidth(true);  }
+			if(conBox1Size>=vis){ //当内容个数少于可视个数，不执行效果。
+				conBox1.children().each(function(){ //取最大值
+					if(this.className=="aaa1"&&$(this).width()>=selfW ){
+                        selfW=900; slideW=900;
+					}
+                    if(this.className=="aaa2"&&$(this).width()>=selfW ){
+                        selfW=197; slideW=201;
+                    }
+                    //var child=this.className;alert("class"+this.className+" selfW: "+selfW+"slideW: "+slideW);
+                    /*
+					if( $(this).width()>=selfW ){ selfW=$(this).width(); slideW=$(this).outerWidth(true);
+
+					}*/
+
 					if( $(this).height()>selfH ){ selfH=$(this).height(); slideH=$(this).outerHeight(true);  }
 				});
 
-				var _chr = conBox.children();
+				var _chr = conBox1.children();
 				var cloneEle = function(){ 
-					for( var i=0; i<vis ; i++ ){ _chr.eq(i).clone().addClass("clone").appendTo(conBox); } 
-					for( var i=0; i<cloneNum ; i++ ){ _chr.eq(conBoxSize-i-1).clone().addClass("clone").prependTo(conBox); }
+					for( var i=0; i<vis ; i++ ){ _chr.eq(i).clone().addClass("clone").appendTo(conBox1); }
+					for( var i=0; i<cloneNum ; i++ ){ _chr.eq(conBox1Size-i-1).clone().addClass("clone").prependTo(conBox1); }
 				}
 				
 				switch(effect)
 				{
-					case "fold": conBox.css({"position":"relative","width":slideW,"height":slideH}).children().css( {"position":"absolute","width":selfW,"left":0,"top":0,"display":"none"} ); break;
-					case "top": conBox.wrap('<div class="tempWrap" style="overflow:hidden; position:relative; height:'+vis*slideH+'px"></div>').css( { "top":-(index*scroll)*slideH, "position":"relative","padding":"0","margin":"0"}).children().css( {"height":selfH} ); break;
-					case "left": conBox.wrap('<div class="tempWrap" style="overflow:hidden; position:relative; width:'+vis*slideW+'px"></div>').css( { "width":conBoxSize*slideW,"left":-(index*scroll)*slideW,"position":"relative","overflow":"hidden","padding":"0","margin":"0"}).children().css( {"float":"left","width":selfW} ); break;
+					case "fold": conBox1.css({"position":"relative","width":slideW,"height":slideH}).children().css( {"position":"absolute","width":selfW,"left":0,"top":0,"display":"none"} ); break;
+					case "top": conBox1.wrap('<div class="tempWrap" style="overflow:hidden; position:relative; height:'+vis*slideH+'px"></div>').css( { "top":-(index*scroll)*slideH, "position":"relative","padding":"0","margin":"0"}).children().css( {"height":selfH} ); break;
+					case "left": conBox1.wrap('<div class="tempWrap" style="overflow:hidden; position:relative; width:'+vis*slideW+'px"></div>').css( { "width":conBox1Size*slideW,"left":-(index*scroll)*slideW,"position":"relative","overflow":"hidden","padding":"0","margin":"0"}).children().css( {"float":"left","width":selfW} ); break;
 					case "leftLoop":
 					case "leftMarquee":
 						cloneEle();
-						conBox.wrap('<div class="tempWrap" style="overflow:hidden; position:relative; width:'+vis*slideW+'px"></div>').css( { "width":(conBoxSize+vis+cloneNum)*slideW,"position":"relative","overflow":"hidden","padding":"0","margin":"0","left":-(cloneNum+index*scroll)*slideW}).children().css( {"float":"left","width":selfW}  ); break;
+						conBox1.wrap('<div class="tempWrap" style="overflow:hidden; position:relative; width:'+vis*slideW+'px"></div>').css( { "width":(conBox1Size+vis+cloneNum)*slideW,"position":"relative","overflow":"hidden","padding":"0","margin":"0","left":-(cloneNum+index*scroll)*slideW}).children().css( {"float":"left","width":selfW}  ); break;
 					case "topLoop":
 					case "topMarquee":
 						cloneEle();
-						conBox.wrap('<div class="tempWrap" style="overflow:hidden; position:relative; height:'+vis*slideH+'px"></div>').css( { "height":(conBoxSize+vis+cloneNum)*slideH,"position":"relative","padding":"0","margin":"0","top":-(cloneNum+index*scroll)*slideH}).children().css( {"height":selfH} ); break;
+						conBox1.wrap('<div class="tempWrap" style="overflow:hidden; position:relative; height:'+vis*slideH+'px"></div>').css( { "height":(conBox1Size+vis+cloneNum)*slideH,"position":"relative","padding":"0","margin":"0","top":-(cloneNum+index*scroll)*slideH}).children().css( {"height":selfH} ); break;
 				}
 			}
 
@@ -197,7 +209,7 @@
 			//针对leftLoop、topLoop的滚动个数
 			var scrollNum=function(ind){ 
 				var _tempCs= ind*scroll; 
-				if( ind==navObjSize ){ _tempCs=conBoxSize; }else if( ind==-1 && conBoxSize%scroll!=0){ _tempCs=-conBoxSize%scroll; }
+				if( ind==navObjSize ){ _tempCs=conBox1Size; }else if( ind==-1 && conBox1Size%scroll!=0){ _tempCs=-conBox1Size%scroll; }
 				return _tempCs;
 			}
 
@@ -209,8 +221,8 @@
 								objs.eq(i).find("img["+sLoad+"]").each(function(){ 
 									var _this =  $(this);
 									_this.attr("src",_this.attr(sLoad)).removeAttr(sLoad);
-									if( conBox.find(".clone")[0] ){ //如果存在.clone
-										var chir = conBox.children();
+									if( conBox1.find(".clone")[0] ){ //如果存在.clone
+										var chir = conBox1.children();
 										for ( var j=0 ; j< chir.size() ; j++ )
 										{
 											chir.eq(j).find("img["+sLoad+"]").each(function(){
@@ -231,7 +243,7 @@
 							changeImg( cloneNum+scrollNum(_ind) );
 							break;
 						case "leftMarquee":case "topMarquee": 
-							var curS = effect=="leftMarquee"? conBox.css("left").replace("px",""):conBox.css("top").replace("px",""); 
+							var curS = effect=="leftMarquee"? conBox1.css("left").replace("px",""):conBox1.css("top").replace("px","");
 							var slideT = effect=="leftMarquee"? slideW:slideH; 
 							var mNum=cloneNum;
 							if( curS%slideT!=0 ){
@@ -258,7 +270,7 @@
 				doStartFun();
 
 				//处理切换加载
-				if( sLoad!=null ){ doSwitchLoad( conBox.children() ) }
+				if( sLoad!=null ){ doSwitchLoad( conBox1.children() ) }
 
 				//处理targetCell
 				if(tarObj[0]){ 
@@ -266,60 +278,60 @@
 					if( sLoad!=null ){ doSwitchLoad( tarObj ) }
 					if( effect=="slideDown" ){
 							tarObj.not(_tar).stop(true,true).slideUp(delayTime); 
-							_tar.slideDown( delayTime,easing,function(){ if(!conBox[0]) doEndFun() }); 
+							_tar.slideDown( delayTime,easing,function(){ if(!conBox1[0]) doEndFun() });
 					}
 					else{
 							tarObj.not(_tar).stop(true,true).hide();
-							_tar.animate({opacity:"show"},delayTime,function(){ if(!conBox[0]) doEndFun() }); 
+							_tar.animate({opacity:"show"},delayTime,function(){ if(!conBox1[0]) doEndFun() });
 					}
 				}
 				
-				if(conBoxSize>=vis){ //当内容个数少于可视个数，不执行效果。
+				if(conBox1Size>=vis){ //当内容个数少于可视个数，不执行效果。
 					switch (effect)
 					{
-						case "fade":conBox.children().stop(true,true).eq(index).animate({opacity:"show"},delayTime,easing,function(){doEndFun()}).siblings().hide(); break;
-						case "fold":conBox.children().stop(true,true).eq(index).animate({opacity:"show"},delayTime,easing,function(){doEndFun()}).siblings().animate({opacity:"hide"},delayTime,easing);break;
-						case "top":conBox.stop(true,false).animate({"top":-index*scroll*slideH},delayTime,easing,function(){doEndFun()});break;
-						case "left":conBox.stop(true,false).animate({"left":-index*scroll*slideW},delayTime,easing,function(){doEndFun()});break;
+						case "fade":conBox1.children().stop(true,true).eq(index).animate({opacity:"show"},delayTime,easing,function(){doEndFun()}).siblings().hide(); break;
+						case "fold":conBox1.children().stop(true,true).eq(index).animate({opacity:"show"},delayTime,easing,function(){doEndFun()}).siblings().animate({opacity:"hide"},delayTime,easing);break;
+						case "top":conBox1.stop(true,false).animate({"top":-index*scroll*slideH},delayTime,easing,function(){doEndFun()});break;
+						case "left":conBox1.stop(true,false).animate({"left":-index*scroll*slideW},delayTime,easing,function(){doEndFun()});break;
 						case "leftLoop":
 							var __ind = _ind;
-							conBox.stop(true,true).animate({"left":-(scrollNum(_ind)+cloneNum)*slideW},delayTime,easing,function(){
-								if( __ind<=-1 ){ conBox.css("left",-(cloneNum+(navObjSize-1)*scroll)*slideW);  }else if( __ind>=navObjSize ){ conBox.css("left",-cloneNum*slideW); }
+							conBox1.stop(true,true).animate({"left":-(scrollNum(_ind)+cloneNum)*slideW},delayTime,easing,function(){
+								if( __ind<=-1 ){ conBox1.css("left",-(cloneNum+(navObjSize-1)*scroll)*slideW);  }else if( __ind>=navObjSize ){ conBox1.css("left",-cloneNum*slideW); }
 								doEndFun();
 							});
 							break;//leftLoop end
 
 						case "topLoop":
 							var __ind = _ind;
-							conBox.stop(true,true).animate({"top":-(scrollNum(_ind)+cloneNum)*slideH},delayTime,easing,function(){
-								if( __ind<=-1 ){ conBox.css("top",-(cloneNum+(navObjSize-1)*scroll)*slideH);  }else if( __ind>=navObjSize ){ conBox.css("top",-cloneNum*slideH); }
+							conBox1.stop(true,true).animate({"top":-(scrollNum(_ind)+cloneNum)*slideH},delayTime,easing,function(){
+								if( __ind<=-1 ){ conBox1.css("top",-(cloneNum+(navObjSize-1)*scroll)*slideH);  }else if( __ind>=navObjSize ){ conBox1.css("top",-cloneNum*slideH); }
 								doEndFun();
 							});
 							break;//topLoop end
 
 						case "leftMarquee":
-							var tempLeft = conBox.css("left").replace("px",""); 
+							var tempLeft = conBox1.css("left").replace("px","");
 							if(index==0 ){
-									conBox.animate({"left":++tempLeft},0,function(){
-										if( conBox.css("left").replace("px","")>= 0){ conBox.css("left",-conBoxSize*slideW) }
+									conBox1.animate({"left":++tempLeft},0,function(){
+										if( conBox1.css("left").replace("px","")>= 0){ conBox1.css("left",-conBox1Size*slideW) }
 									});
 							}
 							else{
-									conBox.animate({"left":--tempLeft},0,function(){
-										if(  conBox.css("left").replace("px","")<= -(conBoxSize+cloneNum)*slideW){ conBox.css("left",-cloneNum*slideW) }
+									conBox1.animate({"left":--tempLeft},0,function(){
+										if(  conBox1.css("left").replace("px","")<= -(conBox1Size+cloneNum)*slideW){ conBox1.css("left",-cloneNum*slideW) }
 									});
 							}break;// leftMarquee end
 
 							case "topMarquee":
-							var tempTop = conBox.css("top").replace("px",""); 
+							var tempTop = conBox1.css("top").replace("px","");
 							if(index==0 ){
-									conBox.animate({"top":++tempTop},0,function(){
-										if( conBox.css("top").replace("px","")>= 0){ conBox.css("top",-conBoxSize*slideH) }
+									conBox1.animate({"top":++tempTop},0,function(){
+										if( conBox1.css("top").replace("px","")>= 0){ conBox1.css("top",-conBox1Size*slideH) }
 									});
 							}
 							else{
-									conBox.animate({"top":--tempTop},0,function(){
-										if(  conBox.css("top").replace("px","")<= -(conBoxSize+cloneNum)*slideH){ conBox.css("top",-cloneNum*slideH) }
+									conBox1.animate({"top":--tempTop},0,function(){
+										if(  conBox1.css("top").replace("px","")<= -(conBox1Size+cloneNum)*slideH){ conBox1.css("top",-cloneNum*slideH) }
 									});
 							}break;// topMarquee end
 
@@ -372,7 +384,7 @@
 			if (autoPlay) {
 					if( isMarq ){ 
 						opp?index--:index++; setMarInter();
-						if(mouseOverStop) conBox.hover(pauseStateFun,playStateFun);
+						if(mouseOverStop) conBox1.hover(pauseStateFun,playStateFun);
 					}else{
 						setInter();
 						if(mouseOverStop) slider.hover( pauseStateFun,playStateFun );
