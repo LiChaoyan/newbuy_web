@@ -166,10 +166,10 @@ public class DemoController {
 
         ModelAndView productmodelAndView=new ModelAndView();
         //基本信息填充（包括评论信息）
-        //动态添加商品分类
         if(cid!=-1) {
+            //动态添加商品分类
             ArrayList<BigCategory> list = categoryService.selectShopBycid(cid);
-            //productmodelAndView.addObject("List", list);
+            productmodelAndView.addObject("ShopList", list);
             //热销商品
             ArrayList<Commodity> hootList = commodityService.selecthootBycid(cid);
             productmodelAndView.addObject("hootList", hootList);

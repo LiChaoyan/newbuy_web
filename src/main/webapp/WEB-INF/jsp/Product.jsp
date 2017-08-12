@@ -29,7 +29,6 @@
     <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/back/assets/xingji/demo/css/application.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/xingji/lib/jquery.raty.js"></script>
 
-
     <title>商品详情</title>
 <style type="text/css">
 .preview1{width:400px; height:465px;}
@@ -90,6 +89,14 @@
     width: 30px;
     margin-right: 10px;
 }
+    /*宝贝分类*/
+.box{ width:208px; height: auto; border: solid 1px #cccccc;}
+.Collapsing{ width: 100%;padding:0; margin:0; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat: no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #949090; color: #fff; }
+.coll_body{display: none; }
+.coll_body a{display:block; margin:10px; text-align: center; background: #f5f4f4;}
+.coll_body h4{ width: 100%; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat:  no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #BDBDBD; color: #fff; }
+.current{background-image:url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_down.png);}
+
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -223,6 +230,13 @@
         return { left: X, top: Y };
     }
 });
+    /*宝贝分类*/
+    $(function(){
+        $(".Collapsing").click(function(){
+            $(this).toggleClass("current").siblings('.Collapsing').removeClass("current");//切换图标
+            $(this).next(".coll_body").slideToggle(500).siblings(".coll_body").slideUp(500);
+        });
+    });
 </script>
 </head>
 <body>  
@@ -734,7 +748,7 @@
     </div>
     <div class="content mar_20">
     	<div class="l_history">
-        	<div class="fav_t">用户还喜欢</div>
+        	<div class="fav_t" style="height: 40px;font-size:20px;padding-left: 55px; ">用户还喜欢</div>
         	<ul>
                 <c:forEach items="${hootList}" var="hoot">
                     <li>
@@ -746,6 +760,51 @@
                     </li>
                 </c:forEach>
         	</ul>
+            <br/><br/>
+            <div class="fav_t" style="height: 40px;font-size:20px;padding-left: 55px; ">宝贝分类</div>
+            <div class="box">
+                <c:forEach items="${ShopList}" var="BigCategory" varStatus="bigid" >
+                <h3 class="Collapsing  current">${BigCategory.big}</h3>
+                <div class="coll_body">
+                    <c:forEach items="${BigCategory.smallCategoryList}" var="SmallCategory" varStatus="samllid">
+                    <h4 class="Collapsing">${SmallCategory.small}</h4>
+                    <div class="coll_body">
+                        <c:forEach items="${SmallCategory.categoryList}" var="Category" varStatus="secendid">
+                        <a href="#">${Category.secend}</a>
+                        </c:forEach>
+                    </div>
+                    </c:forEach>
+                </div>
+                </c:forEach>
+            </div>
+           <%-- <section class="ac-container">
+                <c:forEach items="${ShopList}" var="BigCategory" varStatus="bigid" >
+                    <div>
+                        <input id="ac-${bigid.index}" name="accordion-1" type="checkbox" />
+                        <label for="ac-${bigid.index}" style="padding-left: 5px">${BigCategory.big}</label>
+                        <article class="ac-medium">
+                            <c:forEach items="${BigCategory.smallCategoryList}" var="SmallCategory" varStatus="samllid">
+                                <section class="ac-container">
+                                    <div>
+                                        <input id="ac-${bigid.index}${samllid.index}" name="accordion-1" type="checkbox" />
+                                        <label for="ac-${bigid.index}${samllid.index}" >${SmallCategory.small}</label>
+                                        <article class="ac-medium">
+                                            <c:forEach items="${SmallCategory.categoryList}" var="Category" varStatus="secendid">
+                                                <section class="ac-container">
+                                                    <div>
+                                                        <input id="ac-${bigid.index}${samllid.index}${secendid.index}" name="accordion-1" type="checkbox" />
+                                                        <label style="padding-left: 35px" for="ac-${bigid.index}${samllid.index}${secendid.index}">${Category.secend}</label>
+                                                    </div>
+                                                </section>
+                                            </c:forEach>
+                                        </article>
+                                    </div>
+                                </section>
+                            </c:forEach>
+                        </article>
+                    </div>
+                </c:forEach>
+            </section>--%>
         </div>
         <div class="l_list"> 
            <div class="des_border">
