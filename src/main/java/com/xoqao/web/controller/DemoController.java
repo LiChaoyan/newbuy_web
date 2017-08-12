@@ -166,10 +166,10 @@ public class DemoController {
 
         ModelAndView productmodelAndView=new ModelAndView();
         //基本信息填充（包括评论信息）
-        //动态添加商品分类
         if(cid!=-1) {
+            //动态添加商品分类
             ArrayList<BigCategory> list = categoryService.selectShopBycid(cid);
-            //productmodelAndView.addObject("List", list);
+            productmodelAndView.addObject("ShopList", list);
             //热销商品
             ArrayList<Commodity> hootList = commodityService.selecthootBycid(cid);
             productmodelAndView.addObject("hootList", hootList);
@@ -178,7 +178,6 @@ public class DemoController {
             productmodelAndView.addObject("Product", product);
 
             //评论展示（默认p=1，ping=0）
-            try {
                 int gass = commodityService.selectGA(cid);
                 int mass = commodityService.selectMA(cid);
                 int bass = commodityService.selectBA(cid);
@@ -187,20 +186,24 @@ public class DemoController {
                 productmodelAndView.addObject("page", page);
                 ArrayList<Assess> assessArrayList = commodityService.selectAssess(page);
                 productmodelAndView.addObject("AssessList", assessArrayList);
-                System.out.println(page.getCount()+" "+page.getStart()+" "+page.getCid());
-            }catch (Exception e){
-                e.printStackTrace();
-            }
         }
 
         productmodelAndView.setViewName("Product");
         return productmodelAndView;
     }
 
-
-
-
-
+    @RequestMapping("/assesstu")
+    public ModelAndView AssessLPT(int cid,Model model) throws Exception {
+        //查询所有评论以图片为单位，轮播展示
+        ModelAndView modelAndView=new ModelAndView();
+        int size=commodityService.selectAssesssizeBycid(cid);
+        APage page=new APage();
+        page.setCid(cid);page.setP(1);page.setPing(0);page.setCount(size);
+        ArrayList<Assess> assessList=commodityService.selectAssess(page);
+        modelAndView.addObject("AssessList",assessList);
+        modelAndView.setViewName("backmanage/AssessTu");
+        return modelAndView;
+    }
 
     @RequestMapping("/postManage")
     public String postmanage(Model model) throws Exception {

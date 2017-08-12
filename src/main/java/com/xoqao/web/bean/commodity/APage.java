@@ -95,6 +95,10 @@ public class APage {
         return 2;
     }
 
+    public void setCount(int count) {
+        this.count = count;
+    }
+
     public int getListsize() {
         return listsize;
     }
