@@ -17,19 +17,37 @@
     <select id="selectCommmodityShopBycgid" resultType="com.xoqao.web.bean.commodity.CommodityShop">
         select  cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
         from commodity,shop,city
-        where commodity.sid=shop.sid AND shop.city=city.cid and cgid='${cgid}'
+        where commodity.sid=shop.sid AND shop.city=city.cid and  commodity.cgid='${page.cgid}'
     </select>
     <!--5.根据cgid查询商品数量-->
     <select id="selectCommodityShopsize" resultType="int">
         select count(*)
-        from commodity,shop,city
-        where commodity.sid=shop.sid AND shop.city=city.cid and cgid='${cgid}'
+        from commodity,shop,city,category
+        where commodity.sid=shop.sid AND city=city.cid and commodity.cgid=category.cgid
+            <if test="page.cgid!=-1">
+                and  commodity.cgid='${page.cgid}'
+            </if>
+            <if test="page.city!=null">
+                AND city.cityname='${page.city}'
+            </if>
+            <if test="page.part==1 or page.part==0">
+                AND commodity.partstatue='${page.part}'
+            </if>
     </select>
     <!--6.根据cgid分页查询商品-->
     <select id="selectCommodityShopBycgidpage"   resultType="com.xoqao.web.bean.commodity.CommodityShop">
-        select cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
-        from commodity,shop,city
-        where commodity.sid=shop.sid AND city=city.cid and cgid='${page.cgid}'
+        select partstatue,big,small,secend,commodity.cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
+        from commodity,shop,city,category
+        where commodity.sid=shop.sid AND city=city.cid and commodity.cgid=category.cgid and  commodity.cgid='${page.cgid}'
+        <if test="page.cgid!=-1">
+            and  commodity.cgid='${page.cgid}'
+        </if>
+        <if test="page.city!=null">
+            AND city.cityname='${page.city}'
+        </if>
+        <if test="page.part==1 or page.part==0">
+            AND commodity.partstatue='${page.part}'
+        </if>
         LIMIT ${page.start},${page.count}
     </select>
     <!--7.根据商品名字模糊查询长度-->
@@ -40,10 +58,10 @@
     </select>
     <!--8.根据商品名字模糊查询page结果集-->
     <select id="selectCommodityShopByproductname" resultType="com.xoqao.web.bean.commodity.CommodityShop">
-        select cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
+        select cgid,partstatus,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
         from commodity,shop,city
-        where commodity.sid=shop.sid AND city=city.cid AND productname like '%${page.productname}%'
-       LIMIT ${page.start},${page.count}
+        where commodity.sid=shop.sid AND city=city.cid AND  productname like '%${page.productname}%'
+        LIMIT ${page.start},${page.count}
     </select>
     <!--合作商品多表连接查询-->
     <select id="selectAllPartshop" resultType="com.xoqao.web.bean.commodity.Partshop">
@@ -115,5 +133,12 @@
             </otherwise>
         </choose>
         limit ${page.start},${page.count}
+    </select>
+    <!--商品参数筛选-->
+    <!--1.城市筛选-->
+    <select id="selectAllCity" resultType="com.xoqao.web.bean.commodity.City">
+        select distinct city.cityname
+        from city,shop,commodity
+        where shop.city=city.cid AND commodity.sid=shop.bid AND commodity.cgid='${cgid}'
     </select>
 </mapper>

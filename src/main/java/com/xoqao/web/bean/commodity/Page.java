@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Page {
     int p=1;//当前页数,从1开始
     int start=0;//每页开始在数据库中的位置
-    int count = 4;//每页记录
+    int count = 2;//每页记录
     int listsize=0;
     int pagesize;
     int bp=0;//beforepage
@@ -17,6 +17,51 @@ public class Page {
     int cgid=-1;
     String productname;
     String shopname;
+    String city;
+    int part=2;
+    String big;
+    String small;
+    String secend;
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getBig() {
+        return big;
+    }
+
+    public void setBig(String big) {
+        this.big = big;
+    }
+
+    public String getSmall() {
+        return small;
+    }
+
+    public void setSmall(String small) {
+        this.small = small;
+    }
+
+    public String getSecend() {
+        return secend;
+    }
+
+    public void setSecend(String secend) {
+        this.secend = secend;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getPart() {
+        return part;
+    }
+
+    public void setPart(int part) {
+        this.part = part;
+    }
 
     public int getCgid() {
         return cgid;
