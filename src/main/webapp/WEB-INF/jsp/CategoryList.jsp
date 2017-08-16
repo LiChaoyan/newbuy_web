@@ -473,9 +473,9 @@
                         THIPP.css("display","block");
                         if(ttb=="城市："&&(${page.cgid!=-1&&page.productname==null})){
                             if(${page.part==2}){
-                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}";
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}";
                             }else{
-                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&part=${page.part}";
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&part=${page.part}";
                             }
 
                         }
@@ -483,9 +483,9 @@
 
                         if(ttb=="合作商品："&&(${page.cgid!=-1&&page.productname==null})){
                             if(${page.city==null}){
-                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}";
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}";
                             }else{
-                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city=${page.city}";
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}";
                             }
 
                         }
@@ -549,9 +549,9 @@
                     if(zhiclass=="城市："&&${page.cgid!=-1&&page.productname==null}){
                         var city=zhicon;
                         if(${page.part==2}){
-                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city="+city+"";
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city="+city+"";
                         }else{
-                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&part=${page.part}&city="+city+"";
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&part=${page.part}&city="+city+"";
                         }
                     }
 
@@ -562,9 +562,9 @@
                             var part=0;
                         }
                         if(${page.city==null}){
-                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&part="+part+"";
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&part="+part+"";
                         }else{
-                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city=${page.city}&part="+part+"";
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part="+part+"";
                         }
                     }
 
