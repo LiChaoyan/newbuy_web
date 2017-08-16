@@ -1,10 +1,13 @@
 package com.xoqao.web.service;
 
+import com.xoqao.web.bean.commodity.Page;
 import com.xoqao.web.bean.shop.Shop;
+import com.xoqao.web.bean.shop.ShopCity;
 import com.xoqao.web.dao.ShopMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,5 +36,11 @@ public class ShopServicelmpl implements ShopService{
     }
     public Shop selectShopBysid(Integer sid)throws Exception{
         return shopMapper.selectShopBysid(sid);
+    }
+    public ArrayList<ShopCity> selectShopByname(Page page)throws Exception{
+        return shopMapper.selectShopByname(page);
+    }
+    public int selectShopsizeByname(String shopname)throws Exception{
+        return shopMapper.selectShopsizeByname(shopname);
     }
 }
