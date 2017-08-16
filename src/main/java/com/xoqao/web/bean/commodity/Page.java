@@ -18,6 +18,7 @@ public class Page {
     String productname;
     String shopname;
     String city;
+    String[] citysz;
     int part=2;
     String big;
     String small;
@@ -25,6 +26,15 @@ public class Page {
 
     public String getCity() {
         return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+        this.citysz=city.split(",");
+    }
+
+    public String[] getCitysz() {
+        return citysz;
     }
 
     public String getBig() {
@@ -51,9 +61,7 @@ public class Page {
         this.secend = secend;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+
 
     public int getPart() {
         return part;
@@ -147,15 +155,16 @@ public class Page {
         this.p = p;
         this.listsize=listsize;
         //判断一共几页
-        if(this.listsize%this.count==0){
+        if((this.listsize%this.count)==0){
             this.pagesize=this.listsize/count;
         }else{
             this.pagesize=this.listsize/count+1;
         }
+       
         //判断每一页开始start
         this.start = (p-1) * this.count;
         //判断每一页的结束
-        if(this.p==pagesize){
+        if(this.p==pagesize&&(this.listsize%this.count)!=0){
             this.count=this.listsize%this.count;
         }
         //判断p的上一页bp

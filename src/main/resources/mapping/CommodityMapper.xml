@@ -27,9 +27,12 @@
             <if test="page.cgid!=-1">
                 and  commodity.cgid='${page.cgid}'
             </if>
-            <if test="page.city!=null">
-                AND city.cityname='${page.city}'
-            </if>
+        <if test="page.city!=null">
+            AND city.cityname IN
+            <foreach collection="page.citysz" item="city" index="index" open="(" separator="," close=")">
+                '${city}'
+            </foreach>
+        </if>
             <if test="page.part==1 or page.part==0">
                 AND commodity.partstatue='${page.part}'
             </if>
@@ -38,12 +41,15 @@
     <select id="selectCommodityShopBycgidpage"   resultType="com.xoqao.web.bean.commodity.CommodityShop">
         select partstatue,big,small,secend,commodity.cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
         from commodity,shop,city,category
-        where commodity.sid=shop.sid AND city=city.cid and commodity.cgid=category.cgid and  commodity.cgid='${page.cgid}'
+        where commodity.sid=shop.sid AND city=city.cid and commodity.cgid=category.cgid
         <if test="page.cgid!=-1">
             and  commodity.cgid='${page.cgid}'
         </if>
         <if test="page.city!=null">
-            AND city.cityname='${page.city}'
+            AND city.cityname IN
+            <foreach collection="page.citysz" item="city" index="index" open="(" separator="," close=")">
+                '${city}'
+            </foreach>
         </if>
         <if test="page.part==1 or page.part==0">
             AND commodity.partstatue='${page.part}'
@@ -53,14 +59,38 @@
     <!--7.根据商品名字模糊查询长度-->
     <select id="selectCommodityShopsizeByproductname" resultType="int">
         select count(*)
-        from commodity,shop,city
-        where commodity.sid=shop.sid AND shop.city=city.cid AND productname like '%${productname}%'
+        from commodity,shop,city,category
+        where commodity.sid=shop.sid AND shop.city=city.cid and commodity.cgid=category.cgid
+        <if test="page.productname!=null">
+            AND productname like '%${page.productname}%'
+        </if>
+        <if test="page.city!=null">
+            AND city.cityname IN
+            <foreach collection="page.citysz" item="city" index="index" open="(" separator="," close=")">
+                '${city}'
+            </foreach>
+        </if>
+        <if test="page.part==1 or page.part==0">
+            AND commodity.partstatue='${page.part}'
+        </if>
     </select>
     <!--8.根据商品名字模糊查询page结果集-->
     <select id="selectCommodityShopByproductname" resultType="com.xoqao.web.bean.commodity.CommodityShop">
-        select cgid,partstatus,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
-        from commodity,shop,city
-        where commodity.sid=shop.sid AND city=city.cid AND  productname like '%${page.productname}%'
+        select partstatue,big,small,secend,commodity.cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
+        from commodity,shop,city,category
+        where commodity.sid=shop.sid AND city=city.cid and commodity.cgid=category.cgid
+        <if test="page.productname!=null">
+            AND productname like '%${page.productname}%'
+        </if>
+        <if test="page.city!=null">
+            AND city.cityname IN
+            <foreach collection="page.citysz" item="city" index="index" open="(" separator="," close=")">
+                '${city}'
+            </foreach>
+        </if>
+        <if test="page.part==1 or page.part==0">
+            AND commodity.partstatue='${page.part}'
+        </if>
         LIMIT ${page.start},${page.count}
     </select>
     <!--合作商品多表连接查询-->
@@ -139,6 +169,15 @@
     <select id="selectAllCity" resultType="com.xoqao.web.bean.commodity.City">
         select distinct city.cityname
         from city,shop,commodity
-        where shop.city=city.cid AND commodity.sid=shop.bid AND commodity.cgid='${cgid}'
+        where shop.city=city.cid AND commodity.sid=shop.bid
+        <if test="page.cgid!=-1 and page.productname==null">
+            AND commodity.cgid='${page.cgid}'
+        </if>
+        <if test="page.productname!=null and page.cgid==-1 ">
+            AND productname like '%${page.productname}%'
+        </if>
+        <if test="page.part==1 or page.part==0">
+            AND commodity.partstatue='${page.part}'
+        </if>
     </select>
 </mapper>

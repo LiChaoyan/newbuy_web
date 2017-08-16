@@ -18,7 +18,7 @@ public interface CommodityMapper {
     int selectCommodityShopsize(@Param("page")Page page)throws Exception;
     ArrayList<CommodityShop> selectCommodityShopBycgidpage(@Param("page") Page page)throws Exception;
     ArrayList<CommodityShop> selectCommodityShopBy2(@Param("big")String big,@Param("small")String small)throws Exception;
-    int selectCommodityShopsizeByproductname(@Param("productname")String productname)throws Exception;
+    int selectCommodityShopsizeByproductname(@Param("page")Page page)throws Exception;
     ArrayList<CommodityShop> selectCommodityShopByproductname(@Param("page")Page page)throws Exception;
     ArrayList<CommodityShop> selectCommodityShopByshopname(@Param("page")Page page)throws Exception;
     ArrayList<CommodityShop> selectCommodityShopBycgid(@Param("cgid") int cgid)throws Exception;
@@ -37,5 +37,5 @@ public interface CommodityMapper {
     ArrayList<Assess> selectAssess(@Param("page")APage page)throws Exception;
     //商品参数筛选
     //1.城市筛选
-    List<City> selectAllCity(@Param("cgid")int cgid)throws Exception;
+    List<City> selectAllCity(@Param("page")Page page)throws Exception;
 }

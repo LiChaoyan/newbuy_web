@@ -21,7 +21,7 @@ public interface CommodityService {
 
     ArrayList<CommodityShop> selectCommodityShopBy2(String big, String small) throws Exception;
 
-    int selectCommodityShopsizeByproductname(String productname) throws Exception;
+    int selectCommodityShopsizeByproductname(Page page) throws Exception;
 
     ArrayList<CommodityShop> selectCommodityShopByproductname(Page page) throws Exception;
 
@@ -41,5 +41,5 @@ public interface CommodityService {
     ArrayList<Assess> selectAssess(@Param("page")APage page)throws Exception;
     //商品参数筛选
     //1.城市筛选
-    List<City> selectAllCity(@Param("cgid")int cgid)throws Exception;
+    List<City> selectAllCity(Page page)throws Exception;
 }

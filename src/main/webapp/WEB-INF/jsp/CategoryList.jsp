@@ -195,19 +195,19 @@
             <form>
                 <div class="search_area" id="search_area">
                     <p style="display: block">
-                        <input type="text" name="productname" value="" id="" class="input_1" placeholder="输入商品名称" />
+                        <input type="text" name="productname" value=""  class="input_1" placeholder="输入商品名称" />
                         <button onclick="Product()"  class="button_search_1">搜索</button>
-                    </p><p><input type="text" name="shopname" value="" id="" class="input_2" placeholder="输入店铺名称" />
+                    </p><p><input type="text" name="shopname" value=""  class="input_2" placeholder="输入店铺名称" />
                     <button  onclick="Shop()" class="button_search_2">搜索</button></p>
                 </div>
             </form>
             <script type="text/javascript">
                 function Product() {
-                    form.action="CategoryList?productname=?&p=1";
+                    form.action="CategoryList?productname=?";
                     form.submit();
                 }
                 function Shop() {
-                    form.action="brand?shopname=?&p=1";
+                    form.action="brand?shopname=?";
                     form.submit();
                 }
             </script>
@@ -337,77 +337,165 @@
     </div>
     <!--End 筛选条件 End-->
 
-        <div style="width:1200px; margin:0 auto;">
-            <div class="clearfix">
-                <p class="shaixuan-tj floatLeft clearfix">
-                    <c:if test="${page.productname!=null&&page.cgid==-1}">
-                        <span><a href="/">全部分类</a></span>
-                        <i class="icon-angle-right"></i>
-                    </c:if>
-                    <c:if test="${page.productname!=null}">
-                        <span><strong>${page.productname}</strong></span>
-                        <i class="icon-angle-right"></i>
-                    </c:if>
-                    <c:if test="${page.big!=null}">
-                        <span><strong>${page.big}</strong></span>
-                        <i class="icon-angle-right"></i>
-                    </c:if>
-                    <c:if test="${page.small!=null}">
-                        <span><strong>${page.small}</strong></span>
-                        <i class="icon-angle-right"></i>
-                    </c:if>
-                    <c:if test="${page.secend!=null}">
-                        <span><strong>${page.secend}</strong></span>
-                        <i class="icon-angle-right"></i>
-                    </c:if>
+    <div style="width:1200px; margin:0 auto;">
+        <div class="clearfix">
+            <p class="shaixuan-tj floatLeft clearfix">
+                <c:if test="${page.productname!=null&&page.cgid==-1}">
+                    <span><a href="/">全部分类</a></span>
+                    <i class="icon-angle-right"></i>
+                    <span><strong>${page.productname}</strong></span>
+                    <i class="icon-angle-right"></i>
+                </c:if>
+                <c:if test="${page.big!=null}">
+                    <span><a href="/">${page.big}</a></span>
+                    <i class="icon-angle-right"></i>
+                </c:if>
+                <c:if test="${page.small!=null}">
+                    <span><a href="/">${page.small}</a></span>
+                    <i class="icon-angle-right"></i>
+                </c:if>
+                <c:if test="${page.secend!=null}">
+                    <span><a href="/">${page.secend}</a></span>
+                    <i class="icon-angle-right"></i>
+                </c:if>
 
 
-                </p>
-                <p id="sxbtn" class="shaixuan-btn clearfix"><span><em>收起筛选</em><i class="icon-angle-up"></i></span></p>
-            </div>
+            </p>
+            <p id="sxbtn" class="shaixuan-btn clearfix"><span><em>收起筛选</em><i class="icon-angle-up"></i></span></p>
+        </div>
 
-            <div id="page-search-store" class="mb10 border sxcon">
-                <div class="search-by by-category relative">
-                    <dl class="relative clearfix">
-                        <dt class="floatLeft"><a href="/">城市：</a></dt>
-                        <dd class="floatLeft show-con">
-                            <c:forEach items="${cityList}" var="city">
-                                <a href="#" class="">${city.cityname}</a>
-                            </c:forEach>
-                        </dd>
-                        <%-- <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>--%>
-                        <dd class="floatLeft show-more"><h3 class="pointer clearfix"><span>更多</span><i class="icon-angle-down"></i></h3></dd>
+        <div id="page-search-store" class="mb10 border sxcon">
+            <div class="search-by by-category relative">
+                <%--  <dl class="relative clearfix">
+                    <dt class="floatLeft"><a href="/">城市：</a></dt>
+                     <dd class="floatLeft show-con">
+                         <c:forEach items="${cityList}" var="city">
+                             <a href="#" class="">${city.cityname}</a>
+                         </c:forEach>
+                     </dd>
+                     <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>
+                     <dd class="floatLeft show-more"><h3 class="pointer clearfix"><span>更多</span><i class="icon-angle-down"></i></h3></dd>
+                 </dl>--%>
+                <dl class="relative clearfix">
+                    <dt class="floatLeft"><a href="/">城市：</a></dt>
+                    <dd class="floatLeft show-con">
+                        <c:forEach items="${cityList}" var="city">
+                            <input type="checkbox" value="${city.cityname}"><a class="">${city.cityname}</a></input>
+                        </c:forEach>
+                    </dd>
+                    <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>
+                    <dd class="floatLeft"><input class="btn_sure" type="button" value="确定"/></dd>
+                    <dd class="floatLeft"><input type="button" class="sl_cancel" value="取消"/></dd>
+                    <dd class="floatLeft show-more"><h3 class="pointer clearfix"><span>更多</span><i class="icon-angle-down"></i></h3></dd>
 
 
-                    </dl>
-                    <dl class="relative clearfix" style="border-bottom:0">
-                        <dt class="floatLeft"><a href="/">合作商品：</a></dt>
-                        <dd class="floatLeft show-con">
-                            <a href="#" class="" ><input type="checkbox"/>是</a>
-                            <a href="#" class="" >否</a>
-                        </dd>
-                    </dl>
+                </dl>
+                <dl class="relative clearfix" style="border-bottom:0">
+                    <dt class="floatLeft"><a href="/">合作商品：</a></dt>
+                    <dd class="floatLeft show-con">
+                        <a href="#" class="" ><input type="checkbox"/>是</a>
+                        <a href="#" class="" >否</a>
+                    </dd>
+                    <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>
+                </dl>
 
 
-                </div>
             </div>
         </div>
+    </div>
 
     <script>
         $(function(){
             //以下是单选效果
+            $(".btn_sure").click(function(event){
+                THI = $(this).parents("dl").find("dd").first();
+                var str="";
+                var num=THI.find("input").size();
+                var zhiclass;
+                THI.find("input").each(function(index) {
+                    if ($(this).is(':checked')) {
+                        str += $(this).val() + ",";
+                    }
+
+                    if (index == num - 1) {
+                        THIP = $(this).parents("dl");
+                        zhiclass = $(this).parents("dd").siblings("dt").find("a").text();
+                        zhicon = str;
+                        tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
+                        $(".shaixuan-tj").children().last().after(tianjaneir);
+                        THIP.css("display", "none");
+                    }
+                })
+                if(zhiclass=="城市："){
+                    if(${page.part==2}){
+                        <c:if test="${page.cgid!=-1}">
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city="+str+"";
+                        </c:if>
+                        <c:if test="${page.productname!=null}">
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?productname=${page.productname}&city="+str+"";
+                        </c:if>
+                    }else{
+                        <c:if test="${page.cgid!=-1}">
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&part=${page.part}&city="+str+"";
+                        </c:if>
+                        <c:if test="${page.productname!=null}">
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?productname=${page.productname}&part=${page.part}&city="+str+"";
+                        </c:if>
+
+                    }
+
+                }
+
+            });
+            $(".sl_cancel").click(function(event){
+                THI = $(this).parents("dl").find("dd").first();
+                THI.find("input").each(function(index){
+                    $(this).removeAttr("checked");
+                })
+            });
             $(".shaixuan-tj span.crumb-select-item").live('hover',function(event){
                 if(event.type=='mouseenter'){
                     $(this).addClass("crumb-select-itemon");
                 }else{
                     $(this).removeClass("crumb-select-itemon");
                 }
+
             });
             $(".shaixuan-tj span.crumb-select-item").live('click', function(event){
                 event.preventDefault();
                 $(this).remove();
+                var ttb=$(this).find("b").text();
                 var TTR = $(this).find("em").text();
-                var ttt=$(this).find("b").text();
+                $(".show-con").each(function(){
+                    THIPP = $(this).parents("dl");
+                    var zhiclass = $(this).parents("dl").find("dt").find("a").text();
+                    if(ttb==zhiclass){
+                        THIPP.css("display","block");
+                        if(ttb=="城市："&&(${page.cgid!=-1&&page.productname==null})){
+                            if(${page.part==2}){
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}";
+                            }else{
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&part=${page.part}";
+                            }
+
+                        }
+
+
+                        if(ttb=="合作商品："&&(${page.cgid!=-1&&page.productname==null})){
+                            if(${page.city==null}){
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}";
+                            }else{
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city=${page.city}";
+                            }
+
+                        }
+
+                    }
+                    THI = $(this).parents("dl").find("dd").first();
+                    THI.find("input").each(function(index){
+                        $(this).removeAttr("checked");
+                    })
+                })
                 $(".show-con a").each(function(){
                     var TT = $(this).text();
                     THI = $(this);
@@ -415,46 +503,106 @@
                     if(TTR==TT){
                         THI.removeClass("nzw12");
                         THIPP.css("display","block");
-                        //更换url
-                        if(ttt=="城市："){
-                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&part=${page.part}";
-                        }
-                        if(ttt=="合作商品："){
-                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city=${page.city}";
-                        }
 
                     }
+
+                    THII = $(this).parents("dl").find("dd").first();
+                    THII.find("input").each(function(index){
+                        $(this).removeAttr("checked");
+                    })
                 })
+                <%--
+                event.preventDefault();
+                $(this).remove();
+                var TTR = $(this).find("em").text();
+                var ttt=$(this).find("b").text();
+                $(".show-con").each(function(){
+                    THIPP = $(this).parents("dl");
+                    var zhiclass = $(this).parents("dl").find("dt").find("a").text();
+                    if(ttb==zhiclass){
+                        THIPP.css("display","block");--%>
+                //更换url
+                <%--
+                                        if(ttt=="城市："){
+                                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&part=${page.part}";
+                                        }
+                                        if(ttt=="合作商品："){
+                                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city=${page.city}";
+                                        }
+
+                                    }
+                                })--%>
 
             });
             $(".show-con a").click(function(event){
                 event.preventDefault();
                 THIP = $(this).parents("dl");
                 if($(this).hasClass("nzw12")){
-                }else {
+                }else{
                     $(this).addClass("nzw12");
                     var zhiclass = $(this).parents("dd").siblings("dt").find("a").text();
-                        zhicon = $(this).text();
-                    tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
+                    zhicon = $(this).text();
+                    tianjaneir="<span class='crumb-select-item'><a href='/'><b>"+zhiclass+"</b><em>"+zhicon+"</em><i class='icon-remove'></i></a></span>"
                     $(".shaixuan-tj").children().last().after(tianjaneir);
-                    THIP.css("display", "none");
+                    THIP.css("display","none");
 
-                    if(zhiclass=="城市："){
+                    if(zhiclass=="城市："&&${page.cgid!=-1&&page.productname==null}){
                         var city=zhicon;
-                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city="+city+"&part=${page.part}";
+                        if(${page.part==2}){
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city="+city+"";
+                        }else{
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&part=${page.part}&city="+city+"";
+                        }
                     }
-                    if(zhiclass=="合作商品："){
+
+                    if(zhiclass=="合作商品："&&${page.cgid!=-1&&page.productname==null}){
                         if(zhicon=="是"){
-                        var part=1;
+                            var part=1;
                         }else{
                             var part=0;
                         }
-                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city=${page.city}&part="+part+"";
+                        if(${page.city==null}){
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&part="+part+"";
+                        }else{
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city=${page.city}&part="+part+"";
+                        }
                     }
 
-                }
 
+
+                }
             });
+
+            <%--
+            event.preventDefault();
+            THIP = $(this).parents("dl");
+            if($(this).hasClass("nzw12")){
+            }else {
+                $(this).addClass("nzw12");
+                var zhiclass = $(this).parents("dd").siblings("dt").find("a").text();
+                    zhicon = $(this).text();
+                tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
+                $(".shaixuan-tj").children().last().after(tianjaneir);
+                THIP.css("display", "none");
+
+                if(zhiclass=="城市："){
+                    var city=zhicon;
+                    window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city="+city+"&part=${page.part}";
+                }
+                if(zhiclass=="合作商品："){
+                    if(zhicon=="是"){
+                    var part=1;
+                    }else{
+                        var part=0;
+                    }
+                    window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city=${page.city}&part="+part+"";
+                }
+                 }
+                --%>
+
+
+
+
             $(".show-more").click(function(event){
                 event.preventDefault();
                 var ticon = $(this).find("i");
@@ -499,46 +647,65 @@
     <script type="text/javascript">
         // 刷新之后保存原有的筛选状态
         $(document).ready(function(){
-          //  alert(window.location.search.substring("&"));
             var s_city;
             var s_part;
             if(${page.city!=null}){
-             s_city="${page.city}";
+                s_city="${page.city}";
             }
             if(${page.part!=null&&page.part!=2}){
-             s_part=${page.part};
+                s_part=${page.part};
             }
-           // alert(s_city+" "+s_part);
+            $(".show-con").each(function(){
+                var zhiclass = $(this).parents("dl").find("dt").find("a").text();
+                if(s_city!=null&&(zhiclass=="城市：")){
+                    tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + s_city + "</em><i class='icon-remove'></i></a></span>"
+                    $(".shaixuan-tj").children().last().after(tianjaneir);
+                    THIP.css("display", "none");
 
-            $(".show-con a").each(function (index) {
-                THIP = $(this).parents("dl");
-                var zhiclass = $(this).parents("dd").siblings("dt").find("a").text();
-                var zhicon = $(this).text();
-               // alert(zhiclass+" "+zhicon);
-                if(s_city!=null&&s_city==zhicon){
-                    if($(this).hasClass("nzw12")){
-                    }else {
-                        $(this).addClass("nzw12");
-                        tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
-                        $(".shaixuan-tj").children().last().after(tianjaneir);
-                        THIP.css("display", "none");
-                       // alert(zhiclass+" "+zhicon);
-                    }
+
                 }
-                if((zhicon=="是"&&s_part==1)||(zhicon=="否"&&s_part==0)){
-                    if($(this).hasClass("nzw12")){
-                    }else {
-                        $(this).addClass("nzw12");
-                         tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
-                        $(".shaixuan-tj").children().last().after(tianjaneir);
-                        THIP.css("display", "none");
-                       // alert(zhiclass+" "+zhicon);
+                if(zhiclass=="合作商品："&&(s_part==1||s_part==0)){
+                    var s_part_h;
+                    if(s_part==1){
+                        s_part_h="是";
+                    }else{
+                        s_part_h="否";
                     }
+                    tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + s_part_h + "</em><i class='icon-remove'></i></a></span>"
+                    $(".shaixuan-tj").children().last().after(tianjaneir);
+                    THIP.css("display", "none");
+
                 }
             })
+            <%--
+             $(".show-con a").each(function (index) {
+                 THIP = $(this).parents("dl");
+                 var zhiclass = $(this).parents("dd").siblings("dt").find("a").text();
+                 var zhicon = $(this).text();
+                 if(s_city!=null&&(s_city==zhicon||zhiclass=="城市：")){
+                     if($(this).hasClass("nzw12")){
+                     }else {
+                         $(this).addClass("nzw12");
+                         tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + s_city + "</em><i class='icon-remove'></i></a></span>"
+                         $(".shaixuan-tj").children().last().after(tianjaneir);
+                         THIP.css("display", "none");
+                        // alert(zhiclass+" "+zhicon);
+
+                 }
+                 }
+                 if((zhicon=="是"&&s_part==1)||(zhicon=="否"&&s_part==0)){
+
+                          tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
+                         $(".shaixuan-tj").children().last().after(tianjaneir);
+                         THIP.css("display", "none");
+                        // alert(zhiclass+" "+zhicon);
+
+                 }
+             })
+         --%>
         });
     </script>
-        <!--多条件筛选结束-->
+    <!--多条件筛选结束-->
     <div class="content mar_20">
         <div class="l_history">
             <div class="his_t">
@@ -621,7 +788,7 @@
                 </ul>
                 <div class="pages">
 
-                    <ul class="page" maxshowpageitem="${page.pagesize}" pagelistcount="${page.count}"  id="page"></ul>
+                    <ul class="page" maxshowpageitem="5" pagelistcount="${page.count}"  id="page"></ul>
 
                 </div>
 
@@ -631,12 +798,12 @@
                     }
                     var GG = {
                         "kk":function(mm){
-                           // alert(mm);
+                            // alert(mm);
                             // console.log("hellos");
                             window.location.href="CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&p="+mm;
                         }
                     }
-                    $("#page").initPage(${page.pagesize},${page.p},GG.kk);
+                    $("#page").initPage(${page.listsize},${page.p},GG.kk);
                 </script>
             </div>
         </div>

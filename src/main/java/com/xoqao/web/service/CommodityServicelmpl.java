@@ -33,8 +33,8 @@ public class CommodityServicelmpl implements CommodityService{
         return commodityMapper.selectCommodityShopBycgid(cgid);
     }
     //查询长度
-    public int selectCommodityShopsizeByproductname(String productname)throws Exception{
-        return commodityMapper.selectCommodityShopsizeByproductname(productname);
+    public int selectCommodityShopsizeByproductname(Page page)throws Exception{
+        return commodityMapper.selectCommodityShopsizeByproductname(page);
     }
     //查询结果集
     public ArrayList<CommodityShop> selectCommodityShopByproductname(Page page)throws Exception{
@@ -76,8 +76,8 @@ public class CommodityServicelmpl implements CommodityService{
     }
     //商品参数筛选
     //1.城市筛选
-    public List<City> selectAllCity(int cgid)throws Exception{
-        return commodityMapper.selectAllCity(cgid);
+    public List<City> selectAllCity(Page page)throws Exception{
+        return commodityMapper.selectAllCity(page);
     }
 
 }

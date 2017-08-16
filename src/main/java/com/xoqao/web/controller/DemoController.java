@@ -120,36 +120,37 @@ public class DemoController {
 
 
         //筛选信息
-        List<City> cityList=commodityService.selectAllCity(page.getCgid());
+        List<City> cityList= commodityService.selectAllCity(page);
         modelAndView.addObject("cityList",cityList);
+
         //多条件筛选
         //根据cgid,筛选信息分页查询
         int size = 0;
-        System.out.println(page.getCity()+" "+"part: "+page.getPart());
+
         if (page.getCgid() > 0) {
-            try {
                 size = commodityService.selectCommodityShopsize(page);
                 page.setPage(page.getP(), size);
                 arrayList = commodityService.selectCommodityShopBycgidpage(page);
                 //筛选信息导航栏填写
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-            page.setBig(arrayList.get(0).getBig());
-            page.setSmall(arrayList.get(0).getSmall());
-            page.setSecend(arrayList.get(0).getSecend());
-            System.out.println(arrayList.get(0).getPartstatus());
+                page.setBig(arrayList.get(0).getBig());
+                page.setSmall(arrayList.get(0).getSmall());
+                page.setSecend(arrayList.get(0).getSecend());
 
         }
-        if (page.getProductname() != null&&!page.getProductname().equals("")&&page.getCgid()==-1) { //根据商品名字模糊分页查询
-            size = commodityService.selectCommodityShopsizeByproductname(page.getProductname());
+        if (page.getProductname() != null&&(!page.getProductname().equals(""))&&page.getCgid()==-1) { //根据商品名字模糊分页查询
+        try {
+            System.out.println(page.getProductname());
+            size = commodityService.selectCommodityShopsizeByproductname(page);
             page.setPage(page.getP(), size);
             arrayList = commodityService.selectCommodityShopByproductname(page);
+            }catch (Exception e){
+            e.printStackTrace();
+            }
         }
 
 
           // 放入转发参数
-          modelAndView.addObject("CommodityShopArrayList", arrayList);
+        modelAndView.addObject("CommodityShopArrayList", arrayList);
 
         // 放入jsp路径
         modelAndView.addObject("Page",page);
