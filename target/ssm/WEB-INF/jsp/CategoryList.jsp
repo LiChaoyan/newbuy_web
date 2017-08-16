@@ -406,7 +406,14 @@
 
     <script>
         $(function(){
-            //以下是单选效果
+            //按钮取消
+            $(".sl_cancel").click(function(event){
+                THI = $(this).parents("dl").find("dd").first();
+                THI.find("input").each(function(index){
+                    $(this).removeAttr("checked");
+                })
+            });
+            //多选确定按钮
             $(".btn_sure").click(function(event){
                 THI = $(this).parents("dl").find("dd").first();
                 var str="";
@@ -426,33 +433,18 @@
                         THIP.css("display", "none");
                     }
                 })
+
                 if(zhiclass=="城市："){
                     if(${page.part==2}){
-                        <c:if test="${page.cgid!=-1}">
-                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city="+str+"";
-                        </c:if>
-                        <c:if test="${page.productname!=null}">
-                        window.location.href="<%=request.getContextPath()%>/CategoryList?productname=${page.productname}&city="+str+"";
-                        </c:if>
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city="+str+"";
                     }else{
-                        <c:if test="${page.cgid!=-1}">
-                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&part=${page.part}&city="+str+"";
-                        </c:if>
-                        <c:if test="${page.productname!=null}">
-                        window.location.href="<%=request.getContextPath()%>/CategoryList?productname=${page.productname}&part=${page.part}&city="+str+"";
-                        </c:if>
-
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&part=${page.part}&city="+str+"";
                     }
 
                 }
 
             });
-            $(".sl_cancel").click(function(event){
-                THI = $(this).parents("dl").find("dd").first();
-                THI.find("input").each(function(index){
-                    $(this).removeAttr("checked");
-                })
-            });
+
             $(".shaixuan-tj span.crumb-select-item").live('hover',function(event){
                 if(event.type=='mouseenter'){
                     $(this).addClass("crumb-select-itemon");
@@ -462,6 +454,7 @@
 
             });
             $(".shaixuan-tj span.crumb-select-item").live('click', function(event){
+
                 event.preventDefault();
                 $(this).remove();
                 var ttb=$(this).find("b").text();
@@ -471,7 +464,7 @@
                     var zhiclass = $(this).parents("dl").find("dt").find("a").text();
                     if(ttb==zhiclass){
                         THIPP.css("display","block");
-                        if(ttb=="城市："&&(${page.cgid!=-1&&page.productname==null})){
+                        if(ttb=="城市："){
                             if(${page.part==2}){
                                 window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}";
                             }else{
@@ -481,7 +474,7 @@
                         }
 
 
-                        if(ttb=="合作商品："&&(${page.cgid!=-1&&page.productname==null})){
+                        if(ttb=="合作商品："){
                             if(${page.city==null}){
                                 window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}";
                             }else{
@@ -491,11 +484,13 @@
                         }
 
                     }
+
                     THI = $(this).parents("dl").find("dd").first();
                     THI.find("input").each(function(index){
                         $(this).removeAttr("checked");
                     })
                 })
+
                 $(".show-con a").each(function(){
                     var TT = $(this).text();
                     THI = $(this);
@@ -503,37 +498,15 @@
                     if(TTR==TT){
                         THI.removeClass("nzw12");
                         THIPP.css("display","block");
-
                     }
-
                     THII = $(this).parents("dl").find("dd").first();
                     THII.find("input").each(function(index){
                         $(this).removeAttr("checked");
                     })
                 })
-                <%--
-                event.preventDefault();
-                $(this).remove();
-                var TTR = $(this).find("em").text();
-                var ttt=$(this).find("b").text();
-                $(".show-con").each(function(){
-                    THIPP = $(this).parents("dl");
-                    var zhiclass = $(this).parents("dl").find("dt").find("a").text();
-                    if(ttb==zhiclass){
-                        THIPP.css("display","block");--%>
-                //更换url
-                <%--
-                                        if(ttt=="城市："){
-                                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&part=${page.part}";
-                                        }
-                                        if(ttt=="合作商品："){
-                                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city=${page.city}";
-                                        }
-
-                                    }
-                                })--%>
-
             });
+
+            //单选效果，直接点击a
             $(".show-con a").click(function(event){
                 event.preventDefault();
                 THIP = $(this).parents("dl");
@@ -546,7 +519,7 @@
                     $(".shaixuan-tj").children().last().after(tianjaneir);
                     THIP.css("display","none");
 
-                    if(zhiclass=="城市："&&${page.cgid!=-1&&page.productname==null}){
+                    if(zhiclass=="城市："){
                         var city=zhicon;
                         if(${page.part==2}){
                             window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city="+city+"";
@@ -555,7 +528,7 @@
                         }
                     }
 
-                    if(zhiclass=="合作商品："&&${page.cgid!=-1&&page.productname==null}){
+                    if(zhiclass=="合作商品："){
                         if(zhicon=="是"){
                             var part=1;
                         }else{
@@ -572,35 +545,6 @@
 
                 }
             });
-
-            <%--
-            event.preventDefault();
-            THIP = $(this).parents("dl");
-            if($(this).hasClass("nzw12")){
-            }else {
-                $(this).addClass("nzw12");
-                var zhiclass = $(this).parents("dd").siblings("dt").find("a").text();
-                    zhicon = $(this).text();
-                tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
-                $(".shaixuan-tj").children().last().after(tianjaneir);
-                THIP.css("display", "none");
-
-                if(zhiclass=="城市："){
-                    var city=zhicon;
-                    window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city="+city+"&part=${page.part}";
-                }
-                if(zhiclass=="合作商品："){
-                    if(zhicon=="是"){
-                    var part=1;
-                    }else{
-                        var part=0;
-                    }
-                    window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&city=${page.city}&part="+part+"";
-                }
-                 }
-                --%>
-
-
 
 
             $(".show-more").click(function(event){
@@ -655,54 +599,42 @@
             if(${page.part!=null&&page.part!=2}){
                 s_part=${page.part};
             }
+            //恢复已筛选多选效果
             $(".show-con").each(function(){
                 var zhiclass = $(this).parents("dl").find("dt").find("a").text();
-                if(s_city!=null&&(zhiclass=="城市：")){
-                    tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + s_city + "</em><i class='icon-remove'></i></a></span>"
-                    $(".shaixuan-tj").children().last().after(tianjaneir);
-                    THIP.css("display", "none");
+                if(s_city!=null&&(s_city.toString().indexOf(",")>0)&&(zhiclass=="城市：")){
 
-
-                }
-                if(zhiclass=="合作商品："&&(s_part==1||s_part==0)){
-                    var s_part_h;
-                    if(s_part==1){
-                        s_part_h="是";
-                    }else{
-                        s_part_h="否";
-                    }
-                    tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + s_part_h + "</em><i class='icon-remove'></i></a></span>"
-                    $(".shaixuan-tj").children().last().after(tianjaneir);
-                    THIP.css("display", "none");
+                      var THIP = $(this).parents("dl");
+                        tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + s_city + "</em><i class='icon-remove'></i></a></span>"
+                        $(".shaixuan-tj").children().last().after(tianjaneir);
+                        THIP.css("display", "none");
 
                 }
             })
-            <%--
+
              $(".show-con a").each(function (index) {
                  THIP = $(this).parents("dl");
                  var zhiclass = $(this).parents("dd").siblings("dt").find("a").text();
                  var zhicon = $(this).text();
-                 if(s_city!=null&&(s_city==zhicon||zhiclass=="城市：")){
-                     if($(this).hasClass("nzw12")){
-                     }else {
-                         $(this).addClass("nzw12");
-                         tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + s_city + "</em><i class='icon-remove'></i></a></span>"
-                         $(".shaixuan-tj").children().last().after(tianjaneir);
-                         THIP.css("display", "none");
-                        // alert(zhiclass+" "+zhicon);
-
-                 }
+                 if(zhiclass=="城市："&&s_city!=null) {
+                     if(s_city==zhicon){//单选效果恢复已筛选的状态
+                         if ($(this).hasClass("nzw12")) {
+                         } else {
+                            $(this).addClass("nzw12");
+                            tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
+                            $(".shaixuan-tj").children().last().after(tianjaneir);
+                            THIP.css("display", "none");
+                         }
+                     }
                  }
                  if((zhicon=="是"&&s_part==1)||(zhicon=="否"&&s_part==0)){
 
                           tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
                          $(".shaixuan-tj").children().last().after(tianjaneir);
                          THIP.css("display", "none");
-                        // alert(zhiclass+" "+zhicon);
-
                  }
              })
-         --%>
+
         });
     </script>
     <!--多条件筛选结束-->
