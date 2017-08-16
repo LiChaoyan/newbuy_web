@@ -13,7 +13,7 @@ import java.util.List;
 public interface CommodityService {
     ArrayList<CommodityShop> selectCommodityShopBy1(String big) throws Exception;
 
-    int selectCommodityShopsize(int cgid) throws Exception;
+    int selectCommodityShopsize(Page page) throws Exception;
 
     ArrayList<CommodityShop> selectCommodityShopBycgid(int cgid) throws Exception;
 
@@ -21,7 +21,7 @@ public interface CommodityService {
 
     ArrayList<CommodityShop> selectCommodityShopBy2(String big, String small) throws Exception;
 
-    int selectCommodityShopsizeByproductname(String productname) throws Exception;
+    int selectCommodityShopsizeByproductname(Page page) throws Exception;
 
     ArrayList<CommodityShop> selectCommodityShopByproductname(Page page) throws Exception;
 
@@ -39,5 +39,7 @@ public interface CommodityService {
     int selectAssesssizeBycid(@Param("cid") int cid)throws Exception;
     //查找评论
     ArrayList<Assess> selectAssess(@Param("page")APage page)throws Exception;
-
+    //商品参数筛选
+    //1.城市筛选
+    List<City> selectAllCity(Page page)throws Exception;
 }

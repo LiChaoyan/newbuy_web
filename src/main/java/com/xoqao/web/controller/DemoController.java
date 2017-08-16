@@ -117,28 +117,45 @@ public class DemoController {
         ModelAndView modelAndView = new ModelAndView();
         ArrayList<BigCategory> list = categoryService.select123List();
         modelAndView.addObject("List", list);
-        //根据cgid分页查询
+
+
+        //筛选信息
+        List<City> cityList= commodityService.selectAllCity(page);
+        modelAndView.addObject("cityList",cityList);
+
+        //多条件筛选
+        //根据cgid,筛选信息分页查询
         int size = 0;
 
         if (page.getCgid() > 0) {
-            size = commodityService.selectCommodityShopsize(page.getCgid());
-            page.setPage(page.getP(), size);
-            arrayList = commodityService.selectCommodityShopBycgidpage(page);
-            //根据商品名字模糊分页查询
+                size = commodityService.selectCommodityShopsize(page);
+                page.setPage(page.getP(), size);
+                arrayList = commodityService.selectCommodityShopBycgidpage(page);
+                //筛选信息导航栏填写
+                page.setBig(arrayList.get(0).getBig());
+                page.setSmall(arrayList.get(0).getSmall());
+                page.setSecend(arrayList.get(0).getSecend());
+
         }
-        if (page.getProductname() != null) {//默认排序
-            size = commodityService.selectCommodityShopsizeByproductname(page.getProductname());
+        if (page.getProductname() != null&&(!page.getProductname().equals(""))&&page.getCgid()==-1) { //根据商品名字模糊分页查询
+        try {
+            System.out.println(page.getProductname());
+            size = commodityService.selectCommodityShopsizeByproductname(page);
             page.setPage(page.getP(), size);
             arrayList = commodityService.selectCommodityShopByproductname(page);
+            }catch (Exception e){
+            e.printStackTrace();
+            }
         }
 
-    // 放入转发参数
-    modelAndView.addObject("CommodityShopArrayList", arrayList);
 
-    // 放入jsp路径
-    modelAndView.addObject("Page",page);
-    modelAndView.addObject("List",list);
-    modelAndView.setViewName("CategoryList");
+          // 放入转发参数
+        modelAndView.addObject("CommodityShopArrayList", arrayList);
+
+        // 放入jsp路径
+        modelAndView.addObject("Page",page);
+
+        modelAndView.setViewName("CategoryList");
 
         return modelAndView;
 

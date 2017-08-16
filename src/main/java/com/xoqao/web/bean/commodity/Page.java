@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Page {
     int p=1;//当前页数,从1开始
     int start=0;//每页开始在数据库中的位置
-    int count = 4;//每页记录
+    int count = 2;//每页记录
     int listsize=0;
     int pagesize;
     int bp=0;//beforepage
@@ -17,6 +17,59 @@ public class Page {
     int cgid=-1;
     String productname;
     String shopname;
+    String city;
+    String[] citysz;
+    int part=2;
+    String big;
+    String small;
+    String secend;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+        this.citysz=city.split(",");
+    }
+
+    public String[] getCitysz() {
+        return citysz;
+    }
+
+    public String getBig() {
+        return big;
+    }
+
+    public void setBig(String big) {
+        this.big = big;
+    }
+
+    public String getSmall() {
+        return small;
+    }
+
+    public void setSmall(String small) {
+        this.small = small;
+    }
+
+    public String getSecend() {
+        return secend;
+    }
+
+    public void setSecend(String secend) {
+        this.secend = secend;
+    }
+
+
+
+    public int getPart() {
+        return part;
+    }
+
+    public void setPart(int part) {
+        this.part = part;
+    }
 
     public int getCgid() {
         return cgid;
@@ -102,15 +155,16 @@ public class Page {
         this.p = p;
         this.listsize=listsize;
         //判断一共几页
-        if(this.listsize%this.count==0){
+        if((this.listsize%this.count)==0){
             this.pagesize=this.listsize/count;
         }else{
             this.pagesize=this.listsize/count+1;
         }
+       
         //判断每一页开始start
         this.start = (p-1) * this.count;
         //判断每一页的结束
-        if(this.p==pagesize){
+        if(this.p==pagesize&&(this.listsize%this.count)!=0){
             this.count=this.listsize%this.count;
         }
         //判断p的上一页bp

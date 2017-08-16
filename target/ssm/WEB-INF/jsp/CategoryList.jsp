@@ -11,17 +11,24 @@
 
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.11.1.min_044d0927.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.8.2.min.js"></script>
+
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/n_nav.js"></script>
 
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/lrscroll_1.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/menu.js"></script>
 
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/n_nav.js"></script>
+    <!--多条件筛选用的jquery-->
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 
     <!--动态分页-->
     <link href="<%=request.getContextPath()%>/back/assets/pages/css/page.css" type="text/css" rel="stylesheet"/>
-    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/pages/js/page.js"></script>
+
+    <!--多条件筛选-->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/back/assets/dtjsx/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/back/assets/dtjsx/css/reset.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/back/assets/dtjsx/css/dstyle.css">
 
     <title>商品搜索</title>
     <meta name="keywords" content="小桥双线购项目购物商城" />
@@ -35,7 +42,21 @@
             height: 23px;
             line-height: 23px;
         }
+        <%----多条件筛选--%>
+
+        .search-by dl dd.sl-multiple {
+            width: 40px;
+            padding: 0;
+            text-align: center;
+            cursor: pointer;
+        }
+        dd.sl-multiple {
+            border: 1px #ddd solid
+        }
+
+
     </style>
+
 </head>
 <body>
 <!--Begin Header Begin-->
@@ -174,19 +195,19 @@
             <form>
                 <div class="search_area" id="search_area">
                     <p style="display: block">
-                        <input type="text" name="productname" value="" id="" class="input_1" placeholder="输入商品名称" />
+                        <input type="text" name="productname" value=""  class="input_1" placeholder="输入商品名称" />
                         <button onclick="Product()"  class="button_search_1">搜索</button>
-                    </p><p><input type="text" name="shopname" value="" id="" class="input_2" placeholder="输入店铺名称" />
+                    </p><p><input type="text" name="shopname" value=""  class="input_2" placeholder="输入店铺名称" />
                     <button  onclick="Shop()" class="button_search_2">搜索</button></p>
                 </div>
             </form>
             <script type="text/javascript">
                 function Product() {
-                    form.action="CategoryList?productname=?&p=1";
+                    form.action="CategoryList?productname=?";
                     form.submit();
                 }
                 function Shop() {
-                    form.action="brand?shopname=?&p=1";
+                    form.action="brand?shopname=?";
                     form.submit();
                 }
             </script>
@@ -282,6 +303,7 @@
 </div>
 <!--End Menu End-->
 <div class="i_bg">
+
     <div class="postion">
         <span class="fl">全部分类 > 美妆个护 > 香水 > </span>
         <span class="n_ch">
@@ -315,6 +337,307 @@
     </div>
     <!--End 筛选条件 End-->
 
+    <div style="width:1200px; margin:0 auto;">
+        <div class="clearfix">
+            <p class="shaixuan-tj floatLeft clearfix">
+                <c:if test="${page.productname!=null&&page.cgid==-1}">
+                    <span><a href="/">全部分类</a></span>
+                    <i class="icon-angle-right"></i>
+                    <span><strong>${page.productname}</strong></span>
+                    <i class="icon-angle-right"></i>
+                </c:if>
+                <c:if test="${page.big!=null}">
+                    <span><a href="/">${page.big}</a></span>
+                    <i class="icon-angle-right"></i>
+                </c:if>
+                <c:if test="${page.small!=null}">
+                    <span><a href="/">${page.small}</a></span>
+                    <i class="icon-angle-right"></i>
+                </c:if>
+                <c:if test="${page.secend!=null}">
+                    <span><a href="/">${page.secend}</a></span>
+                    <i class="icon-angle-right"></i>
+                </c:if>
+
+
+            </p>
+            <p id="sxbtn" class="shaixuan-btn clearfix"><span><em>收起筛选</em><i class="icon-angle-up"></i></span></p>
+        </div>
+
+        <div id="page-search-store" class="mb10 border sxcon">
+            <div class="search-by by-category relative">
+                <%--  <dl class="relative clearfix">
+                    <dt class="floatLeft"><a href="/">城市：</a></dt>
+                     <dd class="floatLeft show-con">
+                         <c:forEach items="${cityList}" var="city">
+                             <a href="#" class="">${city.cityname}</a>
+                         </c:forEach>
+                     </dd>
+                     <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>
+                     <dd class="floatLeft show-more"><h3 class="pointer clearfix"><span>更多</span><i class="icon-angle-down"></i></h3></dd>
+                 </dl>--%>
+                <dl class="relative clearfix">
+                    <dt class="floatLeft"><a href="/">城市：</a></dt>
+                    <dd class="floatLeft show-con">
+                        <c:forEach items="${cityList}" var="city">
+                            <input type="checkbox" value="${city.cityname}"><a class="">${city.cityname}</a></input>
+                        </c:forEach>
+                    </dd>
+                    <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>
+                    <dd class="floatLeft"><input class="btn_sure" type="button" value="确定"/></dd>
+                    <dd class="floatLeft"><input type="button" class="sl_cancel" value="取消"/></dd>
+                    <dd class="floatLeft show-more"><h3 class="pointer clearfix"><span>更多</span><i class="icon-angle-down"></i></h3></dd>
+
+
+                </dl>
+                <dl class="relative clearfix" style="border-bottom:0">
+                    <dt class="floatLeft"><a href="/">合作商品：</a></dt>
+                    <dd class="floatLeft show-con">
+                        <a href="#" class="" ><input type="checkbox"/>是</a>
+                        <a href="#" class="" >否</a>
+                    </dd>
+                    <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>
+                </dl>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function(){
+            //按钮取消
+            $(".sl_cancel").click(function(event){
+                THI = $(this).parents("dl").find("dd").first();
+                THI.find("input").each(function(index){
+                    $(this).removeAttr("checked");
+                })
+            });
+            //多选确定按钮
+            $(".btn_sure").click(function(event){
+                THI = $(this).parents("dl").find("dd").first();
+                var str="";
+                var num=THI.find("input").size();
+                var zhiclass;
+                THI.find("input").each(function(index) {
+                    if ($(this).is(':checked')) {
+                        str += $(this).val() + ",";
+                    }
+
+                    if (index == num - 1) {
+                        THIP = $(this).parents("dl");
+                        zhiclass = $(this).parents("dd").siblings("dt").find("a").text();
+                        zhicon = str;
+                        tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
+                        $(".shaixuan-tj").children().last().after(tianjaneir);
+                        THIP.css("display", "none");
+                    }
+                })
+
+                if(zhiclass=="城市："){
+                    if(${page.part==2}){
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city="+str+"";
+                    }else{
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&part=${page.part}&city="+str+"";
+                    }
+
+                }
+
+            });
+
+            $(".shaixuan-tj span.crumb-select-item").live('hover',function(event){
+                if(event.type=='mouseenter'){
+                    $(this).addClass("crumb-select-itemon");
+                }else{
+                    $(this).removeClass("crumb-select-itemon");
+                }
+
+            });
+            $(".shaixuan-tj span.crumb-select-item").live('click', function(event){
+
+                event.preventDefault();
+                $(this).remove();
+                var ttb=$(this).find("b").text();
+                var TTR = $(this).find("em").text();
+                $(".show-con").each(function(){
+                    THIPP = $(this).parents("dl");
+                    var zhiclass = $(this).parents("dl").find("dt").find("a").text();
+                    if(ttb==zhiclass){
+                        THIPP.css("display","block");
+                        if(ttb=="城市："){
+                            if(${page.part==2}){
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}";
+                            }else{
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&part=${page.part}";
+                            }
+
+                        }
+
+
+                        if(ttb=="合作商品："){
+                            if(${page.city==null}){
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}";
+                            }else{
+                                window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}";
+                            }
+
+                        }
+
+                    }
+
+                    THI = $(this).parents("dl").find("dd").first();
+                    THI.find("input").each(function(index){
+                        $(this).removeAttr("checked");
+                    })
+                })
+
+                $(".show-con a").each(function(){
+                    var TT = $(this).text();
+                    THI = $(this);
+                    THIPP = $(this).parents("dl");
+                    if(TTR==TT){
+                        THI.removeClass("nzw12");
+                        THIPP.css("display","block");
+                    }
+                    THII = $(this).parents("dl").find("dd").first();
+                    THII.find("input").each(function(index){
+                        $(this).removeAttr("checked");
+                    })
+                })
+            });
+
+            //单选效果，直接点击a
+            $(".show-con a").click(function(event){
+                event.preventDefault();
+                THIP = $(this).parents("dl");
+                if($(this).hasClass("nzw12")){
+                }else{
+                    $(this).addClass("nzw12");
+                    var zhiclass = $(this).parents("dd").siblings("dt").find("a").text();
+                    zhicon = $(this).text();
+                    tianjaneir="<span class='crumb-select-item'><a href='/'><b>"+zhiclass+"</b><em>"+zhicon+"</em><i class='icon-remove'></i></a></span>"
+                    $(".shaixuan-tj").children().last().after(tianjaneir);
+                    THIP.css("display","none");
+
+                    if(zhiclass=="城市："){
+                        var city=zhicon;
+                        if(${page.part==2}){
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city="+city+"";
+                        }else{
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&part=${page.part}&city="+city+"";
+                        }
+                    }
+
+                    if(zhiclass=="合作商品："){
+                        if(zhicon=="是"){
+                            var part=1;
+                        }else{
+                            var part=0;
+                        }
+                        if(${page.city==null}){
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&part="+part+"";
+                        }else{
+                            window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part="+part+"";
+                        }
+                    }
+
+
+
+                }
+            });
+
+
+            $(".show-more").click(function(event){
+                event.preventDefault();
+                var ticon = $(this).find("i");
+                tspan = $(this).find("span");
+                if($(this).hasClass("zk")){
+                    $(this).siblings(".show-con").css("height","30px");
+                    ticon.removeClass("icon-angle-up");
+                    ticon.addClass("icon-angle-down");
+                    tspan.html("更多");
+                    $(this).removeClass("zk")
+                }else{
+                    $(this).siblings(".show-con").css("height","auto");
+                    ticon.removeClass("icon-angle-down");
+                    ticon.addClass("icon-angle-up");
+                    tspan.html("收起");
+                    $(this).addClass("zk")
+                }
+            });
+            $("#sxbtn").click(function(event){
+                event.preventDefault();
+                var xicon = $(this).find("span i");
+                xspan = $(this).find("span em");
+                if($(this).hasClass("zkon")){
+                    xspan.text("收起筛选");
+                    xicon.removeClass("icon-angle-down");
+                    xicon.addClass("icon-angle-up");
+                    $(".sxcon").slideDown();
+                    $(this).removeClass("zkon")
+                }else{
+                    xspan.text("查看筛选");
+                    xicon.removeClass("icon-angle-up");
+                    xicon.addClass("icon-angle-down");
+                    $(".sxcon").slideUp();
+                    $(this).addClass("zkon")
+                }
+            })
+
+
+        })
+
+    </script>
+    <script type="text/javascript">
+        // 刷新之后保存原有的筛选状态
+        $(document).ready(function(){
+            var s_city;
+            var s_part;
+            if(${page.city!=null}){
+                s_city="${page.city}";
+            }
+            if(${page.part!=null&&page.part!=2}){
+                s_part=${page.part};
+            }
+            //恢复已筛选多选效果
+            $(".show-con").each(function(){
+                var zhiclass = $(this).parents("dl").find("dt").find("a").text();
+                if(s_city!=null&&(s_city.toString().indexOf(",")>0)&&(zhiclass=="城市：")){
+
+                      var THIP = $(this).parents("dl");
+                        tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + s_city + "</em><i class='icon-remove'></i></a></span>"
+                        $(".shaixuan-tj").children().last().after(tianjaneir);
+                        THIP.css("display", "none");
+
+                }
+            })
+
+             $(".show-con a").each(function (index) {
+                 THIP = $(this).parents("dl");
+                 var zhiclass = $(this).parents("dd").siblings("dt").find("a").text();
+                 var zhicon = $(this).text();
+                 if(zhiclass=="城市："&&s_city!=null) {
+                     if(s_city==zhicon){//单选效果恢复已筛选的状态
+                         if ($(this).hasClass("nzw12")) {
+                         } else {
+                            $(this).addClass("nzw12");
+                            tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
+                            $(".shaixuan-tj").children().last().after(tianjaneir);
+                            THIP.css("display", "none");
+                         }
+                     }
+                 }
+                 if((zhicon=="是"&&s_part==1)||(zhicon=="否"&&s_part==0)){
+
+                          tianjaneir = "<span class='crumb-select-item'><a href='/'><b>" + zhiclass + "</b><em>" + zhicon + "</em><i class='icon-remove'></i></a></span>"
+                         $(".shaixuan-tj").children().last().after(tianjaneir);
+                         THIP.css("display", "none");
+                 }
+             })
+
+        });
+    </script>
+    <!--多条件筛选结束-->
     <div class="content mar_20">
         <div class="l_history">
             <div class="his_t">
@@ -397,7 +720,7 @@
                 </ul>
                 <div class="pages">
 
-                    <ul class="page" maxshowpageitem="${page.pagesize}" pagelistcount="${page.count}"  id="page"></ul>
+                    <ul class="page" maxshowpageitem="5" pagelistcount="${page.count}"  id="page"></ul>
 
                 </div>
 
@@ -407,12 +730,12 @@
                     }
                     var GG = {
                         "kk":function(mm){
-                           // alert(mm);
+                            // alert(mm);
                             // console.log("hellos");
-                            window.location.href="CategoryList?cgid=${page.cgid}&productname=${page.productname}&p="+mm;
+                            window.location.href="CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&p="+mm;
                         }
                     }
-                    $("#page").initPage(${page.pagesize},${page.p},GG.kk);
+                    $("#page").initPage(${page.listsize},${page.p},GG.kk);
                 </script>
             </div>
         </div>
@@ -519,6 +842,4 @@
 <!--
 本代码由js代码网网友上传，js代码网收集并编辑整理;
 尊重他人劳动成果;
-转载请保留js代码链接 - www.jsdaima.com
--->
-
+转载请保留js代码链接 - www.jsdaima.com-->

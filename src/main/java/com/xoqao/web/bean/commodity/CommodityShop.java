@@ -20,6 +20,9 @@ public class CommodityShop {
     private String param1;
     private String param2;
     private String param3;
+    private int status;
+    private int partstatus;
+
 
     //商品所属店铺信息
    // private Integer sid; 重复信息
@@ -52,6 +55,21 @@ public class CommodityShop {
     private String secend;
 
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getPartstatus() {
+        return partstatus;
+    }
+
+    public void setPartstatus(int partstatus) {
+        this.partstatus = partstatus;
+    }
 
     public int getCid() {
         return cid;

@@ -95,7 +95,7 @@
 .coll_body{display: none; }
 .coll_body a{display:block; margin:10px; text-align: center; background: #f5f4f4;}
 .coll_body h4{ width: 100%; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat:  no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #BDBDBD; color: #fff; }
-.current{background-image:url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_down.png);}
+.boxcurrent{background-image:url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_down.png);}
 
 </style>
 <script type="text/javascript">
@@ -232,8 +232,9 @@
 });
     /*宝贝分类*/
     $(function(){
+        $(".coll_body").eq(0).show();
         $(".Collapsing").click(function(){
-            $(this).toggleClass("current").siblings('.Collapsing').removeClass("current");//切换图标
+            $(this).toggleClass("boxcurrent").siblings('.Collapsing').removeClass("boxcurrent");//切换图标
             $(this).next(".coll_body").slideToggle(500).siblings(".coll_body").slideUp(500);
         });
     });
@@ -764,7 +765,7 @@
             <div class="fav_t" style="height: 40px;font-size:20px;padding-left: 55px; ">宝贝分类</div>
             <div class="box">
                 <c:forEach items="${ShopList}" var="BigCategory" varStatus="bigid" >
-                <h3 class="Collapsing  current">${BigCategory.big}</h3>
+                <h3 class="Collapsing  boxcurrent">${BigCategory.big}</h3>
                 <div class="coll_body">
                     <c:forEach items="${BigCategory.smallCategoryList}" var="SmallCategory" varStatus="samllid">
                     <h4 class="Collapsing">${SmallCategory.small}</h4>
