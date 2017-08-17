@@ -106,7 +106,7 @@ public class DemoController {
         model.addAttribute("users", allUsers);
         return "backmanage/sectionList";
     }
-<<<<<<< HEAD
+
 
 
     @RequestMapping("/shopList")
@@ -337,6 +337,5 @@ public String upBossPhone(Model model , Boss boss) {
             model.addAttribute("Category",categoryListall);
         }
 }
-=======
-}
->>>>>>> wordlu-master
+
+
