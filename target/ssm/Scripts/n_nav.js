@@ -23,3 +23,10 @@ jQuery(document).ready(function(){
 });	
 
 
+$(function() {
+             $(".button_search_1").onclick(function(){
+                 var productname=$(".input_1").val();
+
+             })
+});
+

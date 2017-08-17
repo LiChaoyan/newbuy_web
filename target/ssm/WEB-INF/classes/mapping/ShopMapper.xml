@@ -26,4 +26,17 @@
     <update id="updateShop" >
         UPDATE shop set shopname='${shopname}',type='${type}',stel='${stel}',city='${city}',saddress='${saddress}',scope='${scope}',subscrib='${subscrib}'  where bid=17
     </update>
+    <!--根据店铺名字模糊查询长度-->
+    <select id="selectShopsizeByname" resultType="int">
+        select count(*)
+        from shop,city
+        where shop.city=city.cid and shopname like '%${shopname}%';
+    </select>
+    <!--根据店铺名字模糊查询page-->
+    <select id="selectShopByname" resultType="com.xoqao.web.bean.shop.ShopCity">
+        select shop.*,city.cityname
+        from shop,city
+        where shop.city=city.cid and shopname LIKE '%${page.shopname}%'
+        limit ${page.start},${page.count}
+    </select>
 </mapper>

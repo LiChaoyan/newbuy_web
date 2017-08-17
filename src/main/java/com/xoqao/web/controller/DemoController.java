@@ -1,29 +1,25 @@
 package com.xoqao.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.sun.javafx.collections.MappingChange;
+import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
+import com.xoqao.web.bean.category.SmallCategory;
+import com.xoqao.web.bean.commodity.*;
+import com.xoqao.web.bean.shop.ShopCity;
 import com.xoqao.web.bean.user.User;
 import com.xoqao.web.bean.shop.Shop;
 import com.xoqao.web.bean.boss.Boss;
-import com.xoqao.web.service.UserService;
-import com.xoqao.web.service.ShopService;
-import com.xoqao.web.service.BossService;
-import com.xoqao.web.service.CategoryService;
+import com.xoqao.web.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;;
 
 /**
  * 说明：
@@ -46,42 +42,169 @@ public class DemoController {
     @Autowired
     CategoryService categoryService;
 
+    @Autowired
+    CommodityService commodityService;
+
     @RequestMapping("/xoqiao")
     public String begin(Model model) throws Exception {
         return "backmanage/xoqiao";
+    }
+    @RequestMapping("/xingji")
+    public String TEST(Model model) throws Exception {
+        return "backmanage/xingji";
     }
 
     @RequestMapping("/backlogin")
     public String backlogin(Model model) throws Exception {
         return "backmanage/backlogin";
     }
-    @RequestMapping("/brand")
-    public String BRAND(Model model) throws Exception {
-        return "Brand";
+    @RequestMapping("/sousuo")
+    public String Sousuoshow(Model model) throws Exception {
+        return "sousuo";
     }
-    @RequestMapping("/index")
+
+   @RequestMapping("brand")
+   public  ModelAndView Brandshow(Page page,Model model)throws Exception{
+       int size=0;
+       ModelAndView modelAndView2=new ModelAndView();
+        if(page.getShopname()!=null) {
+        size = shopService.selectShopsizeByname(page.getShopname());
+        page.setPage(page.getP(), size);
+        System.out.println(size + " " + page.getShopname());
+        ArrayList<ShopCity> shoparrayList = shopService.selectShopByname(page);
+        System.out.println(shoparrayList.size());
+        modelAndView2.addObject("ShopList", shoparrayList);
+       }
+       modelAndView2.addObject("Page",page);
+       modelAndView2.setViewName("Brand");
+        return modelAndView2;
+   }
+
+    @RequestMapping("/Member_User")
+    public String Member_User(Model model) throws Exception {
+        return "Member_User";
+    }
+    @RequestMapping("/Member_Head")
+    public String Member_Head(Model model) throws Exception {
+        return "Member_Head";
+    }
+    @RequestMapping("/Member_Safehead")
+    public String Member_Safehead(Model model) throws Exception {
+        return "Member_Safehead";
+    }
+
+
+    @RequestMapping("/goodsadd")
+    public String Goodsadd(Model model) throws Exception {
+        return "Goodsadd";
+    }
+
+    @RequestMapping("/shop/index")
     public String INDEX(Model model) throws Exception {
+        //动态添加商品分类
+        ArrayList <BigCategory> list= categoryService.select123List();
+        model.addAttribute("List", list);
+        ArrayList <Partshop> partshops=commodityService.selectAllPartshop();
+        model.addAttribute("partshops",partshops);
         return "Index";
     }
-    @RequestMapping("/CategoryList")
-    public String CategoryList(Model model) throws Exception {
-        return "CategoryList";
+
+    @RequestMapping("/CategoryList" )
+    public ModelAndView showCategoryListpage(Page page,Model model)throws Exception {
+        ArrayList<CommodityShop> arrayList = new ArrayList<CommodityShop>();
+        //动态添加商品分类
+        ModelAndView modelAndView = new ModelAndView();
+        ArrayList<BigCategory> list = categoryService.select123List();
+        modelAndView.addObject("List", list);
+
+
+        //筛选信息
+        List<City> cityList= commodityService.selectAllCity(page);
+        modelAndView.addObject("cityList",cityList);
+
+        //多条件筛选
+        //根据cgid,筛选信息分页查询
+        int size = 0;
+
+        if (page.getCgid() > 0) {
+                size = commodityService.selectCommodityShopsize(page);
+                page.setPage(page.getP(), size);
+                arrayList = commodityService.selectCommodityShopBycgidpage(page);
+                //筛选信息导航栏填写
+                page.setBig(arrayList.get(0).getBig());
+                page.setSmall(arrayList.get(0).getSmall());
+                page.setSecend(arrayList.get(0).getSecend());
+
+        }
+        if (page.getProductname() != null&&(!page.getProductname().equals(""))&&page.getCgid()==-1) { //根据商品名字模糊分页查询
+        try {
+            System.out.println(page.getProductname());
+            size = commodityService.selectCommodityShopsizeByproductname(page);
+            page.setPage(page.getP(), size);
+            arrayList = commodityService.selectCommodityShopByproductname(page);
+            }catch (Exception e){
+            e.printStackTrace();
+            }
+        }
+
+
+          // 放入转发参数
+        modelAndView.addObject("CommodityShopArrayList", arrayList);
+
+        // 放入jsp路径
+        modelAndView.addObject("Page",page);
+
+        modelAndView.setViewName("CategoryList");
+
+        return modelAndView;
+
     }
-    @RequestMapping("/Login")
-    public String Login(Model model) throws Exception {
-        return "Login";
+
+
+
+
+    @RequestMapping("/product")
+    public ModelAndView Product (int cid,APage page,Model model) throws Exception {
+
+        ModelAndView productmodelAndView=new ModelAndView();
+        //基本信息填充（包括评论信息）
+        if(cid!=-1) {
+            //动态添加商品分类
+            ArrayList<BigCategory> list = categoryService.selectShopBycid(cid);
+            productmodelAndView.addObject("ShopList", list);
+            //热销商品
+            ArrayList<Commodity> hootList = commodityService.selecthootBycid(cid);
+            productmodelAndView.addObject("hootList", hootList);
+            //商品基本信息查询()
+            CommodityShop product = commodityService.selectProductBycid(cid);
+            productmodelAndView.addObject("Product", product);
+
+            //评论展示（默认p=1，ping=0）
+                int gass = commodityService.selectGA(cid);
+                int mass = commodityService.selectMA(cid);
+                int bass = commodityService.selectBA(cid);
+                int listsize = commodityService.selectAssesssizeBycid(cid);
+                page.setAPage(page.getP(), listsize, gass, mass, bass);
+                productmodelAndView.addObject("page", page);
+                ArrayList<Assess> assessArrayList = commodityService.selectAssess(page);
+                productmodelAndView.addObject("AssessList", assessArrayList);
+        }
+
+        productmodelAndView.setViewName("Product");
+        return productmodelAndView;
     }
-    @RequestMapping("/Regist")
-    public String Regist(Model model) throws Exception {
-        return "Regist";
-    }
-    @RequestMapping("/Registtwo")
-    public String Registtwo (Model model) throws Exception {
-        return "Registtwo";
-    }
-    @RequestMapping("/Registthree")
-    public String Registthree (Model model) throws Exception {
-        return "Registthree";
+
+    @RequestMapping("/assesstu")
+    public ModelAndView AssessLPT(int cid,Model model) throws Exception {
+        //查询所有评论以图片为单位，轮播展示
+        ModelAndView modelAndView=new ModelAndView();
+        int size=commodityService.selectAssesssizeBycid(cid);
+        APage page=new APage();
+        page.setCid(cid);page.setP(1);page.setPing(0);page.setCount(size);
+        ArrayList<Assess> assessList=commodityService.selectAssess(page);
+        modelAndView.addObject("AssessList",assessList);
+        modelAndView.setViewName("backmanage/AssessTu");
+        return modelAndView;
     }
 
     @RequestMapping("/postManage")
@@ -300,7 +423,7 @@ public String upBossPhone(Model model , Boss boss) {
         }
 
     }
-              @RequestMapping("/savecategory")
+        @RequestMapping("/savecategory")
         public void savecategory(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
         System.out.print("4.根据请求参数查询cgid，绑定店铺号sid");
         //1.big不为空，small，secend为空，添加操作
@@ -337,5 +460,4 @@ public String upBossPhone(Model model , Boss boss) {
             model.addAttribute("Category",categoryListall);
         }
 }
-
 

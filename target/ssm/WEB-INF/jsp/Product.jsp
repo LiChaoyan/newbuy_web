@@ -1,31 +1,35 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link type="text/css" rel="stylesheet" href="Css/style.css" />
-    
-    <script type="text/javascript" src="Scripts/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="Scripts/menu.js"></script>    
+	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />
+    <%--<script type="text/javascript"src="<%= request.getContextPath()%>/Scripts/jquery-1.8.2.min.js"></script>--%>
+    <%--<script type="text/javascript"src="<%= request.getContextPath()%>/Scripts/menu.js"></script>    --%>
             
-	<script type="text/javascript" src="Scripts/lrscroll_1.js"></script>   
-     
-    
-	<script type="text/javascript" src="Scripts/n_nav.js"></script>
-    
-    <link rel="stylesheet" type="text/css" href="Css/shopshow.css" />
-    <link rel="stylesheet" type="text/css" href="Css/magiczoom.css" />
-    <script type="text/javascript" src="Scripts/magiczoom.js"></script>
-    
-    <script type="text/javascript" src="Scripts/num.js">
-    	var jq = jQuery.noConflict();
-    </script>
-        
-    <script type="text/javascript" src="Scripts/p_tab.js"></script>
-    
-    <script type="text/javascript" src="Scripts/shade.js"></script>
-    <script type="text/javascript" src="Scripts/jquery.1.4.2-min.js"></script>
+	<%--<script type="text/javascript"src="<%= request.getContextPath()%>/Scripts/lrscroll_1.js"></script>   --%>
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.11.1.min_044d0927.js"></script>
+    <%--<script type="text/javascript"src="<%= request.getContextPath()%>/Scripts/jquery.1.4.2-min.js"></script>--%>
+    <%--<script type="text/javascript"src="<%= request.getContextPath()%>/Scripts/n_nav.js"></script>--%>
 
+
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/n_nav.js"></script>
     
-<title>尤洪</title>
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/Css/shopshow.css" />
+    
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/shade.js"></script>   <!-- 控制弹窗 -->
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery.1.4.2-min.js"></script>
+
+    <!--星级评价1.4的jquery就行-->
+    <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/back/assets/xingji/demo/css/application.css">
+    <script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/xingji/lib/jquery.raty.js"></script>
+
+    <title>商品详情</title>
 <style type="text/css">
 .preview1{width:400px; height:465px;}
 /* bigImg1 */
@@ -36,6 +40,63 @@
 /* bigView1 */
 #bigView1{position:absolute;border: 1px solid #959595; overflow: hidden; z-index:999;}
 #bigView1 img{position:absolute;}
+
+.conbox{ display:none; padding:20px;}
+.pro_con {
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-color: #E8E8E8;
+    border-bottom-color: #E8E8E8;
+    border-left-color: #E8E8E8;
+    padding-bottom: 30px;
+}
+
+.pro_tab {
+    overflow: hidden;
+    border: 1px solid #E8E8E8;
+}
+.pro_tab ul {
+    display: block;
+}
+.pro_tab ul li {
+    float: left;
+    height: 45px;
+    width: 140px;
+    line-height: 45px;
+    text-align: center;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #E8E8E8;
+    background-color: #F9F7F8;
+    display: block;
+    margin-bottom: -3px;
+}
+
+.pro_tab .cur {
+    border-top-width: 3px;
+    border-top-style: solid;
+    border-top-color: #ff4e00;
+    background-color: #FFF;
+    color: #ff4e00;
+    font-weight: bold;
+}
+.ping {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+    /*宝贝分类*/
+.box{ width:208px; height: auto; border: solid 1px #cccccc;}
+.Collapsing{ width: 100%;padding:0; margin:0; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat: no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #949090; color: #fff; }
+.coll_body{display: none; }
+.coll_body a{display:block; margin:10px; text-align: center; background: #f5f4f4;}
+.coll_body h4{ width: 100%; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat:  no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #BDBDBD; color: #fff; }
+.boxcurrent{background-image:url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_down.png);}
+
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -165,10 +226,18 @@
         var scrollX = X * $viewImgWidth / $imgWidth;
         var scrollY = Y * $viewImgHeight / $imgHeight;
         $("#bigView1 img").css({ "left": scrollX * -1, "top": scrollY * -1 });
-        $("#bigView1").css({ "top": 250, "left": $(".preview1").offset().left + $(".preview1").width() + 15 });
+        $("#bigView1").css({ "top": 230, "left": $(".preview1").offset().left + $(".preview1").width() + 15 });
         return { left: X, top: Y };
     }
 });
+    /*宝贝分类*/
+    $(function(){
+        $(".coll_body").eq(0).show();
+        $(".Collapsing").click(function(){
+            $(this).toggleClass("boxcurrent").siblings('.Collapsing').removeClass("boxcurrent");//切换图标
+            $(this).next(".coll_body").slideToggle(500).siblings(".coll_body").slideUp(500);
+        });
+    });
 </script>
 </head>
 <body>  
@@ -176,14 +245,14 @@
 <div class="soubg">
 	<div class="sou">
     	<!--Begin 所在收货地区 Begin-->
-    	<span class="s_city_b">
-        	<span class="fl">送货至：</span>
+    	 <span class="s_city_b">
+            <span class="fl"><div class="location"></div></span>
             <span class="s_city">
-            	<span>四川</span>
+                <span>北京</span>
                 <div class="s_city_bg">
-                	<div class="s_city_t"></div>
+                    <div class="s_city_t"></div>
                     <div class="s_city_c">
-                    	<h2>请选择所在的收货地区</h2>
+                        <h2>请选择收货地区</h2>
                         <table border="0" class="c_tab" style="width:235px; margin-top:10px;" cellspacing="0" cellpadding="0">
                           <tr>
                             <th>A</th>
@@ -191,7 +260,7 @@
                           </tr>
                           <tr>
                             <th>B</th>
-                            <td class="c_h"><span>北京</span></td>
+                            <td class="c_h"><span class="c_check">北京</span></td>
                           </tr>
                           <tr>
                             <th>C</th>
@@ -227,7 +296,7 @@
                           </tr>
                           <tr>
                             <th>S</th>
-                            <td class="c_h"><span>上海</span><span>山东</span><span>山西</span><span class="c_check">四川</span><span>陕西</span></td>
+                            <td class="c_h"><span>上海</span><span>山东</span><span>山西</span><span>四川</span><span>陕西</span></td>
                           </tr>
                           <tr>
                             <th>T</th>
@@ -252,87 +321,82 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="Login.jsp">登录</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
-        	<span class="ss">
-            	<div class="ss_list">
-                	<a href="#">收藏夹</a>
+            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login.html">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="<%= request.getContextPath()%>/#">我的订单</a>&nbsp; -->|</span>
+            <span class="ss">
+                <div class="ss_list">
+                    <a href="<%= request.getContextPath()%>/#">我的</a>
                     <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
+                        <div class="s_city_t"></div>
                         <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">我的收藏夹</a></li>
-                                <li><a href="#">我的收藏夹</a></li>
+                            <ul>
+                                <li><a href="<%= request.getContextPath()%>/#">我的订单</a></li>
+                                <li><a href="<%= request.getContextPath()%>/#">我的消息</a></li>
+                                <li><a href="<%= request.getContextPath()%>/#">我的收藏夹</a></li>
                             </ul>
                         </div>
                     </div>     
                 </div>
                 <div class="ss_list">
-                	<a href="#">客户服务</a>
+                    <a href="<%= request.getContextPath()%>/#">客户服务</a>
                     <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
+                        <div class="s_city_t"></div>
                         <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
+                            <ul>
+                                <li><a href="<%= request.getContextPath()%>/#">客户服务</a></li>
+                                <li><a href="<%= request.getContextPath()%>/#">客户服务</a></li>
+                                <li><a href="<%= request.getContextPath()%>/#">客户服务</a></li>
                             </ul>
                         </div>
                     </div>    
                 </div>
                 <div class="ss_list">
-                	<a href="#">网站导航</a>
+                    <a href="<%= request.getContextPath()%>/#">网站导航</a>
                     <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
+                        <div class="s_city_t"></div>
                         <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">网站导航</a></li>
-                                <li><a href="#">网站导航</a></li>
+                            <ul>
+                                <li><a href="<%= request.getContextPath()%>/#">网站导航</a></li>
+                                <li><a href="<%= request.getContextPath()%>/#">网站导航</a></li>
+                                <li><a href="<%= request.getContextPath()%>/#">网站导航</a></li>
                             </ul>
                         </div>
                     </div>    
                 </div>
             </span>
-            <span class="fl">|&nbsp;关注我们：</span>
-            <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="Picture/s_tel.png" align="absmiddle" /></a></span>
-        </span>
+
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.jsp"><img src="Picture/logo.png" /></a></div>
+    <div class="logo"><a href="<%= request.getContextPath()%>/Index.html"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
+    <!-- 搜索框 -->
     <div class="search">
-    	<form>
-        	<input type="text" value="" class="s_ipt" />
-            <input type="submit" value="搜索" class="s_btn" />
-        </form>                      
-        <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
-    </div>
+    <div class="searchbox">
+        <ul id="ul_menus">
+            <li><a href="#" class="style_1">商品</a></li>
+            <li><a href="#">店铺</a></li>
+        </ul>
+        <div class="search_area" id="search_area">
+            <p style="display: block"><input type="text" value="" id="" class="input_1" placeholder="输入商品名称" /><button class="button_search_1">搜索</button></p>
+            <p><input type="text" value="" id="" class="input_2" placeholder="输入店铺名称" /><button class="button_search_2">搜索</button></p>
+        </div>         
+        <span class="fl" style="margin-left: 10px;"><a href="<%= request.getContextPath()%>/#">咖啡</a><a href="<%= request.getContextPath()%>/#">iphone 6S</a><a href="<%= request.getContextPath()%>/#">新鲜美食</a><a href="<%= request.getContextPath()%>/#">蛋糕</a><a href="<%= request.getContextPath()%>/#">日用品</a><a href="<%= request.getContextPath()%>/#">连衣裙</a></span>
+    </div></div>
     <div class="i_car">
-    	<div class="car_t">购物车 [ <span>3</span> ]</div>
+        <div class="car_t">购物车 [ <span>3</span> ]</div>
         <div class="car_bg">
-       		<!--Begin 购物车未登录 Begin-->
-        	<div class="un_login">还未登录！<a href="Login.jsp" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+            <!--Begin 购物车未登录 Begin-->
+            <div class="un_login">还未登录！<a href="<%= request.getContextPath()%>/Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
             <!--End 购物车未登录 End-->
             <!--Begin 购物车已登录 Begin-->
             <ul class="cars">
-            	<li>
-                	<div class="img"><a href="#"><img src="Picture/car1.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
                 <li>
-                	<div class="img"><a href="#"><img src="Picture/car2.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
-                <li>
-                	<div class="img"><a href="#"><img src="Picture/car2.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
+                    <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/car1.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="<%= request.getContextPath()%>/#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
                     <div class="price"><font color="#ff4e00">￥399</font> X1</div>
                 </li>
             </ul>
             <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
-            <div class="price_a"><a href="#">去购物车结算</a></div>
+            <div class="price_a"><a href="<%= request.getContextPath()%>/#">去购物车结算</a></div>
             <!--End 购物车已登录 End-->
         </div>
     </div>
@@ -348,237 +412,237 @@
                 <ul>      
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="Picture/nav1.png" /></span>
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav1.png" /></span>
                             <span class="fl">进口食品、生鲜</span>
                         </div>
                         <div class="zj">
                             <div class="zj_l">
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="Picture/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="Picture/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="Picture/nav2.png" /></span>
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav2.png" /></span>
                             <span class="fl">食品、饮料、酒</span>
                         </div>
                         <div class="zj" style="top:-40px;">
                             <div class="zj_l">
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力2</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="Picture/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="Picture/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="Picture/nav3.png" /></span>
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav3.png" /></span>
                             <span class="fl">母婴、玩具、童装</span>
                         </div>
                         <div class="zj" style="top:-80px;">
                             <div class="zj_l">
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力3</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="Picture/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="Picture/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="Picture/nav4.png" /></span>
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav4.png" /></span>
                             <span class="fl">家居、家庭清洁、纸品</span>
                         </div>
                         <div class="zj" style="top:-120px;">
                             <div class="zj_l">
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力4</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="Picture/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="Picture/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="Picture/nav5.png" /></span>
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav5.png" /></span>
                             <span class="fl">美妆、个人护理、洗护</span>
                         </div>
                         <div class="zj" style="top:-160px;">
                             <div class="zj_l">
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力5</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="Picture/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="Picture/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="Picture/nav6.png" /></span>
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav6.png" /></span>
                             <span class="fl">女装、内衣、中老年</span>
                         </div>
                         <div class="zj" style="top:-200px;">
                             <div class="zj_l">
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力6</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="Picture/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="Picture/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="Picture/nav7.png" /></span>
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav7.png" /></span>
                             <span class="fl">鞋靴、箱包、腕表配饰</span>
                         </div>
                         <div class="zj" style="top:-240px;">
                             <div class="zj_l">
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力7</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="Picture/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="Picture/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="Picture/nav8.png" /></span>
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav8.png" /></span>
                             <span class="fl">男装、运动</span>
                         </div>
                         <div class="zj" style="top:-280px;">
                             <div class="zj_l">
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力8</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="Picture/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="Picture/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="Picture/nav9.png" /></span>
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav9.png" /></span>
                             <span class="fl">手机、小家电、电脑</span>
                         </div>
                         <div class="zj" style="top:-320px;">
                             <div class="zj_l">
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力9</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="Picture/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="Picture/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>                    
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="Picture/nav10.png" /></span>
+                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav10.png" /></span>
                             <span class="fl">礼品、充值</span>
                         </div>
                         <div class="zj" style="top:-360px;">
                             <div class="zj_l">
                                 <div class="zj_l_c">
                                     <h2>零食 / 糖果 / 巧克力10</h2>
-                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
-                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
-                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                    <a href="<%= request.getContextPath()%>/#">坚果</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">巧克力</a>|
+                                    <a href="<%= request.getContextPath()%>/#">口香糖</a>|<a href="<%= request.getContextPath()%>/#">海苔</a>|<a href="<%= request.getContextPath()%>/#">鱼干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|
+                                    <a href="<%= request.getContextPath()%>/#">蜜饯</a>|<a href="<%= request.getContextPath()%>/#">红枣</a>|<a href="<%= request.getContextPath()%>/#">牛肉干</a>|<a href="<%= request.getContextPath()%>/#">蜜饯</a>|
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="Picture/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="Picture/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>                    	
@@ -587,64 +651,53 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
     	<ul class="menu_r">
-        	<li><a href="Index.jsp">首页</a></li>
-            <li><a href="Food.html">美食</a></li>
-            <li><a href="Fresh.html">生鲜</a></li>
-            <li><a href="HomeDecoration.html">家居</a></li>
-            <li><a href="SuitDress.html">女装</a></li>
-            <li><a href="MakeUp.html">美妆</a></li>
-            <li><a href="Digital.html">数码</a></li>
-            <li><a href="GroupBuying.html">团购</a></li>
+        	<li><a href="<%= request.getContextPath()%>/Index.html">首页</a></li>
+            <li><a href="<%= request.getContextPath()%>/Food.html">美食</a></li>
+            <li><a href="<%= request.getContextPath()%>/Fresh.html">生鲜</a></li>
+            <li><a href="<%= request.getContextPath()%>/HomeDecoration.html">家居</a></li>
+            <li><a href="<%= request.getContextPath()%>/SuitDress.html">女装</a></li>
+            <li><a href="<%= request.getContextPath()%>/MakeUp.html">美妆</a></li>
+            <li><a href="<%= request.getContextPath()%>/Digital.html">数码</a></li>
+            <li><a href="<%= request.getContextPath()%>/GroupBuying.html">团购</a></li>
         </ul>
         <div class="m_ad">商品详情</div>
     </div>
 </div>
 <!--End Menu End--> 
+
 <div class="i_bg">
 	<div class="postion">
-    	<span class="fl">全部 > 美妆个护 > 香水 > 迪奥 > 迪奥真我香水</span>
+        <span class="fl">全部 > ${Product.big} > ${Product.small} > ${Product.secend} > ${Product.productname} </span>
     </div>    
     <div class="content">
         <div id="tsShopContainer">
             <div id="tsImgS">
-            <!-- <a href="images/p_big.jpg" title="Images" class="MagicZoom" id="MagicZoom"><img src="Picture/p_big.jpg" width="390" height="390" /></a>-->
                 <div class="preview1">
                     <div id="vertical" class="bigImg1">
-                        <img src="Picture/05.jpg" width="500" height="500" alt="" id="midimg1" />
+                        <img src="<%= request.getContextPath()%>/Picture/05.jpg" width="500" height="500" alt="" id="midimg1" />
                         <div style="display:none;" id="winSelector1"></div>
                     </div>
                 <!--bigImg1 end-->   
-                    <div id="bigView1" style="display:none;"><img width="800" height="800" alt="" src="" /></div>
+                    <div id="bigView1" style="display:none;"><img width="800" height="800" alt=""src="<%= request.getContextPath()%>/" /></div>
                 </div>
-
+                <!--头部图片展示-->
+                <%--<c:forEach items="${fn:split(Product.headershow,';')}" var="detail" begin="0" end="${fn:length(fn:split(Product.headershow,';'))}" varStatus="stat">
+                    <img src="${detail}" width="746" height="425" /><br /><br />
+                </c:forEach>--%>
             </div>
             <div id="tsPicContainer">
-                <!-- <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
-                <div id="tsImgSCon">
-                    <ul>
-                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="Picture/ps1.jpg" tsImgS="images/ps1.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(1)" rel="MagicZoom"><img src="Picture/ps2.jpg" tsImgS="images/ps2.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(2)" rel="MagicZoom"><img src="Picture/ps3.jpg" tsImgS="images/ps3.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(3)" rel="MagicZoom"><img src="Picture/ps4.jpg" tsImgS="images/ps4.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(4)" rel="MagicZoom"><img src="Picture/ps1.jpg" tsImgS="images/ps4.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(5)" rel="MagicZoom"><img src="Picture/ps2.jpg" tsImgS="images/ps3.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(6)" rel="MagicZoom"><img src="Picture/ps3.jpg" tsImgS="images/ps2.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(7)" rel="MagicZoom"><img src="Picture/ps4.jpg" tsImgS="images/ps1.jpg" width="79" height="79" /></li>
-                    </ul>
-                </div>
-                <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div> -->
+                
             </div>
-            <!-- <img class="MagicZoomLoading" width="16" height="16" src="Picture/loading.gif" alt="Loading..." />				 -->
         </div>
         
         <div class="pro_des">
-        	<div class="des_name">
-            	<p>Dior/迪奥 真我香水EDP 克丽丝汀迪奥 30ml</p>
+            <div class="des_name">
+                <p>${Product.productname}</p>
                 “开业巨惠，北京专柜直供”，不光低价，“真”才靠谱！
             </div>
             <div class="des_price">
-            	本店价格：<b>￥589</b><br />
-                累计销量:<span>100000&nbsp;&nbsp;<img src="Images/location.png">北京</span>
+                本店价格：<b>￥${Product.price}</b><br />
+                累计销量:<span>${Product.salesvolu}&nbsp;&nbsp;<img src="<%=request.getContextPath()%>/Images/location.png">${Product.cityname}</span>
             </div>
             <div class="des_choice">
             	<span class="fl">型号选择：</span>
@@ -666,11 +719,11 @@
             	<div class="d_sh">
                 	分享
                     <div class="d_sh_bg">
-                    	<a href="#"><img src="Picture/sh_1.gif" /></a>
-                        <a href="#"><img src="Picture/sh_2.gif" /></a>
-                        <a href="#"><img src="Picture/sh_3.gif" /></a>
-                        <a href="#"><img src="Picture/sh_4.gif" /></a>
-                        <a href="#"><img src="Picture/sh_5.gif" /></a>
+                    	<a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/sh_1.gif" /></a>
+                        <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/sh_2.gif" /></a>
+                        <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/sh_3.gif" /></a>
+                        <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/sh_4.gif" /></a>
+                        <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/sh_5.gif" /></a>
                     </div>
                 </div>
                 <div class="d_care"><a onclick="ShowDiv('MyDiv','fade')">关注商品</a></div>
@@ -681,15 +734,14 @@
                     <input type="button" value="" onclick="addUpdate(jq(this));" class="n_btn_1" />
                     <input type="button" value="" onclick="jianUpdate(jq(this));" class="n_btn_2" />   
                 </div>
-                <span class="fl"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="Picture/j_car.png" /></a></span>
+                <span class="fl"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="<%= request.getContextPath()%>/Picture/j_car.png" /></a></span>
             </div>            
-        </div>    
-        
+        </div>
+
         <div class="s_brand">
-        	<div class="s_brand_img"><img src="Picture/sbrand.jpg" width="188" height="132" /></div>
-            <div class="s_brand_c"><a href="#">Dior旗舰店&nbsp;</a><img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"><img src="Images/xing.png"><br>
-            <span>销量:12138&nbsp;&nbsp;<img src="Images/location.png">北京</span>
-                
+            <div class="s_brand_img"><img src="${Product.shoplogo}"></div>
+            <div class="s_brand_c"><a href="<%=request.getContextPath()%>/#"></a> <a href="">${Product.shopname}&nbsp;</a><span id="readOnly-shop"></span><br>
+                <span>销量:${Product.salesvo}&nbsp;&nbsp;<img src="<%=request.getContextPath()%>/Images/location.png">${Product.cityname}</span>
             </div>
         </div>    
         
@@ -697,44 +749,63 @@
     </div>
     <div class="content mar_20">
     	<div class="l_history">
-        	<div class="fav_t">用户还喜欢</div>
+        	<div class="fav_t" style="height: 40px;font-size:20px;padding-left: 55px; ">用户还喜欢</div>
         	<ul>
-            	<li>
-                    <div class="img"><a href="#"><img src="Picture/his_1.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="Picture/his_2.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>768.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="Picture/his_3.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>680.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="Picture/his_4.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="Picture/his_5.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
+                <c:forEach items="${hootList}" var="hoot">
+                    <li>
+                        <div class="img"><a href="<%=request.getContextPath()%>/product?cid=${hoot.cid}"><img src="${hoot.logo}" width="185" height="162" /></a></div>
+                        <div class="name"><a href="<%=request.getContextPath()%>/product?cid=${hoot.cid}">${hoot.productname}</a></div>
+                        <div class="price">
+                            <font>￥<span>${hoot.price}</span></font>
+                        </div>
+                    </li>
+                </c:forEach>
         	</ul>
+            <br/><br/>
+            <div class="fav_t" style="height: 40px;font-size:20px;padding-left: 55px; ">宝贝分类</div>
+            <div class="box">
+                <c:forEach items="${ShopList}" var="BigCategory" varStatus="bigid" >
+                <h3 class="Collapsing  boxcurrent">${BigCategory.big}</h3>
+                <div class="coll_body">
+                    <c:forEach items="${BigCategory.smallCategoryList}" var="SmallCategory" varStatus="samllid">
+                    <h4 class="Collapsing">${SmallCategory.small}</h4>
+                    <div class="coll_body">
+                        <c:forEach items="${SmallCategory.categoryList}" var="Category" varStatus="secendid">
+                        <a href="#">${Category.secend}</a>
+                        </c:forEach>
+                    </div>
+                    </c:forEach>
+                </div>
+                </c:forEach>
+            </div>
+           <%-- <section class="ac-container">
+                <c:forEach items="${ShopList}" var="BigCategory" varStatus="bigid" >
+                    <div>
+                        <input id="ac-${bigid.index}" name="accordion-1" type="checkbox" />
+                        <label for="ac-${bigid.index}" style="padding-left: 5px">${BigCategory.big}</label>
+                        <article class="ac-medium">
+                            <c:forEach items="${BigCategory.smallCategoryList}" var="SmallCategory" varStatus="samllid">
+                                <section class="ac-container">
+                                    <div>
+                                        <input id="ac-${bigid.index}${samllid.index}" name="accordion-1" type="checkbox" />
+                                        <label for="ac-${bigid.index}${samllid.index}" >${SmallCategory.small}</label>
+                                        <article class="ac-medium">
+                                            <c:forEach items="${SmallCategory.categoryList}" var="Category" varStatus="secendid">
+                                                <section class="ac-container">
+                                                    <div>
+                                                        <input id="ac-${bigid.index}${samllid.index}${secendid.index}" name="accordion-1" type="checkbox" />
+                                                        <label style="padding-left: 35px" for="ac-${bigid.index}${samllid.index}${secendid.index}">${Category.secend}</label>
+                                                    </div>
+                                                </section>
+                                            </c:forEach>
+                                        </article>
+                                    </div>
+                                </section>
+                            </c:forEach>
+                        </article>
+                    </div>
+                </c:forEach>
+            </section>--%>
         </div>
         <div class="l_list"> 
            <div class="des_border">
@@ -744,230 +815,266 @@
                     </ul>
                 </div>
                 <div class="team_list">
-                    <div class="img"><a href="#"><img src="Picture/mat_1.jpg" width="160" height="140" /></a></div>
-                    <div class="name"><a href="#">倩碧补水组合套装8折促销</a></div>
+                    <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/mat_1.jpg" width="160" height="140" /></a></div>
+                    <div class="name"><a href="<%= request.getContextPath()%>/#">倩碧补水组合套装8折促销</a></div>
                     <div class="price">
                         <div class="checkbox"><input type="checkbox" name="zuhe" checked="checked" /></div>
                         <font>￥<span>768.00</span></font> &nbsp; 18R
                     </div>
                 </div>
-                <div class="team_icon"><img src="Picture/jia_b.gif" /></div>
+                <div class="team_icon"><img src="<%= request.getContextPath()%>/Picture/jia_b.gif" /></div>
                 <div class="team_list">
-                    <div class="img"><a href="#"><img src="Picture/mat_2.jpg" width="160" height="140" /></a></div>
-                    <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                    <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/mat_2.jpg" width="160" height="140" /></a></div>
+                    <div class="name"><a href="<%= request.getContextPath()%>/#">香奈儿邂逅清新淡香水50ml</a></div>
                     <div class="price">
                         <div class="checkbox"><input type="checkbox" name="zuhe" /></div>
                         <font>￥<span>749.00</span></font> &nbsp; 18R
                     </div>
                 </div>
-                <div class="team_icon"><img src="Picture/jia_b.gif" /></div>
+                <div class="team_icon"><img src="<%= request.getContextPath()%>/Picture/jia_b.gif" /></div>
                 <div class="team_list">
-                    <div class="img"><a href="#"><img src="Picture/mat_3.jpg" width="160" height="140" /></a></div>
-                    <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                    <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/mat_3.jpg" width="160" height="140" /></a></div>
+                    <div class="name"><a href="<%= request.getContextPath()%>/#">香奈儿邂逅清新淡香水50ml</a></div>
                     <div class="price">
                         <div class="checkbox"><input type="checkbox" name="zuhe" checked="checked" /></div>
                         <font>￥<span>749.00</span></font> &nbsp; 18R
                     </div>
                 </div>
-                <div class="team_icon"><img src="Picture/equl.gif" /></div>
+                <div class="team_icon"><img src="<%= request.getContextPath()%>/Picture/equl.gif" /></div>
                 <div class="team_sum">
                     套餐价：￥<span>1517</span><br />
                     <input type="text" value="1" class="sum_ipt" /><br />
-                    <a href="#"><img src="Picture/z_buy.gif" /></a> 
+                    <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/z_buy.gif" /></a> 
                 </div>
                 
             </div>
-                	
-            <div class="des_border">
-                <div class="des_tit">
-                	<ul>
-                    	<li class="current"><a href="#p_attribute">商品属性</a></li>
-                        <li><a href="#p_details">商品详情</a></li>
-                        <li><a href="#p_comment">商品评论</a></li>
-                    </ul>
-                </div>
-                <div class="des_con" id="p_attribute">
-                	
-                	<table border="0" align="center" style="width:100%; font-family:'宋体'; margin:10px auto;" cellspacing="0" cellpadding="0">
-                      <tr>
-                        <td>商品名称：迪奥香水</td>
-                        <td>商品编号：1546211</td>
-                        <td>品牌： 迪奥（Dior）</td>
-                        <td>上架时间：2015-09-06 09:19:09 </td>
-                      </tr>
-                      <tr>
-                        <td>商品毛重：160.00g</td>
-                        <td>商品产地：法国</td>
-                        <td>香调：果香调香型：淡香水/香露EDT</td>
-                        <td>&nbsp;</td>
-                      </tr>
-                      <tr>
-                        <td>容量：1ml-15ml </td>
-                        <td>类型：女士香水，Q版香水，组合套装</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                      </tr>
-                    </table>                                               
-                                            
-                        
-                </div>
-          	</div>  
-            
-            <div class="des_border" id="p_details">
-                <!-- <div class="des_t">商品详情</div> -->
-                <div class="des_tit">
+
+             <div class="pro_con margin-t55" style="overflow:hidden;">
+                <div class="pro_tab">
                     <ul>
-                        <li><a href="#p_attribute">商品属性</a></li>
-                        <li class="current"><a href="#p_details">商品详情</a></li>
-                        <li><a href="#p_comment">商品评论</a></li>
+                        <li class="cur">产品介绍</li>
+                        <li>规格及包装</li>
+                        <li>评价</li>
                     </ul>
                 </div>
-                <div class="des_con">
-                	<table border="0" align="center" style="width:745px; font-size:14px; font-family:'宋体';" cellspacing="0" cellpadding="0">
+                <div class="conlist">
+                    <div class="conbox" style="display:block;">
+                        <table border="0" align="center" style="width:745px; font-size:14px; font-family:'宋体';" cellspacing="0" cellpadding="0">
                       <tr>
-                        <td width="265"><img src="Picture/de1.jpg" width="206" height="412" /></td>
-                        <td>
-                        	<b>迪奥真我香水(Q版)</b><br />
-                            【商品规格】：5ml<br />
-                            【商品质地】：液体<br />
-                            【商品日期】：与专柜同步更新<br />
-                            【商品产地】：法国<br />
-                            【商品包装】：无外盒 无塑封<br />
-                            【商品香调】：花束花香调<br />
-                            【适用人群】：适合女性（都市白领，性感，有女人味的成熟女性）<br />
-                        </td>
+                          <td width="265"><img src="${Product.logo}" width="206" height="412" /></td>
+                          <td>
+                              <b>${Product.productname}</b><br />
+                              【商品规格】：5ml<br />
+                              【商品质地】：液体<br />
+                              【商品日期】：与专柜同步更新<br />
+                              【商品产地】：法国<br />
+                              【商品包装】：无外盒 无塑封<br />
+                              【商品香调】：花束花香调<br />
+                              【适用人群】：适合女性（都市白领，性感，有女人味的成熟女性）<br />
+                          </td>
                       </tr>
                     </table>
+
+                        <p align="center">
+                            <c:forEach items="${fn:split(Product.detailshow,';')}" var="detail" begin="0" end="${fn:length(fn:split(Product.detailshow,';'))}" varStatus="stat">
+                                <img src="${detail}" width="746" height="425" /><br /><br />
+                            </c:forEach>
+
+                        </p>
+                    </div>
+                    <div class="conbox">
+                        <table border="0" align="center" style="width:100%; font-family:'宋体'; margin:10px auto;" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td>商品名称：${Product.productname}</td>
+                            <td>商品编号：${Product.cid}</td>
+                            <td>品牌： 迪奥（Dior）</td>
+                            <td>上架时间：2015-09-06 09:19:09 </td>
+                          </tr>
+                          <tr>
+                            <td>商品毛重：160.00g</td>
+                            <td>商品产地：法国</td>
+                            <td>香调：果香调香型：淡香水/香露EDT</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>容量：1ml-15ml </td>
+                            <td>类型：女士香水，Q版香水，组合套装</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                        </table>
                     
-                    <p align="center">
-                    <img src="Picture/de2.jpg" width="746" height="425" /><br /><br />
-                    <img src="Picture/de3.jpg" width="750" height="417" /><!-- <br /><br /> -->
-                    <!-- <img src="Picture/de4.jpg" width="750" height="409" /><br /><br /> -->
-                    <!-- <img src="Picture/de5.jpg" width="750" height="409" /> -->
-					</p>
-                    
-                </div>
-          	</div>  
-            
-            <div class="des_border" id="p_comment">
-            	<!-- <div class="des_t">商品评论</div> -->
-                <div class="des_tit">
-                    <ul>
-                        <li><a href="#p_attribute">商品属性</a></li>
-                        <li><a href="#p_details">商品详情</a></li>
-                        <li class="current"><a href="#p_comment">商品评论</a></li>
-                    </ul>
-                </div>
-                <table border="0" class="jud_tab" cellspacing="0" cellpadding="0">
+                    </div>
+                    <div class="conbox">
+                        <table border="0" class="jud_tab" cellspacing="0" cellpadding="0">
                   <tr>
                     <td width="175" class="jud_per">
-                    	<p>80.0%</p>好评度
+                        <p>${page.gasslv}%</p>好评度
                     </td>
                     <td width="300">
-                    	<table border="0" style="width:100%;" cellspacing="0" cellpadding="0">
+                        <table border="0" style="width:100%;" cellspacing="0" cellpadding="0">
                           <tr>
-                            <td width="90">好评<font color="#999999">（80%）</font></td>
-                            <td><img src="Picture/pl.gif" align="absmiddle" /></td>
+                            <td width="90">好评<font color="#999999">（${page.gasslv}%）</font></td>
+                            <td><img src="<%= request.getContextPath()%>/Picture/pl.gif" align="absmiddle" /></td>
                           </tr>
                           <tr>
-                            <td>中评<font color="#999999">（20%）</font></td>
-                            <td><img src="Picture/pl.gif" align="absmiddle" /></td>
+                            <td>中评<font color="#999999">（${page.masslv}%）</font></td>
+                            <td><img src="<%= request.getContextPath()%>/Picture/pl.gif" align="absmiddle" /></td>
                           </tr>
                           <tr>
-                            <td>差评<font color="#999999">（0%）</font></td>
-                            <td><img src="Picture/pl.gif" align="absmiddle" /></td>
+                            <td>差评<font color="#999999">（${page.basslv}%）</font></td>
+                            <td><img src="<%= request.getContextPath()%>/Picture/pl.gif" align="absmiddle" /></td>
                           </tr>
                         </table>
                     </td>
                     <td width="185" class="jud_bg">
-                    	购买过雅诗兰黛第六代特润精华露50ml的顾客，在收到商品才可以对该商品发表评论
+                        购买过雅诗兰黛第六代特润精华露50ml的顾客，在收到商品才可以对该商品发表评论
                     </td>
-                    <td class="jud_bg">您可对已购买商品进行评价<br /><a href="#"><img src="Picture/btn_jud.gif" /></a></td>
+                    <td class="jud_bg">您可对已购买商品进行评价<br /><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/btn_jud.gif" /></a></td>
                   </tr>
                 </table>
                 
-                
-                				
-                <table border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
-                  <tr valign="top">
-                    <td width="160"><img src="Picture/peo1.jpg" width="20" height="20" align="absmiddle" />&nbsp;向死而生</td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                    	产品很好，香味很喜欢，必须给赞。 <br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="Picture/peo2.jpg" width="20" height="20" align="absmiddle" />&nbsp;就是这么想的</td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                    	送朋友，她很喜欢，大爱。 <br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="Picture/peo3.jpg" width="20" height="20" align="absmiddle" />&nbsp;墨镜墨镜</td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                    	大家都说不错<br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="Picture/peo4.jpg" width="20" height="20" align="absmiddle" />&nbsp;那*****洋 <br /><font color="#999999">（匿名用户）</font></td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                    	下次还会来买，推荐。<br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                </table>
 
-                	
-                    
-                <div class="pages">
-                    <a href="#" class="p_pre">上一页</a><a href="#" class="cur">1</a><a href="#">2</a><a href="#">3</a>...<a href="#">20</a><a href="#" class="p_pre">下一页</a>
+                <script type="text/javascript">
+                    //实现异步刷新
+                    $(function () {
+                        //请求相册
+                        $("#xc").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/assesstu?cid="+cid+"";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping0").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=0&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping1").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=1&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping2").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=2&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping3").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=3&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+
+                    })
+                </script>
+                        <div class="pro_con margin-t55" style="overflow:hidden;">
+                            <div class="pro_tab">
+                                <ul>
+                                    <li class="cur">评价</li>
+                                    <li>轮播图</li>
+                                </ul>
+                            </div>
+                            <div class="conlist">
+                                <div class="conbox" style="display:block;">
+                                    <form border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
+                                        <input type="button" class="ping0" value="全部评价(${page.allassess}+)" />
+                                        <input type="button" id="xc" value="晒图"/>
+                                        <input type="button" class="ping1" value="好评(${page.gass}+)" /></a>
+                                        <input type="button" class="ping2" value="中评(${page.mass})" />
+                                        <input type="button" class="ping3" value="差评(${page.bass})" />
+                                    </form>
+                                    <table class="content_Assess" border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
+                                        <c:forEach items="${AssessList}" var="assess">
+                                            <tr valign="top">
+                                                <td width="160"><img src="${assess.headerpic}" width="20" height="20" align="absmiddle" />&nbsp;${assess.username}<br />
+                                                    <br/> <span class="assessreadOnly">${assess.grade}</span>
+                                                </td>
+                                                <td>
+                                                        ${assess.hollrall} <br />
+                                                        ${assess.detail}<br/>
+                                                    <c:forEach items="${fn:split(assess.pics,';')}" var="pic" begin="0" end="${fn:length(fn:split(assess.pics,';'))}" varStatus="stat">
+                                                        <a class="pic" href="${pic}"><img src="${pic}" class="ping"/></a>
+                                                    </c:forEach>
+                                                    <br/>
+                                                    颜色分类：<font color="#999999">粉色</font>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    型号：<font color="#999999">50ml</font>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#999999">${assess.date}</font>
+                                                    <hr style="border : 1px dashed #999999;" />
+                                                    <span style="color: #FF4855">
+                                                     店主回复:<br>
+                                                      ${assess.bossback}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+
+                                    <div class="pages">
+                                        <a href="<%= request.getContextPath()%>/#" class="p_pre">上一页</a><a href="<%= request.getContextPath()%>/#" class="cur">1</a><a href="<%= request.getContextPath()%>/#">2</a><a href="<%= request.getContextPath()%>/#">3</a>...<a href="<%= request.getContextPath()%>/#">20</a><a href="<%= request.getContextPath()%>/#" class="p_pre">下一页</a>
+                                    </div>
+
+                                </div>
+                            <div class="conbox">
+
+                                 <%@include file="backmanage/AssessTu.jsp"%>
+
+                            </div>
+
+                            </div>
+                        <!-- 主要内容 -->
+
                 </div>
-                
-          	</div>
-            
-            
-        </div>
-    </div>
-    
+                </div>
+                </div>
+
+        <!--星级插件展示-->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#readOnly-shop").raty({ readOnly: true, score:${Product.slevel} });
+                $('.assessreadOnly').each(function (index) {
+                    var slevel=$(this).text();
+                    $(this).raty({ readOnly: true, score:slevel });
+
+                })
+
+            });
+        </script>
     
     <!--Begin 弹出层-收藏成功 Begin-->
     <div id="fade" class="black_overlay"></div>
     <div id="MyDiv" class="white_content">             
         <div class="white_d">
             <div class="notice_t">
-                <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv('MyDiv','fade')"><img src="Picture/close.gif" /></span>
+                <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv('MyDiv','fade')"><img src="<%= request.getContextPath()%>/Picture/close.gif" /></span>
             </div>
             <div class="notice_c">
            		
                 <table border="0" align="center" style="margin-top:;" cellspacing="0" cellpadding="0">
                   <tr valign="top">
-                    <td width="40"><img src="Picture/suc.png" /></td>
+                    <td width="40"><img src="<%= request.getContextPath()%>/Picture/suc.png" /></td>
                     <td>
                     	<span style="color:#3e3e3e; font-size:18px; font-weight:bold;">您已成功收藏该商品</span><br />
-                    	<a href="#">查看我的关注 >></a>
+                    	<a href="<%= request.getContextPath()%>/#">查看我的关注 >></a>
                     </td>
                   </tr>
                   <tr height="50" valign="bottom">
                   	<td>&nbsp;</td>
-                    <td><a href="#" class="b_sure">确定</a></td>
+                    <td><a href="<%= request.getContextPath()%>/#" class="b_sure">确定</a></td>
                   </tr>
                 </table>
                     
@@ -982,13 +1089,13 @@
     <div id="MyDiv1" class="white_content">             
         <div class="white_d">
             <div class="notice_t">
-                <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv_1('MyDiv1','fade1')"><img src="Picture/close.gif" /></span>
+                <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv_1('MyDiv1','fade1')"><img src="<%= request.getContextPath()%>/Picture/close.gif" /></span>
             </div>
             <div class="notice_c">
            		
                 <table border="0" align="center" style="margin-top:;" cellspacing="0" cellpadding="0">
                   <tr valign="top">
-                    <td width="40"><img src="Picture/suc.png" /></td>
+                    <td width="40"><img src="<%= request.getContextPath()%>/Picture/suc.png" /></td>
                     <td>
                     	<span style="color:#3e3e3e; font-size:18px; font-weight:bold;">宝贝已成功添加到购物车</span><br />
                     	购物车共有1种宝贝（3件） &nbsp; &nbsp; 合计：1120元
@@ -996,7 +1103,7 @@
                   </tr>
                   <tr height="50" valign="bottom">
                   	<td>&nbsp;</td>
-                    <td><a href="#" class="b_sure">去购物车结算</a><a href="#" class="b_buy">继续购物</a></td>
+                    <td><a href="<%= request.getContextPath()%>/#" class="b_sure">去购物车结算</a><a href="<%= request.getContextPath()%>/#" class="b_buy">继续购物</a></td>
                   </tr>
                 </table>
                     
@@ -1008,99 +1115,86 @@
     
     
     <!--Begin Footer Begin -->
-    <div class="b_btm_bg bg_color">
+     <div class="b_btm_bg    bg_color">
         <div class="b_btm">
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="Picture/b1.png" width="62" height="62" /></td>
+                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b1.png" width="62" height="62" /></td>
                 <td><h2>正品保障</h2>正品行货  放心购买</td>
-              </tr>
-            </table>
-			<table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
-              <tr>
-                <td width="72"><img src="Picture/b2.png" width="62" height="62" /></td>
-                <td><h2>满38包邮</h2>满38包邮 免运费</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="Picture/b3.png" width="62" height="62" /></td>
+                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b2.png" width="62" height="62" /></td>
+                <td><h2>最优选择</h2>线上线下 对比选购</td>
+              </tr>
+            </table>
+            <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b3.png" width="62" height="62" /></td>
                 <td><h2>天天低价</h2>天天低价 畅选无忧</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="Picture/b4.png" width="62" height="62" /></td>
-                <td><h2>准时送达</h2>收货时间由你做主</td>
+                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b4.png" width="62" height="62" /></td>
+                <td><h2>准时送达</h2>线下提货 就近安排</td>
               </tr>
             </table>
         </div>
     </div>
     <div class="b_nav">
-    	<dl>                                                                                            
-        	<dt><a href="#">新手上路</a></dt>
-            <dd><a href="#">售后流程</a></dd>
-            <dd><a href="#">购物流程</a></dd>
-            <dd><a href="#">订购方式</a></dd>
-            <dd><a href="#">隐私声明</a></dd>
-            <dd><a href="#">推荐分享说明</a></dd>
+        <dl>                                                                                            
+            <dt><a href="<%= request.getContextPath()%>/#">新手上路</a></dt>
+            <dd><a href="<%= request.getContextPath()%>/#">售后流程</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">购物流程</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">订购方式</a></dd>
+            <!-- <dd><a href="<%= request.getContextPath()%>/#">隐私声明</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">分享说明</a></dd> -->
         </dl>
         <dl>
-        	<dt><a href="#">配送与支付</a></dt>
-            <dd><a href="#">货到付款区域</a></dd>
-            <dd><a href="#">配送支付查询</a></dd>
-            <dd><a href="#">支付方式说明</a></dd>
+            <dt><a href="<%= request.getContextPath()%>/#">配送与支付</a></dt>
+            <dd><a href="<%= request.getContextPath()%>/#">货到付款区域</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">配送支付查询</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">支付方式说明</a></dd>
         </dl>
         <dl>
-        	<dt><a href="#">会员中心</a></dt>
-            <dd><a href="#">资金管理</a></dd>
-            <dd><a href="#">我的收藏</a></dd>
-            <dd><a href="#">我的订单</a></dd>
+            <dt><a href="<%= request.getContextPath()%>/#">会员中心</a></dt>
+            <dd><a href="<%= request.getContextPath()%>/#">资金管理</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">我的收藏</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">我的订单</a></dd>
         </dl>
         <dl>
-        	<dt><a href="#">服务保证</a></dt>
-            <dd><a href="#">退换货原则</a></dd>
-            <dd><a href="#">售后服务保证</a></dd>
-            <dd><a href="#">产品质量保证</a></dd>
+            <dt><a href="<%= request.getContextPath()%>/#">服务保证</a></dt>
+            <dd><a href="<%= request.getContextPath()%>/#">退换货原则</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">售后服务保证</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">产品质量保证</a></dd>
         </dl>
         <dl>
-        	<dt><a href="#">联系我们</a></dt>
-            <dd><a href="#">网站故障报告</a></dd>
-            <dd><a href="#">购物咨询</a></dd>
-            <dd><a href="#">投诉与建议</a></dd>
+            <dt><a href="<%= request.getContextPath()%>/#">联系我们</a></dt>
+            <dd><a href="<%= request.getContextPath()%>/#">网站故障报告</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">购物咨询</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">投诉与建议</a></dd>
         </dl>
-        <div class="b_tel_bg">
-        	<a href="#" class="b_sh1">新浪微博</a>            
-        	<a href="#" class="b_sh2">腾讯微博</a>
-            <p>
-            服务热线：<br />
-            <span>400-123-4567</span>
-            </p>
-        </div>
-        <div class="b_er">
-            <div class="b_er_c"><img src="Picture/er.gif" width="118" height="118" /></div>
-            <img src="Picture/ss.png" />
-        </div>
-    </div>    
+        <dl>
+            <dt><a href="<%= request.getContextPath()%>/#">加入我们</a></dt>
+            <dd><a href="<%= request.getContextPath()%>/#">线上商家联系</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">线下商家联系</a></dd>
+            <dd><a href="<%= request.getContextPath()%>/#">资讯合作</a></dd>
+        </dl>
+
+
     <div class="btmbg">
-		<div class="btm">
-        	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
-            <img src="Picture/b_1.gif" width="98" height="33" /><img src="Picture/b_2.gif" width="98" height="33" /><img src="Picture/b_3.gif" width="98" height="33" /><img src="Picture/b_4.gif" width="98" height="33" /><img src="Picture/b_5.gif" width="98" height="33" /><img src="Picture/b_6.gif" width="98" height="33" />
-        </div>    	
+        <div class="btm">
+            <img src="<%= request.getContextPath()%>/Picture/b_1.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_2.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_3.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_4.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_5.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_6.gif" width="98" height="33" />
+        </div>      
     </div>
     <!--End Footer End -->    
 </div>
 
 </body>
 
-<script src="Scripts/shopshow.js"></script>
+<script src="<%= request.getContextPath()%>/Scripts/shopshow.js"></script>
 
-<!--[if IE 6]>
-<script src="Scripts/zh_cn.js"></script>
-<![endif]-->
+
 </html>
-<!--
-本代码由js代码网网友上传，js代码网收集并编辑整理;
-尊重他人劳动成果;
-转载请保留js代码链接 - www.jsdaima.com
--->
