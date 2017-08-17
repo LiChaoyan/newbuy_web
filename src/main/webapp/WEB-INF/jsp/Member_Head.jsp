@@ -5,7 +5,7 @@
 	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />
 
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/menu.js"></script>    
-    <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.11.1.min.js"></script> 
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.11.1.min.js"></script>
     
 	<!-- <script type="text/javascript" src="/Scripts/select.js"></script> -->
 <title>修改头像</title>
@@ -420,7 +420,7 @@ $(window).load(function() {
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login.html">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
+            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
             <span class="ss">
                 <div class="ss_list">
                     <a href="#">我的</a>
@@ -466,7 +466,7 @@ $(window).load(function() {
 </div>
 <div class="m_top_bg">
     <div class="top">
-        <div class="m_logo"><a href="<%= request.getContextPath()%>/Index.html"><img src="<%= request.getContextPath()%>/Picture/logo1.png" /></a></div>
+        <div class="m_logo"><a href="<%= request.getContextPath()%>/Index"><img src="<%= request.getContextPath()%>/Picture/logo1.png" /></a></div>
         <div class="m_search">
             <form>
                 <input type="text" value="" class="m_ipt" />
@@ -485,17 +485,17 @@ $(window).load(function() {
             <div class="left_m">
                 <div class="left_m_t t_bg2">会员中心</div>
                 <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_User.html">个人信息</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Safe.html" class="now">修改个人信息</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Collect.html">我的收藏</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Msg.html">我的评价</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_User">个人信息</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Safe" class="now">修改个人信息</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Collect">我的收藏</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Msg">我的评价</a></li>
                 </ul>
             </div>
             <div class="left_m">
                 <div class="left_m_t t_bg1">订单中心</div>
                 <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_Order.html">我的订单</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Address.html">收货地址</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Order">我的订单</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Address">收货地址</a></li>
                     <li><a href="#">我的购物车</a></li>
                     <li><a href="#">已买到的商品</a></li>
                 </ul>
@@ -504,9 +504,9 @@ $(window).load(function() {
             <div class="left_m">
                 <div class="left_m_t t_bg3">账户中心</div>
                 <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_Safe.html">账户安全</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Packet.html">我的红包</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Money.html">资金管理</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Safe">账户安全</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Packet">我的红包</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Money">资金管理</a></li>
                 </ul>
             </div>
         </div>

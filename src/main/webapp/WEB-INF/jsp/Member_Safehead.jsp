@@ -108,7 +108,7 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login.html">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
+            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
             <span class="ss">
                 <div class="ss_list">
                     <a href="#">我的</a>
@@ -154,7 +154,7 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
 </div>
 <div class="m_top_bg">
     <div class="top">
-        <div class="m_logo"><a href="<%= request.getContextPath()%>/Index.html"><img src="<%= request.getContextPath()%>/Picture/logo1.png" /></a></div>
+        <div class="m_logo"><a href="<%= request.getContextPath()%>/Index"><img src="<%= request.getContextPath()%>/Picture/logo1.png" /></a></div>
         <div class="m_search">
             <form>
                 <input type="text" value="" class="m_ipt" />
@@ -173,17 +173,17 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
             <div class="left_m">
                 <div class="left_m_t t_bg2">会员中心</div>
                 <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_User.jsp">个人信息</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Safehead.html" class="now">修改个人信息</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Collect.html">我的收藏</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Msg.html">我的评价</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_User">个人信息</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Safehead" class="now">修改个人信息</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Collect">我的收藏</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Msg">我的评价</a></li>
                 </ul>
             </div>
             <div class="left_m">
                 <div class="left_m_t t_bg1">订单中心</div>
                 <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_Order.html">我的订单</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Address.html">收货地址</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Order">我的订单</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Address">收货地址</a></li>
                     <li><a href="#">我的购物车</a></li>
                     <li><a href="#">已买到的商品</a></li>
                 </ul>
@@ -192,26 +192,26 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
             <div class="left_m">
                 <div class="left_m_t t_bg3">账户中心</div>
                 <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_Safe.html">账户安全</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Packet.html">我的红包</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Money.html">资金管理</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Safe">账户安全</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Packet">我的红包</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Money">资金管理</a></li>
                 </ul>
             </div>
         </div>
 		<div class="m_right">
             <p></p> 
             <div class="mem_tit">
-               <a href="<%= request.getContextPath()%>/Member_Safehead.html">&nbsp;&nbsp;头像/昵称修改&nbsp;&nbsp;</a>
-               <a href="<%= request.getContextPath()%>/Member_Safetel.html">&nbsp;&nbsp;手机号修改&nbsp;&nbsp;</a>
-               <a href="<%= request.getContextPath()%>/Member_Safenum.html">&nbsp;&nbsp;密码修改&nbsp;&nbsp;</a>
-               <a href="<%= request.getContextPath()%>/Member_Safeplace.html">&nbsp;&nbsp;收货地址管理&nbsp;&nbsp;</a> 
+               <a href="<%= request.getContextPath()%>/Member_Safehead">&nbsp;&nbsp;头像/昵称修改&nbsp;&nbsp;</a>
+               <a href="<%= request.getContextPath()%>/Member_Safetel">&nbsp;&nbsp;手机号修改&nbsp;&nbsp;</a>
+               <a href="<%= request.getContextPath()%>/Member_Safenum">&nbsp;&nbsp;密码修改&nbsp;&nbsp;</a>
+               <a href="<%= request.getContextPath()%>/Member_Safeplace">&nbsp;&nbsp;收货地址管理&nbsp;&nbsp;</a> 
             </div>
             <div class="m_des">
                 <form>
                 <table border="0" style="width:880px;height: 385px;font-size: 15px;"  cellspacing="0" cellpadding="0">
                   <tr height="45"  class="head">
                     <td width="80" align="right" class="head">头像： &nbsp; &nbsp;</td>
-                    <td ><a href="<%= request.getContextPath()%>/Member_Head.html"><img src="<%= request.getContextPath()%>/Picture/user.jpg" width="130" height="130" />&nbsp;编辑头像</a></td>
+                    <td ><a href="<%= request.getContextPath()%>/Member_Head"><img src="<%= request.getContextPath()%>/Picture/user.jpg" width="130" height="130" />&nbsp;编辑头像</a></td>
                     <td align="right">昵称： &nbsp; &nbsp;</td>
                     <td><input type="text" value="谦谦君子" class="add_ipt" style="width:200px;height: 30px;" />&nbsp; <font color="#ff4e00">*</font></td>
                   </tr>

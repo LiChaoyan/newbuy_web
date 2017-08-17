@@ -1,19 +1,24 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html> 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />
+	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />
 
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.11.1.min_044d0927.js"></script>    
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.11.1.min_044d0927.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/n_nav.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/n_nav.js"></script>   
 
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/lrscroll_1.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/menu.js"></script>    
 
-  
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/select.js"></script>
     
-<title>购物车</title>
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/num.js">
+    	var jq = jQuery.noConflict();
+    </script>     
+    
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/shade.js"></script>
+    
+<title>提交订单</title>
 <meta name="keywords" content="小桥双线购项目购物商城" />
 <meta name="description" content="线上线下商家加盟的商城" />
 </head>
@@ -98,7 +103,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
+            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login.html">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
             <span class="ss">
                 <div class="ss_list">
                     <a href="#">我的</a>
@@ -140,10 +145,14 @@
                     </div>    
                 </div>
             </span>
+            <!-- <span class="fl">|&nbsp;关注我们：</span>
+            <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
+            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="<%= request.getContextPath()%>/Picture/s_tel.png" align="absmiddle" /></a></span>
+        </span> -->
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="<%= request.getContextPath()%>/Index"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
+    <div class="logo"><a href="<%= request.getContextPath()%>/Index.html"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
     <!-- 搜索框 -->
     <div class="search">
     <div class="searchbox">
@@ -161,7 +170,7 @@
         <div class="car_t">购物车 [ <span>3</span> ]</div>
         <div class="car_bg">
             <!--Begin 购物车未登录 Begin-->
-            <div class="un_login">还未登录！<a href="<%= request.getContextPath()%>/Login" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+            <div class="un_login">还未登录！<a href="<%= request.getContextPath()%>/Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
             <!--End 购物车未登录 End-->
             <!--Begin 购物车已登录 Begin-->
             <ul class="cars">
@@ -170,6 +179,16 @@
                     <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
                     <div class="price"><font color="#ff4e00">￥399</font> X1</div>
                 </li>
+                <!-- <li>
+                    <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/car2.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
+                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                </li>
+                <li>
+                    <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/car2.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
+                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                </li> -->
             </ul>
             <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
             <div class="price_a"><a href="#">去购物车结算</a></div>
@@ -180,15 +199,15 @@
 <!--End Header End--> 
 <!--Begin Menu Begin-->
 <div class="menu_bg">
-	<div class="menu">
-    	<!--Begin 商品分类详情 Begin-->    
-    	<div class="nav">
-        	<div class="nav_t">全部商品分类</div>
+    <div class="menu">
+        <!--Begin 商品分类详情 Begin-->    
+        <div class="nav">
+            <div class="nav_t">全部商品分类</div>
             <div class="leftNav none">
                 <ul>      
                     <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav1.png" /></span>
+                        <div class="fj">
+                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav1.png" /></span>
                             <span class="fl">进口食品、生鲜</span>
                         </div>
                         <div class="zj">
@@ -237,8 +256,8 @@
                         </div>
                     </li>
                     <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav2.png" /></span>
+                        <div class="fj">
+                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav2.png" /></span>
                             <span class="fl">食品、饮料、酒</span>
                         </div>
                         <div class="zj" style="top:-40px;">
@@ -263,8 +282,8 @@
                         </div>
                     </li>
                     <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav3.png" /></span>
+                        <div class="fj">
+                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav3.png" /></span>
                             <span class="fl">母婴、玩具、童装</span>
                         </div>
                         <div class="zj" style="top:-80px;">
@@ -283,8 +302,8 @@
                         </div>
                     </li>
                     <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav4.png" /></span>
+                        <div class="fj">
+                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav4.png" /></span>
                             <span class="fl">家居、家庭清洁、纸品</span>
                         </div>
                         <div class="zj" style="top:-120px;">
@@ -303,8 +322,8 @@
                         </div>
                     </li>
                     <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav5.png" /></span>
+                        <div class="fj">
+                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav5.png" /></span>
                             <span class="fl">美妆、个人护理、洗护</span>
                         </div>
                         <div class="zj" style="top:-160px;">
@@ -323,8 +342,8 @@
                         </div>
                     </li>
                     <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav6.png" /></span>
+                        <div class="fj">
+                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav6.png" /></span>
                             <span class="fl">女装、内衣、中老年</span>
                         </div>
                         <div class="zj" style="top:-200px;">
@@ -343,8 +362,8 @@
                         </div>
                     </li>
                     <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav7.png" /></span>
+                        <div class="fj">
+                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav7.png" /></span>
                             <span class="fl">鞋靴、箱包、腕表配饰</span>
                         </div>
                         <div class="zj" style="top:-240px;">
@@ -363,8 +382,8 @@
                         </div>
                     </li>
                     <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav8.png" /></span>
+                        <div class="fj">
+                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav8.png" /></span>
                             <span class="fl">男装、运动</span>
                         </div>
                         <div class="zj" style="top:-280px;">
@@ -383,8 +402,8 @@
                         </div>
                     </li>
                     <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav9.png" /></span>
+                        <div class="fj">
+                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav9.png" /></span>
                             <span class="fl">手机、小家电、电脑</span>
                         </div>
                         <div class="zj" style="top:-320px;">
@@ -403,8 +422,8 @@
                         </div>
                     </li>                    
                     <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav10.png" /></span>
+                        <div class="fj">
+                            <span class="n_img"><span></span><img src="<%= request.getContextPath()%>/Picture/nav10.png" /></span>
                             <span class="fl">礼品、充值</span>
                         </div>
                         <div class="zj" style="top:-360px;">
@@ -421,20 +440,20 @@
                                 <a href="#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
-                    </li>                    	
+                    </li>                       
                 </ul>            
             </div>
         </div>  
         <!--End 商品分类详情 End-->                                                     
-    	<ul class="menu_r">                                                                                                                                               
-        	<li><a href="<%= request.getContextPath()%>/Index">首页</a></li>
-            <li><a href="<%= request.getContextPath()%>/Food">美食</a></li>
-            <li><a href="<%= request.getContextPath()%>/Fresh">生鲜</a></li>
-            <li><a href="<%= request.getContextPath()%>/HomeDecoration">家居</a></li>
-            <li><a href="<%= request.getContextPath()%>/SuitDress">女装</a></li>
-            <li><a href="<%= request.getContextPath()%>/MakeUp">美妆</a></li>
-            <li><a href="<%= request.getContextPath()%>/Digital">数码</a></li>
-            <li><a href="<%= request.getContextPath()%>/GroupBuying">团购</a></li>
+        <ul class="menu_r">                                                                                                                                               
+            <li><a href="<%= request.getContextPath()%>/Index.html">首页</a></li>
+            <li><a href="<%= request.getContextPath()%>/Food.html">美食</a></li>
+            <li><a href="<%= request.getContextPath()%>/Fresh.html">生鲜</a></li>
+            <li><a href="<%= request.getContextPath()%>/HomeDecoration.html">家居</a></li>
+            <li><a href="<%= request.getContextPath()%>/SuitDress.html">女装</a></li>
+            <li><a href="<%= request.getContextPath()%>/MakeUp.html">美妆</a></li>
+            <li><a href="<%= request.getContextPath()%>/Digital.html">数码</a></li>
+            <li><a href="<%= request.getContextPath()%>/GroupBuying.html">团购</a></li>
         </ul>
         <div class="m_ad">好礼送不停！</div>
     </div>
@@ -442,132 +461,136 @@
 <!--End Menu End--> 
 <div class="i_bg">  
     <div class="content mar_20">
-    	<img src="<%= request.getContextPath()%>/Picture/img1.jpg" />        
+    	<img src="<%= request.getContextPath()%>/Picture/img2.jpg" />        
     </div>
     
-    <!--Begin 第一步：查看购物车 Begin -->
+    <!--Begin 第二步：确认订单信息 Begin -->
     <div class="content mar_20">
-    	<table border="0" class="car_tab" style="width:1200px; margin-bottom:50px;" cellspacing="0" cellpadding="0">
-          <tr>
-            <td class="car_th" width="490">商品名称</td>
-            <td class="car_th" width="140">属性</td>
-            <td class="car_th" width="150">购买数量</td>
-            <td class="car_th" width="140">单价</td>
-            <td class="car_th" width="130">金额</td>
-            <td class="car_th" width="150">操作</td>
-          </tr>
-          <tr>
-            <td>
-            	<div class="c_s_img"><img src="<%= request.getContextPath()%>/Picture/c_1.jpg" width="73" height="73" /></div>
-                Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
-            </td>
-            <td align="center">颜色：灰色</td>
-            <td align="center">
-            	<div class="c_num">
-                    <input type="button" value="" onclick="jianUpdate1(jq(this));" class="car_btn_1" />
-                	<input type="text" value="1" name="" class="car_ipt" />  
-                    <input type="button" value="" onclick="addUpdate1(jq(this));" class="car_btn_2" />
-                </div>
-            </td>
-            <td align="center">￥620.00</td>
-            <td align="center" style="color:#ff4e00;">￥620.00</td>
-            <td align="center"><a onclick="ShowDiv('MyDiv','fade')">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td>
-          </tr>
-          <tr class="car_tr">
-            <td>
-            	<div class="c_s_img"><img src="<%= request.getContextPath()%>/Picture/c_2.jpg" width="73" height="73" /></div>
-                Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
-            </td>
-            <td align="center">颜色：灰色</td>
-            <td align="center">
-            	<div class="c_num">
-                    <input type="button" value="" onclick="jianUpdate1(jq(this));" class="car_btn_1" />
-                	<input type="text" value="1" name="" class="car_ipt" />  
-                    <input type="button" value="" onclick="addUpdate1(jq(this));" class="car_btn_2" />
-                </div>
-            </td>
-            <td align="center">￥620.00</td>
-            <td align="center" style="color:#ff4e00;">￥620.00</td>
+    	<div class="two_bg">
+        	<div class="two_t">
+            	<span class="fr"><a href="<%= request.getContextPath()%>/BuyCar.html">修改</a></span> 商品列表
+            </div>
+            <table border="0" class="car_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="car_th" width="550">商品名称</td>
+                <td class="car_th" width="140">属性</td>
+                <td class="car_th" width="150">购买数量</td>
+                <td class="car_th" width="130">单价</td>
+                <td class="car_th" width="140">小计</td>
+              </tr>
+              <tr>
+                <td>
+                    <div class="c_s_img"><img src="<%= request.getContextPath()%>/Picture/c_1.jpg" width="73" height="73" /></div>
+                    Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
+                </td>
+                <td align="center">颜色：灰色</td>
+                <td align="center">1</td>
+                <td align="center">￥620.00</td>
+                <td align="center" style="color:#ff4e00;">￥620.00</td>
+              </tr>
+              <tr class="car_tr">
+                <td>
+                    <div class="c_s_img"><img src="<%= request.getContextPath()%>/Picture/c_2.jpg" width="73" height="73" /></div>
+                    Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
+                </td>
+                <td align="center">颜色：灰色</td>
+                <td align="center">1</td>
+                <td align="center">￥620.00</td>
+                <td align="center" style="color:#ff4e00;">￥620.00</td>
+              </tr>
+              <tr>
+                <td>
+                    <div class="c_s_img"><img src="<%= request.getContextPath()%>/Picture/c_3.jpg" width="73" height="73" /></div>
+                    Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
+                </td>
+                <td align="center">颜色：灰色</td>
+                <td align="center">1</td>
+                <td align="center">￥620.00</td>
+                <td align="center" style="color:#ff4e00;">￥620.00</td>
+              </tr>
+              <tr>
+                <td colspan="5" align="right" style="font-family:'Microsoft YaHei';">
+                    共4件商品 &nbsp;商品总价：￥1899.00
+                </td>
+              </tr>
+            </table>
             
-            <td align="center"><a href="#">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td>
-          </tr>
-          <tr>
-            <td>
-            	<div class="c_s_img"><img src="<%= request.getContextPath()%>/Picture/c_3.jpg" width="73" height="73" /></div>
-                Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
-            </td>
-            <td align="center">颜色：灰色</td>
-            <td align="center">
-            	<div class="c_num">
-                    <input type="button" value="" onclick="jianUpdate1(jq(this));" class="car_btn_1" />
-                	<input type="text" value="1" name="" class="car_ipt" />  
-                    <input type="button" value="" onclick="addUpdate1(jq(this));" class="car_btn_2" />
-                </div>
-            </td>
-            <td align="center">￥620.00</td>
-            <td align="center" style="color:#ff4e00;">￥620.00</td>
-            <td align="center"><a href="#">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td>
-          </tr>
-          <tr class="car_tr">
-            <td>
-            	<div class="c_s_img"><img src="<%= request.getContextPath()%>/Picture/c_4.jpg" width="73" height="73" /></div>
-                Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
-            </td>
-            <td align="center">颜色：灰色</td>
-            <td align="center">
-            	<div class="c_num">
-                    <input type="button" value="" onclick="jianUpdate1(jq(this));" class="car_btn_1" />
-                	<input type="text" value="1" name="" class="car_ipt" />  
-                    <input type="button" value="" onclick="addUpdate1(jq(this));" class="car_btn_2" />
-                </div>
-            </td>
-            <td align="center">￥620.00</td>
-            <td align="center" style="color:#ff4e00;">￥620.00</td>
-            <td align="center"><a href="#">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td>
-          </tr>
-          <tr height="70">
-          	<td colspan="6" style="font-family:'Microsoft YaHei'; border-bottom:0;">
-            	<label class="r_rad"><input type="checkbox" name="clear" checked="checked" /></label><label class="r_txt">清空购物车</label>
-                <span class="fr">商品总价：<b style="font-size:22px; color:#ff4e00;">￥2899</b></span>
-            </td>
-          </tr>
-          <tr valign="top" height="150">
-          	<td colspan="6" align="right">
-            	<a href="<%= request.getContextPath()%>/index"><img src="<%= request.getContextPath()%>/Picture/buy1.gif" /></a>&nbsp; &nbsp; <a href="<%= request.getContextPath()%>/BuyCar_Two"><img src="<%= request.getContextPath()%>/Picture/buy2.gif" /></a>
-            </td>
-          </tr>
-        </table>
-        
+            <div class="two_t">
+            	<span class="fr"></span>收货人信息
+            </div>
+            <table border="0" class="peo_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
+            <tr>
+                <td class="p_td">姓名</td>
+                <td>*璐</td>
+                <td class="p_td">昵称</td>
+                <td>谦谦君子<a href="<%= request.getContextPath()%>/Member_Safehead.html" class="fr" style="color:#ff4e00;">修改</a></td>
+              </tr>
+              <tr>
+                <td class="p_td" width="160">商品名称</td>
+                <td width="395">酒水饮料</td>
+                <td class="p_td" width="160">手机号</td>
+                <td width="395">12345678343<a href="<%= request.getContextPath()%>/Member_Safetel.html" class="fr" style="color:#ff4e00;">修改</a></td>
+              </tr>
+              <tr>
+              <td class="p_td">邮政编码</td>
+                <td>6011111</td>
+                <td class="p_td">详细信息</td>
+                <td>四川省成都市武侯区<a href="<%= request.getContextPath()%>/Member_Safeplace.html" class="fr" style="color:#ff4e00;">修改</a></td>
+                
+              </tr>
+            </table>
+            
+            <div class="two_t">
+            	其他信息
+            </div>
+            <table border="0" class="car_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
+              <tr valign="top">
+                <td align="right" style="padding-right:0;"><b style="font-size:14px;">订单附言：</b></td>
+                <td style="padding-left:0;"><textarea class="add_txt" style="width:860px; height:50px;"></textarea></td>
+              </tr>
+            </table>   
+            <table border="0" style="width:900px; margin-top:20px;" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="right">、
+                    商品总价: <font color="#ff4e00">￥1815.00</font>  + 配送费用: <font color="#ff4e00">￥15.00</font>
+                </td>
+              </tr>
+              <tr height="70">
+                <td align="right">
+                	<b style="font-size:14px;">应付款金额：<span style="font-size:22px; color:#ff4e00;">￥2899</span></b>
+                </td>
+              </tr>
+              <tr height="70">
+                <td align="right"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="<%= request.getContextPath()%>/Picture/btn_sure.gif" /></a></td>
+              </tr>  
+            </table>      	
+        </div>
     </div>
-	<!--End 第一步：查看购物车 End--> 
-    
-    
-    <!--Begin 弹出层-删除商品 Begin-->
-    <div id="fade" class="black_overlay"></div>
-    <div id="MyDiv" class="white_content">             
+
+    <div id="fade1" class="black_overlay"></div>
+    <div id="MyDiv1" class="white_content">             
         <div class="white_d">
             <div class="notice_t">
-                <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv('MyDiv','fade')"><img src="<%= request.getContextPath()%>/Picture/close.gif" /></span>
+                <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv_1('MyDiv1','fade1')"><img src="<%= request.getContextPath()%>/Picture/close.gif" /></span>
             </div>
-            <div class="notice_c">
-           		
-                <table border="0" align="center" style="font-size:16px;" cellspacing="0" cellpadding="0">
-                  <tr valign="top">
-                    <td>您确定要把该商品移除购物车吗？</td>
-                  </tr>
-                  <tr height="50" valign="bottom">
-                    <td><a href="#" class="b_sure">确定</a><a href="#" class="b_buy">取消</a></td>
-                  </tr>
-                </table>
-                    
+            <div class="notice_c">               
+                <div class="two_t" style="">
+                请选择支付方式:
+                </div>
+                <ul class="pay">
+                    <li class="checked">余额支付<div class="ch_img"></div></li>
+                    <li>货到付款<div class="ch_img"></div></li>
+                    <li>支付宝<div class="ch_img"></div></li>
+                </ul>
+                <a href="<%= request.getContextPath()%>/BuyCar_Three"><button class="fr" style="margin-right: 70px;width: 60px;height: 30px;">付款</button></a>
             </div>
         </div>
-    </div>    
-    <!--End 弹出层-删除商品 End-->
+    </div>
+	<!--End 第二步：确认订单信息 End-->
     
     
     <!--Begin Footer Begin -->
-   <div class="b_btm_bg    bg_color">
+    <div class="b_btm_bg bg_color">
         <div class="b_btm">
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
@@ -575,10 +598,10 @@
                 <td><h2>正品保障</h2>正品行货  放心购买</td>
               </tr>
             </table>
-            <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
+			<table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="72"><img src="<%= request.getContextPath()%>/Picture/b2.png" width="62" height="62" /></td>
-                <td><h2>最优选择</h2>线上线下 对比选购</td>
+                <td><h2>满38包邮</h2>满38包邮 免运费</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
@@ -590,53 +613,62 @@
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="72"><img src="<%= request.getContextPath()%>/Picture/b4.png" width="62" height="62" /></td>
-                <td><h2>准时送达</h2>线下提货 就近安排</td>
+                <td><h2>准时送达</h2>收货时间由你做主</td>
               </tr>
             </table>
         </div>
     </div>
     <div class="b_nav">
-        <dl>                                                                                            
-            <dt><a href="#">新手上路</a></dt>
+    	<dl>                                                                          
+        	<dt><a href="#">新手上路</a></dt>
             <dd><a href="#">售后流程</a></dd>
             <dd><a href="#">购物流程</a></dd>
             <dd><a href="#">订购方式</a></dd>
+            <dd><a href="#">隐私声明</a></dd>
+            <dd><a href="#">推荐分享说明</a></dd>
         </dl>
         <dl>
-            <dt><a href="#">配送与支付</a></dt>
+        	<dt><a href="#">配送与支付</a></dt>
             <dd><a href="#">货到付款区域</a></dd>
             <dd><a href="#">配送支付查询</a></dd>
             <dd><a href="#">支付方式说明</a></dd>
         </dl>
         <dl>
-            <dt><a href="#">会员中心</a></dt>
+        	<dt><a href="#">会员中心</a></dt>
             <dd><a href="#">资金管理</a></dd>
             <dd><a href="#">我的收藏</a></dd>
             <dd><a href="#">我的订单</a></dd>
         </dl>
         <dl>
-            <dt><a href="#">服务保证</a></dt>
+        	<dt><a href="#">服务保证</a></dt>
             <dd><a href="#">退换货原则</a></dd>
             <dd><a href="#">售后服务保证</a></dd>
             <dd><a href="#">产品质量保证</a></dd>
         </dl>
         <dl>
-            <dt><a href="#">联系我们</a></dt>
+        	<dt><a href="#">联系我们</a></dt>
             <dd><a href="#">网站故障报告</a></dd>
             <dd><a href="#">购物咨询</a></dd>
             <dd><a href="#">投诉与建议</a></dd>
         </dl>
-        <dl>
-            <dt><a href="#">加入我们</a></dt>
-            <dd><a href="#">线上商家联系</a></dd>
-            <dd><a href="#">线下商家联系</a></dd>
-            <dd><a href="#">资讯合作</a></dd>
-        </dl>
-
+        <div class="b_tel_bg">
+        	<a href="#" class="b_sh1">新浪微博</a>            
+        	<a href="#" class="b_sh2">腾讯微博</a>
+            <p>
+            服务热线：<br />
+            <span>400-123-4567</span>
+            </p>
+        </div>
+        <div class="b_er">
+            <div class="b_er_c"><img src="<%= request.getContextPath()%>/Picture/er.gif" width="118" height="118" /></div>
+            <img src="<%= request.getContextPath()%>/Picture/ss.png" />
+        </div>
+    </div>    
     <div class="btmbg">
-        <div class="btm">
+		<div class="btm">
+        	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
             <img src="<%= request.getContextPath()%>/Picture/b_1.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_2.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_3.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_4.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_5.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_6.gif" width="98" height="33" />
-        </div>      
+        </div>    	
     </div>
     <!--End Footer End -->    
 </div>
