@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -18,8 +24,12 @@
     
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/shade.js"></script>   <!-- 控制弹窗 -->
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery.1.4.2-min.js"></script>
-    
-<title>商品详情</title>
+
+    <!--星级评价1.4的jquery就行-->
+    <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/back/assets/xingji/demo/css/application.css">
+    <script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/xingji/lib/jquery.raty.js"></script>
+
+    <title>商品详情</title>
 <style type="text/css">
 .preview1{width:400px; height:465px;}
 /* bigImg1 */
@@ -79,6 +89,14 @@
     width: 30px;
     margin-right: 10px;
 }
+    /*宝贝分类*/
+.box{ width:208px; height: auto; border: solid 1px #cccccc;}
+.Collapsing{ width: 100%;padding:0; margin:0; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat: no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #949090; color: #fff; }
+.coll_body{display: none; }
+.coll_body a{display:block; margin:10px; text-align: center; background: #f5f4f4;}
+.coll_body h4{ width: 100%; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat:  no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #BDBDBD; color: #fff; }
+.boxcurrent{background-image:url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_down.png);}
+
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -212,6 +230,14 @@
         return { left: X, top: Y };
     }
 });
+    /*宝贝分类*/
+    $(function(){
+        $(".coll_body").eq(0).show();
+        $(".Collapsing").click(function(){
+            $(this).toggleClass("boxcurrent").siblings('.Collapsing').removeClass("boxcurrent");//切换图标
+            $(this).next(".coll_body").slideToggle(500).siblings(".coll_body").slideUp(500);
+        });
+    });
 </script>
 </head>
 <body>  
@@ -641,7 +667,7 @@
 
 <div class="i_bg">
 	<div class="postion">
-    	<span class="fl">全部 > 美妆个护 > 香水 > 迪奥 > 迪奥真我香水</span>
+        <span class="fl">全部 > ${Product.big} > ${Product.small} > ${Product.secend} > ${Product.productname} </span>
     </div>    
     <div class="content">
         <div id="tsShopContainer">
@@ -654,7 +680,10 @@
                 <!--bigImg1 end-->   
                     <div id="bigView1" style="display:none;"><img width="800" height="800" alt=""src="<%= request.getContextPath()%>/" /></div>
                 </div>
-
+                <!--头部图片展示-->
+                <%--<c:forEach items="${fn:split(Product.headershow,';')}" var="detail" begin="0" end="${fn:length(fn:split(Product.headershow,';'))}" varStatus="stat">
+                    <img src="${detail}" width="746" height="425" /><br /><br />
+                </c:forEach>--%>
             </div>
             <div id="tsPicContainer">
                 
@@ -662,13 +691,13 @@
         </div>
         
         <div class="pro_des">
-        	<div class="des_name">
-            	<p>Dior/迪奥 真我香水EDP 克丽丝汀迪奥 30ml</p>
+            <div class="des_name">
+                <p>${Product.productname}</p>
                 “开业巨惠，北京专柜直供”，不光低价，“真”才靠谱！
             </div>
             <div class="des_price">
-            	本店价格：<b>￥589</b><br />
-                累计销量:<span>100000&nbsp;&nbsp;<img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
+                本店价格：<b>￥${Product.price}</b><br />
+                累计销量:<span>${Product.salesvolu}&nbsp;&nbsp;<img src="<%=request.getContextPath()%>/Images/location.png">${Product.cityname}</span>
             </div>
             <div class="des_choice">
             	<span class="fl">型号选择：</span>
@@ -707,13 +736,12 @@
                 </div>
                 <span class="fl"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="<%= request.getContextPath()%>/Picture/j_car.png" /></a></span>
             </div>            
-        </div>    
-        
+        </div>
+
         <div class="s_brand">
-        	<div class="s_brand_img"><img src="<%= request.getContextPath()%>/Picture/sbrand.jpg"></div>
-            <div class="s_brand_c"><a href="<%= request.getContextPath()%>/#">Dior旗舰店&nbsp;</a><img src="<%= request.getContextPath()%>/Images/xing.png"><img src="<%= request.getContextPath()%>/Images/xing.png"><img src="<%= request.getContextPath()%>/Images/xing.png"><img src="<%= request.getContextPath()%>/Images/xing.png"><img src="<%= request.getContextPath()%>/Images/xing.png"><br>
-            <span>销量:12138&nbsp;&nbsp;<img src="<%= request.getContextPath()%>/Images/location.png">北京</span>
-                
+            <div class="s_brand_img"><img src="${Product.shoplogo}"></div>
+            <div class="s_brand_c"><a href="<%=request.getContextPath()%>/#"></a> <a href="">${Product.shopname}&nbsp;</a><span id="readOnly-shop"></span><br>
+                <span>销量:${Product.salesvo}&nbsp;&nbsp;<img src="<%=request.getContextPath()%>/Images/location.png">${Product.cityname}</span>
             </div>
         </div>    
         
@@ -721,44 +749,63 @@
     </div>
     <div class="content mar_20">
     	<div class="l_history">
-        	<div class="fav_t">用户还喜欢</div>
+        	<div class="fav_t" style="height: 40px;font-size:20px;padding-left: 55px; ">用户还喜欢</div>
         	<ul>
-            	<li>
-                    <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/his_1.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="<%= request.getContextPath()%>/#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/his_2.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="<%= request.getContextPath()%>/#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>768.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/his_3.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="<%= request.getContextPath()%>/#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>680.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/his_4.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="<%= request.getContextPath()%>/#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/his_5.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="<%= request.getContextPath()%>/#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
+                <c:forEach items="${hootList}" var="hoot">
+                    <li>
+                        <div class="img"><a href="<%=request.getContextPath()%>/product?cid=${hoot.cid}"><img src="${hoot.logo}" width="185" height="162" /></a></div>
+                        <div class="name"><a href="<%=request.getContextPath()%>/product?cid=${hoot.cid}">${hoot.productname}</a></div>
+                        <div class="price">
+                            <font>￥<span>${hoot.price}</span></font>
+                        </div>
+                    </li>
+                </c:forEach>
         	</ul>
+            <br/><br/>
+            <div class="fav_t" style="height: 40px;font-size:20px;padding-left: 55px; ">宝贝分类</div>
+            <div class="box">
+                <c:forEach items="${ShopList}" var="BigCategory" varStatus="bigid" >
+                <h3 class="Collapsing  boxcurrent">${BigCategory.big}</h3>
+                <div class="coll_body">
+                    <c:forEach items="${BigCategory.smallCategoryList}" var="SmallCategory" varStatus="samllid">
+                    <h4 class="Collapsing">${SmallCategory.small}</h4>
+                    <div class="coll_body">
+                        <c:forEach items="${SmallCategory.categoryList}" var="Category" varStatus="secendid">
+                        <a href="#">${Category.secend}</a>
+                        </c:forEach>
+                    </div>
+                    </c:forEach>
+                </div>
+                </c:forEach>
+            </div>
+           <%-- <section class="ac-container">
+                <c:forEach items="${ShopList}" var="BigCategory" varStatus="bigid" >
+                    <div>
+                        <input id="ac-${bigid.index}" name="accordion-1" type="checkbox" />
+                        <label for="ac-${bigid.index}" style="padding-left: 5px">${BigCategory.big}</label>
+                        <article class="ac-medium">
+                            <c:forEach items="${BigCategory.smallCategoryList}" var="SmallCategory" varStatus="samllid">
+                                <section class="ac-container">
+                                    <div>
+                                        <input id="ac-${bigid.index}${samllid.index}" name="accordion-1" type="checkbox" />
+                                        <label for="ac-${bigid.index}${samllid.index}" >${SmallCategory.small}</label>
+                                        <article class="ac-medium">
+                                            <c:forEach items="${SmallCategory.categoryList}" var="Category" varStatus="secendid">
+                                                <section class="ac-container">
+                                                    <div>
+                                                        <input id="ac-${bigid.index}${samllid.index}${secendid.index}" name="accordion-1" type="checkbox" />
+                                                        <label style="padding-left: 35px" for="ac-${bigid.index}${samllid.index}${secendid.index}">${Category.secend}</label>
+                                                    </div>
+                                                </section>
+                                            </c:forEach>
+                                        </article>
+                                    </div>
+                                </section>
+                            </c:forEach>
+                        </article>
+                    </div>
+                </c:forEach>
+            </section>--%>
         </div>
         <div class="l_list"> 
            <div class="des_border">
@@ -814,32 +861,32 @@
                     <div class="conbox" style="display:block;">
                         <table border="0" align="center" style="width:745px; font-size:14px; font-family:'宋体';" cellspacing="0" cellpadding="0">
                       <tr>
-                        <td width="265"><img src="<%= request.getContextPath()%>/Picture/de1.jpg" width="206" height="412" /></td>
-                        <td>
-                            <b>迪奥真我香水(Q版)</b><br />
-                            【商品规格】：5ml<br />
-                            【商品质地】：液体<br />
-                            【商品日期】：与专柜同步更新<br />
-                            【商品产地】：法国<br />
-                            【商品包装】：无外盒 无塑封<br />
-                            【商品香调】：花束花香调<br />
-                            【适用人群】：适合女性（都市白领，性感，有女人味的成熟女性）<br />
-                        </td>
+                          <td width="265"><img src="${Product.logo}" width="206" height="412" /></td>
+                          <td>
+                              <b>${Product.productname}</b><br />
+                              【商品规格】：5ml<br />
+                              【商品质地】：液体<br />
+                              【商品日期】：与专柜同步更新<br />
+                              【商品产地】：法国<br />
+                              【商品包装】：无外盒 无塑封<br />
+                              【商品香调】：花束花香调<br />
+                              【适用人群】：适合女性（都市白领，性感，有女人味的成熟女性）<br />
+                          </td>
                       </tr>
                     </table>
-                    
-                    <p align="center">
-                    <img src="<%= request.getContextPath()%>/Picture/de2.jpg" width="746" height="425" /><br /><br />
-                    <img src="<%= request.getContextPath()%>/Picture/de3.jpg" width="750" height="417" /><!-- <br /><br /> -->
-                    <!-- <img src="<%= request.getContextPath()%>/Picture/de4.jpg" width="750" height="409" /><br /><br /> -->
-                    <!-- <img src="<%= request.getContextPath()%>/Picture/de5.jpg" width="750" height="409" /> -->
-                    </p>
+
+                        <p align="center">
+                            <c:forEach items="${fn:split(Product.detailshow,';')}" var="detail" begin="0" end="${fn:length(fn:split(Product.detailshow,';'))}" varStatus="stat">
+                                <img src="${detail}" width="746" height="425" /><br /><br />
+                            </c:forEach>
+
+                        </p>
                     </div>
                     <div class="conbox">
                         <table border="0" align="center" style="width:100%; font-family:'宋体'; margin:10px auto;" cellspacing="0" cellpadding="0">
                           <tr>
-                            <td>商品名称：迪奥香水</td>
-                            <td>商品编号：1546211</td>
+                            <td>商品名称：${Product.productname}</td>
+                            <td>商品编号：${Product.cid}</td>
                             <td>品牌： 迪奥（Dior）</td>
                             <td>上架时间：2015-09-06 09:19:09 </td>
                           </tr>
@@ -862,20 +909,20 @@
                         <table border="0" class="jud_tab" cellspacing="0" cellpadding="0">
                   <tr>
                     <td width="175" class="jud_per">
-                        <p>80.0%</p>好评度
+                        <p>${page.gasslv}%</p>好评度
                     </td>
                     <td width="300">
                         <table border="0" style="width:100%;" cellspacing="0" cellpadding="0">
                           <tr>
-                            <td width="90">好评<font color="#999999">（80%）</font></td>
+                            <td width="90">好评<font color="#999999">（${page.gasslv}%）</font></td>
                             <td><img src="<%= request.getContextPath()%>/Picture/pl.gif" align="absmiddle" /></td>
                           </tr>
                           <tr>
-                            <td>中评<font color="#999999">（20%）</font></td>
+                            <td>中评<font color="#999999">（${page.masslv}%）</font></td>
                             <td><img src="<%= request.getContextPath()%>/Picture/pl.gif" align="absmiddle" /></td>
                           </tr>
                           <tr>
-                            <td>差评<font color="#999999">（0%）</font></td>
+                            <td>差评<font color="#999999">（${page.basslv}%）</font></td>
                             <td><img src="<%= request.getContextPath()%>/Picture/pl.gif" align="absmiddle" /></td>
                           </tr>
                         </table>
@@ -887,69 +934,126 @@
                   </tr>
                 </table>
                 
-                
-                                
-                <table border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
-                  <tr valign="top">
-                    <td width="160"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" width="20" height="20" align="absmiddle" />&nbsp;向死而生</td>
-                    <td width="180">
-                        颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                        <img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><br>
-                        产品很好，香味很喜欢，必须给赞。 <br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="<%= request.getContextPath()%>/Picture/peo2.jpg" width="20" height="20" align="absmiddle" />&nbsp;就是这么想的</td>
-                    <td width="180">
-                        颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                        <img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><br>
-                        送朋友，她很喜欢，大爱。 <br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="<%= request.getContextPath()%>/Picture/peo3.jpg" width="20" height="20" align="absmiddle" />&nbsp;墨镜墨镜</td>
-                    <td width="180">
-                        颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                        <img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><br>
-                        大家都说不错<br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="<%= request.getContextPath()%>/Picture/peo4.jpg" width="20" height="20" align="absmiddle" />&nbsp;那*****洋 <br /><font color="#999999">（匿名用户）</font></td>
-                    <td width="180">
-                        颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                        <img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><img src="<%= request.getContextPath()%>/Picture/peo1.jpg" class="ping"><br>
-                        下次还会来买，推荐。<br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                </table>
 
-                    
-                    
-                <div class="pages">
-                    <a href="<%= request.getContextPath()%>/#" class="p_pre">上一页</a><a href="<%= request.getContextPath()%>/#" class="cur">1</a><a href="<%= request.getContextPath()%>/#">2</a><a href="<%= request.getContextPath()%>/#">3</a>...<a href="<%= request.getContextPath()%>/#">20</a><a href="<%= request.getContextPath()%>/#" class="p_pre">下一页</a>
-                </div>    
-            
-                    </div>
+                <script type="text/javascript">
+                    //实现异步刷新
+                    $(function () {
+                        //请求相册
+                        $("#xc").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/assesstu?cid="+cid+"";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping0").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=0&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping1").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=1&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping2").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=2&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+                        $(".ping3").click(function () {
+                            var cid=${page.cid};
+                            if (cid != "") {
+                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=3&p=1";
+                                var args = {"cid": cid, "time": new Date()};
+                                $.get(url, args);
+                            }
+                        });
+
+                    })
+                </script>
+                        <div class="pro_con margin-t55" style="overflow:hidden;">
+                            <div class="pro_tab">
+                                <ul>
+                                    <li class="cur">评价</li>
+                                    <li>轮播图</li>
+                                </ul>
+                            </div>
+                            <div class="conlist">
+                                <div class="conbox" style="display:block;">
+                                    <form border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
+                                        <input type="button" class="ping0" value="全部评价(${page.allassess}+)" />
+                                        <input type="button" id="xc" value="晒图"/>
+                                        <input type="button" class="ping1" value="好评(${page.gass}+)" /></a>
+                                        <input type="button" class="ping2" value="中评(${page.mass})" />
+                                        <input type="button" class="ping3" value="差评(${page.bass})" />
+                                    </form>
+                                    <table class="content_Assess" border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
+                                        <c:forEach items="${AssessList}" var="assess">
+                                            <tr valign="top">
+                                                <td width="160"><img src="${assess.headerpic}" width="20" height="20" align="absmiddle" />&nbsp;${assess.username}<br />
+                                                    <br/> <span class="assessreadOnly">${assess.grade}</span>
+                                                </td>
+                                                <td>
+                                                        ${assess.hollrall} <br />
+                                                        ${assess.detail}<br/>
+                                                    <c:forEach items="${fn:split(assess.pics,';')}" var="pic" begin="0" end="${fn:length(fn:split(assess.pics,';'))}" varStatus="stat">
+                                                        <a class="pic" href="${pic}"><img src="${pic}" class="ping"/></a>
+                                                    </c:forEach>
+                                                    <br/>
+                                                    颜色分类：<font color="#999999">粉色</font>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    型号：<font color="#999999">50ml</font>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#999999">${assess.date}</font>
+                                                    <hr style="border : 1px dashed #999999;" />
+                                                    <span style="color: #FF4855">
+                                                     店主回复:<br>
+                                                      ${assess.bossback}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+
+                                    <div class="pages">
+                                        <a href="<%= request.getContextPath()%>/#" class="p_pre">上一页</a><a href="<%= request.getContextPath()%>/#" class="cur">1</a><a href="<%= request.getContextPath()%>/#">2</a><a href="<%= request.getContextPath()%>/#">3</a>...<a href="<%= request.getContextPath()%>/#">20</a><a href="<%= request.getContextPath()%>/#" class="p_pre">下一页</a>
+                                    </div>
+
+                                </div>
+                            <div class="conbox">
+
+                                 <%@include file="backmanage/AssessTu.jsp"%>
+
+                            </div>
+
+                            </div>
+                        <!-- 主要内容 -->
+
                 </div>
-            </div>    </div>
-    
+                </div>
+                </div>
+
+        <!--星级插件展示-->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#readOnly-shop").raty({ readOnly: true, score:${Product.slevel} });
+                $('.assessreadOnly').each(function (index) {
+                    var slevel=$(this).text();
+                    $(this).raty({ readOnly: true, score:slevel });
+
+                })
+
+            });
+        </script>
     
     <!--Begin 弹出层-收藏成功 Begin-->
     <div id="fade" class="black_overlay"></div>
