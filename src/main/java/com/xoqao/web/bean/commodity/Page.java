@@ -9,20 +9,95 @@ import java.util.ArrayList;
 public class Page {
     int p=1;//当前页数,从1开始
     int start=0;//每页开始在数据库中的位置
-    int count = 2;//每页记录
+    int count = 4;//每页记录
     int listsize=0;
     int pagesize;
     int bp=0;//beforepage
     int ap=0;//afterpage
+    //大方向查找
     int cgid=-1;
     String productname;
     String shopname;
+    //多条件筛选
     String city;
     String[] citysz;
     int part=2;
     String big;
     String small;
     String secend;
+    //排序
+    int sales=0;//销售量默认0不使用，1为销售量按多到少排序（desc）
+    int ases=0;//评价数默认0不使用，1为评价数按多到少排序（desc）
+    int price=2;//价格0asc,1desc
+    int range=2;//距离(近->远)0desc,1（远->近）asc
+    int attention=0;// 关注度默认0不使用，1为关注度按多到少排序（desc）
+    double lotx;
+    double loty;
+    int colligate=0;//默认0不使用，1为综合排序
+
+    public int getColligate() {
+        return colligate;
+    }
+
+    public void setColligate(int colligate) {
+        this.colligate = colligate;
+    }
+
+    public double getLotx() {
+        return lotx;
+    }
+
+    public void setLotx(double lotx) {
+        this.lotx = lotx;
+    }
+
+    public double getLoty() {
+        return loty;
+    }
+
+    public void setLoty(double loty) {
+        this.loty = loty;
+    }
+
+    public int getAttention() {
+        return attention;
+    }
+
+    public void setAttention(int attention) {
+        this.attention = attention;
+    }
+
+    public int getSales() {
+        return sales;
+    }
+
+    public void setSales(int sales) {
+        this.sales = sales;
+    }
+
+    public int getAses() {
+        return ases;
+    }
+
+    public void setAses(int ases) {
+        this.ases = ases;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getRange() {
+        return range;
+    }
+
+    public void setRange(int range) {
+        this.range = range;
+    }
 
     public String getCity() {
         return city;
@@ -160,7 +235,7 @@ public class Page {
         }else{
             this.pagesize=this.listsize/count+1;
         }
-       
+
         //判断每一页开始start
         this.start = (p-1) * this.count;
         //判断每一页的结束
