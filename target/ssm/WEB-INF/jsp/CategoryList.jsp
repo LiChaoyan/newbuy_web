@@ -396,7 +396,7 @@
                 <dl class="relative clearfix" style="border-bottom:0">
                     <dt class="floatLeft"><a href="/">合作商品：</a></dt>
                     <dd class="floatLeft show-con">
-                        <a href="#" class="" ><input type="checkbox"/>是</a>
+                        <a href="#" class="" >是</a>
                         <a href="#" class="" >否</a>
                     </dd>
                     <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>
@@ -685,21 +685,84 @@
                 </li>
             </ul>
         </div>
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                //刷新后，保留now的状态
+                var no_price=${page.price};
+                var no_sales=${page.sales};
+                var no_range=${page.range};
+                var no_ases=${page.ases};
+                var no_attention=${page.attention};
+                var no_colligate=0;
+                if((no_price==0||no_price==1)&&no_sales==1&&(no_range==0||no_range==1)&&no_ases==1&&no_attention==1){
+                    no_colligate=1;
+                }
+                if((no_price==0||no_price==1)&&(no_colligate==0)){
+                    $(".now").removeClass("now");
+                    $(".no-price").addClass("now");
+                }
+                if(no_sales==1&&no_colligate==0){
+                    $(".now").removeClass("now");
+                    $(".no-sales").addClass("now");
+                }
+                if(no_attention==1&&no_colligate==0){
+                    $(".now").removeClass("now");
+                    $(".no-attention").addClass("now");
+                }
+                if(no_ases==1&&no_colligate==0){
+                    $(".now").removeClass("now");
+                    $(".no-ases").addClass("now");
+                }
+                if((no_range==0||no_range==1)&&(no_colligate==0)){
+                    $(".now").removeClass("now");
+                    $(".no-range").addClass("now");
+                }
+                if(no_colligate==1){
+                    $(".now").removeClass("now");
+                    $(".no-colligate").addClass("now");
+                }
+
+                $(".list_or a").click(function () {
+                    $(".now").removeClass("now");
+                    $(this).addClass("now");
+                });
+
+                $(".no-price").click(function () {
+                    if(no_price==0){
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&price=1";
+                    }else{
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&price=0";
+                    }
+                });
+                $(".no-range").click(function () {
+                    if(no_range==0){
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&range=1";
+                    }else{
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&range=0";
+                    }
+                });
+            });
+        </script>
         <div class="l_list">
             <div class="list_t">
             	<span class="fl list_or">
-                	<a href="#" class="now">默认</a>
-                    <a href="#">
-                    	<span class="fl">销量</span>
-                        <span class="i_up">销量从低到高显示</span>
-                        <span class="i_down">销量从高到低显示</span>
-                    </a>
-                    <a href="#">
+                	<a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}" class="no-mo now">默认</a>
+                    <a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&sales=1" class="no-sales">销量</a>
+                    <a href="#" class="no-price">
                     	<span class="fl">价格</span>
                         <span class="i_up">价格从低到高显示</span>
                         <span class="i_down">价格从高到低显示</span>
                     </a>
-                    <a href="#">新品</a>
+                    <a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&ases=1" class="no-ases">评价数</a>
+                    <a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&attention=1" class="no-attention">关注度</a>
+                    <a href="#" class="no-range">
+                    	<span class="fl">距离</span>
+                        <span class="i_up">距离从近到远显示</span>
+                        <span class="i_down">距离远高到进显示</span>
+                    </a>
+                    <a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&colligate=1" class="no-colligate">综合</a>
+                    <a href="#" class="no-new">新品</a>
                 </span>
                 <span class="fr">共发现${page.listsize}件</span>
             </div>
@@ -710,7 +773,16 @@
                         <li>
                             <div class="img"><a href="#"><img src="${CommodityShop.logo}" width="210" height="185" /></a></div>
                             <div class="price">
-                                <font>￥<span>${CommodityShop.price}</span></font> &nbsp; ${CommodityShop.salesvolu}人付款
+                                <font>￥<span>${CommodityShop.price}</span></font> &nbsp; ${CommodityShop.salesvolu}人付款&nbsp;&nbsp;
+                                <c:if test="${page.range!=2}">
+                                    ${CommodityShop.juli}米
+                                </c:if>
+                                <c:if test="${page.attention==1}">
+                                    ${CommodityShop.goodsatten}关注
+                                </c:if>
+                                <c:if test="${page.ases==1}">
+                                    ${CommodityShop.asesnum}评论
+                                </c:if>
                             </div>
                             <div class="name"><a href="#">${CommodityShop.productname}</a></div>
                             <div class="pre"><a class="fl">店铺：${CommodityShop.shopname}</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">${CommodityShop.cityname}</div></div>
@@ -735,7 +807,7 @@
                         "kk":function(mm){
                             // alert(mm);
                             // console.log("hellos");
-                            window.location.href="CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&p="+mm;
+                            window.location.href="CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&sales=${page.sales}&price=${page.price}&attention=${page.attention}&range=${page.range}&ases=${page.ases}&colligate=${page.colligate}&p="+mm;
                         }
                     }
                     $("#page").initPage(${page.listsize},${page.p},GG.kk);

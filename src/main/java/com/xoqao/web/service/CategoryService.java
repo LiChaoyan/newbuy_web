@@ -11,6 +11,7 @@ import java.util.List;
  * Created by win8.1 on 2017/7/20.
  */
 public interface CategoryService {
+    List<Category> selectCategoryBycgid(@Param("cgid")int cgid)throws Exception;
     ArrayList<BigCategory> select123List()throws Exception;
     List<Category> selectBig()throws Exception;
     List<Category> selectSmall(String big_big)throws Exception;
