@@ -114,6 +114,7 @@ public class DemoController {
     public ModelAndView showCategoryListpage(Page page,Model model,HttpServletRequest request)throws Exception {
         //获取ip
         String ip = request.getHeader("x-forwarded-for");
+
         if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
             ip = request.getHeader("Proxy-Client-IP");
         }
@@ -123,8 +124,15 @@ public class DemoController {
         if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
             ip = request.getRemoteAddr();
         }
-        ip=ip.equals("0:0:0:0:0:0:0:1")?"127.0.0.1":ip;
+        ip=ip.equals("0:0:0:0:0:0:0:1")?"118.89.171.150":ip;
+        ip="118.89.171.150";
         //获取经纬度，请在Getjw类中实现
+        Getjw ipxy=new Getjw();
+        page.setRangeString(ipxy.getXY(ip));
+
+        if(page.getRange()!=2){
+            System.out.println(page.getRangeString());
+        }
 
         ArrayList<CommodityShop> arrayList = new ArrayList<CommodityShop>();
         //动态添加商品分类
@@ -145,8 +153,6 @@ public class DemoController {
             try {
                 size = commodityService.selectCommodityShopsize(page);
                 page.setPage(page.getP(), size);
-                double lotx=34.2597,loty=108.9471;
-                page.setLotx(lotx);page.setLoty(loty);
                 arrayList = commodityService.selectCommodityShopBycgidpage(page);
                 //筛选信息导航栏填写
                 if(page.getCgid()!=-1) {

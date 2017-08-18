@@ -94,7 +94,7 @@
 <div class="soubg">
     <div class="sou">
           <span class="fr">
-              <span class="fl">你好，请<a href="Login.html" style="color:#ff4e00;">登录</a>&nbsp; |&nbsp;<a href="Regist.html">免费注册</a>&nbsp;|&nbsp;<a href="Index.html">商城主页</a></span>
+              <span class="fl">你好，请<a href="Login.html" style="color:#ff4e00;">登录</a>&nbsp; |&nbsp;<a href="Regist.html">免费注册</a>&nbsp;|&nbsp;<a href="<%=request.getContextPath()%>/index">商城主页</a></span>
           </span>
     </div>
 </div>
