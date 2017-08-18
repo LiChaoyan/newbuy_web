@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Service
 public interface CategoryMapper {
+    List<Category> selectCategoryBycgid(@Param("cgid")int cgid)throws Exception;
     ArrayList<BigCategory> select123List()throws Exception;
     List<Category> selectBig()throws Exception;
     List<Category> selectSmall(@Param("big_big")String big_big)throws  Exception;

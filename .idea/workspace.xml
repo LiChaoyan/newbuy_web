@@ -6,6 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="5e24c4aa-7de7-4115-9cd7-d0ce15a0b616" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Login.jsp" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Member_Safenum.html" afterPath="" />
@@ -38,6 +39,38 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/UserMapper.xml" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/UserMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Brand.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Brand.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/BuyCar.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/BuyCar.jsp" />
+=======
+    <list default="true" id="487417ae-a2ed-46d7-aec0-cf4bb2b8bf7f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Getjw.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/commodity/CommodityShop.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/commodity/CommodityShop.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/commodity/Page.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/commodity/Page.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/DemoController.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/DemoController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/dao/CategoryMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/dao/CategoryMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/CategoryService.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/CategoryService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/CategoryServicelmpl.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/CategoryServicelmpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/commodity/CommodityShop.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/commodity/CommodityShop.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/commodity/Page.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/commodity/Page.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/DemoController.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/DemoController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/dao/CategoryMapper.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/dao/CategoryMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/CategoryService.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/CategoryService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/CategoryServicelmpl.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/CategoryServicelmpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/CommodityShop.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/CommodityShop.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Page.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Page.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CategoryMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CategoryMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CommodityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CommodityMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CategoryService.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CategoryService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CategoryServicelmpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CategoryServicelmpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CommodityService.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CommodityService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapping/CategoryMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapping/CategoryMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapping/CommodityMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapping/CommodityMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapping/CategoryMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapping/CategoryMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapping/CommodityMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapping/CommodityMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/CategoryMapper.xml" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/CategoryMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/CommodityMapper.xml" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/CommodityMapper.xml" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/CategoryList.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/CategoryList.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Goodsadd.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Goodsadd.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Index.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Index.jsp" />
@@ -116,14 +149,63 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java" />
+=======
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/backmanage/sectionList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapping/UserMapper.xml" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Login.jsp" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/user/UserController.java" />
+=======
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Registtwo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Registthree.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Regist.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Goodsadd.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Member_Safehead.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Member_Safehead.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Member_Head.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sousuo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sousuo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Brand.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Brand.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Assess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/APage.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/backmanage/AssessTu.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/back/assets/lbt/images/rural2015.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/back/assets/xingji/demo/css/common.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/back/assets/dpfl/dpflstyle.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Product.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/Css/style.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/back/assets/dtjsx/css/reset.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/back/assets/dtjsx/css/dstyle.css" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/City.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Selitem.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/back/assets/lbt/images/jquery.SuperSlide.2.1.1.source.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CommodityMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CommodityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CommodityServicelmpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CategoryMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CategoryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CategoryServicelmpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapping/CategoryMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/CommodityShop.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Page.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapping/CommodityMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Getjw.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
       </list>
     </option>
   </component>
@@ -161,6 +243,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,6 +370,143 @@
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="intercepter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="converter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commodity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -478,6 +698,7 @@
       <created>1503023547467</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
       <updated>1503023547467</updated>
       <workItem from="1503023548940" duration="3390000" />
     </task>
@@ -485,6 +706,218 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="3390000" />
+=======
+      <updated>1499908994454</updated>
+      <workItem from="1499494912995" duration="6856000" />
+      <workItem from="1499562247384" duration="106000" />
+      <workItem from="1499568055379" duration="3814000" />
+      <workItem from="1499655728017" duration="27800000" />
+      <workItem from="1499734833636" duration="595000" />
+      <workItem from="1499740834761" duration="24647000" />
+      <workItem from="1499821738487" duration="10947000" />
+      <workItem from="1499843056305" duration="22123000" />
+      <workItem from="1499907222304" duration="1741000" />
+      <workItem from="1499656062955" duration="664000" />
+      <workItem from="1499669741762" duration="1257000" />
+      <workItem from="1499690166327" duration="1788000" />
+      <workItem from="1499733688109" duration="3854000" />
+      <workItem from="1500124721441" duration="2151000" />
+      <workItem from="1500259800165" duration="1021000" />
+      <workItem from="1500263600945" duration="9391000" />
+      <workItem from="1500539134108" duration="11853000" />
+      <workItem from="1500890826185" duration="2768000" />
+      <workItem from="1500949859657" duration="1478000" />
+      <workItem from="1501464580015" duration="3251000" />
+      <workItem from="1501484650624" duration="12233000" />
+      <workItem from="1501557663805" duration="9833000" />
+    </task>
+    <task active="true" id="LOCAL-00001" summary="初始基本环境配置-ssm">
+      <created>1499498488343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1499908994697</updated>
+      <workItem from="1499908994851" duration="34129000" />
+      <workItem from="1499993572905" duration="12562000" />
+      <workItem from="1500012021571" duration="1891000" />
+      <workItem from="1500017741009" duration="1402000" />
+      <workItem from="1500038427561" duration="597000" />
+      <workItem from="1500079301527" duration="12296000" />
+      <workItem from="1500098727892" duration="5810000" />
+      <workItem from="1500257585260" duration="7613000" />
+      <workItem from="1500271151227" duration="6486000" />
+      <workItem from="1500277878976" duration="15244000" />
+      <workItem from="1500297979375" duration="2725000" />
+      <workItem from="1500339480065" duration="23683000" />
+      <workItem from="1500378016050" duration="8421000" />
+      <workItem from="1500425384244" duration="17675000" />
+      <workItem from="1500449025656" duration="1562000" />
+      <workItem from="1500451374064" duration="756000" />
+      <workItem from="1500452158931" duration="32000" />
+      <workItem from="1500455786814" duration="5834000" />
+      <workItem from="1500512040152" duration="30375000" />
+      <workItem from="1500598597625" duration="2745000" />
+      <workItem from="1500601603482" duration="1820000" />
+      <workItem from="1500603601147" duration="587000" />
+      <workItem from="1500604418970" duration="5889000" />
+      <workItem from="1500610778994" duration="21340000" />
+      <workItem from="1500684403295" duration="12275000" />
+      <workItem from="1500703393976" duration="20442000" />
+      <workItem from="1500859224030" duration="22436000" />
+      <workItem from="1501030019030" duration="37191000" />
+      <workItem from="1501117080957" duration="34433000" />
+      <workItem from="1501203304899" duration="7685000" />
+      <workItem from="1501213484633" duration="26379000" />
+      <workItem from="1501289012224" duration="11616000" />
+      <workItem from="1501308303764" duration="21807000" />
+      <workItem from="1501463022590" duration="36929000" />
+      <workItem from="1501548724374" duration="25565000" />
+      <workItem from="1501635776693" duration="3403000" />
+      <workItem from="1502239795017" duration="25365000" />
+      <workItem from="1502336589192" duration="24421000" />
+      <workItem from="1502412506386" duration="32101000" />
+      <workItem from="1502499445240" duration="4896000" />
+      <workItem from="1502511940678" duration="13448000" />
+      <workItem from="1502672302930" duration="32202000" />
+      <workItem from="1502758065105" duration="9404000" />
+      <workItem from="1502800508245" duration="5332000" />
+      <workItem from="1502845173198" duration="39630000" />
+      <workItem from="1502931366069" duration="20031000" />
+    </task>
+    <task id="LOCAL-00002" summary="初始基本环境配置-ssm">
+      <created>1499498559722</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1499498559722</updated>
+    </task>
+    <task id="LOCAL-00003" summary="配置可运行环境，完成可实现查询所有用户分页Controller">
+      <created>1499777153086</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1499777153086</updated>
+    </task>
+    <task id="LOCAL-00004" summary="配置可运行环境，完成可实现查询所有用户分页Controller">
+      <created>1499867475704</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1499867475704</updated>
+    </task>
+    <task id="LOCAL-00005" summary="配置可运行环境，完成注册待店主注册分页Controller部分内容，（差一点：传错误状态到前台）">
+      <created>1499953659071</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1499953659071</updated>
+    </task>
+    <task id="LOCAL-00006" summary="配置可运行环境，完成店主注册，自后连接到店铺注册界面">
+      <created>1500012274933</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1500012274933</updated>
+    </task>
+    <task id="LOCAL-00007" summary="lcy店铺修改，店铺商品分类添加">
+      <created>1500860203660</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1500860203660</updated>
+    </task>
+    <task id="LOCAL-00008" summary="lcy商品三级分类展示到首页，按类别搜索商品，按商品名字，店铺名字模糊搜索商品，合作商品展示">
+      <created>1501639022838</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1501639022838</updated>
+    </task>
+    <task id="LOCAL-00009" summary="解决合并冲突，修改城市显示">
+      <created>1502246109332</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1502246109332</updated>
+    </task>
+    <task id="LOCAL-00010" summary="热销商品信息填充;店铺内分类展示（后台已实现，前台未展示）;商品基本信息填充（不包括评论的）">
+      <created>1502252422309</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1502252422309</updated>
+    </task>
+    <task id="LOCAL-00011" summary="商品详情页内评论填充，并实现基本的按全,好,中,差及分页查询（前端分页插件未加入）">
+      <created>1502263195314</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1502263195315</updated>
+    </task>
+    <task id="LOCAL-00012" summary="评论以轮播图方式展示">
+      <created>1502350298718</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1502350298718</updated>
+    </task>
+    <task id="LOCAL-00013" summary="评论轮播图放到porduct页面">
+      <created>1502440818017</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1502440818017</updated>
+    </task>
+    <task id="LOCAL-00014" summary="店铺宝贝动态三级分类展示到porduct页面">
+      <created>1502505765782</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1502505765782</updated>
+    </task>
+    <task id="LOCAL-00015" summary="多条件筛选（city，part，单选）">
+      <created>1502766379024</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1502766379024</updated>
+    </task>
+    <task id="LOCAL-00016" summary="多条件筛选（city，多选）&#10;还需要补充1.商店名字模糊搜索+多条件筛选&#10;2.刷新后状态里已选择的筛选项消失的处理">
+      <created>1502870339590</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1502870339590</updated>
+    </task>
+    <task id="LOCAL-00017" summary="修改：1.商店名字模糊搜索+多条件筛选&#10;还需要补充前台各种状态保留刷新后状态里已选择的筛选项消失的处理">
+      <created>1502871223944</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1502871223944</updated>
+    </task>
+    <task id="LOCAL-00018" summary="修改：前台各种状态保留刷新后状态里已选择的筛选项消失的处理&#10;已完成多条件（单选，多选）筛选功能&#10;前端页面按钮位置安魂需要修改一下">
+      <created>1502876812253</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1502876812253</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="281123000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="0" />
@@ -513,6 +946,24 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+=======
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.096721314" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27704918" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30992368" sideWeight="0.56857854" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25036603" sideWeight="0.43142146" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -528,26 +979,187 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+<<<<<<< HEAD
     <MESSAGE value="完成用户登录" />
     <option name="LAST_COMMIT_MESSAGE" value="完成用户登录" />
+=======
+    <MESSAGE value="初始基本环境配置-ssm" />
+    <MESSAGE value="配置可运行环境，完成可实现查询所有用户分页Controller" />
+    <MESSAGE value="配置可运行环境，完成注册待店主注册分页Controller部分内容，（差一点：传错误状态到前台）" />
+    <MESSAGE value="配置可运行环境，完成店主注册，自后连接到店铺注册界面" />
+    <MESSAGE value="lcy店铺修改（未完成）" />
+    <MESSAGE value="lcy店铺修改，店铺商品分类添加" />
+    <MESSAGE value="lcy商品三级分类展示到首页，按类别搜索商品，按商品名字，店铺名字模糊搜索商品，合作商品展示" />
+    <MESSAGE value="wordlu：主页、店铺搜索结果页、商品搜索结果页、商品详情页、注册（三步）和登陆页面" />
+    <MESSAGE value="搜索主页" />
+    <MESSAGE value="解决合并冲突，修改城市显示" />
+    <MESSAGE value="热销商品信息填充;店铺内分类展示（后台已实现，前台未展示）;商品基本信息填充（不包括评论的）" />
+    <MESSAGE value="商品详情页内评论填充，并实现基本的按全,好,中,差及分页查询（前端分页插件未加入）" />
+    <MESSAGE value="评论以轮播图方式展示" />
+    <MESSAGE value="评论轮播图放到porduct页面" />
+    <MESSAGE value="店铺宝贝动态三级分类展示到porduct页面" />
+    <MESSAGE value="多条件筛选（city，part，单选）" />
+    <MESSAGE value="多条件筛选（city，多选）&#10;还需要补充1.商店名字模糊搜索+多条件筛选&#10;2.刷新后状态里已选择的筛选项消失的处理" />
+    <MESSAGE value="修改：1.商店名字模糊搜索+多条件筛选&#10;还需要补充前台各种状态保留刷新后状态里已选择的筛选项消失的处理" />
+    <MESSAGE value="修改：前台各种状态保留刷新后状态里已选择的筛选项消失的处理&#10;已完成多条件（单选，多选）筛选功能&#10;前端页面按钮位置安魂需要修改一下" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改：前台各种状态保留刷新后状态里已选择的筛选项消失的处理&#10;已完成多条件（单选，多选）筛选功能&#10;前端页面按钮位置安魂需要修改一下" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/Scripts/jquery.1.4.2-min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26875">
+          <caret line="65" column="30" lean-forward="false" selection-start-line="65" selection-start-column="30" selection-end-line="65" selection-end-column="30" />
+          <folding>
+            <marker date="1502244320019" expanded="true" signature="790:861" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/Scripts/Scripts/Scripts/num.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/Scripts/lrscroll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/Css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Member_Safehead.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Member_Head.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4738">
+          <caret line="194" column="43" lean-forward="true" selection-start-line="194" selection-start-column="43" selection-end-line="194" selection-end-column="43" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="31" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sousuo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="87" column="45" lean-forward="false" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Assess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/Images/s_gallery_2012110702.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/back/assets/lbt/images/leftb_qiu2015.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/back/assets/asesxxk/js/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/back/assets/asesxxk/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6118">
+          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/back/assets/xingji/lib/jquery.raty.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/back/assets/xingji/demo/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="13" column="35" lean-forward="false" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="354" column="106" lean-forward="false" selection-start-line="354" selection-start-column="106" selection-end-line="354" selection-end-column="106" />
+          <folding>
+            <marker date="1502244320019" expanded="true" signature="790:861" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/back/assets/lbt/images/rural2015.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="71" column="39" lean-forward="false" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/backmanage/getcategory.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-476">
+          <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/back/assets/dpfl/dpflstyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1472">
+          <caret line="64" column="12" lean-forward="false" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/backmanage/AssessTu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
           <folding />
         </state>
       </provider>
@@ -572,61 +1184,253 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/service/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/backmanage/bossAdd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2921">
+          <caret line="127" column="34" lean-forward="false" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Goodsadd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="134" column="68" lean-forward="false" selection-start-line="134" selection-start-column="31" selection-end-line="134" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="jar://D:/student_SOFT/java/apache-maven-3.5.0-bin/localRepository/mysql/mysql-connector-java/5.1.29/mysql-connector-java-5.1.29.jar!/com/mysql/jdbc/AbandonedConnectionCleanupThread.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CommodityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CommodityServicelmpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7797">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CategoryServicelmpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/user/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
           <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/category/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/CategoryMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding>
+            <marker date="1502941549485" expanded="true" signature="323:353" ph="select * fro... category" />
+            <marker date="1502941549485" expanded="true" signature="323:382" ph="select * fro... category" />
+            <marker date="1502941549485" expanded="true" signature="513:546" ph="select DISTI... category" />
+            <marker date="1502941549485" expanded="true" signature="681:739" ph="select DISTI... category" />
+            <marker date="1502941549485" expanded="true" signature="876:958" ph="select cgid,... category" />
+            <marker date="1502941549485" expanded="true" signature="1045:1136" ph="insert into category... " />
+            <marker date="1502941549485" expanded="true" signature="1256:1356" ph="select * fro... category" />
+            <marker date="1502941549485" expanded="true" signature="1433:1535" ph="UPDATE categ... " />
+            <marker date="1502941549485" expanded="true" signature="1671:1712" ph="select * fro... category" />
+            <marker date="1502941549485" expanded="true" signature="1851:1970" ph="select DISTI... category" />
+            <marker date="1502941549485" expanded="true" signature="2113:2254" ph="select DISTI... category" />
+            <marker date="1502941549485" expanded="true" signature="2399:2573" ph="select categ... category" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CategoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CategoryMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/CommodityShop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="e#1438#1439#0" expanded="true" />
+            <element signature="e#1471#1472#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1601#1602#0" expanded="true" />
+            <element signature="e#1632#1633#0" expanded="true" />
+            <element signature="e#1662#1663#0" expanded="true" />
+            <element signature="e#1711#1712#0" expanded="true" />
+            <element signature="e#1755#1756#0" expanded="true" />
+            <element signature="e#1798#1799#0" expanded="true" />
+            <element signature="e#1836#1837#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CommodityMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/Regist.jsp">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="46">
           <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+=======
+        <state relative-caret-position="138">
+          <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+          <folding>
+            <marker date="1502962680046" expanded="true" signature="333:639" ph="select categ... commodity" />
+            <marker date="1502962680046" expanded="true" signature="788:1116" ph="select categ... commodity" />
+            <marker date="1502962680046" expanded="true" signature="1268:1507" ph="select cgid,... commodity" />
+            <marker date="1502962680046" expanded="true" signature="1268:1542" ph="select cgid,... commodity" />
+            <marker date="1502962680046" expanded="true" signature="1650:2428" ph="select count... commodity" />
+            <marker date="1502962680046" expanded="true" signature="2583:4995" ph="select count... commodity" />
+            <marker date="1502962680046" expanded="true" signature="5852:6615" ph="select parts... commodity" />
+            <marker date="1502962680046" expanded="true" signature="6746:7018" ph="select part_... part_shop" />
+            <marker date="1502962680046" expanded="true" signature="7145:7301" ph="select commo... commodity" />
+            <marker date="1502962680046" expanded="true" signature="7208:7252" ph="select sid f... commodity" />
+            <marker date="1502962680046" expanded="true" signature="7445:7925" ph="SELECT commo... commodity" />
+            <marker date="1502962680046" expanded="true" signature="8011:8085" ph="select count... assess" />
+            <marker date="1502962680046" expanded="true" signature="8170:8270" ph="select count... assess" />
+            <marker date="1502962680046" expanded="true" signature="8355:8455" ph="select count... assess" />
+            <marker date="1502962680046" expanded="true" signature="8559:8657" ph="select count... assess" />
+            <marker date="1502962680046" expanded="true" signature="8760:9379" ph="select asses... assess" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="772" column="130" lean-forward="false" selection-start-line="772" selection-start-column="130" selection-end-line="772" selection-end-column="130" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/APage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/converter/CustomDateConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/intercepter/LoginIntercepter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-890">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/user/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="280">
           <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+=======
+        <state relative-caret-position="138">
+          <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/Login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="56" column="20" lean-forward="true" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
           <folding>
             <marker date="1503038597626" expanded="false" signature="3953:3986" ph="..." />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Getjw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+>>>>>>> 27140b74d6194ca07cdf9d9fdf81282d2ad8bb37
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="126" column="27" lean-forward="false" selection-start-line="126" selection-start-column="27" selection-end-line="126" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
