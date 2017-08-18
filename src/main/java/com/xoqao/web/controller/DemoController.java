@@ -59,9 +59,10 @@ public class DemoController {
         return "backmanage/backlogin";
     }
 
-    @RequestMapping("/sousuo")
-    public String Sousuoshow(Model model) throws Exception {
-        return "sousuo";
+
+    @RequestMapping("/Brand")
+    public String Brand(Model model) throws Exception {
+        return "Brand";
     }
 
    @RequestMapping("brand")
@@ -128,7 +129,6 @@ public class DemoController {
     public String Goodsadd(Model model) throws Exception {
         return "Goodsadd";
     }
-
     @RequestMapping("/shop/index")
     public String INDEX(Model model) throws Exception {
         //动态添加商品分类
@@ -248,6 +248,7 @@ public class DemoController {
 
         productmodelAndView.setViewName("Product");
         return productmodelAndView;
+
 
     }
     @RequestMapping("/CooperationList")
