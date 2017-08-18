@@ -53,7 +53,7 @@ var  page = {
 
     },
     "initPageEvent":function(pageId,listCount,fun){
-        $("#"+pageId +">li[class='pageItem']").on("click",function(){
+        $("#"+pageId +">li[class='pageItem']").click(function(){
             if(typeof fun == "function"){
                 fun($(this).attr("page-data"));
             }

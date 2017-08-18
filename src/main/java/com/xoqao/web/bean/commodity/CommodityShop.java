@@ -54,6 +54,49 @@ public class CommodityShop {
     private String small;
     private String secend;
 
+   //评论数量
+    private int asesnum;
+    //关注量
+    private int rq;
+
+
+    //距离
+    private double juli;
+    //综合 权值
+    private double num;
+
+
+    public double getNum() {
+        return num;
+    }
+
+    public void setNum(double num) {
+        this.num = num;
+    }
+
+    public double getJuli() {
+        return juli;
+    }
+
+    public void setJuli(double juli) {
+        this.juli = juli;
+    }
+
+    public int getAsesnum() {
+        return asesnum;
+    }
+
+    public int getRq() {
+        return rq;
+    }
+
+    public void setRq(int rq) {
+        this.rq = rq;
+    }
+
+    public void setAsesnum(int asesnum) {
+        this.asesnum = asesnum;
+    }
 
     public int getStatus() {
         return status;

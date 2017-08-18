@@ -15,9 +15,9 @@ public class APage {
 
     int pai=0;//0为推荐排序，1为时间排序(暂未用到)
     int ping=0;//0全部评价1是好评2是中评，3是差评，4是追评
-    double gasslv;
-    double masslv;
-    double basslv;
+    String gasslv;
+    String masslv;
+    String basslv;
     int allassess;//所有评论的数量
     int gass;//好评数量
     int mass;//中评数量
@@ -44,10 +44,12 @@ public class APage {
         if (this.ping == 3) {
             this.listsize = bass;
         }
-        this.gasslv = ((double) gass / (double) (gass + mass + bass) * 100);
-        this.masslv = ((double) mass / (double) (gass + mass + bass) * 100);
-        this.basslv = ((double) bass / (double) (gass + mass + bass) * 100);
-
+        double gasslv = ((double) gass / (double) (gass + mass + bass) * 100);
+        this.gasslv=String.format("%.1f", gasslv);
+        double masslv = ((double) mass / (double) (gass + mass + bass) * 100);
+        this.masslv=String.format("%.1f",masslv);
+        double basslv = ((double) bass / (double) (gass + mass + bass) * 100);
+        this.basslv=String.format("%.1f",basslv);
         //判断一共几页
         if (this.listsize % this.count == 0) {
             this.pagesize = this.listsize / count;
@@ -155,28 +157,16 @@ public class APage {
         this.ping = ping;
     }
 
-    public double getGasslv() {
+    public String getGasslv() {
         return gasslv;
     }
 
-    public void setGasslv(double gasslv) {
-        this.gasslv = gasslv;
-    }
-
-    public double getMasslv() {
+    public String getMasslv() {
         return masslv;
     }
 
-    public void setMasslv(double masslv) {
-        this.masslv = masslv;
-    }
-
-    public double getBasslv() {
+    public String getBasslv() {
         return basslv;
-    }
-
-    public void setBasslv(double basslv) {
-        this.basslv = basslv;
     }
 
     public int getAllassess() {

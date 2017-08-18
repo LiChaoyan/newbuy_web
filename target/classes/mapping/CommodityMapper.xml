@@ -22,30 +22,48 @@
     <!--5.根据cgid查询商品数量-->
     <select id="selectCommodityShopsize" resultType="int">
         select count(*)
-        from commodity,shop,city,category
-        where commodity.sid=shop.sid AND city=city.cid and commodity.cgid=category.cgid
+        from commodity,shop,city
+        where commodity.sid=shop.sid AND city=city.cid
             <if test="page.cgid!=-1">
                 and  commodity.cgid='${page.cgid}'
             </if>
-        <if test="page.city!=null">
-            AND city.cityname IN
-            <foreach collection="page.citysz" item="city" index="index" open="(" separator="," close=")">
+            <if test="page.productname!=null and page.productname.length()>0">
+                AND productname like '%${page.productname}%'
+            </if>
+            <if test="page.city!=null and page.city.length()>0">
+                AND city.cityname IN
+                <foreach collection="page.citysz" item="city" index="index" open="(" separator="," close=")">
                 '${city}'
-            </foreach>
-        </if>
+                </foreach>
+            </if>
             <if test="page.part==1 or page.part==0">
                 AND commodity.partstatue='${page.part}'
             </if>
     </select>
     <!--6.根据cgid分页查询商品-->
     <select id="selectCommodityShopBycgidpage"   resultType="com.xoqao.web.bean.commodity.CommodityShop">
-        select partstatue,big,small,secend,commodity.cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
-        from commodity,shop,city,category
-        where commodity.sid=shop.sid AND city=city.cid and commodity.cgid=category.cgid
+        select partstatue,commodity.cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
+        <if test="page.attention==1">
+            ,sum(track.total) as rq
+        </if>
+        <if test="page.ases==1">
+            ,count(assess.aid) as asesnum
+        </if>
+        <if test="page.range==0||page.range==1||page.colligate==1">
+            ,${page.rangeString} AS juli
+        </if>
+        <if test="page.colligate==1">
+            ,0.5*commodity.salesvolu+0.333*sum(track.total)+0.167*count(assess.aid) as num
+        </if>
+        from shop,city,(commodity LEFT JOIN assess on assess.cid=commodity.cid)LEFT JOIN track on track.cid=commodity.cid
+        where commodity.sid=shop.sid AND city=city.cid
         <if test="page.cgid!=-1">
             and  commodity.cgid='${page.cgid}'
         </if>
-        <if test="page.city!=null">
+        <if test="page.productname!=null and page.productname.length()>0">
+            AND productname like '%${page.productname}%'
+        </if>
+        <if test="page.city!=null and page.city.length()>0">
             AND city.cityname IN
             <foreach collection="page.citysz" item="city" index="index" open="(" separator="," close=")">
                 '${city}'
@@ -54,13 +72,38 @@
         <if test="page.part==1 or page.part==0">
             AND commodity.partstatue='${page.part}'
         </if>
+        GROUP by commodity.cid
+        <if test="page.sales==1">
+            ORDER BY commodity.salesvolu desc
+        </if>
+        <if test="page.price==0">
+            ORDER BY commodity.price desc
+        </if>
+        <if test="page.price==1">
+            ORDER BY commodity.price ASC
+        </if>
+        <if test="page.ases==1">
+            ORDER BY asesnum DESC
+        </if>
+        <if test="page.attention==1">
+            ORDER BY rq DESC
+        </if>
+        <if test="page.range==0">
+            ORDER BY juli ASC
+        </if>
+        <if test="page.range==1">
+            ORDER BY juli DESC
+        </if>
+        <if test="page.colligate==1">
+            ORDER BY num DESC,juli ASC
+        </if>
         LIMIT ${page.start},${page.count}
     </select>
     <!--7.根据商品名字模糊查询长度-->
     <select id="selectCommodityShopsizeByproductname" resultType="int">
         select count(*)
-        from commodity,shop,city,category
-        where commodity.sid=shop.sid AND shop.city=city.cid and commodity.cgid=category.cgid
+        from commodity,shop,city
+        where commodity.sid=shop.sid AND shop.city=city.cid
         <if test="page.productname!=null">
             AND productname like '%${page.productname}%'
         </if>
@@ -76,9 +119,9 @@
     </select>
     <!--8.根据商品名字模糊查询page结果集-->
     <select id="selectCommodityShopByproductname" resultType="com.xoqao.web.bean.commodity.CommodityShop">
-        select partstatue,big,small,secend,commodity.cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
-        from commodity,shop,city,category
-        where commodity.sid=shop.sid AND city=city.cid and commodity.cgid=category.cgid
+        select partstatue,commodity.cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
+        from commodity,shop,city
+        where commodity.sid=shop.sid AND city=city.cid
         <if test="page.productname!=null">
             AND productname like '%${page.productname}%'
         </if>
