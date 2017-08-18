@@ -54,6 +54,39 @@ public class CommodityShop {
     private String small;
     private String secend;
 
+   //评论数量
+    private int asesnum;
+    //关注量
+    private int goodsatten;
+
+
+    //距离
+    private double juli;
+
+
+    public int getGoodsatten() {
+        return goodsatten;
+    }
+
+    public double getJuli() {
+        return juli;
+    }
+
+    public void setJuli(double juli) {
+        this.juli = juli;
+    }
+
+    public int getAsesnum() {
+        return asesnum;
+    }
+
+    public void setGoodsatten(int goodsatten) {
+        this.goodsatten = goodsatten;
+    }
+
+    public void setAsesnum(int asesnum) {
+        this.asesnum = asesnum;
+    }
 
     public int getStatus() {
         return status;

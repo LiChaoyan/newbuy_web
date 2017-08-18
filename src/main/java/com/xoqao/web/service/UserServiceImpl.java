@@ -28,4 +28,9 @@ public class UserServiceImpl implements UserService {
         List<User> allUsers = userMapper.findAllUsers();
         return allUsers;
     }
+
+    public User finduserOr(String loginstr) throws Exception {
+        User user = userMapper.finduserOr(loginstr);
+        return user;
+    }
 }

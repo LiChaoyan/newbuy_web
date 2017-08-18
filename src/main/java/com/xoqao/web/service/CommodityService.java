@@ -42,4 +42,5 @@ public interface CommodityService {
     //商品参数筛选
     //1.城市筛选
     List<City> selectAllCity(Page page)throws Exception;
+
 }

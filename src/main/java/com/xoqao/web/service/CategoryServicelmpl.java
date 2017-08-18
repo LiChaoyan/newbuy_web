@@ -4,6 +4,7 @@ import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
 import com.xoqao.web.bean.category.SmallCategory;
 import com.xoqao.web.dao.CategoryMapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,9 @@ import java.util.List;
 public class CategoryServicelmpl implements CategoryService{
     @Autowired
     private CategoryMapper categoryMapper;
-
+    public List<Category> selectCategoryBycgid(int cgid)throws Exception{
+        return categoryMapper.selectCategoryBycgid(cgid);
+    }
     public ArrayList<BigCategory> select123List()throws Exception{
         //动态添加商品分类
         ArrayList<BigCategory> list = new ArrayList<BigCategory>();

@@ -10,4 +10,9 @@
   <select id="findAllUsers" resultType="com.xoqao.web.bean.user.User">
     SELECT * FROM  user
   </select>
+
+  <!--根据用户明或手机好查找用户-->
+  <select id="finduserOr" resultType="com.xoqao.web.bean.user.User">
+    SELECT  uid,gender,password,phone,username,headerpic,id,name,registtime FROM user WHERE phone LIKE  '${loginstr}' OR  username LIKE '${loginstr}'
+  </select>
 </mapper>

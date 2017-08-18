@@ -1,12 +1,13 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link type="text/css" rel="stylesheet" href="Css/style.css" />
-    <script type="text/javascript" src="Scripts/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="Scripts/menu.js"></script>    
+	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/menu.js"></script>    
         
-	<script type="text/javascript" src="Scripts/select.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/select.js"></script>
         
     
 <title>修改手机号</title>
@@ -107,7 +108,7 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-            <span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
+            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
             <span class="ss">
                 <div class="ss_list">
                     <a href="#">我的</a>
@@ -153,7 +154,7 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
 </div>
 <div class="m_top_bg">
     <div class="top">
-        <div class="m_logo"><a href="Index.html"><img src="Picture/logo1.png" /></a></div>
+        <div class="m_logo"><a href="<%= request.getContextPath()%>/Index"><img src="<%= request.getContextPath()%>/Picture/logo1.png" /></a></div>
         <div class="m_search">
             <form>
                 <input type="text" value="" class="m_ipt" />
@@ -172,17 +173,17 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
             <div class="left_m">
                 <div class="left_m_t t_bg2">会员中心</div>
                 <ul>
-                    <li><a href="Member_User.jsp">个人信息</a></li>
-                    <li><a href="Member_Safe.html" class="now">修改个人信息</a></li>
-                    <li><a href="Member_Collect.html">我的收藏</a></li>
-                    <li><a href="Member_Msg.html">我的评价</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_User">个人信息</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Safe" class="now">修改个人信息</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Collect">我的收藏</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Msg">我的评价</a></li>
                 </ul>
             </div>
             <div class="left_m">
                 <div class="left_m_t t_bg1">订单中心</div>
                 <ul>
-                    <li><a href="Member_Order.html">我的订单</a></li>
-                    <li><a href="Member_Address.html">收货地址</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Order">我的订单</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Address">收货地址</a></li>
                     <li><a href="#">我的购物车</a></li>
                     <li><a href="#">已买到的商品</a></li>
                 </ul>
@@ -191,18 +192,19 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
             <div class="left_m">
                 <div class="left_m_t t_bg3">账户中心</div>
                 <ul>
-                    <li><a href="Member_Safe.html">账户安全</a></li>
-                    <li><a href="Member_Packet.html">我的红包</a></li>
-                    <li><a href="Member_Money.html">资金管理</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Safe">账户安全</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Packet">我的红包</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Money">资金管理</a></li>
                 </ul>
             </div>
         </div>
 		<div class="m_right">
             <p></p> 
             <div class="mem_tit">
-               <a href="Member_Safehead.jsp">&nbsp;&nbsp;头像/昵称修改&nbsp;&nbsp;</a>
-               <a href="Member_Safetel.html">&nbsp;&nbsp;手机号修改&nbsp;&nbsp;</a>
-               <a href="Member_Safenum.html">&nbsp;&nbsp;密码修改&nbsp;&nbsp;</a> 
+                <a href="<%= request.getContextPath()%>/Member_Safehead">&nbsp;&nbsp;头像/昵称修改&nbsp;&nbsp;</a>
+                <a href="<%= request.getContextPath()%>/Member_Safetel">&nbsp;&nbsp;手机号修改&nbsp;&nbsp;</a>
+                <a href="<%= request.getContextPath()%>/Member_Safenum">&nbsp;&nbsp;密码修改&nbsp;&nbsp;</a>
+                <a href="<%= request.getContextPath()%>/Member_Safeplace">&nbsp;&nbsp;收货地址管理&nbsp;&nbsp;</a>
             </div>
             <div class="m_des">
                 <form>
@@ -234,25 +236,25 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
         <div class="b_btm">
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="Picture/b1.png" width="62" height="62" /></td>
+                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b1.png" width="62" height="62" /></td>
                 <td><h2>正品保障</h2>正品行货  放心购买</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="Picture/b2.png" width="62" height="62" /></td>
+                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b2.png" width="62" height="62" /></td>
                 <td><h2>最优选择</h2>线上线下 对比选购</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="Picture/b3.png" width="62" height="62" /></td>
+                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b3.png" width="62" height="62" /></td>
                 <td><h2>天天低价</h2>天天低价 畅选无忧</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="Picture/b4.png" width="62" height="62" /></td>
+                <td width="72"><img src="<%= request.getContextPath()%>/Picture/b4.png" width="62" height="62" /></td>
                 <td><h2>准时送达</h2>线下提货 就近安排</td>
               </tr>
             </table>
@@ -298,7 +300,7 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
 
     <div class="btmbg">
         <div class="btm">
-            <img src="Picture/b_1.gif" width="98" height="33" /><img src="Picture/b_2.gif" width="98" height="33" /><img src="Picture/b_3.gif" width="98" height="33" /><img src="Picture/b_4.gif" width="98" height="33" /><img src="Picture/b_5.gif" width="98" height="33" /><img src="Picture/b_6.gif" width="98" height="33" />
+            <img src="<%= request.getContextPath()%>/Picture/b_1.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_2.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_3.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_4.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_5.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_6.gif" width="98" height="33" />
         </div>      
     </div>
     <!--End Footer End -->    

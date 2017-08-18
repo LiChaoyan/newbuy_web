@@ -59,10 +59,10 @@ public class DemoController {
         return "backmanage/backlogin";
     }
 
+
     @RequestMapping("/Brand")
     public String Brand(Model model) throws Exception {
         return "Brand";
-
     }
 
    @RequestMapping("brand")
@@ -98,10 +98,6 @@ public class DemoController {
     public String Product(Model model) throws Exception {
         return "Product";
     }
-    @RequestMapping("/sousuo")
-    public String sousuo(Model model) throws Exception {
-        return "sousuo";
-    }
     @RequestMapping("/Member_Safenum")
     public String Member_Safenum(Model model) throws Exception {
         return "Member_Safenum";
@@ -133,8 +129,6 @@ public class DemoController {
     public String Goodsadd(Model model) throws Exception {
         return "Goodsadd";
     }
-
-
     @RequestMapping("/shop/index")
     public String INDEX(Model model) throws Exception {
         //动态添加商品分类
@@ -146,7 +140,21 @@ public class DemoController {
     }
 
     @RequestMapping("/CategoryList" )
-    public ModelAndView showCategoryListpage(Page page,Model model)throws Exception {
+    public ModelAndView showCategoryListpage(Page page,Model model,HttpServletRequest request)throws Exception {
+        //获取ip
+        String ip = request.getHeader("x-forwarded-for");
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+            ip = request.getRemoteAddr();
+        }
+        ip=ip.equals("0:0:0:0:0:0:0:1")?"127.0.0.1":ip;
+        //获取经纬度，请在Getjw类中实现
+
         ArrayList<CommodityShop> arrayList = new ArrayList<CommodityShop>();
         //动态添加商品分类
         ModelAndView modelAndView = new ModelAndView();
@@ -162,16 +170,27 @@ public class DemoController {
         //根据cgid,筛选信息分页查询
         int size = 0;
 
-        if (page.getCgid() > 0) {
+        if ((page.getCgid() > 0)||(page.getProductname()!= null)) {
+            try {
                 size = commodityService.selectCommodityShopsize(page);
                 page.setPage(page.getP(), size);
+                double lotx=34.2597,loty=108.9471;
+                page.setLotx(lotx);page.setLoty(loty);
                 arrayList = commodityService.selectCommodityShopBycgidpage(page);
                 //筛选信息导航栏填写
-                page.setBig(arrayList.get(0).getBig());
-                page.setSmall(arrayList.get(0).getSmall());
-                page.setSecend(arrayList.get(0).getSecend());
+                if(page.getCgid()!=-1) {
+                    List<Category> categoryList=categoryService.selectCategoryBycgid(page.getCgid());
+                    page.setBig(categoryList.get(0).getBig());
+                    page.setSmall(categoryList.get(0).getSmall());
+                    page.setSecend(categoryList.get(0).getSecend());
+                }
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
         }
+        /*合并到上面那个cgid查询中
         if (page.getProductname() != null&&(!page.getProductname().equals(""))&&page.getCgid()==-1) { //根据商品名字模糊分页查询
         try {
             System.out.println(page.getProductname());
@@ -181,7 +200,7 @@ public class DemoController {
             }catch (Exception e){
             e.printStackTrace();
             }
-        }
+        }*/
 
 
           // 放入转发参数
@@ -230,6 +249,27 @@ public class DemoController {
         productmodelAndView.setViewName("Product");
         return productmodelAndView;
 
+
+    }
+    @RequestMapping("/CooperationList")
+    public String CooperationList (Model model) throws Exception {
+        return "CooperationList";
+    }
+    @RequestMapping("/Order_finished")
+    public String Order_finished (Model model) throws Exception {
+        return "Order_finished";
+    }
+    @RequestMapping("/Order_My")
+    public String Order_My (Model model) throws Exception {
+        return "Order_My";
+    }
+    @RequestMapping("/Order_Undeliver")
+    public String Order_Undeliver (Model model) throws Exception {
+        return "Order_Undeliver";
+    }
+    @RequestMapping("/Order_Unpay")
+    public String Order_Unpay (Model model) throws Exception {
+        return "Order_Unpay";
     }
     @RequestMapping("/Order_Unreceive")
     public String Order_Unreceive (Model model) throws Exception {
