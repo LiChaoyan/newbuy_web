@@ -17,4 +17,6 @@ public interface UserService {
     List<User> findAllUsers()throws Exception;
 
     User finduserOr( String loginstr)throws Exception;
+
+    void insert( User user) throws Exception;
 }

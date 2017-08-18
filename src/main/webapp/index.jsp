@@ -93,13 +93,7 @@
     </script>
 </head>
 <body>
-<div class="soubg">
-    <div class="sou">
-          <span class="fr">
-              <span class="fl">你好，请<a href="<%=request.getContextPath()%>/user/login.html" style="color:#ff4e00;">登录</a>&nbsp; |&nbsp;<a href="<%=request.getContextPath()%>/user/Redist.html">免费注册</a>&nbsp;|&nbsp;<a href="<%=request.getContextPath()%>/shop/index.html">商城主页</a></span>
-          </span>
-    </div>
-</div>
+<jsp:include page="/public_jsp/indexheader.jsp" flush="true"></jsp:include>
 <form name="form" method="get" action="CategoryList?productname=?&p=1">
 <div  class="bbb">
     <img src="<%=request.getContextPath()%>/Picture/logo.png" alt="双线购LOGO" align="center" >
