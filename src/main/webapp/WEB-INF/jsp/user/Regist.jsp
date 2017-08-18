@@ -47,7 +47,6 @@
         }
     </style>
 <script type="text/javascript">
-   
    var flag = {
                 "phonenumber":false,
                 "verify":false,
