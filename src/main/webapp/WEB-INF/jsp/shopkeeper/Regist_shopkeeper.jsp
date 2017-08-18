@@ -1,11 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>注册</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" media="screen" href="<%= request.getContextPath()%>/Css/zzsc.css" />
-
-	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" /> 
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.11.1.min_044d0927.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery.bxslider_e88acd1b.js"></script>
     
@@ -25,28 +22,42 @@
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/tban.js"></script>
     
 	<script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/lrscroll_1.js"></script>
-     
-    <!-- <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css"> -->
-    <%--<script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>--%>
-    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
-    <style>
-        .reg_c {
-            width: 475px;
-            height: 600px;
-            background-color: #fff4ef;
-            margin-top: -50px;
-        }
-        #progressbar li.active:before, #progressbar li.active:after {
-            background: #ff3200;
-            color: white;
-        }
-        #msform .action-button {
-            width: 100px;
-            background: #ff3200;
-        }
-    </style>
-<script type="text/javascript">
+  <link rel="stylesheet" media="screen" href="<%= request.getContextPath()%>/Css/zzsc.css" /> 
+  <style type="text/css">
+    #progressbar li {
+    list-style-type: none;
+    color: #ff4e00;
+  }
+  body {
+    font-family: montserrat, arial, verdana;
+    background-color: white;
+}
+  #progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #ff4e00;
+    }
+ #progressbar li.active:before, #progressbar li.active:after {
+    background: #ff4e00;
+    color: white;
+}
+    #progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    counter-reset: step;
+    width: 200%;
+    margin-left: -50%;
+}
+#msform fieldset {
+    width: 100%;
+  }
+  #msform .action-button {
+    width: 100px;
+    background: #ff4e00;
+  }
+  </style>
+  <script type="text/javascript">
    var flag = {
                 "phonenumber":false,
                 "verify":false,
@@ -173,64 +184,23 @@
             })
 
 </script>
-<style type="text/css">
  
-
-</style>
+<title>尤洪</title>
 </head>
 <body>  
 <!--Begin Header Begin-->
 <div class="soubg">
-  <div class="sou">
+	<div class="sou">
         <span class="fr">
-          <span >你好，请<a href="<%= request.getContextPath()%>/user/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist" style="color:#ff4e00;">免费注册 &nbsp;</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="<%= request.getContextPath()%>/Picture/s_tel.png" align="absmiddle" /></a></span>
+          <span >你好，请<a href="<%= request.getContextPath()%>/<%= request.getContextPath()%>/user/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/<%= request.getContextPath()%>/Regist" style="color:#ff4e00;">免费注册 &nbsp;</a></span>
+            <span class="fr">|&nbsp;<a href="<%= request.getContextPath()%>/#">手机版&nbsp;<img src="<%= request.getContextPath()%>/<%= request.getContextPath()%>/Picture/s_tel.png" align="absmiddle" /></a></span>
         </span>
     </div>
 </div>
 <!--End Header End--> 
 <!--Begin Login Begin-->
-<div class="log_bg">	
-    <div class="top">
-        <div class="logo"><a href="<%= request.getContextPath()%>/Index.html"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
-    </div>
-	<div class="regist">
-    	<div class="log_img"><img src="<%= request.getContextPath()%>/Picture/l_img.png" width="611" height="425" /></div>
-		<div class="reg_c">
-        	<%--<form class="form-horizontal" role="form" method="post" id="form">--%>
-            <%--<table border="0" style="width:420px; font-size:14px; margin-top:20px;" cellspacing="0" cellpadding="0">--%>
-
-              <%--<tr>--%>
-                <%--<ul id="status">--%>
-                  <%--<li class="active"><strong>1.</strong>创建账户</li>--%>
-                  <%--<li><strong>2.</strong>填写个人信息</li>--%>
-                  <%--<li><strong>3.</strong>实名认证</li>--%>
-                <%--</ul>--%>
-              <%--</tr>--%>
-              <%--<tr height="50">--%>
-                <%--<td align="right"><font color="#ff4e00">*</font>&nbsp;手机号&nbsp;</td>--%>
-                <%--<td><input type="text" value="" class="l_tel" name="phonenumber" id="txtNumber" placeholder="请输入手机号" required/><br>--%>
-                <%--<span id="phonenumber.info" style="color:red"></span></td>--%>
-              <%--</tr>--%>
-              <%--<tr height="50">--%>
-                <%--<td align="right"> <font color="#ff4e00">*</font>&nbsp;验证码 &nbsp;</td>--%>
-                <%--<td>--%>
-                    <%--<input type="text" value="" class="l_ipt" name="verify" id="txtVerify" placeholder="请输入手机号" required/>--%>
-                    <%--<a href="#" style="font-size:12px; font-family:'宋体';">重新发送</a><br>--%>
-                    <%--<span id="verify.info" style="color:red"></span>--%>
-                <%--</td>--%>
-              <%--</tr>--%>
-              <%--<tr>--%>
-              	<%--<td>&nbsp;</td>--%>
-              <%--</tr>--%>
-              <%--<tr height="60">--%>
-              	<%--<td>&nbsp;</td>--%>
-                <%--<td>--%>
-                <%--<a href="<%= request.getContextPath()%>/Registtwo"><input type="button" value="下一步" class="log_btn" /></a></td>--%>
-              <%--</tr>--%>
-            <%--</table>--%>
-            <%--</form>--%>
-        <form id="msform">
+<div class="log_bg">
+<form id="msform">
                     <!-- progressbar -->
                     <ul id="progressbar">
                         <li class="active">创建账户</li>
@@ -245,9 +215,10 @@
                         <input type="text" value="" class="l_tel" name="phonenumber" id="txtNumber" placeholder="请输入手机号" required/>
                         <span id="phonenumber.info" style="color:red"></span><br>
 
-                        <input type="text" value="" style="width:80%;" class="l_ipt" name="verify" id="txtVerify" placeholder="请输入验证码" required/>
-                        <a href="#" style="font-size:12px; font-family:'宋体';">重新发送</a>
+                        <input type="text" value="" style="" class="l_ipt" name="verify" id="txtVerify" placeholder="请输入验证码" required/>
                         <span id="verify.info" style="color:red"></span><br>
+                        <a href="<%= request.getContextPath()%>/#" style="font-size:12px; font-family:'宋体';">重新发送验证码</a><br>
+                        
 
                         <input type="button" name="next" class="next action-button" value="下一步" />
                     </fieldset>
@@ -278,29 +249,33 @@
                             <input type="text" class="l_user" id="txtName" name="myname" placeholder="请输入真实姓名" required />
                                 <span id="myname.info" style="color:red"></span><br>
 
-
-                	<span style="font-family:'宋体';" class="fl">
-                    	<label class="r_rad"><input type="checkbox"/></label><label class="r_txt">我已阅读并接受《用户协议》</label>
-                    </span>
+                            <input id="file" placeholder="上传身份证正面照片" multiple type="file"/>
+                            <input id="file" placeholder="上传身份证反面照片" name="file" multiple type="file"/>
+                            <input id="file" placeholder="上传本人近期照片" name="file" multiple type="file"/>
 
                         <input type="button" name="previous" class="previous action-button" value="上一步" required/>
-                        <a href="<%= request.getContextPath()%>/user/Login">跳过</a>
                         <input type="submit" name="submit" class="log_btn submit action-button " value="提交" required/>
                     </fieldset>
                 </form>
+<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+<script src="<%= request.getContextPath()%>/js/zzsc.js" type="text/javascript"></script>
         </div>
     </div>
 </div>
 <!--End Login End--> 
 <!--Begin Footer Begin-->
-<div class="btmbg" style="background-color:white;">
+<div class="btmbg">
     <div class="btm">
         <img src="<%= request.getContextPath()%>/Picture/b_1.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_2.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_3.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_4.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_5.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_6.gif" width="98" height="33" />
     </div>    	
 </div>
-<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-<script src="<%= request.getContextPath()%>/js/zzsc.js" type="text/javascript"></script>
+<!--End Footer End -->    
 
 </body>
+
+
+<!--[if IE 6]>
+<script src="<%= request.getContextPath()%>/Scripts/zh_cn.js"></script>
+<![endif]-->
 </html>
