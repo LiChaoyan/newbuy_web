@@ -57,9 +57,9 @@
         }
         .bbb input {
             /*border:5px solid red;*/
-            width: 600px;
+            width: 40%;
             height: 38px;
-            margin-left:370px;
+            margin-left:30%;
             border:1px solid #e6e6e6;
             box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
             border-radius: 2px;
@@ -71,10 +71,10 @@
             outline-color: #ff360c;
         }
         .bbb img {
-            margin-left: 560px;margin-top: 150px;margin-bottom: 30px;
+            width:14%;margin-left: 43%;margin-top: 150px;margin-bottom: 30px;
         }
-        .aaa{display: inline-block;margin: 0 auto;}
-        .aaa input {height: 36px;line-height: 27px;margin-top: 50px;background-color: #f2f2f2; border: 0;color:gray;margin-top: 50px;}
+        .aaa{display: inline-block;width: 12%;margin-left: 45%;}
+        .aaa input {height: 36px;line-height: 27px;margin-top: 50px;background-color: #f2f2f2; border: 0;color:gray;}
     </style>
     <script type="text/javascript">
         function Product() {
@@ -101,13 +101,13 @@
     </div>
 </div>
 <form name="form" method="get" action="CategoryList?productname=?&p=1">
-<div style="width: 100%;height: 100%;"  class="bbb">
-    <img src="Picture/logo.png" alt="双线购LOGO" align="center" >
+<div  class="bbb">
+    <img src="<%=request.getContextPath()%>/Picture/logo.png" alt="双线购LOGO" align="center" >
     <input type="text" name="productname"  id="input" placeholder="请输入商品或店铺名称" value="" onfocus="this.placeholder=''" onblur="this.placeholder='请输入商品或店铺名称'"><br>
     <!-- 输入框输入时文字消失，退出后出现 -->
 </div>
 <div class="aaa">
-    <input type="button"  onclick="Product()"   value="&nbsp;商品搜索&nbsp;" style="margin-right: 20px;margin-left: 585px;">
+    <input type="button"  onclick="Product()"   value="&nbsp;商品搜索&nbsp;" style="margin-right: 20px;">
     <input type="button"  onclick="Shop()"   value="&nbsp;店铺搜索&nbsp;">
 </div>
 </form>

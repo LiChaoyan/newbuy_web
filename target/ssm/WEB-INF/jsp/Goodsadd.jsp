@@ -86,7 +86,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login.html">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="/#">我的订单</a>&nbsp; -->|</span>
+            <span class="fl">你好，请<a href="<%= request.getContextPath()%>/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/Regist" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="/#">我的订单</a>&nbsp; -->|</span>
             <span class="ss">
                 <div class="ss_list">
                     <a href="#">我的</a>
@@ -132,7 +132,7 @@
 </div>
 <div class="m_top_bg">
     <div class="top">
-        <div class="m_logo"><a href="<%= request.getContextPath()%>/Index.html"><img src="<%= request.getContextPath()%>/Picture/logo1.png" /></a></div>
+        <div class="m_logo"><a href="<%= request.getContextPath()%>/Index"><img src="<%= request.getContextPath()%>/Picture/logo1.png" /></a></div>
         <div class="m_search">
             <form>
                 <input type="text" value="" class="m_ipt" />
@@ -150,8 +150,8 @@
             <div class="left_m">
             	<div class="left_m_t t_bg1">商品管理</div>
                 <ul>
-                	<li><a href="<%= request.getContextPath()%>/Goodsadd.jsp" class="now">发布商品</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Address.html">出售中的商品</a></li>
+                	<li><a href="<%= request.getContextPath()%>/Goodsadd" class="now">发布商品</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Address">出售中的商品</a></li>
                     <li><a href="#">下架的商品</a></li>
                     <li><a href="#">体验中心</a></li>
                 </ul>
@@ -159,26 +159,26 @@
             <div class="left_m">
             	<div class="left_m_t t_bg3">交易管理</div>
                 <ul>
-                	<li><a href="<%= request.getContextPath()%>/Member_Safe.html">已卖出商品</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Packet.html">评价管理</a></li>
+                	<li><a href="<%= request.getContextPath()%>/Member_Safe">已卖出商品</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Packet">评价管理</a></li>
                 </ul>
             </div>
             <div class="left_m">
             	<div class="left_m_t t_bg4">物流管理</div>
                 <ul>
-                	<li><a href="<%= request.getContextPath()%>/Member_Member.html">发货</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Results.html">物流工具</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Commission.html">物流服务</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Cash.html">寄快递</a></li>
+                	<li><a href="<%= request.getContextPath()%>/Member_Member">发货</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Results">物流工具</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Commission">物流服务</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Cash">寄快递</a></li>
                 </ul>
             </div>
             <div class="left_m">
                 <div class="left_m_t t_bg2">客户服务</div>
                 <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_User.html">退款管理</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Collect.html" >售后管理</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Msg.html">举报管理</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Links.html">违规管理</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_User">退款管理</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Collect" >售后管理</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Msg">举报管理</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Member_Links">违规管理</a></li>
                 </ul>
             </div>
         </div>

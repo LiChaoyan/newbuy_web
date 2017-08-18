@@ -58,15 +58,11 @@ public class DemoController {
     public String backlogin(Model model) throws Exception {
         return "backmanage/backlogin";
     }
-<<<<<<< HEAD
-    @RequestMapping("/sousuo")
-    public String Sousuoshow(Model model) throws Exception {
-        return "sousuo";
-=======
+
     @RequestMapping("/Brand")
     public String Brand(Model model) throws Exception {
         return "Brand";
->>>>>>> wordlu-master
+
     }
 
    @RequestMapping("brand")
@@ -137,12 +133,9 @@ public class DemoController {
     public String Goodsadd(Model model) throws Exception {
         return "Goodsadd";
     }
-<<<<<<< HEAD
+
 
     @RequestMapping("/shop/index")
-=======
-    @RequestMapping("/Index")
->>>>>>> wordlu-master
     public String INDEX(Model model) throws Exception {
         //动态添加商品分类
         ArrayList <BigCategory> list= categoryService.select123List();
@@ -202,7 +195,7 @@ public class DemoController {
         return modelAndView;
 
     }
-<<<<<<< HEAD
+
 
 
 
@@ -236,27 +229,7 @@ public class DemoController {
 
         productmodelAndView.setViewName("Product");
         return productmodelAndView;
-=======
-    @RequestMapping("/CooperationList")
-    public String CooperationList (Model model) throws Exception {
-        return "CooperationList";
-    }
-    @RequestMapping("/Order_finished")
-    public String Order_finished (Model model) throws Exception {
-        return "Order_finished";
-    }
-    @RequestMapping("/Order_My")
-    public String Order_My (Model model) throws Exception {
-        return "Order_My";
-    }
-    @RequestMapping("/Order_Undeliver")
-    public String Order_Undeliver (Model model) throws Exception {
-        return "Order_Undeliver";
-    }
-    @RequestMapping("/Order_Unpay")
-    public String Order_Unpay (Model model) throws Exception {
-        return "Order_Unpay";
->>>>>>> wordlu-master
+
     }
     @RequestMapping("/Order_Unreceive")
     public String Order_Unreceive (Model model) throws Exception {

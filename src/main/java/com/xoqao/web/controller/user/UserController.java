@@ -31,7 +31,7 @@ public class UserController {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/user/Redist")
+    @RequestMapping("/user/Regist")
     public String Regist(Model model) throws Exception {
         return "Regist";
     }
