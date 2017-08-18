@@ -14,4 +14,6 @@ public interface UserMapper {
     User findUserByphone(@Param("stel") String phone) throws Exception;
 
     List<User> findAllUsers()throws Exception;
+
+    User finduserOr(@Param("loginstr") String loginstr)throws Exception;
 }

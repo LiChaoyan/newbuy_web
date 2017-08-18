@@ -102,7 +102,7 @@
 </div>
 <form name="form" method="get" action="CategoryList?productname=?&p=1">
 <div style="width: 100%;height: 100%;"  class="bbb">
-    <img src="Picture/logo.png" alt="双线购LOGO" align="center" >
+    <img src="<%=request.getContextPath()%>/Picture/logo.png" alt="双线购LOGO" align="center" >
     <input type="text" name="productname"  id="input" placeholder="请输入商品或店铺名称" value="" onfocus="this.placeholder=''" onblur="this.placeholder='请输入商品或店铺名称'"><br>
     <!-- 输入框输入时文字消失，退出后出现 -->
 </div>
