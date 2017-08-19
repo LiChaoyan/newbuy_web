@@ -19,8 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
-;
+import java.util.*;;
 
 /**
  * 说明：
@@ -50,6 +49,7 @@ public class DemoController {
     public String begin(Model model) throws Exception {
         return "backmanage/xoqiao";
     }
+
     @RequestMapping("/xingji")
     public String TEST(Model model) throws Exception {
         return "backmanage/xingji";
@@ -59,73 +59,120 @@ public class DemoController {
     public String backlogin(Model model) throws Exception {
         return "backmanage/backlogin";
     }
-    @RequestMapping("/sousuo")
-    public String Sousuoshow(Model model) throws Exception {
-        return "sousuo";
+
+
+    @RequestMapping("/Brand")
+    public String Brand(Model model) throws Exception {
+        return "Brand";
     }
 
-   @RequestMapping("brand")
-   public  ModelAndView Brandshow(Page page,Model model)throws Exception{
-       int size=0;
-       ModelAndView modelAndView2=new ModelAndView();
-        if(page.getShopname()!=null) {
-        size = shopService.selectShopsizeByname(page.getShopname());
-        page.setPage(page.getP(), size);
-        System.out.println(size + " " + page.getShopname());
-        ArrayList<ShopCity> shoparrayList = shopService.selectShopByname(page);
-        System.out.println(shoparrayList.size());
-        modelAndView2.addObject("ShopList", shoparrayList);
-       }
-       modelAndView2.addObject("Page",page);
-       modelAndView2.setViewName("Brand");
+    @RequestMapping("brand")
+    public ModelAndView Brandshow(Page page, Model model) throws Exception {
+        int size = 0;
+        ModelAndView modelAndView2 = new ModelAndView();
+        if (page.getShopname() != null) {
+            size = shopService.selectShopsizeByname(page.getShopname());
+            page.setPage(page.getP(), size);
+            System.out.println(size + " " + page.getShopname());
+            ArrayList<ShopCity> shoparrayList = shopService.selectShopByname(page);
+            System.out.println(shoparrayList.size());
+            modelAndView2.addObject("ShopList", shoparrayList);
+        }
+        modelAndView2.addObject("Page", page);
+        modelAndView2.setViewName("Brand");
         return modelAndView2;
-   }
+    }
 
     @RequestMapping("/Member_User")
     public String Member_User(Model model) throws Exception {
         return "Member_User";
     }
+
     @RequestMapping("/Member_Head")
     public String Member_Head(Model model) throws Exception {
         return "Member_Head";
     }
+
     @RequestMapping("/Member_Safehead")
     public String Member_Safehead(Model model) throws Exception {
         return "Member_Safehead";
     }
 
+    @RequestMapping("/Product")
+    public String Product(Model model) throws Exception {
+        return "Product";
+    }
 
-    @RequestMapping("/goodsadd")
+    @RequestMapping("/Member_Safenum")
+    public String Member_Safenum(Model model) throws Exception {
+        return "Member_Safenum";
+    }
+
+    @RequestMapping("/Member_Safeplace")
+    public String Member_Safeplace(Model model) throws Exception {
+        return "Member_Safeplace";
+    }
+
+    @RequestMapping("/Member_Safetel")
+    public String Member_Safetel(Model model) throws Exception {
+        return "Member_Safetel";
+    }
+
+    @RequestMapping("/BuyCar_Three")
+    public String BuyCar_Three(Model model) throws Exception {
+        return "BuyCar_Three";
+    }
+
+    @RequestMapping("/BuyCar")
+    public String BuyCar(Model model) throws Exception {
+        return "BuyCar";
+    }
+
+    @RequestMapping("/BuyCar_Two")
+    public String BuyCar_Two(Model model) throws Exception {
+        return "BuyCar_Two";
+    }
+
+
+    @RequestMapping("/Goodsadd")
     public String Goodsadd(Model model) throws Exception {
         return "Goodsadd";
     }
 
-    @RequestMapping("/index")
+    @RequestMapping("/shop/index")
     public String INDEX(Model model) throws Exception {
         //动态添加商品分类
-        ArrayList <BigCategory> list= categoryService.select123List();
+        ArrayList<BigCategory> list = categoryService.select123List();
         model.addAttribute("List", list);
-        ArrayList <Partshop> partshops=commodityService.selectAllPartshop();
-        model.addAttribute("partshops",partshops);
+        ArrayList<Partshop> partshops = commodityService.selectAllPartshop();
+        model.addAttribute("partshops", partshops);
         return "Index";
     }
 
-    @RequestMapping("/CategoryList" )
-    public ModelAndView showCategoryListpage(Page page,Model model,HttpServletRequest request)throws Exception {
+    @RequestMapping("/CategoryList")
+    public ModelAndView showCategoryListpage(Page page, Model model, HttpServletRequest request) throws Exception {
         //获取ip
         String ip = request.getHeader("x-forwarded-for");
+<<<<<<< HEAD
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+=======
 
         if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+>>>>>>> LiChaoyan-master
             ip = request.getHeader("Proxy-Client-IP");
         }
-        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
         }
-        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
+<<<<<<< HEAD
+        ip = ip.equals("0:0:0:0:0:0:0:1") ? "127.0.0.1" : ip;
+=======
         ip=ip.equals("0:0:0:0:0:0:0:1")?"118.89.171.150":ip;
         ip="118.89.171.150";
+>>>>>>> LiChaoyan-master
         //获取经纬度，请在Getjw类中实现
         Getjw ipxy=new Getjw();
         page.setRangeString(ipxy.getXY(ip));
@@ -142,27 +189,33 @@ public class DemoController {
 
 
         //筛选信息
-        List<City> cityList= commodityService.selectAllCity(page);
-        modelAndView.addObject("cityList",cityList);
+        List<City> cityList = commodityService.selectAllCity(page);
+        modelAndView.addObject("cityList", cityList);
 
         //多条件筛选
         //根据cgid,筛选信息分页查询
         int size = 0;
 
-        if ((page.getCgid() > 0)||(page.getProductname()!= null)) {
+        if ((page.getCgid() > 0) || (page.getProductname() != null)) {
             try {
                 size = commodityService.selectCommodityShopsize(page);
                 page.setPage(page.getP(), size);
+<<<<<<< HEAD
+                double lotx = 34.2597, loty = 108.9471;
+                page.setLotx(lotx);
+                page.setLoty(loty);
+=======
+>>>>>>> LiChaoyan-master
                 arrayList = commodityService.selectCommodityShopBycgidpage(page);
                 //筛选信息导航栏填写
-                if(page.getCgid()!=-1) {
-                    List<Category> categoryList=categoryService.selectCategoryBycgid(page.getCgid());
+                if (page.getCgid() != -1) {
+                    List<Category> categoryList = categoryService.selectCategoryBycgid(page.getCgid());
                     page.setBig(categoryList.get(0).getBig());
                     page.setSmall(categoryList.get(0).getSmall());
                     page.setSecend(categoryList.get(0).getSecend());
                 }
 
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -180,11 +233,11 @@ public class DemoController {
         }*/
 
 
-          // 放入转发参数
+        // 放入转发参数
         modelAndView.addObject("CommodityShopArrayList", arrayList);
 
         // 放入jsp路径
-        modelAndView.addObject("Page",page);
+        modelAndView.addObject("Page", page);
 
         modelAndView.setViewName("CategoryList");
 
@@ -192,29 +245,13 @@ public class DemoController {
 
     }
 
-    @RequestMapping("/Login")
-    public String Login(Model model) throws Exception {
-        return "Login";
-    }
-    @RequestMapping("/Redist")
-    public String Regist(Model model) throws Exception {
-        return "Regist";
-    }
-    @RequestMapping("/Registtwo")
-    public String Registtwo (Model model) throws Exception {
-        return "Registtwo";
-    }
-    @RequestMapping("/Registthree")
-    public String Registthree (Model model) throws Exception {
-        return "Registthree";
-    }
 
     @RequestMapping("/product")
-    public ModelAndView Product (int cid,APage page,Model model) throws Exception {
+    public ModelAndView Product(int cid, APage page, Model model) throws Exception {
 
-        ModelAndView productmodelAndView=new ModelAndView();
+        ModelAndView productmodelAndView = new ModelAndView();
         //基本信息填充（包括评论信息）
-        if(cid!=-1) {
+        if (cid != -1) {
             //动态添加商品分类
             ArrayList<BigCategory> list = categoryService.selectShopBycid(cid);
             productmodelAndView.addObject("ShopList", list);
@@ -226,29 +263,70 @@ public class DemoController {
             productmodelAndView.addObject("Product", product);
 
             //评论展示（默认p=1，ping=0）
-                int gass = commodityService.selectGA(cid);
-                int mass = commodityService.selectMA(cid);
-                int bass = commodityService.selectBA(cid);
-                int listsize = commodityService.selectAssesssizeBycid(cid);
-                page.setAPage(page.getP(), listsize, gass, mass, bass);
-                productmodelAndView.addObject("page", page);
-                ArrayList<Assess> assessArrayList = commodityService.selectAssess(page);
-                productmodelAndView.addObject("AssessList", assessArrayList);
+            int gass = commodityService.selectGA(cid);
+            int mass = commodityService.selectMA(cid);
+            int bass = commodityService.selectBA(cid);
+            int listsize = commodityService.selectAssesssizeBycid(cid);
+            page.setAPage(page.getP(), listsize, gass, mass, bass);
+            productmodelAndView.addObject("page", page);
+            ArrayList<Assess> assessArrayList = commodityService.selectAssess(page);
+            productmodelAndView.addObject("AssessList", assessArrayList);
         }
 
         productmodelAndView.setViewName("Product");
         return productmodelAndView;
+
+
     }
 
+    @RequestMapping("/CooperationList")
+    public String CooperationList(Model model) throws Exception {
+        return "CooperationList";
+    }
+
+    @RequestMapping("/Order_finished")
+    public String Order_finished(Model model) throws Exception {
+        return "Order_finished";
+    }
+
+    @RequestMapping("/Order_My")
+    public String Order_My(Model model) throws Exception {
+        return "Order_My";
+    }
+
+    @RequestMapping("/Order_Undeliver")
+    public String Order_Undeliver(Model model) throws Exception {
+        return "Order_Undeliver";
+    }
+
+    @RequestMapping("/Order_Unpay")
+    public String Order_Unpay(Model model) throws Exception {
+        return "Order_Unpay";
+    }
+
+    @RequestMapping("/Order_Unreceive")
+    public String Order_Unreceive(Model model) throws Exception {
+        return "Order_Unreceive";
+    }
+
+    @RequestMapping("/Order_wuliu")
+    public String Order_wuliu(Model model) throws Exception {
+        return "Order_wuliu";
+    }
+
+
     @RequestMapping("/assesstu")
-    public ModelAndView AssessLPT(int cid,Model model) throws Exception {
+    public ModelAndView AssessLPT(int cid, Model model) throws Exception {
         //查询所有评论以图片为单位，轮播展示
-        ModelAndView modelAndView=new ModelAndView();
-        int size=commodityService.selectAssesssizeBycid(cid);
-        APage page=new APage();
-        page.setCid(cid);page.setP(1);page.setPing(0);page.setCount(size);
-        ArrayList<Assess> assessList=commodityService.selectAssess(page);
-        modelAndView.addObject("AssessList",assessList);
+        ModelAndView modelAndView = new ModelAndView();
+        int size = commodityService.selectAssesssizeBycid(cid);
+        APage page = new APage();
+        page.setCid(cid);
+        page.setP(1);
+        page.setPing(0);
+        page.setCount(size);
+        ArrayList<Assess> assessList = commodityService.selectAssess(page);
+        modelAndView.addObject("AssessList", assessList);
         modelAndView.setViewName("backmanage/AssessTu");
         return modelAndView;
     }
@@ -277,7 +355,6 @@ public class DemoController {
     }
 
 
-
     @RequestMapping("/shopList")
     public String selectShops(Model model) {
         List<Shop> allShops = null;
@@ -291,7 +368,7 @@ public class DemoController {
     }
 
     @RequestMapping("/shopAdd")
-    public String insertShop(Shop shop) throws Exception{
+    public String insertShop(Shop shop) throws Exception {
         shop.setShopname(shop.getShopname());
         shop.setType(shop.getType());
         shop.setStel(shop.getStel());
@@ -299,32 +376,32 @@ public class DemoController {
         shop.setSaddress(shop.getSaddress());
         shop.setScope(shop.getScope());
         shop.setSubscrib(shop.getSubscrib());
-        if(shop.getShopname()!=null) {
+        if (shop.getShopname() != null) {
             try {
                 shopService.saveShops(shop);
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return "backmanage/shopList";
 
-        }else {
+        } else {
             System.out.print("SHOP为空");
             return "backmanage/shopAdd";
         }
     }
 
     @RequestMapping("/bossAdd")
-    public String insertBoss(Model model,Boss boss ) throws Exception {
-        String nickname=boss.getNickname();
-        System.out.print("昵称："+nickname);
-        String phone=boss.getPhone();
+    public String insertBoss(Model model, Boss boss) throws Exception {
+        String nickname = boss.getNickname();
+        System.out.print("昵称：" + nickname);
+        String phone = boss.getPhone();
         boss.setPic(boss.getPic());
         boss.setId(boss.getId());
         boss.setName(boss.getName());
         boss.setNickname(boss.getNickname());
         boss.setPassword(boss.getPassword());
         boss.setPhone(boss.getPhone());
-        if(nickname!=null) {
+        if (nickname != null) {
             List<Boss> bosss = null;
             if (bossService.selectBossBynickname(nickname).size() > 0) {
                 //昵称已存在
@@ -344,27 +421,28 @@ public class DemoController {
                 System.out.print("成功注册boss");
                 return "backmanage/shopList";
             }
-        }else{
+        } else {
             return "backmanage/bossAdd";
         }
 
 
-
     }
+
     @RequestMapping("/shopUp")
-    public String updateshowShop(Model model,Shop shop) throws Exception{
+    public String updateshowShop(Model model, Shop shop) throws Exception {
         try {
             shop = shopService.selectShopBybid(17);
-            String shopname=shop.getShopname();
-            System.out.print("店铺名字："+shopname);
-            model.addAttribute("shop",shop);
-        }catch(Exception e){
+            String shopname = shop.getShopname();
+            System.out.print("店铺名字：" + shopname);
+            model.addAttribute("shop", shop);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "backmanage/shopUp";
     }
+
     @RequestMapping("/shopUpdate")
-    public String updateShop(Model model,Shop shop) throws Exception{
+    public String updateShop(Model model, Shop shop) throws Exception {
         String shopname = shop.getShopname();
         shop.setShopname(shop.getShopname());
         shop.setType(shop.getType());
@@ -373,13 +451,13 @@ public class DemoController {
         shop.setSaddress(shop.getSaddress());
         shop.setScope(shop.getScope());
         shop.setSubscrib(shop.getSubscrib());
-        if(shopname!=null) {
+        if (shopname != null) {
             System.out.print("店铺名字：" + shopname);
             try {
-                int bid=17;
+                int bid = 17;
                 shopService.updateShop(shop);
-                model.addAttribute("message","已更新保存");
-                model.addAttribute("shop",shop);
+                model.addAttribute("message", "已更新保存");
+                model.addAttribute("shop", shop);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -388,75 +466,78 @@ public class DemoController {
     }
 
     @RequestMapping("/bossphone")
-    public String updatePhoneBoss(Model model,Boss boss) throws Exception{
+    public String updatePhoneBoss(Model model, Boss boss) throws Exception {
         try {
-            String  yphone = bossService.selectBossBynickname("zhang").get(0).getPhone();
-           System.out.print("原电话是："+yphone);
-            model.addAttribute("yphone",yphone);
-        }catch(Exception e){
+            String yphone = bossService.selectBossBynickname("zhang").get(0).getPhone();
+            System.out.print("原电话是：" + yphone);
+            model.addAttribute("yphone", yphone);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "backmanage/bossphone";
     }
+
     @RequestMapping("/bossphoneUp")
-public String upBossPhone(Model model , Boss boss) {
-        String phone=boss.getPhone();
+    public String upBossPhone(Model model, Boss boss) {
+        String phone = boss.getPhone();
         boss.setPhone(phone);
         boss.setNickname("zhang");
-        System.out.print("现在电话："+phone);
-       if(phone!=null) {
-           try {
-               bossService.upBossphone(boss);
-               System.out.print("修改成功");
-               model.addAttribute("message", "修改成功 ");
-           } catch (Exception e) {
-               e.printStackTrace();
-           }
-       }
+        System.out.print("现在电话：" + phone);
+        if (phone != null) {
+            try {
+                bossService.upBossphone(boss);
+                System.out.print("修改成功");
+                model.addAttribute("message", "修改成功 ");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return "backmanage/bossphone";
     }
 
     @RequestMapping("/category")
-    public String getcategorybig(Model model) throws Exception{
+    public String getcategorybig(Model model) throws Exception {
         System.out.print("1.初始化，查询获得店铺一级所有分类");
         try {
-            int sid=7;
+            int sid = 7;
             List<Category> categorybiglist = categoryService.selectBig();
-            model.addAttribute("categorybigs",categorybiglist);
-            List<Category> categoryListall=categoryService.selectCategoryBysid(sid);
-            model.addAttribute("Category",categoryListall);
-        }catch (Exception e){
+            model.addAttribute("categorybigs", categorybiglist);
+            List<Category> categoryListall = categoryService.selectCategoryBysid(sid);
+            model.addAttribute("Category", categoryListall);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "backmanage/test";
     }
-    @RequestMapping("/categorysmall")
-    public void getcategorysmall(Model model,HttpServletRequest request, HttpServletResponse response) throws Exception{
-        //异步跳转机制
-       System.out.print("2.根据请求参数查询small数据，返回页面");
 
-            String big_big = request.getParameter("big_big");
-            System.out.print(big_big);
-            List<Category> categorysmalllist = categoryService.selectSmall(big_big);
-            System.out.print(categorysmalllist.size());
-            response.setCharacterEncoding("UTF-8");
-            response.setContentType("application/json; charset=utf-8");
-            //response.getWriter().print(categorysmalllist);此方法不行（冤枉了我一白天）
+    @RequestMapping("/categorysmall")
+    public void getcategorysmall(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        //异步跳转机制
+        System.out.print("2.根据请求参数查询small数据，返回页面");
+
+        String big_big = request.getParameter("big_big");
+        System.out.print(big_big);
+        List<Category> categorysmalllist = categoryService.selectSmall(big_big);
+        System.out.print(categorysmalllist.size());
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json; charset=utf-8");
+        //response.getWriter().print(categorysmalllist);此方法不行（冤枉了我一白天）
         String json = JSONObject.toJSONString(categorysmalllist);
         response.getWriter().write(json.toString());
         response.getWriter().flush();
         response.getWriter().close();
 
     }
+
     @RequestMapping("/categorysecend")
-    public void getcategorysecond(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public void getcategorysecond(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
         System.out.print("3.根据请求参数查询secend数据，返回页面");
         try {
             String small_small = request.getParameter("small_small");
             String big_big = request.getParameter("big_big");
             System.out.print(big_big);
             System.out.print(small_small);
-            List<Category> categorysecendlist = categoryService.selectSecend(big_big,small_small);
+            List<Category> categorysecendlist = categoryService.selectSecend(big_big, small_small);
             System.out.print(categorysecendlist.size());
             response.setCharacterEncoding("UTF-8");
             response.setContentType("application/json; charset=utf-8");
@@ -464,46 +545,48 @@ public String upBossPhone(Model model , Boss boss) {
             response.getWriter().write(json.toString());
             response.getWriter().flush();
             response.getWriter().close();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-        @RequestMapping("/savecategory")
-        public void savecategory(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+    @RequestMapping("/savecategory")
+    public void savecategory(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
         System.out.print("4.根据请求参数查询cgid，绑定店铺号sid");
         //1.big不为空，small，secend为空，添加操作
         //2.big,small不为空，secend为空，(big，sid已存在：更新操作)（big,sid不存在：添加操作）
         //3. big,small，secend不为空，（big，sid，small已存在：更新操作）（big，sid，small不存在：添加操作）（）
         Category category = new Category();
-            int sid = 7;
-            String big = request.getParameter("xbig");
-            String small = request.getParameter("xsmall");
-            String secend = request.getParameter("xsecend");
-            category.setBig(big);
-            category.setSmall(small);
-            category.setSecend(secend);
-            category.setSid(sid);
-            String message;
-            int size=categoryService.selectCategory(category).size();
-            if(size==0){
-               categoryService.savecategory(category);
-               message="成功添加";
-            }else{
-                message="已存在";
-            }
-                  response.setCharacterEncoding("UTF-8");
-                  response.setContentType("application/json; charset=utf-8");
-                  String json = JSONObject.toJSONString(message);
-                  response.getWriter().write(json.toString());
-                  response.getWriter().flush();
-                  response.getWriter().close();
+        int sid = 7;
+        String big = request.getParameter("xbig");
+        String small = request.getParameter("xsmall");
+        String secend = request.getParameter("xsecend");
+        category.setBig(big);
+        category.setSmall(small);
+        category.setSecend(secend);
+        category.setSid(sid);
+        String message;
+        int size = categoryService.selectCategory(category).size();
+        if (size == 0) {
+            categoryService.savecategory(category);
+            message = "成功添加";
+        } else {
+            message = "已存在";
         }
-          @RequestMapping("/allcategory")
-        public void selectallCategory(Model model)throws  Exception{
-        int sid=7;
-            List<Category> categoryListall=categoryService.selectCategoryBysid(sid);
-            model.addAttribute("Category",categoryListall);
-        }
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json; charset=utf-8");
+        String json = JSONObject.toJSONString(message);
+        response.getWriter().write(json.toString());
+        response.getWriter().flush();
+        response.getWriter().close();
+    }
+
+    @RequestMapping("/allcategory")
+    public void selectallCategory(Model model) throws Exception {
+        int sid = 7;
+        List<Category> categoryListall = categoryService.selectCategoryBysid(sid);
+        model.addAttribute("Category", categoryListall);
+    }
 }
 

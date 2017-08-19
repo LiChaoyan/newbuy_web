@@ -21,6 +21,7 @@
     <mvc:resources mapping="/Css/**" location="/Css/"/>
     <mvc:resources mapping="/Images/**" location="/Images/"/>
     <mvc:resources mapping="/Picture/**" location="/Picture/"/>
+    <mvc:resources mapping="/public_jsp/**" location="/public_jsp/"/>
 
     <mvc:resources mapping="/back/**" location="/back/"/>
 
