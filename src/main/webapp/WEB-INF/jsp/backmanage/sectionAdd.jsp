@@ -1,4 +1,4 @@
-<%--
+    <%--
   Created by IntelliJ IDEA.
   User: lovegod
   Date: 2017/3/17
@@ -92,7 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="page-top">
             <!-- BEGIN HEADER SEARCH BOX -->
             <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-            <form class="search-form" action="#" method="GET">
+            <form class="search-form" action="#" method="post">
                 <div class="input-group">
                     <input type="text" class="form-control input-sm" placeholder="Search..." name="query">
                     <span class="input-group-btn">
@@ -422,6 +422,22 @@ License: You must have a valid license purchased only from themeforest(the above
                 </li>
                 <li>
                     <a href="#">添加版块</a>
+                </li>
+                <li>
+                    <a href="${pageContext.request.contextPath }/bossAdd.form">
+                        <i class="icon-pencil"></i> 店主注册</a>
+                </li>
+                <li>
+                    <a href="${pageContext.request.contextPath }/shopAdd.form">
+                        <i class="icon-pencil"></i> 店铺注册</a>
+                </li>
+                <li>
+                    <a href="${pageContext.request.contextPath }/shopUpdate.form">
+                        <i class="icon-pencil"></i> 店铺注册信息修改</a>
+                </li>
+                <li>
+                    <a href="${pageContext.request.contextPath }/shopList.form">
+                        <i class="icon-pencil"></i> 店铺展示</a>
                 </li>
             </ul>
             <!-- END PAGE BREADCRUMB -->
