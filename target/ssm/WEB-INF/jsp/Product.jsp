@@ -99,7 +99,6 @@
 .coll_body a{display:block; margin:10px; text-align: center; background: #f5f4f4;}
 .coll_body h4{ width: 100%; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat:  no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #BDBDBD; color: #fff; }
 .boxcurrent{background-image:url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_down.png);}
-
  /*多省略号代替出来的文字以*/
  .slh-text {
      overflow: hidden; /*内容超出后隐藏*/
@@ -889,7 +888,7 @@
                     <div class="conbox" style="display:block;">
                         <table border="0" align="center" style="width:745px; font-size:14px; font-family:'宋体';" cellspacing="0" cellpadding="0">
                       <tr>
-                          <td width="206" height="412"><img src="${Product.logo}" /></td>
+                          <td width="206" height="412"><img src="${Product.logo}" width="206" height="412" /></td>
                           <td>
                               <span title="${Product.productname}">${Product.productname}</span><br />
                               <span>【商品规格】：5ml</span><br />
@@ -913,7 +912,7 @@
                     <div class="conbox">
                         <table border="0" align="center" style="width:100%; font-family:'宋体'; margin:10px auto;" cellspacing="0" cellpadding="0">
                           <tr>
-                            <td title="${Product.productname}">商品名称：<p class="slh-text" style="width:300px;">${Product.productname}</p></td>
+                            <td title="${Product.productname}">商品名称：<span class="slh-text" style="width:300px;">${Product.productname}</span></td>
                             <td title="${Product.cid}">商品编号：${Product.cid}</td>
                             <td title="迪奥（Dior）">品牌： 迪奥（Dior）</td>
                           </tr>
@@ -1035,8 +1034,8 @@
                                     <div class="pages">
                                         <a href="<%= request.getContextPath()%>/#" class="p_pre">上一页</a><a href="<%= request.getContextPath()%>/#" class="cur">1</a><a href="<%= request.getContextPath()%>/#">2</a><a href="<%= request.getContextPath()%>/#">3</a>...<a href="<%= request.getContextPath()%>/#">20</a><a href="<%= request.getContextPath()%>/#" class="p_pre">下一页</a>
                                     </div>
-                                     --%>
-                                    <div class="pages">
+                                    --%>
+                                    <div class="pages" style="font-size: 12px;">
 
                                         <ul class="page" maxshowpageitem="7" pagelistcount="${page.count}"  id="page"></ul>
 
@@ -1055,6 +1054,7 @@
                                         $("#page").initPage(${page.listsize},${page.p},GG.kk);
 
                                     </script>
+
                                 </div>
                             <div class="conbox">
 

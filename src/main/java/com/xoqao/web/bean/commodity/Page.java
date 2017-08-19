@@ -232,9 +232,9 @@ public class Page {
         //判断每一页开始start
         this.start = (p-1) * this.count;
         //判断每一页的结束
-        if(this.p==pagesize&&(this.listsize%this.count)!=0){
+       /* if(this.p==pagesize&&(this.listsize%this.count)!=0){
             this.count=this.listsize%this.count;
-        }
+        }*/
         //判断p的上一页bp
         if(p==0){
             this.bp=0;
