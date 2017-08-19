@@ -3,9 +3,9 @@
 .relative {
     position: relative;
 }
-.shaixuan-tj{
+/*.shaixuan-tj{
 	font-size: 14px;
-}
+}*/
 .shaixuan-tj span , .shaixuan-tj i {
 	margin: 10px 5px 10px 0; 
 	float: left;
@@ -97,18 +97,18 @@
 	width: 82px;
 	text-align: center;
 	margin: 0;
-	font-size: 14px;
+	/*font-size: 14px;*/
 }
 .search-by dl dd a{
 	color: #827c7c;
-	font-size: 14px;
+	/*font-size: 14px;*/
 	line-height: 30px;
-	margin-left: 20px;
+	margin-left: 0px;
 	display: inline-block;
 }
 .search-by dl dd{
-	width: 950px;
-	font-size: 14px;
+	/*width: 950px;*/
+	/*font-size: 14px*/;
 	height: 30px;
 	overflow: hidden;
 }

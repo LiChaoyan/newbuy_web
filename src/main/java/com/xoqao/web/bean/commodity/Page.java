@@ -29,11 +29,18 @@ public class Page {
     int sales=0;//销售量默认0不使用，1为销售量按多到少排序（desc）
     int ases=0;//评价数默认0不使用，1为评价数按多到少排序（desc）
     int price=2;//价格0asc,1desc
-    int range=2;//距离(近->远)0desc,1（远->近）asc
+    int range=2;//距离(近->远)0asc,1（远->近）desc
     int attention=0;// 关注度默认0不使用，1为关注度按多到少排序（desc）
-    double lotx;
-    double loty;
+
     int colligate=0;//默认0不使用，1为综合排序
+    String rangeString;//距离要插入到sql的语句
+    public String getRangeString() {
+        return rangeString;
+    }
+
+    public void setRangeString(String rangeString) {
+        this.rangeString = rangeString;
+    }
 
     public int getColligate() {
         return colligate;
@@ -43,21 +50,7 @@ public class Page {
         this.colligate = colligate;
     }
 
-    public double getLotx() {
-        return lotx;
-    }
 
-    public void setLotx(double lotx) {
-        this.lotx = lotx;
-    }
-
-    public double getLoty() {
-        return loty;
-    }
-
-    public void setLoty(double loty) {
-        this.loty = loty;
-    }
 
     public int getAttention() {
         return attention;

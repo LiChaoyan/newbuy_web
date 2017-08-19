@@ -28,6 +28,9 @@
     <!--星级评价1.4的jquery就行-->
     <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/back/assets/xingji/demo/css/application.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/xingji/lib/jquery.raty.js"></script>
+    <!--评价分页-->
+    <link href="<%=request.getContextPath()%>/back/assets/pages/css/page.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/back/assets/pages/js/page.js"></script>
 
     <title>商品详情</title>
 <style type="text/css">
@@ -97,6 +100,12 @@
 .coll_body h4{ width: 100%; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat:  no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #BDBDBD; color: #fff; }
 .boxcurrent{background-image:url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_down.png);}
 
+ /*多省略号代替出来的文字以*/
+ .slh-text {
+     overflow: hidden; /*内容超出后隐藏*/
+     text-overflow: ellipsis; /* 超出内容显示为省略号*/
+     white-space: nowrap; /*文本不进行换行*/
+ }
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -375,10 +384,29 @@
             <li><a href="#" class="style_1">商品</a></li>
             <li><a href="#">店铺</a></li>
         </ul>
-        <div class="search_area" id="search_area">
+        <form>
+            <div class="search_area" id="search_area">
+                <p style="display: block">
+                    <input type="text" name="productname" value="" id="" class="input_1" placeholder="输入商品名称" />
+                    <button onclick="Product()"  class="button_search_1">搜索</button>
+                </p><p><input type="text" name="shopname" value="" id="" class="input_2" placeholder="输入店铺名称" />
+                <button  onclick="Shop()" class="button_search_2">搜索</button></p>
+            </div>
+        </form>
+        <script type="text/javascript">
+            function Product() {
+                form.action="CategoryList?productname=?&p=1";
+                form.submit();
+            }
+            function Shop() {
+                form.action="brand?shopname=?&p=1";
+                form.submit();
+            }
+        </script>
+        <%--<div class="search_area" id="search_area">
             <p style="display: block"><input type="text" value="" id="" class="input_1" placeholder="输入商品名称" /><button class="button_search_1">搜索</button></p>
             <p><input type="text" value="" id="" class="input_2" placeholder="输入店铺名称" /><button class="button_search_2">搜索</button></p>
-        </div>         
+        </div> --%>
         <span class="fl" style="margin-left: 10px;"><a href="<%= request.getContextPath()%>/#">咖啡</a><a href="<%= request.getContextPath()%>/#">iphone 6S</a><a href="<%= request.getContextPath()%>/#">新鲜美食</a><a href="<%= request.getContextPath()%>/#">蛋糕</a><a href="<%= request.getContextPath()%>/#">日用品</a><a href="<%= request.getContextPath()%>/#">连衣裙</a></span>
     </div></div>
     <div class="i_car">
@@ -651,7 +679,7 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
     	<ul class="menu_r">
-        	<li><a href="<%= request.getContextPath()%>/Index.html">首页</a></li>
+        	<li><a href="<%= request.getContextPath()%>/index">首页</a></li>
             <li><a href="<%= request.getContextPath()%>/Food.html">美食</a></li>
             <li><a href="<%= request.getContextPath()%>/Fresh.html">生鲜</a></li>
             <li><a href="<%= request.getContextPath()%>/HomeDecoration.html">家居</a></li>
@@ -667,7 +695,7 @@
 
 <div class="i_bg">
 	<div class="postion">
-        <span class="fl">全部 > ${Product.big} > ${Product.small} > ${Product.secend} > ${Product.productname} </span>
+        <span class="fl">全部 > ${Product.big} > ${Product.small} > ${Product.secend} > <span title="${Product.productname}">${Product.productname}</span> </span>
     </div>    
     <div class="content">
         <div id="tsShopContainer">
@@ -754,7 +782,7 @@
                 <c:forEach items="${hootList}" var="hoot">
                     <li>
                         <div class="img"><a href="<%=request.getContextPath()%>/product?cid=${hoot.cid}"><img src="${hoot.logo}" width="185" height="162" /></a></div>
-                        <div class="name"><a href="<%=request.getContextPath()%>/product?cid=${hoot.cid}">${hoot.productname}</a></div>
+                        <div class="name" title="${hoot.productname}"><a href="<%=request.getContextPath()%>/product?cid=${hoot.cid}">${hoot.productname}</a></div>
                         <div class="price">
                             <font>￥<span>${hoot.price}</span></font>
                         </div>
@@ -861,23 +889,23 @@
                     <div class="conbox" style="display:block;">
                         <table border="0" align="center" style="width:745px; font-size:14px; font-family:'宋体';" cellspacing="0" cellpadding="0">
                       <tr>
-                          <td width="265"><img src="${Product.logo}" width="206" height="412" /></td>
+                          <td width="206" height="412"><img src="${Product.logo}" /></td>
                           <td>
-                              <b>${Product.productname}</b><br />
-                              【商品规格】：5ml<br />
-                              【商品质地】：液体<br />
-                              【商品日期】：与专柜同步更新<br />
-                              【商品产地】：法国<br />
-                              【商品包装】：无外盒 无塑封<br />
-                              【商品香调】：花束花香调<br />
-                              【适用人群】：适合女性（都市白领，性感，有女人味的成熟女性）<br />
+                              <span title="${Product.productname}">${Product.productname}</span><br />
+                              <span>【商品规格】：5ml</span><br />
+                              <span>【商品质地】：液体</span><br />
+                              <span>【商品日期】：与专柜同步更新</span> <br />
+                              <span>【商品产地】：法国</span><br />
+                              <span>【商品包装】：无外盒 无塑封</span><br />
+                              <span>【商品香调】：花束花香调</span><br />
+                              <span>【适用人群】：适合女性（都市白领，性感，有女人味的成熟女性）<br />
                           </td>
                       </tr>
                     </table>
 
                         <p align="center">
                             <c:forEach items="${fn:split(Product.detailshow,';')}" var="detail" begin="0" end="${fn:length(fn:split(Product.detailshow,';'))}" varStatus="stat">
-                                <img src="${detail}" width="746" height="425" /><br /><br />
+                               <div class="" style="width:746px; height:425px;"><img src="${detail}"/></div>
                             </c:forEach>
 
                         </p>
@@ -885,22 +913,21 @@
                     <div class="conbox">
                         <table border="0" align="center" style="width:100%; font-family:'宋体'; margin:10px auto;" cellspacing="0" cellpadding="0">
                           <tr>
-                            <td>商品名称：${Product.productname}</td>
-                            <td>商品编号：${Product.cid}</td>
-                            <td>品牌： 迪奥（Dior）</td>
-                            <td>上架时间：2015-09-06 09:19:09 </td>
+                            <td title="${Product.productname}">商品名称：<p class="slh-text" style="width:300px;">${Product.productname}</p></td>
+                            <td title="${Product.cid}">商品编号：${Product.cid}</td>
+                            <td title="迪奥（Dior）">品牌： 迪奥（Dior）</td>
                           </tr>
                           <tr>
-                            <td>商品毛重：160.00g</td>
-                            <td>商品产地：法国</td>
-                            <td>香调：果香调香型：淡香水/香露EDT</td>
-                            <td>&nbsp;</td>
+                            <td title="160.00g">商品毛重：160.00g</td>
+                            <td title="法国">商品产地：法国</td>
+                            <td title="果香调香型：淡香水/香露EDT">香调：果香调香型：淡香水/香露EDT</td>
+                            <td >&nbsp;</td>
                           </tr>
                           <tr>
-                            <td>容量：1ml-15ml </td>
-                            <td>类型：女士香水，Q版香水，组合套装</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
+                            <td title="1ml-15ml">容量：1ml-15ml </td>
+                            <td title="女士香水，Q版香水，组合套装">类型：女士香水，Q版香水，组合套装</td>
+                            <td title="2015-09-06 09:19:09">上架时间：2015-09-06 09:19:09 </td>
+                            <td >&nbsp;</td>
                           </tr>
                         </table>
                     
@@ -939,45 +966,19 @@
                     //实现异步刷新
                     $(function () {
                         //请求相册
-                        $("#xc").click(function () {
-                            var cid=${page.cid};
-                            if (cid != "") {
-                                var url = "<%=request.getContextPath()%>/assesstu?cid="+cid+"";
-                                var args = {"cid": cid, "time": new Date()};
-                                $.get(url, args);
-                            }
-                        });
+
                         $(".ping0").click(function () {
-                            var cid=${page.cid};
-                            if (cid != "") {
-                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=0&p=1";
-                                var args = {"cid": cid, "time": new Date()};
-                                $.get(url, args);
-                            }
+                                window.location.href= "<%=request.getContextPath()%>/product?cid=${page.cid}&ping=0&p=1";
+
                         });
                         $(".ping1").click(function () {
-                            var cid=${page.cid};
-                            if (cid != "") {
-                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=1&p=1";
-                                var args = {"cid": cid, "time": new Date()};
-                                $.get(url, args);
-                            }
+                            window.location.href= "<%=request.getContextPath()%>/product?cid=${page.cid}&ping=1&p=1";
                         });
                         $(".ping2").click(function () {
-                            var cid=${page.cid};
-                            if (cid != "") {
-                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=2&p=1";
-                                var args = {"cid": cid, "time": new Date()};
-                                $.get(url, args);
-                            }
+                            window.location.href= "<%=request.getContextPath()%>/product?cid=${page.cid}&ping=2&p=1";
                         });
                         $(".ping3").click(function () {
-                            var cid=${page.cid};
-                            if (cid != "") {
-                                var url = "<%=request.getContextPath()%>/product?cid="+cid+"&ping=3&p=1";
-                                var args = {"cid": cid, "time": new Date()};
-                                $.get(url, args);
-                            }
+                            window.location.href= "<%=request.getContextPath()%>/product?cid=${page.cid}&ping=3&p=1";
                         });
 
                     })
@@ -992,9 +993,8 @@
                             <div class="conlist">
                                 <div class="conbox" style="display:block;">
                                     <form border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
-                                        <input type="button" class="ping0" value="全部评价(${page.allassess}+)" />
-                                        <input type="button" id="xc" value="晒图"/>
-                                        <input type="button" class="ping1" value="好评(${page.gass}+)" /></a>
+                                        <input type="button" class="ping0" value="全部评价(${page.allassess}+)"/>
+                                        <input type="button" class="ping1" value="好评(${page.gass}+)" />
                                         <input type="button" class="ping2" value="中评(${page.mass})" />
                                         <input type="button" class="ping3" value="差评(${page.bass})" />
                                     </form>
@@ -1016,18 +1016,45 @@
                                                     <font color="#999999">${assess.date}</font>
                                                     <hr style="border : 1px dashed #999999;" />
                                                     <span style="color: #FF4855">
-                                                     店主回复:<br>
+                                                     <span class="boss-back">店主回复:</span><br>
                                                       ${assess.bossback}
                                                     </span>
                                                 </td>
                                             </tr>
                                         </c:forEach>
                                     </table>
-
+                                    <script type="text/javascript">
+                                        $(function(){
+                                            var boss_back=${assess.bossback};
+                                            if(boss_back==null ||boss_back.length()<=0){
+                                                $(".boss-back").hide();
+                                            }
+                                        });
+                                    </script>
+                                    <%--
                                     <div class="pages">
                                         <a href="<%= request.getContextPath()%>/#" class="p_pre">上一页</a><a href="<%= request.getContextPath()%>/#" class="cur">1</a><a href="<%= request.getContextPath()%>/#">2</a><a href="<%= request.getContextPath()%>/#">3</a>...<a href="<%= request.getContextPath()%>/#">20</a><a href="<%= request.getContextPath()%>/#" class="p_pre">下一页</a>
                                     </div>
+                                     --%>
+                                    <div class="pages">
 
+                                        <ul class="page" maxshowpageitem="7" pagelistcount="${page.count}"  id="page"></ul>
+
+                                    </div>
+                                    <script type="text/javascript">
+                                        function tt(dd){
+                                            // alert(dd);
+                                        }
+                                        var GG = {
+                                            "kk":function(mm){
+                                                // console.log("hellos");
+                                                window.location.href="product?cid=${page.cid}&p="+mm;
+                                                //alert(mm);
+                                            }
+                                        }
+                                        $("#page").initPage(${page.listsize},${page.p},GG.kk);
+
+                                    </script>
                                 </div>
                             <div class="conbox">
 

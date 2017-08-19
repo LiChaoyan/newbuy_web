@@ -170,9 +170,9 @@
         <form>
         <div class="search_area" id="search_area">
                 <p style="display: block">
-                <input type="text" name="productname" value="" id="" class="input_1" placeholder="输入商品名称" />
+                <input type="text" name="productname" value=""  class="input_1" placeholder="输入商品名称" />
                 <button onclick="Product()"  class="button_search_1">搜索</button>
-            </p><p><input type="text" name="shopname" value="" id="" class="input_2" placeholder="输入店铺名称" />
+            </p><p><input type="text" name="shopname" value=""  class="input_2" placeholder="输入店铺名称" />
                 <button  onclick="Shop()" class="button_search_2">搜索</button></p>
         </div>
         </form>
@@ -474,6 +474,7 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
         <ul class="menu_r">                                                                                                                                               
+<<<<<<< HEAD
             <li><a href="Index">首页</a></li>
             <li><a href="Food">美食</a></li>
             <li><a href="Fresh">生鲜</a></li>
@@ -482,6 +483,16 @@
             <li><a href="MakeUp">美妆</a></li>
             <li><a href="Digital">数码</a></li>
             <li><a href="GroupBuying">团购</a></li>
+=======
+            <li><a href="<%=request.getContextPath()%>/index">首页</a></li>
+            <li><a href="Food.html">美食</a></li>
+            <li><a href="Fresh.html">生鲜</a></li>
+            <li><a href="HomeDecoration.html">家居</a></li>
+            <li><a href="SuitDress.html">女装</a></li>
+            <li><a href="MakeUp.html">美妆</a></li>
+            <li><a href="Digital.html">数码</a></li>
+            <li><a href="GroupBuying.html">团购</a></li>
+>>>>>>> f1a10fa1668611771c9d5d7f12639a0125acf7f1
         </ul>
         <div class="m_ad letter">全部加盟商家</div>
     </div>
@@ -544,12 +555,12 @@
                     <a href="#">
                         <span class="fl">信用</span>                        
                         <span class="i_up">信用从低到高显示</span>
-                        <span class="i_down"信用格从高到低显示</span>     
+                        <span class="i_down">信用格从高到低显示</span>
                     </a>
                    <a href="#">
                         <span class="fl">好评</span>                        
                         <span class="i_up">好评率从低到高显示</span>
-                        <span class="i_down"好评率从高到低显示</span>     
+                        <span class="i_down">好评率从高到低显示</span>
                     </a>
                 </span>
                 <div class="brand_search fr">
@@ -679,7 +690,7 @@
 
                 <div class="pages">
 
-                    <ul class="page" maxshowpageitem="${page.pagesize}" pagelistcount="${page.count}"  id="page"></ul>
+                    <ul class="page" maxshowpageitem="7" pagelistcount="${page.count}"  id="page"></ul>
 
                 </div>
                 <script type="text/javascript">
@@ -693,7 +704,7 @@
                             //alert(mm);
                         }
                     }
-                    $("#page").initPage(${page.pagesize},${page.p},GG.kk);
+                    $("#page").initPage(${page.listsize},${page.p},GG.kk);
 
                 </script>
                 <script type="text/javascript">
