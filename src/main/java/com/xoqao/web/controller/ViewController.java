@@ -16,6 +16,10 @@ public class ViewController {
     public String Regist_shopkeeper(Model model) throws Exception {
         return "shopkeeper/Regist_shopkeeper";
     }
+    @RequestMapping("/shopadd_online")
+    public String Regist_shop(Model model) throws Exception {
+        return "shopkeeper/shopadd_online";
+    }
 
 
 

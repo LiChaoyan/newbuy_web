@@ -187,12 +187,12 @@
  
 <title>尤洪</title>
 </head>
-<body>  
+<body background="<%= request.getContextPath()%>/Picture/denglu.jpg">
 <!--Begin Header Begin-->
 <div class="soubg">
 	<div class="sou">
         <span class="fr">
-          <span >你好，请<a href="<%= request.getContextPath()%>/<%= request.getContextPath()%>/user/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/<%= request.getContextPath()%>/Regist" style="color:#ff4e00;">免费注册 &nbsp;</a></span>
+          <span >你好，请<a href="<%= request.getContextPath()%>/user/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/<%= request.getContextPath()%>/Regist" style="color:#ff4e00;">免费注册 &nbsp;</a></span>
             <span class="fr">|&nbsp;<a href="<%= request.getContextPath()%>/#">手机版&nbsp;<img src="<%= request.getContextPath()%>/<%= request.getContextPath()%>/Picture/s_tel.png" align="absmiddle" /></a></span>
         </span>
     </div>
