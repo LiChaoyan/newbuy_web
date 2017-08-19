@@ -57,15 +57,21 @@ public class CommodityShop {
    //评论数量
     private int asesnum;
     //关注量
-    private int goodsatten;
+    private int rq;
 
 
     //距离
     private double juli;
+    //综合 权值
+    private double num;
 
 
-    public int getGoodsatten() {
-        return goodsatten;
+    public double getNum() {
+        return num;
+    }
+
+    public void setNum(double num) {
+        this.num = num;
     }
 
     public double getJuli() {
@@ -80,8 +86,12 @@ public class CommodityShop {
         return asesnum;
     }
 
-    public void setGoodsatten(int goodsatten) {
-        this.goodsatten = goodsatten;
+    public int getRq() {
+        return rq;
+    }
+
+    public void setRq(int rq) {
+        this.rq = rq;
     }
 
     public void setAsesnum(int asesnum) {

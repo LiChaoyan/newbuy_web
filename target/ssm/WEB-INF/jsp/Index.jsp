@@ -359,6 +359,7 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
     	<ul class="menu_r">                                                                                                                                               
+<<<<<<< HEAD
         	<li><a href="Index">首页</a></li>
             <li><a href="Food">美食</a></li>
             <li><a href="Fresh">生鲜</a></li>
@@ -367,6 +368,16 @@
             <li><a href="MakeUp">美妆</a></li>
             <li><a href="Digital">数码</a></li>
             <li><a href="GroupBuying">团购</a></li>
+=======
+        	<li><a href="#">首页</a></li>
+            <li><a href="Food.html">美食</a></li>
+            <li><a href="Fresh.html">生鲜</a></li>
+            <li><a href="HomeDecoration.html">家居</a></li>
+            <li><a href="SuitDress.html">女装</a></li>
+            <li><a href="MakeUp.html">美妆</a></li>
+            <li><a href="Digital.html">数码</a></li>
+            <li><a href="GroupBuying.html">团购</a></li>
+>>>>>>> f1a10fa1668611771c9d5d7f12639a0125acf7f1
         </ul>
         <div class="m_ad">活动资讯&nbsp;|&nbsp;|&nbsp;旺铺推荐</div>
     </div>
@@ -1070,7 +1081,7 @@
     <!--End 数码家电 End-->
     <!--Begin 猜你喜欢 Begin-->
     <div class="i_t mar_10">
-        <span class="fl">加盟商家</span>
+        <span class="fl">合作商品</span>
         <span class="i_mores fr"><a href="#">更多</a></span>
     </div>
     <div class="like">
@@ -1084,17 +1095,17 @@
                                 <li class="featureBox">
                                     <div class="box">
                                         <div class="imgbg">
-                                            <a href="#"><img src="${partshop.productlogo}" width="160" height="136" /></a>
+                                            <a href="<%=request.getContextPath()%>/product?cid=${partshop.cid}"><img src="${partshop.productlogo}" width="160" height="136" /></a>
                                         </div>
                                         <div class="name">
-                                            <a href="#">
-                                                <h2>${partshop.productname}</h2>
+                                            <a href="<%=request.getContextPath()%>/product?cid=${partshop.cid}">
+                                                <h2 title="${partshop.productname}">${partshop.productname}</h2>
                                             </a>
                                             <div class="price">
                                                 <font>￥<span>${partshop.price}</span></font> &nbsp; &nbsp;&nbsp;销量：${partshop.salesvolu}<br>
 
                                             </div>
-                                            <span><a href=""><img src="Images/xing.png" style="width: 15px;height: 15px;">${partshop.shopname}&nbsp;&nbsp;</a><img src="Images/location.png">${partshop.cityname}</span>
+                                            <span><a href="#"><img src="Images/xing.png" style="width: 15px;height: 15px;">${partshop.shopname}&nbsp;&nbsp;</a><img src="Images/location.png">${partshop.cityname}</span>
                                             <p>合作数量：${partshop.count} &nbsp;&nbsp;&nbsp;预合作数量：${partshop.intentcount}</p>
                                         </div>
 

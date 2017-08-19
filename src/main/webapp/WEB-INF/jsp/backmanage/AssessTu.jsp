@@ -36,6 +36,30 @@
 
         });
     </script>
+    <style type="text/css">
+        .slh-hollrall {
+            width: 400px;
+            overflow: hidden; /*内容超出后隐藏*/
+            text-overflow: ellipsis; /* 超出内容显示为省略号*/
+            white-space: nowrap; /*文本不进行换行*/
+        }
+        .multiLineText-detail {  /*设置文本为多行，如果超出长度用省略号代替*/
+                             width: 400px;
+                             word-break: break-all;
+                             display: -webkit-box;
+                             -webkit-line-clamp: 5;  /*限制在一个块元素显示的文本的行数*/
+                             -webkit-box-orient: vertical;
+                             overflow: hidden;
+                         }
+        .multiLineText-back{
+            width: 400px;
+            word-break: break-all;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;  /*限制在一个块元素显示的文本的行数*/
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
 <div class="content_Assess" style="width: 100%;">
@@ -68,16 +92,16 @@
                         <p><img src="${tuassess.headerpic}" width="20" height="20" align="absmiddle" />&nbsp;${tuassess.username}<br/>
                             <span class="assesstureadOnly">${tuassess.grade}</span>
                         </p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${tuassess.hollrall} <br />
-                            ${tuassess.detail}<br/>
+                        <span class="slh-hollrall">${tuassess.hollrall}</span> <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="multiLineText-hollrall">${tuassess.detail}</span><br/>
                             <br/>
                             颜色分类：<font color="#999999">粉色</font>&nbsp;&nbsp;&nbsp;&nbsp;
                             型号：<font color="#999999">50ml</font>&nbsp;&nbsp;&nbsp;&nbsp;
                             <font color="#999999">${tuassess.date}</font>
                             <hr style="border : 1px dashed #999999;" />
                             <span style="color: #FF4855">
-                            店主回复:<br>
-                            ${tuassess.bossback}
+                            <span class="boss-back">店主回复:</span><br>
+                                <sapn class="multiLineText-back">${tuassess.bossback}</sapn>
                             </span>
 
                     </li>
