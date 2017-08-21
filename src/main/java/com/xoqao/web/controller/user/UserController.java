@@ -33,7 +33,7 @@ public class UserController {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/user/login")
+    @RequestMapping("/user/Login")
     public String Login(Model model) throws Exception {
         return "user/Login";
     }

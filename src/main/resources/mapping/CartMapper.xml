@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xoqao.web.dao.CartMapper" >
     <insert id="Addto" parameterType="com.xoqao.web.bean.commodity.Cart">
-        INSERT into commodity_cart(amount,cid,commodity_name,commodity_pic,commodity_select,shopname,sid,uid,price) VALUES ('${cart.amount}','${page.cid}','${page.commodity_name}','${page.commodity_pic}','${page.commodity_select}','${page.shopname}','${page.sid}','${page.uid}','${page.price}')
+        INSERT into commodities_cart(amount,cid,commodity_name,commodity_pic,commodity_select,shopname,sid,uid,price) VALUES ('${cart.amount}','${page.cid}','${page.commodity_name}','${page.commodity_pic}','${page.commodity_select}','${page.shopname}','${page.sid}','${page.uid}','${page.price}')
     </insert>
+    <select id="selectCart" resultType="com.xoqao.web.bean.commodity.Cart">
+        select * from commodities_cart;
+    </select>
 </mapper>

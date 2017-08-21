@@ -125,32 +125,44 @@ public class DemoController {
     public String BuyCar_Three(Model model) throws Exception {
         return "BuyCar_Three";
     }
-    @RequestMapping("/AddtoBuyCar")
-    public String AddtoBuyCar(Model model,HttpServletRequest request,HttpServletResponse response) throws Exception {
+    @RequestMapping("/addtocart")
+    public void AddtoBuyCar(Model model,HttpServletRequest request,HttpServletResponse response) throws Exception {
         //添加商品到购物车
+        System.out.println("购物车添加");
         Cart cart=new Cart();
         cart.setCommodity_name(request.getParameter("commodity_name"));
         cart.setAmount(Integer.parseInt(request.getParameter("amount")));
         cart.setCommodity_pic(request.getParameter("commodity_pic"));
-        cart.setCommodity_select(request.getParameter("commodity_select"));
+     //   cart.setCommodity_select(request.getParameter("commodity_select"));
         cart.setShopname(request.getParameter("shopname"));
         cart.setCid(Integer.parseInt(request.getParameter("cid")));
         cart.setPrice(Double.parseDouble(request.getParameter("price")));
         cart.setSid(Integer.parseInt(request.getParameter("sid")));
 
         System.out.print(cart.getCommodity_name());
-        int sta=cartService.Addto(cart);
-        System.out.print(sta);
+        try {
+            int sta = cartService.Addto(cart);
+            System.out.print(sta);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");
-        //String json = JSONObject.toJSONString(categorysmalllist);
-        response.getWriter().write("添加成功");
+        String status="成工加入购物车！";
+        response.getWriter().write(status);
         response.getWriter().flush();
         response.getWriter().close();
-        return "BuyCar";
+
     }
-    @RequestMapping("/BuyCar")
+    @RequestMapping(value = "/BuyCar")
     public String BuyCar(Model model) throws Exception {
+        System.out.println("查询购物车");
+        try {
+            ArrayList<Cart> CartList = cartService.selectCart();
+            model.addAttribute("CartList", CartList);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return "BuyCar";
     }
 
@@ -191,6 +203,11 @@ public class DemoController {
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
+
+
+        ip=ip.equals("0:0:0:0:0:0:0:1")?"118.89.171.150":ip;
+        ip="118.89.171.150";
+
 
         ip=ip.equals("0:0:0:0:0:0:0:1")?"118.89.171.150":ip;
         ip="118.89.171.150";
@@ -256,7 +273,7 @@ public class DemoController {
         modelAndView.addObject("Page", page);
 
         modelAndView.setViewName("CategoryList");
-
+        System.out.println("建哈哈四号IDhi哦爱哦的hi奥");
         return modelAndView;
 
     }
@@ -264,7 +281,6 @@ public class DemoController {
 
     @RequestMapping("/product")
     public ModelAndView Product(int cid, APage page, Model model) throws Exception {
-
         ModelAndView productmodelAndView = new ModelAndView();
         //基本信息填充（包括评论信息）
         if (cid != -1) {
