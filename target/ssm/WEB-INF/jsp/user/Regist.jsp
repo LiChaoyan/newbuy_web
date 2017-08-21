@@ -291,6 +291,7 @@
 
                     <input type="button" name="previous" class="previous action-button" value="上一步" required/>
                     <%--<a href="<%= request.getContextPath()%>/user/Login">跳过</a>--%>
+                    <%--<input type="submit" name="submit" class="log_btn submit action-button " value="提交" required/>--%>
                     <input type="submit" name="submit"  value="提交" required/>
                 </fieldset>
             </form>

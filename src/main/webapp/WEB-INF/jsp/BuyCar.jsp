@@ -427,7 +427,7 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
     	<ul class="menu_r">                                                                                                                                               
-        	<li><a href="<%= request.getContextPath()%>/Index">首页</a></li>
+        	<li><a href="<%= request.getContextPath()%>/index">首页</a></li>
             <li><a href="<%= request.getContextPath()%>/Food">美食</a></li>
             <li><a href="<%= request.getContextPath()%>/Fresh">生鲜</a></li>
             <li><a href="<%= request.getContextPath()%>/HomeDecoration">家居</a></li>

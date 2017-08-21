@@ -729,7 +729,7 @@
             <div class="des_choice">
             	<span class="fl">型号选择：</span>
                 <ul>
-                	<li class="checked">30ml<div class="ch_img"></div></li>
+                	<li class="">30ml<div class="ch_img"></div></li>
                     <li>50ml<div class="ch_img"></div></li>
                     <li>100ml<div class="ch_img"></div></li>
                 </ul>
@@ -738,7 +738,7 @@
             	<span class="fl">颜色选择：</span>
                 <ul>
                 	<li>红色<div class="ch_img"></div></li>
-                    <li class="checked">白色<div class="ch_img"></div></li>
+                    <li class="">白色<div class="ch_img"></div></li>
                     <li>黑色<div class="ch_img"></div></li>
                 </ul>
             </div>
@@ -758,13 +758,69 @@
             <div class="des_join">
             	<div class="j_nums">
                 	<input type="text" value="1" name="" class="n_ipt" />
-                    <input type="button" value="" onclick="addUpdate(jq(this));" class="n_btn_1" />
-                    <input type="button" value="" onclick="jianUpdate(jq(this));" class="n_btn_2" />   
+                    <input type="button" value="" <%--onclick="addUpdate(jq(this))";--%> class="n_btn_1" />
+                    <input type="button" value="" <%--onclick="jianUpdate(jq(this));"--%> class="n_btn_2" />
                 </div>
-                <span class="fl"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="<%= request.getContextPath()%>/Picture/j_car.png" /></a></span>
+                <span class="fl"><a <%--onclick="ShowDiv_1('MyDiv1','fade1')"--%>><img src="<%= request.getContextPath()%>/Picture/j_car.png" /></a></span>
             </div>            
         </div>
-
+        <%--购物车--%>
+        <script type="text/javascript">
+            $(function() {
+                /*点击添加*/
+                $(".fl").click(function(){
+                    //判断参数是否添加
+                    var cart_amount=1;//从页面获取
+                    var cart_cid=${page.cid};
+                    var cart_commodity_name=${Product.productname};
+                    var cart_commodity_pic=${Product.logo};
+                    var cart_commodity_select;//从页面获取
+                    var cart_shopname=${Product.shopname};
+                    var cart_sid=${Product.sid};
+                    var cart_uid=1;
+                    var cart_price=${Product.price};
+                    var url = "<%=request.getContextPath()%>/AddtoBuyCar";
+                    var args = {"amount": cart_amount,
+                                "cid":cart_cid,
+                                "commodity_name":cart_commodity_name,
+                                "commodity_pic":cart_commodity_pic,
+                                "commodity_select":cart_commodity_select,
+                                "shopname":cart_shopname,
+                        "sid":cart_sid,
+                        "uid":cart_uid,
+                        "price":cart_price,
+                        "time": new Date()};
+                    $.post(url, args, function(data,status){
+                        ShowDiv_1('MyDiv1','fade1')
+                     });
+                });
+                /*参数选择*/
+                $(".des_choice li").toggle(
+                    function () {
+                        $(this).addClass("checked").siblings().removeClass("checked");
+                    },
+                    function () {
+                        $(this).removeClass("checked");
+                    }
+                );
+                /*数量加减*/
+                $(".n_btn_1").click(function(){
+                    var num=$(this).parent().find(".n_ipt").val();
+                    num=parseInt(num,10);
+                    if(num>=0&&num<5){
+                      num=num+1;
+                    $(this).parent().find(".n_ipt").val(num);
+                    }
+                })
+                $(".n_btn_2").click(function(){
+                    var num=$(this).parent().find(".n_ipt").val();
+                    if(num>=1){
+                    num=num-1;
+                    $(this).parent().find(".n_ipt").val(num);
+                    }
+                })
+            });
+        </script>
         <div class="s_brand">
             <div class="s_brand_img"><img src="${Product.shoplogo}"></div>
             <div class="s_brand_c"><a href="<%=request.getContextPath()%>/#"></a> <a href="">${Product.shopname}&nbsp;</a><span id="readOnly-shop"></span><br>
@@ -1024,7 +1080,10 @@
                                     </table>
                                     <script type="text/javascript">
                                         $(function(){
-                                            var boss_back=${assess.bossback};
+                                            var boss_back;
+                                            if(${assess.bossback!=null}){
+                                                boss_back=${assess.bossback};
+                                            }
                                             if(boss_back==null ||boss_back.length()<=0){
                                                 $(".boss-back").hide();
                                             }
@@ -1130,7 +1189,7 @@
                   </tr>
                   <tr height="50" valign="bottom">
                   	<td>&nbsp;</td>
-                    <td><a href="<%= request.getContextPath()%>/#" class="b_sure">去购物车结算</a><a href="<%= request.getContextPath()%>/#" class="b_buy">继续购物</a></td>
+                    <td><a href="<%= request.getContextPath()%>/BuyCar" class="b_sure">去购物车结算</a><a href="<%= request.getContextPath()%>/#" class="b_buy">继续购物</a></td>
                   </tr>
                 </table>
                     

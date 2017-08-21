@@ -45,6 +45,9 @@ public class DemoController {
     @Autowired
     CommodityService commodityService;
 
+    @Autowired
+    CartService cartService;
+
     @RequestMapping("/xoqiao")
     public String begin(Model model) throws Exception {
         return "backmanage/xoqiao";
@@ -122,7 +125,30 @@ public class DemoController {
     public String BuyCar_Three(Model model) throws Exception {
         return "BuyCar_Three";
     }
+    @RequestMapping("/AddtoBuyCar")
+    public String AddtoBuyCar(Model model,HttpServletRequest request,HttpServletResponse response) throws Exception {
+        //添加商品到购物车
+        Cart cart=new Cart();
+        cart.setCommodity_name(request.getParameter("commodity_name"));
+        cart.setAmount(Integer.parseInt(request.getParameter("amount")));
+        cart.setCommodity_pic(request.getParameter("commodity_pic"));
+        cart.setCommodity_select(request.getParameter("commodity_select"));
+        cart.setShopname(request.getParameter("shopname"));
+        cart.setCid(Integer.parseInt(request.getParameter("cid")));
+        cart.setPrice(Double.parseDouble(request.getParameter("price")));
+        cart.setSid(Integer.parseInt(request.getParameter("sid")));
 
+        System.out.print(cart.getCommodity_name());
+        int sta=cartService.Addto(cart);
+        System.out.print(sta);
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json; charset=utf-8");
+        //String json = JSONObject.toJSONString(categorysmalllist);
+        response.getWriter().write("添加成功");
+        response.getWriter().flush();
+        response.getWriter().close();
+        return "BuyCar";
+    }
     @RequestMapping("/BuyCar")
     public String BuyCar(Model model) throws Exception {
         return "BuyCar";
@@ -153,12 +179,10 @@ public class DemoController {
     public ModelAndView showCategoryListpage(Page page, Model model, HttpServletRequest request) throws Exception {
         //获取ip
         String ip = request.getHeader("x-forwarded-for");
-<<<<<<< HEAD
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-=======
+
 
         if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
->>>>>>> LiChaoyan-master
+
             ip = request.getHeader("Proxy-Client-IP");
         }
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
@@ -167,12 +191,10 @@ public class DemoController {
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
-<<<<<<< HEAD
-        ip = ip.equals("0:0:0:0:0:0:0:1") ? "127.0.0.1" : ip;
-=======
+
         ip=ip.equals("0:0:0:0:0:0:0:1")?"118.89.171.150":ip;
         ip="118.89.171.150";
->>>>>>> LiChaoyan-master
+
         //获取经纬度，请在Getjw类中实现
         Getjw ipxy=new Getjw();
         page.setRangeString(ipxy.getXY(ip));
@@ -200,12 +222,6 @@ public class DemoController {
             try {
                 size = commodityService.selectCommodityShopsize(page);
                 page.setPage(page.getP(), size);
-<<<<<<< HEAD
-                double lotx = 34.2597, loty = 108.9471;
-                page.setLotx(lotx);
-                page.setLoty(loty);
-=======
->>>>>>> LiChaoyan-master
                 arrayList = commodityService.selectCommodityShopBycgidpage(page);
                 //筛选信息导航栏填写
                 if (page.getCgid() != -1) {

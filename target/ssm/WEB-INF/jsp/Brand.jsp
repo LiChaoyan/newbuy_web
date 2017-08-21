@@ -474,16 +474,7 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
         <ul class="menu_r">                                                                                                                                               
-<<<<<<< HEAD
-            <li><a href="Index">首页</a></li>
-            <li><a href="Food">美食</a></li>
-            <li><a href="Fresh">生鲜</a></li>
-            <li><a href="HomeDecoration">家居</a></li>
-            <li><a href="SuitDress">女装</a></li>
-            <li><a href="MakeUp">美妆</a></li>
-            <li><a href="Digital">数码</a></li>
-            <li><a href="GroupBuying">团购</a></li>
-=======
+
             <li><a href="<%=request.getContextPath()%>/index">首页</a></li>
             <li><a href="Food.html">美食</a></li>
             <li><a href="Fresh.html">生鲜</a></li>
@@ -492,7 +483,7 @@
             <li><a href="MakeUp.html">美妆</a></li>
             <li><a href="Digital.html">数码</a></li>
             <li><a href="GroupBuying.html">团购</a></li>
->>>>>>> f1a10fa1668611771c9d5d7f12639a0125acf7f1
+
         </ul>
         <div class="m_ad letter">全部加盟商家</div>
     </div>
