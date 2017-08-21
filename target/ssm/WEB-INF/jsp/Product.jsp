@@ -753,7 +753,7 @@
                         <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/sh_5.gif" /></a>
                     </div>
                 </div>
-                <div class="d_care"><a onclick="ShowDiv('MyDiv','fade')">关注商品</a></div>
+                <div class="d_care"><a>关注商品</a></div><!--onclick="ShowDiv('MyDiv','fade')"-->
             </div>
             <div class="des_join">
             	<div class="j_nums">
@@ -761,40 +761,41 @@
                     <input type="button" value="" <%--onclick="addUpdate(jq(this))";--%> class="n_btn_1" />
                     <input type="button" value="" <%--onclick="jianUpdate(jq(this));"--%> class="n_btn_2" />
                 </div>
-                <span class="fl"><a <%--onclick="ShowDiv_1('MyDiv1','fade1')"--%>><img src="<%= request.getContextPath()%>/Picture/j_car.png" /></a></span>
+                <span class="fl"><a ><img src="<%= request.getContextPath()%>/Picture/j_car.png" /></a></span>
+                <!--onclick="ShowDiv_1('MyDiv1','fade1')"-->
             </div>            
         </div>
         <%--购物车--%>
         <script type="text/javascript">
             $(function() {
                 /*点击添加*/
-                $(".fl").click(function(){
+                $(".fl a").click(function(){
+                    alert("提交数据");
+
                     //判断参数是否添加
                     var cart_amount=1;//从页面获取
                     var cart_cid=${page.cid};
-                    var cart_commodity_name=${Product.productname};
-                    var cart_commodity_pic=${Product.logo};
+                    var cart_commodity_name="${Product.productname}";
+                    var cart_commodity_pic="${Product.logo}";
                     var cart_commodity_select;//从页面获取
-                    var cart_shopname=${Product.shopname};
+                    var cart_shopname="${Product.shopname}";
                     var cart_sid=${Product.sid};
                     var cart_uid=1;
                     var cart_price=${Product.price};
-                    var url = "<%=request.getContextPath()%>/AddtoBuyCar";
-                    var args = {"amount": cart_amount,
-                                "cid":cart_cid,
-                                "commodity_name":cart_commodity_name,
-                                "commodity_pic":cart_commodity_pic,
-                                "commodity_select":cart_commodity_select,
-                                "shopname":cart_shopname,
-                        "sid":cart_sid,
-                        "uid":cart_uid,
-                        "price":cart_price,
-                        "time": new Date()};
-                    $.post(url, args, function(data,status){
-                        ShowDiv_1('MyDiv1','fade1')
-                     });
+                    var url = "<%=request.getContextPath()%>/addtocart";
+                    if(cart_commodity_name!=null) {
+                        var args = {"amount": cart_amount,"cid": cart_cid,"commodity_name": cart_commodity_name, "commodity_pic": cart_commodity_pic, /* "commodity_select":cart_commodity_select,*/"shopname": cart_shopname, "sid": cart_sid, "uid": cart_uid, "price": cart_price, "time": new Date()};
+                        $.post(url, args, function (result) {
+                            alert(result);
+
+                        });
+                        ShowDiv_1('MyDiv1', 'fade1');
+                    }
+
                 });
+
                 /*参数选择*/
+
                 $(".des_choice li").toggle(
                     function () {
                         $(this).addClass("checked").siblings().removeClass("checked");
@@ -1083,9 +1084,10 @@
                                             var boss_back;
                                             if(${assess.bossback!=null}){
                                                 boss_back=${assess.bossback};
-                                            }
+
                                             if(boss_back==null ||boss_back.length()<=0){
                                                 $(".boss-back").hide();
+                                            }
                                             }
                                         });
                                     </script>

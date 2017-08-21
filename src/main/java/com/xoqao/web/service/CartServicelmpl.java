@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by win8.1 on 2017/8/19.
  */
 @Service
-public class CartServicelmpl {
+public class CartServicelmpl implements CartService{
     @Autowired
     private CartMapper cartMapper;
     public int Addto(Cart cart)throws Exception{

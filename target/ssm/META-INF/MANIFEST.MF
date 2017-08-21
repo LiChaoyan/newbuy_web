@@ -1,11 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: win8.1
 Created-By: IntelliJ IDEA
 Build-Jdk: 1.8.0_51
-=======
-Built-By: xq
-Created-By: IntelliJ IDEA
-Build-Jdk: 1.8.0_131
->>>>>>> b71d2e03b06efe330c34666ce1d5c75d5e4ba54a
 
