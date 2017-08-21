@@ -192,6 +192,11 @@ public class DemoController {
             ip = request.getRemoteAddr();
         }
 
+
+        ip=ip.equals("0:0:0:0:0:0:0:1")?"118.89.171.150":ip;
+        ip="118.89.171.150";
+
+
         ip=ip.equals("0:0:0:0:0:0:0:1")?"118.89.171.150":ip;
         ip="118.89.171.150";
 

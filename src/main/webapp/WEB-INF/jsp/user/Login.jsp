@@ -33,6 +33,7 @@
 </head>
 <body>  
 <!--Begin Header Begin-->
+
 <jsp:include page="/public_jsp/login_Header.jsp" flush="true"></jsp:include>
 <!--End Header End--> 
 <!--Begin Login Begin-->
@@ -49,7 +50,11 @@
               	<td width="55">&nbsp;</td>
                 <td>
                 	<span class="fl" style="font-size:24px;">登录</span>
-                    <span class="fr">还没有商城账号，<a href="<%= request.getContextPath()%>/user/Redist.html" style="color:#ff4e00;">立即注册</a></span>
+<<<<<<< HEAD
+                    <span class="fr">还没有商城账号，<a href="<%= request.getContextPath()%>/user/Regist.html" style="color:#ff4e00;">立即注册</a></span>
+=======
+                    <span class="fr">还没有商城账号，<a href="<%= request.getContextPath()%>/user/Regist" style="color:#ff4e00;">立即注册</a></span>
+>>>>>>> wordlu-master
                 </td>
               </tr>
               <tr height="70">

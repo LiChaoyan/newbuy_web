@@ -1,6 +1,8 @@
 package com.xoqao.web.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 说明：此处座位新添加的页面测试使用
@@ -10,7 +12,14 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class ViewController {
-
+    @RequestMapping("/Regist_shopkeeper")
+    public String Regist_shopkeeper(Model model) throws Exception {
+        return "shopkeeper/Regist_shopkeeper";
+    }
+    @RequestMapping("/shopadd_online")
+    public String Regist_shop(Model model) throws Exception {
+        return "shopkeeper/shopadd_online";
+    }
 
 
 
