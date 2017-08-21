@@ -12,7 +12,7 @@
 <div class="soubg">
     <div class="sou">
         <span class="fr">
-        	<span>你好，请<a href="<%= request.getContextPath()%>/user/login.html">登录</a>&nbsp; <a
+        	<span>你好，请<a href="<%= request.getContextPath()%>/user/Login.html">登录</a>&nbsp; <a
                     href="<%= request.getContextPath()%>/user/Regist.html" style="color:#ff4e00;">免费注册 &nbsp;</a></span>
             <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="<%= request.getContextPath()%>/Picture/s_tel.png"
                                                               align="absmiddle"/></a></span>

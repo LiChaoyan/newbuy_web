@@ -12,7 +12,7 @@
 <div class="soubg">
     <div class="sou">
           <span class="fr">
-              <span class="fl">你好，请<a href="<%=request.getContextPath()%>/user/login.html" style="color:#ff4e00;">登录</a>&nbsp; |&nbsp;<a
+              <span class="fl">你好，请<a href="<%=request.getContextPath()%>/user/Login.html" style="color:#ff4e00;">登录</a>&nbsp; |&nbsp;<a
                       href="<%=request.getContextPath()%>/user/Regist.html">免费注册</a>&nbsp;|&nbsp;<a
                       href="<%=request.getContextPath()%>/shop/index.html">商城主页</a></span>
           </span>

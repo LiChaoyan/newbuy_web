@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public interface UserMapper {
 
-    User findUserByphone(@Param("stel") String phone) throws Exception;
+    User findUserByphone(@Param("phone") String phone) throws Exception;
 
     List<User> findAllUsers() throws Exception;
 

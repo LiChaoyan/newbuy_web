@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/newbuy_web.iml" filepath="$PROJECT_DIR$/newbuy_web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ssm.iml" filepath="$PROJECT_DIR$/ssm.iml" />
     </modules>
   </component>
 </project>

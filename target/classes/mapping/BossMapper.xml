@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xoqao.web.dao.BossMapper" >
+<mapper namespace="com.xoqao.web.dao.BossMapper">
     <!--添加一个店主-->
     <select id="saveBoss" resultType="com.xoqao.web.bean.boss.Boss">
         insert into boss(id,name,nickname,password,phone,pic) values('${id}','${name}','${nickname}','${password}','${phone}','${pic}')
@@ -18,7 +18,26 @@
         select id,name,nickname,password,phone,pic,sid from boss where sid like '${sid}'
     </select>
     <!--店主phone修改-->
-    <update id="upBossphone" >
+    <update id="upBossphone">
        update boss set phone='${phone}'where nickname='${nickname}'
     </update>
+
+    <!--添加店主-->
+    <insert id="insertBoss">
+        <selectKey resultType="java.lang.Integer" keyProperty="bid" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO boss (id,name,nickname,password,phone,pic,facepic,idpic) VALUES
+        (#{boss.id},#{boss.name},#{boss.nickname},#{boss.password},#{boss.phone},#{boss.pic},#{boss.facepic},#{boss.idpic})
+    </insert>
+
+    <!--根据手机号查找店主-->
+    <select id="findBossByphone" resultType="com.xoqao.web.bean.boss.Boss">
+            select bid,id,name,nickname,password,phone,pic,facepic,idpic,statue from boss where phone like '${phone}'
+    </select>
+
+    <!--根据昵称查找用户-->
+    <select id="findBoosByNick" resultType="com.xoqao.web.bean.boss.Boss">
+        select bid,id,name,nickname,password,phone,pic,facepic,idpic,statue from boss where nickname LIKE  '${nickname}'
+    </select>
 </mapper>
