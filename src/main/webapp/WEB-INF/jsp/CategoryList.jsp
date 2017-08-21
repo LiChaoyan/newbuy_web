@@ -55,6 +55,7 @@
         }
 
 
+
     </style>
 
 </head>
@@ -342,7 +343,7 @@
 
     <div style="width:1200px; margin:0 auto;">
         <div class="clearfix">
-            <p class="shaixuan-tj floatLeft clearfix">
+            <p class="shaixuan-tj floatLeft clearfix" style="font-family:'宋体';">
                 <c:if test="${page.productname!=null&&page.cgid==-1}">
                     <span><a href="/">全部分类</a></span>
                     <i class="icon-angle-right"></i>
@@ -368,7 +369,7 @@
         </div>
 
         <div id="page-search-store" class="mb10 border sxcon">
-            <div class="search-by by-category relative">
+            <div class="search-by by-category relative" style="font-family:'宋体';">
                 <%--  <dl class="relative clearfix">
                     <dt class="floatLeft"><a href="/">城市：</a></dt>
                      <dd class="floatLeft show-con">
@@ -381,25 +382,29 @@
                  </dl>--%>
                 <dl class="relative clearfix">
                     <dt class="floatLeft"><a href="/">城市：</a></dt>
-                    <dd class="floatLeft show-con">
+                    <dd class="floatLeft show-con" style="width: 900px">
                         <c:forEach items="${cityList}" var="city">
-                            <input type="checkbox" value="${city.cityname}"><a class="">${city.cityname}</a></input>
+                            <span><input type="checkbox" value="${city.cityname}"/><a class="">${city.cityname}</a></span>
                         </c:forEach>
                     </dd>
-                    <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>
-                    <dd class="floatLeft"><input class="btn_sure" type="button" value="确定"/></dd>
-                    <dd class="floatLeft"><input type="button" class="sl_cancel" value="取消"/></dd>
-                    <dd class="floatLeft show-more"><h3 class="pointer clearfix"><span>更多</span><i class="icon-angle-down"></i></h3></dd>
+                    <dd class="floatLeft sl-multiple" style="width: 70px"><h3><span>多选</span><i></i></h3></dd>
+                    <dd class="floatLeft show-more" style="width: 70px"><h3 class="pointer clearfix"><span>更多</span><i class="icon-angle-down"></i></h3></dd>
+                    <dd class="sl-multiple-btn" style="width: 900px; align:center;">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="btn_sure" style="background: #F7F7F7" type="button" value="确定"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" class="sl_cancel" style="background: #F7F7F7" value="取消"/>
+                    </dd>
+
 
 
                 </dl>
                 <dl class="relative clearfix" style="border-bottom:0">
                     <dt class="floatLeft"><a href="/">合作商品：</a></dt>
-                    <dd class="floatLeft show-con">
+                    <dd class="floatLeft show-con" style="width: 900px">
                         <a href="#" class="" >是</a>
                         <a href="#" class="" >否</a>
                     </dd>
-                    <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>
+                   <%-- <dd class="floatLeft sl-multiple" style="width: 70px"><h3><span>多选</span><i></i></h3></dd>--%>
                 </dl>
 
 
@@ -409,12 +414,33 @@
 
     <script>
         $(function(){
+            //鼠标经过变红
+            /*$(".show-con a").hover(function(){
+                $(this).css("color","#ff4e00");
+            });*/
+
+            //按钮隐藏与显示
+            $(".sl-multiple-btn").hide();
+            $(".show-con input").each(function(index){
+                $(this).hide();
+            });
+            $(".sl-multiple").click(function(){
+                $(".sl-multiple-btn").show();
+                $(".show-con input").each(function(index) {
+                    $(this).show();
+                });
+            });
+
             //按钮取消
             $(".sl_cancel").click(function(event){
                 THI = $(this).parents("dl").find("dd").first();
                 THI.find("input").each(function(index){
                     $(this).removeAttr("checked");
                 })
+                $(".sl-multiple-btn").hide();
+                $(".show-con input").each(function(index){
+                    $(this).hide();
+                });
             });
             //多选确定按钮
             $(".btn_sure").click(function(event){
@@ -694,7 +720,7 @@
                 var no_range=${page.range};
                 var no_ases=${page.ases};
                 var no_attention=${page.attention};
-                var no_colligate=0;
+                var no_colligate=${page.colligate};
                 if((no_price==0||no_price==1)&&no_sales==1&&(no_range==0||no_range==1)&&no_ases==1&&no_attention==1){
                     no_colligate=1;
                 }
@@ -747,7 +773,7 @@
         <div class="l_list">
             <div class="list_t">
             	<span class="fl list_or">
-                	<a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}" class="no-mo now">默认</a>
+                	<a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&colligate=1" class="no-colligate">综合排序</a>
                     <a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&sales=1" class="no-sales">销量</a>
                     <a href="#" class="no-price">
                     	<span class="fl">价格</span>
@@ -761,7 +787,7 @@
                         <span class="i_up">距离从近到远显示</span>
                         <span class="i_down">距离远高到进显示</span>
                     </a>
-                    <a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&colligate=1" class="no-colligate">综合</a>
+
                     <a href="#" class="no-new">新品</a>
                 </span>
                 <span class="fr">共发现${page.listsize}件</span>
@@ -771,10 +797,10 @@
                 <ul class="cate_list">
                     <c:forEach items="${CommodityShopArrayList}" var="CommodityShop">
                         <li>
-                            <div class="img"><a href="#"><img src="${CommodityShop.logo}" width="210" height="185" /></a></div>
+                            <div class="img"><a href="<%=request.getContextPath()%>/product?cid=${CommodityShop.cid}"><img src="${CommodityShop.logo}" width="210" height="185" /></a></div>
                             <div class="price">
                                 <font>￥<span>${CommodityShop.price}</span></font> &nbsp; ${CommodityShop.salesvolu}人付款&nbsp;&nbsp;
-                                <c:if test="${page.range!=2}">
+                                <c:if test="${page.range!=2||page.colligate==1}">
                                     ${CommodityShop.juli}米
                                 </c:if>
                                 <c:if test="${page.attention==1}">
@@ -783,8 +809,11 @@
                                 <c:if test="${page.ases==1}">
                                     ${CommodityShop.asesnum}评论
                                 </c:if>
+                                <c:if test="${page.colligate==1}">
+                                    ${CommodityShop.num}综合
+                                </c:if>
                             </div>
-                            <div class="name"><a href="#">${CommodityShop.productname}</a></div>
+                            <div class="name" title="${CommodityShop.productname}"><a href="<%=request.getContextPath()%>/product?cid=${CommodityShop.cid}">${CommodityShop.productname}</a></div>
                             <div class="pre"><a class="fl">店铺：${CommodityShop.shopname}</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">${CommodityShop.cityname}</div></div>
                             <div class="carbg">
                                 <a href="#" class="ss">收藏</a>

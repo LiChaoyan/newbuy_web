@@ -1,7 +1,6 @@
 package com.xoqao.web.service;
 
 
-
 import com.xoqao.web.bean.user.User;
 import com.xoqao.web.dao.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +31,9 @@ public class UserServiceImpl implements UserService {
     public User finduserOr(String loginstr) throws Exception {
         User user = userMapper.finduserOr(loginstr);
         return user;
+    }
+
+    public void insert(User user) throws Exception {
+        userMapper.insert(user);
     }
 }
