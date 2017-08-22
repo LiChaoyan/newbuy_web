@@ -239,7 +239,6 @@
             <input type="password" class="l_pwd" id="txtRepeatPass" placeholder="请再次输入密码" required>
             <span id="repeatPass.info" style="color:red"></span><br>
 
-
             <input type="button" name="previous" class="previous action-button" value="上一步"/>
             <input type="button" name="next" class="next action-button" value="下一步"/>
         </fieldset>
