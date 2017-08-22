@@ -17,5 +17,10 @@ public class ViewController {
     public String Regist_shop(Model model) throws Exception {
         return "shopkeeper/shopadd_online";
     }
+    @RequestMapping("/shopadd_outline")
+    public String shopadd_outline(Model model) throws Exception {
+        return "shopkeeper/shopadd_outline";
+    }
 
 }
+
