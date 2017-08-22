@@ -28,4 +28,6 @@ public interface BossMapper {
     Boss findBossByphone(@Param("phone") String phone)throws Exception;
 
     Boss findBoosByNick(@Param("nickname") String nickname)throws Exception;
+
+    Boss findBossByStr(@Param("loginstr") String loginstr)throws Exception;
 }

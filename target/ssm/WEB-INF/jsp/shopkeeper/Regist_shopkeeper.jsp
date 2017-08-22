@@ -197,7 +197,7 @@
 
     <title>店主注册</title>
 </head>
-<body background="<%= request.getContextPath()%>/Picture/denglu.jpg">
+<body>
 <!--Begin Header Begin-->
 <jsp:include page="/public_jsp/login_Header.jsp" flush="true"></jsp:include>
 <!--End Header End-->
@@ -225,6 +225,7 @@
 
 
             <input type="button" name="next" class="next action-button" value="下一步"/>
+            <a href="<%= request.getContextPath()%>/user/Regist" style="font-size: 14px;width: 20%;margin-left: 5%;">用户注册</a>
         </fieldset>
         <fieldset>
             <h2 class="fs-title">填写个人信息</h2>

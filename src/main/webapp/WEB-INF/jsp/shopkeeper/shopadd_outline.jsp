@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>添加线下商店</title>
@@ -219,9 +223,12 @@
 	<div class="header_bg">
 		<div class="header_info">
 			<ul class="li_text">
-				<li>您好，张璐 —— <a href="">退出</a></li>
-				<li><a href="">卖家中心</a></li>
-				<li><a href="">商城首页</a></li>
+				<ul class="li_text">
+					<li id="a">您好，${sessionScope.boss.name} —— <a href="<%= request.getContextPath()%>/boss/logout">退出</a></li>
+					<li><a href="#">卖家中心</a></li>
+					<li><a href="#">商城首页</a></li>
+					<li><a href="<%= request.getContextPath()%>/boss/shopadd_online">添加线上店</a></li>
+				</ul>
 			</ul>
 		</div>
 	</div>
@@ -229,7 +236,6 @@
 		<div class="banner_container" style="width: 850px;margin: 0 auto;height: 30px;padding: 10px 0;background-color: #fff;">
 			<a href="" class="logo" target="_blank"></a>
 			<div style="border-left: 1px solid #000;margin-left: 10px;color:black;font-size: 20px;">&nbsp;|&nbsp;&nbsp;添加店铺</div>
-
 		</div>
 	</div>
 </div>
@@ -239,11 +245,9 @@
 			<h2>添加实体店铺</h2>
 		</div>
 		<div class="aaa">
-			<label>店铺名称</label><input type="text" placeholder="请输入营业执照上的名称" name=""><br>
-			<label>店铺经理</label><input type="text" placeholder="请输入店铺经理姓名" name="" ><br>
-			<label>联系方式</label><input type="text" placeholder="请输入手机号码/固定电话" name=""><br>
-
-
+			<label>店铺名称</label><input type="text" placeholder="请输入营业执照上的名称" name="shopname"><br>
+			<%--<label>店铺经理</label><input type="text" placeholder="请输入店铺经理姓名" name="" ><br>--%>
+			<label>联系方式</label><input type="text" placeholder="请输入店铺联系方式" name="shopcall"><br>
 
 			<div class="range_bg">
 				<label>经营范围</label><input type="text" placeholder="-请选择-" name="" id="range"><br>

@@ -236,7 +236,8 @@
                     <%--<a href="#" style="font-size:12px; font-family:'宋体';">重新发送</a>--%>
                     <%--<span id="verify.info" style="color:red"></span><br>--%>
 
-                    <input type="button" name="next" class="next action-button" value="下一步"/>
+                    <input type="button" name="next" class="next action-button" value="下一步"/><br>
+                    <a href="<%= request.getContextPath()%>/boss/Regist_Boss" style="font-size: 14px;width: 20%;margin-left: 5%;">商家注册</a>
                 </fieldset form="msform">
                 <fieldset>
                     <h2 class="fs-title">填写个人信息</h2>

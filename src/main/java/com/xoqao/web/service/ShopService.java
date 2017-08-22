@@ -25,4 +25,11 @@ public interface ShopService {
     int selectShopsizeByname(String shopname)throws Exception;
     ArrayList<ShopCity> selectShopByname(Page page)throws Exception;
 
+    /**
+     * 添加商店
+     * @param shop
+     * @throws Exception
+     */
+    void insertShop(Shop shop) throws Exception;
+
 }
