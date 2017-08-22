@@ -3,7 +3,7 @@
 <mapper namespace="com.xoqao.web.dao.UserMapper">
     <!--根据手机号查找用户-->
     <select id="findUserByphone" resultType="com.xoqao.web.bean.user.User">
-    SELECT  * FROM  user where  phone LIKE  '${phone}'
+    SELECT  uid,gender,password,phone,username,headerpic,id,name,registtime FROM  user where  phone LIKE  '${phone}'
   </select>
 
     <!--查找所有的用户-->
