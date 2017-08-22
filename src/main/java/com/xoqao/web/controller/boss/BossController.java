@@ -7,7 +7,6 @@ import com.xoqao.web.service.BossService;
 import com.xoqao.web.service.UserService;
 import com.xoqao.web.utils.MD5Util;
 import com.xoqao.web.utils.QiNiuFileUtil;
-import org.intellij.lang.annotations.RegExp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
