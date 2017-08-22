@@ -283,6 +283,11 @@
 </div>
 <!--End Footer End -->
 
+<script type="text/javascript">
+    <c:if test="${!empty error_msg}">alert("${error_msg}");
+    </c:if>
+</script>
+
 </body>
 
 

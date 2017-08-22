@@ -100,7 +100,7 @@
             font-size: 14px;
             line-height: 18px;
             height: 18px;
-            padding: 11px 8px 11px 50px;
+            padding: 11px 8px 11px 15px;
             border: 1px solid #ddd;
             margin: 10px 0;
         }
@@ -128,8 +128,92 @@
             display: none;
         }
 
+        .s_city_bg{
+            /*overflow: hidden;*/
+            position: absolute;
+            z-index: 900;
+            display: none;
+        }
+        .s_city:hover .s_city_bg{
+            display: block;
+        }
+
+        .s_city_c{
+            width: 410px;
+            height: 300px;
+            overflow: scroll;
+            background-color: #fff;
+            margin-top: -10px;
+            border: 1px solid #cdcdcd;
+        }
+        .s_city_c h2{
+            height:29px;
+            line-height:29px;
+            overflow:hidden;
+            font-size:14px;
+            font-weight:normal;
+            text-align:center;
+            margin-top:5px;
+            border-bottom:1px dotted #666666;
+        }
+        table.c_tab tr th{
+            line-height: 26px;
+            width: 20px;
+            text-transform: uppercase;
+        }
+        table.c_tab tr th span{
+            margin: 0 5px;
+        }
+        .c_h span{
+            line-height: 26px;
+            float: left;
+            display: inline;
+            padding: 0 3px;
+            cursor: pointer;
+        }
+        .c_h span:hover{
+            color: #ff380f;
+        }
+
+        .range_bg:hover .range{
+            display: block;
+        }
+        .range{
+            width: 250px;
+            height: 300px;
+            overflow-y: scroll;
+            background-color: #fff;
+            border: 1px solid #cdcdcd;
+            margin-top: -10px;
+            padding:5px 5px;
+            margin-left: 80px;
+            display: none;
+        }
+        .range input{
+            margin:0px 5px;
+        }
     </style>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9qUUlXZM2vM9p2vLAqq2rd69ZQuZn7SF"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $(".c_h span").click(function(){
+                var value1 = $(".c_h span:hover").text();  //获取点击内容
+                // alert(value1);
+                $("#city_s").val(value1);   //给input赋值
+            });
+
+            $("#ran").click(function(){
+                var str = "";
+                $('[name=items]:checkbox:checked').each(function(){
+                    str = str + $(this).val() + ',';
+                    $("#range").val(str);
+                });
+                // alert(str);
+            })
+
+        });
+    </script>
 </head>
 
 <body>
@@ -137,7 +221,7 @@
     <div class="header_bg">
         <div class="header_info">
             <ul class="li_text">
-                <li>您好，张璐 —— <a href="">退出</a></li>
+                <li id="a">您好，张璐 —— <a href="">退出</a></li>
                 <li><a href="">卖家中心</a></li>
                 <li><a href="">商城首页</a></li>
             </ul>
@@ -147,7 +231,6 @@
         <div class="banner_container" style="width: 850px;margin: 0 auto;height: 30px;padding: 10px 0;background-color: #fff;">
             <a href="" class="logo" target="_blank"></a>
             <div style="border-left: 1px solid #000;margin-left: 10px;color:black;font-size: 20px;">&nbsp;|&nbsp;&nbsp;添加店铺</div>
-
         </div>
     </div>
 </div>
@@ -157,37 +240,129 @@
             <h2>添加线上店铺</h2>
         </div>
         <div class="aaa">
-            <label>店铺名称</label><input type="text" value="请输入营业执照上的名称" name=""><br>
-            <label>店铺经理</label><input type="text" value="请输入店铺经理姓名" name="" ><br>
-            <label>联系方式</label><input type="text" value="请输入手机号码/固定电话" name=""><br>
-            <label>经营范围</label><input type="text" value="-请选择-" name=""  onfocus="showthebox(this.id)" id="fname"><br>
+            <label>店铺名称</label><input type="text" placeholder="请输入营业执照上的名称" name=""><br>
+            <label>店铺经理</label><input type="text" placeholder="请输入店铺经理姓名" name="" ><br>
+            <label>联系方式</label><input type="text" placeholder="请输入手机号码/固定电话" name=""><br>
 
-            <div class="main-div">
-                <form method="post" action="" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
-                    <table cellspacing="1" cellpadding="3" width="100%">
-                        <tr>
-                            <td class="label">&nbsp;&nbsp;&nbsp;&nbsp;地&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;</td>
-                            <td>
-                                <input type='text' value='' name='sever_add' id='sever_add' readonly>
 
-                            </td>
-                            <td> <input type='button' value='点击显示地图' id='open' style="height: 40px;width: 100px;padding: 11px 8px;"></td>
-                        </tr>
-                        <tr>
-                            <td class="label">&nbsp;&nbsp;&nbsp;&nbsp;经&nbsp;&nbsp;&nbsp;&nbsp;度&nbsp;</td>
-                            <td><input type="text" name="lng" id="lng" value=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">&nbsp;&nbsp;&nbsp;&nbsp;纬&nbsp;&nbsp;&nbsp;&nbsp;度&nbsp;</td>
-                            <td><input type="text" name="lat" id="lat" value=""/>
-                            </td>
-                        </tr>
 
-                    </table>
-                </form>
+            <div class="range_bg">
+                <label>经营范围</label><input type="text" placeholder="-请选择-" name="" id="range"><br>
+                <div class="range">
+                    <input type="checkbox" style="width: 30px;" name="items" value="文化传播">文化传播
+                    <p><input type="checkbox" style="width: 30px;" name="items" value="房地产中介">房地产中介</p>
+                    <p><input type="checkbox" style="width: 30px;" name="items" value="教育发展">教育发展</p>
+                    <p><input type="checkbox" style="width: 30px;" name="items" value="商务咨询服务">商务咨询服务</p>
+                    <p><input type="checkbox" style="width: 30px;" name="items" value="餐饮管理">餐饮管理</p>
+                    <p><input type="checkbox" style="width: 30px;" name="items" value="知识产权咨询服务">知识产权咨询服务</p>
+                    <p><input type="checkbox" style="width: 30px;" name="items" value="计算机、网络、数码、信息、电脑科技类">计算机、网络、数码、信息、电脑科技类</p>
+                    <p><input type="checkbox" style="width: 30px;" name="items" value="进出口类">进出口类</p>
+                    <p><input type="checkbox" style="width: 30px;" name="items" value="电子商务">电子商务</p>
+                    <p><input type="checkbox" style="width: 30px;" name="items" value="广告传媒">广告传媒</p>
 
+                    <button style="width: 30%;margin-left: 35%;" id="ran">提交</button>
+                </div>
             </div>
+
+
+            <span class="s_city">
+
+				<label>所在城市</label><input type="text" placeholder="-请选择-" name="" value="" id="city_s">
+				<br>
+				<div class="s_city_bg">
+					<div class="s_city_c">
+					<h2>请选择收货地区</h2>
+						<table cellpadding="0" cellspacing="0" class="c_tab" style="width: 255px;">
+						<tr>
+	                            <th>A</th>
+	                            <td class="c_h"><span>安徽</span><span>澳门</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>B</th>
+	                            <td class="c_h"><span class="c_check">北京</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>C</th>
+	                            <td class="c_h"><span>重庆</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>F</th>
+	                            <td class="c_h"><span>福建</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>G</th>
+	                            <td class="c_h"><span>广东</span><span>广西</span><span>贵州</span><span>甘肃</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>H</th>
+	                            <td class="c_h"><span>河北</span><span>河南</span><span>黑龙江</span><span>海南</span><span>湖北</span><span>湖南</span></td>
+	                          </tr>
+	                          <tr>
+							<tr>
+	                            <th>A</th>
+	                            <td class="c_h"><span>安徽</span><span>澳门</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>B</th>
+	                            <td class="c_h"><span class="c_check">北京</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>C</th>
+	                            <td class="c_h"><span>重庆</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>F</th>
+	                            <td class="c_h"><span>福建</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>G</th>
+	                            <td class="c_h"><span>广东</span><span>广西</span><span>贵州</span><span>甘肃</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>H</th>
+	                            <td class="c_h"><span>河北</span><span>河南</span><span>黑龙江</span><span>海南</span><span>湖北</span><span>湖南</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>J</th>
+	                            <td class="c_h"><span>江苏</span><span>吉林</span><span>江西</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>L</th>
+	                            <td class="c_h"><span>辽宁</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>N</th>
+	                            <td class="c_h"><span>内蒙古</span><span>宁夏</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>Q</th>
+	                            <td class="c_h"><span>青海</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>S</th>
+	                            <td class="c_h"><span>上海</span><span>山东</span><span>山西</span><span>四川</span><span>陕西</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>T</th>
+	                            <td class="c_h"><span>台湾</span><span>天津</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>X</th>
+	                            <td class="c_h"><span>西藏</span><span>香港</span><span>新疆</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>Y</th>
+	                            <td class="c_h"><span>云南</span></td>
+	                          </tr>
+	                          <tr>
+	                            <th>Z</th>
+	                            <td class="c_h"><span>浙江</span></td>
+	                          </tr>
+						</table>
+					</div>
+				</div>
+			</span>
+
             <div id='allmap' style='width: 50%; height: 50%; position: absolute;margin-left:-11%;display: none'></div>
         </div>
         <input type="button" class="ui-btn" value="确认提交" name="">
@@ -197,87 +372,6 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    function validate() {
-        var sever_add = document.getElementsByName('sever_add')[0].value;
-        if (isNull(sever_add)) {
-            alert('请选择地址');
-            return false;
-        }
-        return true;
-    }
-
-    //判断是否是空
-    function isNull(a) {
-        return (a == '' || typeof(a) == 'undefined' || a == null) ? true : false;
-    }
-
-    document.getElementById('open').onclick = function () {
-        if (document.getElementById('allmap').style.display == 'none') {
-            document.getElementById('allmap').style.display = 'block';
-        } else {
-            document.getElementById('allmap').style.display = 'none';
-        }
-    }
-
-    var map = new BMap.Map("allmap");
-    var geoc = new BMap.Geocoder();   //地址解析对象
-    var markersArray = [];
-    var geolocation = new BMap.Geolocation();
-
-
-    var point = new BMap.Point(116.331398, 39.897445);
-    map.centerAndZoom(point, 12); // 中心点
-    geolocation.getCurrentPosition(function (r) {
-        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
-            var mk = new BMap.Marker(r.point);
-            map.addOverlay(mk);
-            map.panTo(r.point);
-            map.enableScrollWheelZoom(true);
-        }
-        else {
-            alert('failed' + this.getStatus());
-        }
-    }, {enableHighAccuracy: true})
-    map.addEventListener("click", showInfo);
-
-
-    //清除标识
-    function clearOverlays() {
-        if (markersArray) {
-            for (i in markersArray) {
-                map.removeOverlay(markersArray[i])
-            }
-        }
-    }
-    //地图上标注
-    function addMarker(point) {
-        var marker = new BMap.Marker(point);
-        markersArray.push(marker);
-        clearOverlays();
-        map.addOverlay(marker);
-    }
-    //点击地图时间处理
-    function showInfo(e) {
-        document.getElementById('lng').value = e.point.lng;
-        document.getElementById('lat').value =  e.point.lat;
-        geoc.getLocation(e.point, function (rs) {
-            var addComp = rs.addressComponents;
-            var address = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
-            if (confirm("确定要地址是" + address + "?")) {
-                document.getElementById('allmap').style.display = 'none';
-                document.getElementById('sever_add').value = address;
-            }
-        });
-        addMarker(e.point);
-
-        function showthebox() {
-            // document.getElementById("hidebox").style.display="block";
-            alert("111");
-        }
-        // document.getElementById("showbox").onclick("showthebox(this)");
-    }
-</script>
 
 </body>
 </html>
