@@ -42,6 +42,10 @@ public class BossController {
     public String Regist_shopkeeper(Model model) throws Exception {
         return "shopkeeper/Regist_shopkeeper";
     }
+    @RequestMapping("/Login_shopkeeper")
+    public String Login_shopkeeper(Model model) throws Exception {
+        return "shopkeeper/Login_shopkeeper";
+    }
 
     /**
      * 店主注册提交
