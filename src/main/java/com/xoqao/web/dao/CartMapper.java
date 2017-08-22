@@ -1,6 +1,7 @@
 package com.xoqao.web.dao;
 
 import com.xoqao.web.bean.commodity.Cart;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,7 +11,10 @@ import java.util.ArrayList;
  */
 @Service
 public interface CartMapper {
-    int Addto(Cart cart)throws Exception;
+    void Addto(@Param("cart") Cart cart)throws Exception;
     ArrayList<Cart> selectCart()throws Exception;
+    Cart selectNum(@Param("cart")Cart cart)throws Exception;
+    void deleCart(@Param("cart") Cart cart)throws Exception;
+    void ChangeNum(@Param("cart") Cart cart)throws Exception;
 
 }

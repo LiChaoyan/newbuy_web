@@ -729,7 +729,7 @@
             <div class="des_choice">
             	<span class="fl">型号选择：</span>
                 <ul>
-                	<li class="">30ml<div class="ch_img"></div></li>
+                	<li class="checked">30ml<div class="ch_img"></div></li>
                     <li>50ml<div class="ch_img"></div></li>
                     <li>100ml<div class="ch_img"></div></li>
                 </ul>
@@ -737,7 +737,7 @@
             <div class="des_choice">
             	<span class="fl">颜色选择：</span>
                 <ul>
-                	<li>红色<div class="ch_img"></div></li>
+                	<li class="checked">红色<div class="ch_img"></div></li>
                     <li class="">白色<div class="ch_img"></div></li>
                     <li>黑色<div class="ch_img"></div></li>
                 </ul>
@@ -768,32 +768,6 @@
         <%--购物车--%>
         <script type="text/javascript">
             $(function() {
-                /*点击添加*/
-                $(".fl a").click(function(){
-                    alert("提交数据");
-
-                    //判断参数是否添加
-                    var cart_amount=1;//从页面获取
-                    var cart_cid=${page.cid};
-                    var cart_commodity_name="${Product.productname}";
-                    var cart_commodity_pic="${Product.logo}";
-                    var cart_commodity_select;//从页面获取
-                    var cart_shopname="${Product.shopname}";
-                    var cart_sid=${Product.sid};
-                    var cart_uid=1;
-                    var cart_price=${Product.price};
-                    var url = "<%=request.getContextPath()%>/addtocart";
-                    if(cart_commodity_name!=null) {
-                        var args = {"amount": cart_amount,"cid": cart_cid,"commodity_name": cart_commodity_name, "commodity_pic": cart_commodity_pic, /* "commodity_select":cart_commodity_select,*/"shopname": cart_shopname, "sid": cart_sid, "uid": cart_uid, "price": cart_price, "time": new Date()};
-                        $.post(url, args, function (result) {
-                            alert(result);
-
-                        });
-                        ShowDiv_1('MyDiv1', 'fade1');
-                    }
-
-                });
-
                 /*参数选择*/
 
                 $(".des_choice li").toggle(
@@ -809,17 +783,52 @@
                     var num=$(this).parent().find(".n_ipt").val();
                     num=parseInt(num,10);
                     if(num>=0&&num<5){
-                      num=num+1;
-                    $(this).parent().find(".n_ipt").val(num);
+                        num=num+1;
+                        $(this).parent().find(".n_ipt").val(num);
                     }
                 })
                 $(".n_btn_2").click(function(){
                     var num=$(this).parent().find(".n_ipt").val();
                     if(num>=1){
-                    num=num-1;
-                    $(this).parent().find(".n_ipt").val(num);
+                        num=num-1;
+                        $(this).parent().find(".n_ipt").val(num);
                     }
                 })
+                /*点击添加*/
+                $(".fl a").click(function(){
+                    //判断参数是否添加
+                    var cart_commodity_select="";
+                    $(this).parents(".pro_des").find("li").each(function(){
+                        if($(this).hasClass("checked")){
+                            cart_commodity_select=cart_commodity_select+$(this).parents(".des_choice").find(".fl").text()+$(this).text()+",";
+                        }
+                    });
+                    var cart_amount=$(this).parents(".pro_des").find(".n_ipt").val();//从页面获取
+                    var cart_cid=${page.cid};
+                    var cart_commodity_name="${Product.productname}";
+                    var cart_commodity_pic="${Product.logo}";
+                    cart_commodity_select;//从页面获取
+                    var cart_shopname="${Product.shopname}";
+                    var cart_sid=${Product.sid};
+                    var cart_uid=1;
+                    var cart_price=${Product.price};
+                    var url = "<%=request.getContextPath()%>/addtocart";
+                    if(cart_commodity_name!=null) {
+                        var args = {"amount": cart_amount,"cid": cart_cid,"commodity_name": cart_commodity_name, "commodity_pic": cart_commodity_pic, "commodity_select":cart_commodity_select,"shopname": cart_shopname, "sid": cart_sid, "uid": cart_uid, "price": cart_price, "time": new Date()};
+                        $.getJSON(url, args, function (data) {
+                            var cart_zhong = data.num;
+                            var cart_jian=data.jiannum;
+                            var cart_money=data.money;
+                            $(".cart_zhong").text(cart_zhong);
+                            $(".cart_jian").text(cart_jian);
+                            $(".cart_money").text(cart_money);
+                            ShowDiv_1('MyDiv1', 'fade1');
+                        });
+
+                    }
+
+                });
+
             });
         </script>
         <div class="s_brand">
@@ -1186,12 +1195,12 @@
                     <td width="40"><img src="<%= request.getContextPath()%>/Picture/suc.png" /></td>
                     <td>
                     	<span style="color:#3e3e3e; font-size:18px; font-weight:bold;">宝贝已成功添加到购物车</span><br />
-                    	购物车共有1种宝贝（3件） &nbsp; &nbsp; 合计：1120元
+                        购物车共有<span class="cart_zhong">1</span>种宝贝（<span class="cart_jian">3</span>件） &nbsp; &nbsp; 合计：<span class="cart_money">1120</span>元
                     </td>
                   </tr>
                   <tr height="50" valign="bottom">
                   	<td>&nbsp;</td>
-                    <td><a href="<%= request.getContextPath()%>/BuyCar" class="b_sure">去购物车结算</a><a href="<%= request.getContextPath()%>/#" class="b_buy">继续购物</a></td>
+                    <td><a href="<%= request.getContextPath()%>/BuyCar" class="b_sure">去购物车结算</a><a href="#" class="b_buy">继续购物</a></td>
                   </tr>
                 </table>
                     

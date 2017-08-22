@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xoqao.web.dao.CartMapper" >
-    <insert id="Addto" parameterType="com.xoqao.web.bean.commodity.Cart">
-        INSERT into commodities_cart(amount,cid,commodity_name,commodity_pic,commodity_select,shopname,sid,uid,price) VALUES ('${cart.amount}','${page.cid}','${page.commodity_name}','${page.commodity_pic}','${page.commodity_select}','${page.shopname}','${page.sid}','${page.uid}','${page.price}')
-    </insert>
+    <select id="Addto" resultType="com.xoqao.web.bean.commodity.Cart">
+        INSERT into commodities_cart(amount,cid,commodity_name,commodity_pic,commodity_select,shopname,sid,price) VALUES ('${cart.amount}','${cart.cid}','${cart.commodity_name}','${cart.commodity_pic}','${cart.commodity_select}','${cart.shopname}','${cart.sid}','${cart.price}')
+    </select>
     <select id="selectCart" resultType="com.xoqao.web.bean.commodity.Cart">
         select * from commodities_cart;
     </select>
+    <!--查询返回弹窗的数量-->
+    <select id="selectNum" resultType="com.xoqao.web.bean.commodity.Cart">
+        SELECT count(*) as num,sum(commodities_cart.amount) as jiannum,sum(price*amount) as money
+        from commodities_cart
+    </select>
+    <delete id="deleCart">
+        DELETE from commodities_cart where cbid='${cart.cbid}'
+    </delete>
+    <update id="ChangeNum">
+        UPDATE commodities_cart  set amount='${cart.amount}' where cbid='${cart.cbid}'
+    </update>
 </mapper>

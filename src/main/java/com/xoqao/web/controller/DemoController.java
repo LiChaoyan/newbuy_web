@@ -19,7 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;;
+import java.util.*;
+import java.util.concurrent.Callable;;
 
 /**
  * 说明：
@@ -128,35 +129,53 @@ public class DemoController {
     @RequestMapping("/addtocart")
     public void AddtoBuyCar(Model model,HttpServletRequest request,HttpServletResponse response) throws Exception {
         //添加商品到购物车
-        System.out.println("购物车添加");
         Cart cart=new Cart();
         cart.setCommodity_name(request.getParameter("commodity_name"));
         cart.setAmount(Integer.parseInt(request.getParameter("amount")));
         cart.setCommodity_pic(request.getParameter("commodity_pic"));
-     //   cart.setCommodity_select(request.getParameter("commodity_select"));
+        cart.setCommodity_select(request.getParameter("commodity_select"));
+        cart.setUid(Integer.parseInt(request.getParameter("uid")));
         cart.setShopname(request.getParameter("shopname"));
         cart.setCid(Integer.parseInt(request.getParameter("cid")));
         cart.setPrice(Double.parseDouble(request.getParameter("price")));
         cart.setSid(Integer.parseInt(request.getParameter("sid")));
 
-        System.out.print(cart.getCommodity_name());
         try {
-            int sta = cartService.Addto(cart);
-            System.out.print(sta);
+            //加入购物车
+             cartService.Addto(cart);
+            //返回购物车中几种几件，合计多少元
+            Cart backNum = cartService.selectNum(cart);
+            String json = JSONObject.toJSONString(backNum);
+
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json; charset=utf-8");
+        response.getWriter().write(json.toString());
+        System.out.println(json.toString());
+        response.getWriter().flush();
+        response.getWriter().close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json; charset=utf-8");
-        String status="成工加入购物车！";
-        response.getWriter().write(status);
-        response.getWriter().flush();
-        response.getWriter().close();
-
     }
-    @RequestMapping(value = "/BuyCar")
-    public String BuyCar(Model model) throws Exception {
+    @RequestMapping("/BuyCar/change")
+    public void BuyCarChange(HttpServletRequest request)throws Exception{
+        System.out.println("CHANGE购物车");
+        Cart cart=new Cart();
+        cart.setCbid(Integer.parseInt(request.getParameter("cbid")));
+        if(cart.getCbid()!=-1) {
+            cart.setAmount(Integer.parseInt(request.getParameter("amount")));
+            System.out.println(cart.getAmount());
+            if (cart.getAmount() == 0) {
+                cartService.deleCart(cart);
+            }else if (cart.getAmount() != -1) {
+                cartService.ChangeNum(cart);
+            }
+        }
+    }
+    @RequestMapping("/BuyCar")
+    public String BuyCar(Model model,HttpServletRequest request) throws Exception {
         System.out.println("查询购物车");
+            //购物车所有商品
         try {
             ArrayList<Cart> CartList = cartService.selectCart();
             model.addAttribute("CartList", CartList);

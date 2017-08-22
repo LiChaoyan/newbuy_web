@@ -4,16 +4,44 @@ package com.xoqao.web.bean.commodity;
  * Created by win8.1 on 2017/8/19.
  */
 public class Cart {
-    private int cbid;
-    private int amount;
+    private int cbid=-1;
+    private int amount=-1;
     private int cid;
     private String  commodity_name;
     private String  commodity_pic;
     private String commodity_select;
     private String shopname;
     private int sid;
-    private int uid;
+    private int uid=-1;
     private double price;
+
+    private int num;//总种数量
+    private int jiannum;//共几件
+    private double money;//总价
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    public int getJiannum() {
+        return jiannum;
+    }
+
+    public void setJiannum(int jiannum) {
+        this.jiannum = jiannum;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
 
     public int getCbid() {
         return cbid;
@@ -56,7 +84,7 @@ public class Cart {
     }
 
     public String getCommodity_select() {
-        return commodity_select;
+        return this.commodity_select;
     }
 
     public void setCommodity_select(String commodity_select) {
@@ -93,5 +121,14 @@ public class Cart {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "num=" + num +
+                ", jiannum=" + jiannum +
+                ", money=" + money +
+                '}';
     }
 }
