@@ -478,7 +478,7 @@
                 </td>
                     <td align="center">￥<span class="cart_price">${cart.price}</span></td>
                 <td align="center" style="color:#ff4e00;">￥<span class="cart_money">${cart.price*cart.amount}</span></td>
-                <td align="center"><a class="cart_dele">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td><%--onclick="ShowDiv('MyDiv','fade')"--%>
+                <td align="center"><a class="cart_dele">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td><%----%>
                 </tr>
             </C:forEach>
           <tr height="70">
@@ -489,7 +489,7 @@
           </tr>
           <tr valign="top" height="150">
           	<td colspan="6" align="right">
-            	<a href="<%= request.getContextPath()%>/index"><img src="<%= request.getContextPath()%>/Picture/buy1.gif" /></a>&nbsp; &nbsp; <a href="<%= request.getContextPath()%>/BuyCar_Two"><img src="<%= request.getContextPath()%>/Picture/buy2.gif" /></a>
+            	<a href="<%= request.getContextPath()%>/index"><img src="<%= request.getContextPath()%>/Picture/buy1.gif" /></a>&nbsp; &nbsp; <a calss="GO_BuyCar_Two" ><img src="<%= request.getContextPath()%>/Picture/buy2.gif" /></a>
             </td>
           </tr>
         </table>
@@ -555,6 +555,7 @@
                     }
                 });
                 $(this).find(".cart_dele").click(function(){
+                    ShowDiv('MyDiv','fade');
 
                     $(this).parents("tr").hide();
                     var cart_amount=0;
@@ -580,6 +581,11 @@
             });
             $(".cart_all_money").text(cart_all_money);
 
+            //提交订单
+            $(".GO_BuyCar_Two").click(function(){
+                var cbid="6,7";
+                window.location.href="<%= request.getContextPath()%>/BuyCar_Two?cbid="+cbid+"";
+            });
 
         });
     </script>

@@ -184,9 +184,50 @@ public class DemoController {
         }
         return "BuyCar";
     }
+    /**
+     * 进入查看订单页面
+     * @param model
+     * @param cbids
+     * @return
+     * @throws Exception
+     */
 
     @RequestMapping("/BuyCar_Two")
-    public String BuyCar_Two(Model model) throws Exception {
+    public String BuyCar_Two(String cbids ,Model model) throws Exception {
+        String[] cbidString =cbids.split(",");
+        int[] ogs=new int[cbidString.length];
+        int uid=0;
+        try {
+            for (int i = 0; i < cbidString.length; i++) {
+                int cbid =Integer.parseInt(cbidString[i]);
+                System.out.print(cbid);
+                Cart cart1 = new Cart();
+                cart1.setCbid(cbid);
+                Cart cart = cartService.selectCartBycbid(cart1);
+                uid = cart.getUid();
+                Orders order = new Orders(cart);
+                order.setNumber("20161230000000000001");
+                cartService.AddOrder(order);
+                int oid =cartService.selectAddoid();
+                        //先添加订单，再添加订单商品;
+                Ordergoods ordergood = new Ordergoods(cart);
+                ordergood.setOid(oid);
+                System.out.println("oid: "+oid);
+                cartService.AddOrdergoods(ordergood);
+                int ogid =cartService.selectAddogid();
+                        System.out.println("ogid: "+ogid);
+                ogs[i] = ogid;
+            }
+            //返回订单商品到页面
+            ArrayList<Ordergoods> ordergoodsArrayList = new ArrayList<Ordergoods>();
+            ordergoodsArrayList = cartService.selectOrdergoods(ogs);
+            model.addAttribute("OGsList", ordergoodsArrayList);
+            //返回收货人信息到页面
+            ShipAddress shipAddress = cartService.selectUAdress(uid);
+            model.addAttribute("Adress", shipAddress);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return "BuyCar_Two";
     }
 

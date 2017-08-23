@@ -18,4 +18,43 @@
     <update id="ChangeNum">
         UPDATE commodities_cart  set amount='${cart.amount}' where cbid='${cart.cbid}'
     </update>
+    <!--根据cbid查找信息-->
+    <select id="selectCartBycbid" resultType="com.xoqao.web.bean.commodity.Cart">
+        SELECT * from commodities_cart
+        where cbid='${cart.cbid}'
+    </select>
+    <!--添加订单-->
+    <select id="AddOrder" >
+       INSERT INTO orders(uid,count,totalprice,number,sid)
+       VALUES ('${order.uid}','${order.count}','${order.totalprice}','${order.number}','${order.sid}')
+    </select>
+    <!--查询添加语句的主键-->
+    <select id="selectAddoid" resultType="int">
+        SELECT MAX(oid)
+        from orders
+    </select>
+    <!--添加订单商品-->
+    <select id="AddOrdergoods">
+        INSERT into ordergoods(oid,cid,sid,count,totalprice,param,goodsname,logo,evaluatestue)
+        VALUES ('${ordergood.oid}','${ordergood.cid}','${ordergood.sid}','${ordergood.count}','${ordergood.totalprice}','${ordergood.param}','${ordergood.goodsname}','${ordergood.logo}','${ordergoods.evaluatestue}')
+    </select>
+    <!--查询添加语句的主键-->
+    <select id="selectAddogid" resultType="int">
+        SELECT MAX(ogid)
+        from ordergoods
+    </select>
+    <!--查找订单商品-->
+    <select id="selectOrdergoods" resultType="com.xoqao.web.bean.commodity.Ordergoods">
+        SELECT * from ordergoods
+        where ogid IN
+        <foreach collection="ogs" item="ogid" index="index" open="(" separator="," close=")">
+            '${ogid}'
+        </foreach>
+    </select>
+    <!--查找订单用户收货地址信息-->
+    <select id="selectUAdress" resultType="com.xoqao.web.bean.commodity.ShipAddress">
+        select *
+        from ship_address
+        where uid='${uid}' and statue=1;
+    </select>
 </mapper>
