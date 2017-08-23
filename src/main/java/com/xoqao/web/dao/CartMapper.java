@@ -3,7 +3,7 @@ package com.xoqao.web.dao;
 import com.xoqao.web.bean.commodity.Cart;
 import com.xoqao.web.bean.commodity.Ordergoods;
 import com.xoqao.web.bean.commodity.Orders;
-import com.xoqao.web.bean.commodity.ShipAddress;
+import com.xoqao.web.bean.Address.ShipAddress;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.xoqao.web.bean.commodity;
+package com.xoqao.web.bean.Address;
 
 /**
  * Created by win8.1 on 2017/8/22.
@@ -6,7 +6,7 @@ package com.xoqao.web.bean.commodity;
 public class ShipAddress {
     private int said;
     private int sex;
-    private int statue;
+    private int statue=0;
     private int uid;
     private String name;
     private String phone;

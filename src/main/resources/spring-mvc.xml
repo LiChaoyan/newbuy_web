@@ -80,9 +80,9 @@
         </property>
     </bean>
     <!--全局异常处理器-->
-    <bean class="com.xoqao.web.exception.CustomExceptionResolver"></bean>
-
-    <!--数据校验-->
+    <!-- <bean class="com.xoqao.web.exception.CustomExceptionResolver"></bean>
+ -->
+     <!--数据校验-->
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
             <!-- 配置Fastjson支持 -->

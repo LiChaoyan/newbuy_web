@@ -1,9 +1,10 @@
 package com.xoqao.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.xoqao.web.bean.Address.Address;
+import com.xoqao.web.bean.Address.ShipAddress;
 import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
-import com.xoqao.web.bean.category.SmallCategory;
 import com.xoqao.web.bean.commodity.*;
 import com.xoqao.web.bean.shop.ShopCity;
 import com.xoqao.web.bean.user.User;
@@ -13,14 +14,13 @@ import com.xoqao.web.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
-import java.util.concurrent.Callable;;
+;
 
 /**
  * 说明：
@@ -48,6 +48,9 @@ public class DemoController {
 
     @Autowired
     CartService cartService;
+
+    @Autowired
+    AddressService addressService;
 
     @RequestMapping("/xoqiao")
     public String begin(Model model) throws Exception {
@@ -114,8 +117,101 @@ public class DemoController {
 
     @RequestMapping("/Member_Safeplace")
     public String Member_Safeplace(Model model) throws Exception {
+        //收货地值第一级
+        try {
+            ArrayList<Address> provinceArrayList = addressService.selectProvince();
+            model.addAttribute("Province",provinceArrayList);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return "Member_Safeplace";
     }
+
+    @RequestMapping("/adcity")
+    public void adcity(Model model, HttpServletRequest request, HttpServletResponse response)throws Exception {
+        //收货地址第二级
+        String pidString=request.getParameter("pid");
+        System.out.println(pidString);
+        int pid=Integer.parseInt(pidString);//（：：：）
+        System.out.print("身份id： "+pid);
+        ArrayList<Address> cityArrayList= addressService.selectCity(pid);
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json; charset=utf-8");
+            String json = JSONObject.toJSONString(cityArrayList);
+            response.getWriter().write(json.toString());
+            response.getWriter().flush();
+            response.getWriter().close();
+
+    }
+    @RequestMapping("/addistrict")
+    public void Finddistrict(HttpServletResponse response,HttpServletRequest request)throws Exception{
+        //收货地址第三等级
+        int cityid = Integer.parseInt(request.getParameter("cityid"));
+        System.out.print("城市id： "+cityid);
+        try {
+            ArrayList<Address> districtArrayList = addressService.selectDistrict(cityid);
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json; charset=utf-8");
+            String json = JSONObject.toJSONString(districtArrayList);
+            response.getWriter().write(json.toString());
+            response.getWriter().flush();
+            response.getWriter().close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/adtowns")
+    public void Findtowns(HttpServletResponse response,HttpServletRequest request)throws Exception{
+        //收货地址第4等级
+        int did = Integer.parseInt(request.getParameter("did"));
+        System.out.print("县级id： "+did);
+        try {
+            ArrayList<Address> townsArrayList = addressService.selectTowns(did);
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json; charset=utf-8");
+            String json = JSONObject.toJSONString(townsArrayList);
+            response.getWriter().write(json.toString());
+            response.getWriter().flush();
+            response.getWriter().close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/adcommunity")
+    public void FindCommunity(HttpServletResponse response,HttpServletRequest request)throws Exception{
+        //收货地址第5等级
+        int tid = Integer.parseInt(request.getParameter("tid"));
+        System.out.print("乡级id： "+tid);
+        try {
+            ArrayList<Address> communityArrayList = addressService.selectCommunity(tid);
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json; charset=utf-8");
+            String json = JSONObject.toJSONString(communityArrayList);
+            response.getWriter().write(json.toString());
+            response.getWriter().flush();
+            response.getWriter().close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/adaddress")
+    public void AddAddress(HttpServletResponse response,HttpServletRequest request)throws Exception{
+        //收货地址第5等级
+        ShipAddress shipAddress=new ShipAddress();
+        shipAddress.setAddress(request.getParameter("address"));
+        shipAddress.setName(request.getParameter("name"));
+        shipAddress.setPhone(request.getParameter("phone"));
+        shipAddress.setSex(Integer.parseInt(request.getParameter("sex")));
+        shipAddress.setZip(request.getParameter("zip"));
+        int uid=6;//Integer.parseInt(request.getSession().getAttribute("uid"));
+        shipAddress.setUid(uid);
+        try {
+            addressService.Addaddress(shipAddress);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
     @RequestMapping("/Member_Safetel")
     public String Member_Safetel(Model model) throws Exception {

@@ -52,7 +52,7 @@
         </foreach>
     </select>
     <!--查找订单用户收货地址信息-->
-    <select id="selectUAdress" resultType="com.xoqao.web.bean.commodity.ShipAddress">
+    <select id="selectUAdress" resultType="com.xoqao.web.bean.Address.ShipAddress">
         select *
         from ship_address
         where uid='${uid}' and statue=1;

@@ -1,21 +1,24 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ page import="com.xoqao.web.bean.Address.Address"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />
+    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/menu.js"></script>    
-        
-	<script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/select.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/menu.js"></script>
+
+    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/select.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.11.0.min.js"></script>
 
     <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/shade.js"></script>   <!-- 控制弹窗 -->
-    
 <title>收货地址管理</title>
 <meta name="keywords" content="小桥双线购项目购物商城" />
 <meta name="description" content="线上线下商家加盟的商城" />
-
 <style type="text/css">
 .m_des {
     overflow: hidden;
@@ -232,7 +235,7 @@ h2 {
 </div>
 <div class="m_top_bg">
     <div class="top">
-        <div class="m_logo"><a href="<%= request.getContextPath()%>/Index"><img src="<%= request.getContextPath()%>/Picture/logo1.png" /></a></div>
+        <div class="m_logo"><a href="<%= request.getContextPath()%>/index"><img src="<%= request.getContextPath()%>/Picture/logo1.png" /></a></div>
         <div class="m_search">
             <form>
                 <input type="text" value="" class="m_ipt" />
@@ -295,64 +298,42 @@ h2 {
              <tr>
                 <td width="135" align="right">配送地区</td>
                 <td colspan="3" style="font-family:'宋体';" class="yuan">
-                  <select name="sweets">
-                    <option>省</option>
-                    <option>河北省</option>
-                    <option>河南省</option>
-                    <option>山东省</option>
-                    <option>四川省</option>
-                    <option>云南省</option>
-                  </select>
-                  <select name="sweets">
-                    <option>市</option>
-                    <option>北京市</option>
-                    <option>上海市</option>
-                    <option>广州市</option>
-                    <option>深圳市</option>
-                    <option>天津市</option>
-                  </select>
-                  <select name="sweets">
-                    <option>地区</option>
-                    <option>新郑</option>
-                    <option>金水区</option>
-                    <option>高新区</option>
-                    <option>丰润区</option>
-                    <option>滦南</option>
-                  </select>
-                  <select name="sweets">
-                    <option>乡镇</option>
-                    <option>乡镇1</option>
-                    <option>乡镇2</option>
-                    <option>乡镇3</option>
-                    <option>乡镇4</option>
-                    <option>乡镇5</option>
-                  </select>
-                  <select name="sweets">
-                    <option>社区</option>
-                    <option>社区1</option>
-                    <option>社区2</option>
-                    <option>社区3</option>
-                    <option>社区4</option>
-                    <option>社区5</option>
-                  </select>(请将具体收货地址在下面的输入框补全)</br>
+                    <select name="sweets" class="address-province">
+                        <option value="0">省</option>
+                        <c:forEach items="${Province}" var="province">
+                            <option value="${province.pid}">${province.province}</option>
+                        </c:forEach>
+                    </select>
+                    <select name="sweets" class="address-city">
+                        <option value="0">市</option>
+                    </select>
+                    <select name="sweets" class="address-district">
+                        <option value="0">地区</option>
+                    </select>
+                    <select name="sweets" class="address-towns">
+                        <option value="0">乡镇</option>
+                    </select>
+                    <select name="sweets" class="address-community">
+                        <option value="0">社区</option>
+                    </select>(请将具体收货地址在下面的输入框补全)</br>
               <input type="text" name="" id="inp" value="收货地址为：" class="add_ipt1">
                 </td>
               </tr>   
               <tr>
                 <td align="right">收货人姓名</td>
-                <td style="font-family:'宋体';"><input type="text" placeholder="请输入姓名"  class="add_ipt" />（必填）</td>
-                <td align="right">电话</td>
-                <td style="font-family:'宋体';"><input type="text" placeholder="请输入电话号" class="add_ipt" />（必填）</td>
+                  <td style="font-family:'宋体';"><input type="text" placeholder="请输入姓名"  class="add_ipt ad_name" /><span class="ad_name_text">（必填）</span></td>
+                <td align="right">性别</td>
+                <td style="font-family:'宋体';"><input type="text" placeholder="请输入性别" class="add_ipt ad_sex" /><span class="ad_sex_text">（必填）</span></td></td>
               </tr>
               <tr>
                 <td align="right">手机号</td>
-                <td style="font-family:'宋体';"><input type="text" placeholder="请输入手机号" class="add_ipt" />（必填）</td>
+                <td style="font-family:'宋体';"><input type="text" placeholder="请输入手机号" class="add_ipt ad_phone" /><span class="ad_phone_text">（必填）</span></td>
                 <td align="right">邮编</td>
-                <td style="font-family:'宋体';"><input type="text" placeholder="请输入邮编，或输入000000" class="add_ipt" /></td>
+                <td style="font-family:'宋体';"><input type="text" placeholder="请输入邮编，或输入000000" class="add_ipt ad_youbian" /><span class="ad_youbian_text"></span></td></td>
               </tr>
             </table>
             <p align="right">
-                <a href="#">取消</a>&nbsp; &nbsp; <a href="#" class="add_b">确定</a>
+                <a href="#" calss="add_cancel">取消</a>&nbsp; &nbsp; <a href="#" class="add_b">确定</a>
             </p> 
 
             <!-- 已保存的收货地址展示 -->
@@ -361,7 +342,7 @@ h2 {
               <tr>                                                                                                                                                    
                 <td width="130">收货人姓名</td>
                 <td width="130">手机号</td>
-                <td width="130">电话</td>
+                <td width="130">性别</td>
                 <td width="130">邮编</td>
                 <td width="320">详细地址</td>
                 <td width="100"></td>
@@ -458,8 +439,8 @@ h2 {
               <tr>
                 <td align="right">收货人姓名</td>
                 <td style="font-family:'宋体';"><input type="text" value="张三" class="add_ipt" /></td>
-                <td align="right">电话</td>
-                <td style="font-family:'宋体';"><input type="text" value="1111111" class="add_ipt" /></td>
+                <td align="right">性别</td>
+                <td style="font-family:'宋体';"><input type="text" value="男" class="add_ipt" /></td>
               </tr>
               <tr>
                 <td align="right">手机号</td>
@@ -474,15 +455,179 @@ h2 {
             </div>
         </div>
     </div>
-    
     <script type="text/javascript">
+        //验证
+        $(".ad_name").blur(function(){
+            var name=$(this).val();
+            var FFF=$(this).parents("td").find(".ad_name_text");
+            var testname = /^[\u4E00-\u9FA5A-Za-z]+$/;
+            if(name=="请输入姓名"){
+                FFF.text("姓名不可以为空！")
+            }else if(!testname.test(name)){
+                FFF.text("只能输入中文和英文");
+            }else{
+                FFF.text("通过");
+            }
+        });
+        $(".ad_phone").blur(function(){
+            var phone=$(this).val();
+            var FFF=$(this).parents("td").find(".ad_phone_text");
+            var testphone=/^1[34578]\d{9}$/;
+            if(phone=="请输入手机号"){
+                FFF.text("手机号不可以为空");
+            }else if(!(testphone.test(phone))){
+                FFF.text("手机号码有误");
+            }else{
+                FFF.text("通过");
+            }
+        });
+        $(".ad_sex").blur(function(){
+            var sex=$(this).val();
+            var FFF=$(this).parents("td").find(".ad_sex_text");
+            if(sex=="请输入性别"){
+                FFF.text("性别不可以为空");
+            }else if(sex=="男"||sex=="女"){
+                FFF.text("通过");
+            }else{
+                FFF.text("请填写男或女");
+            }
+        });
+        $(".ad_youbian").blur(function(){
+            var youbian=$(this).val();
+            var FFF=$(this).parents("td").find(".ad_youbian_text");
+            var testyoubian= /^[1-9][0-9]{5}$/;
+            if(!(testyoubian.test(youbian))){
+                FFF.text("邮政编码格式不正确");
+            }else{
+                FFF.text("通过");
+            }
+        });
+        //确定保存
+        $(".add_b").click(function(){
+            var address_text=$(this).parents(".m_right").find(".address-community option:selected").val();
+            var name_text=$(this).parents(".m_right").find(".ad_name_text").val();
+            var sex_text=$(this).parents(".m_right").find(".ad_sex_text").val();
+            var phone_text=$(this).parents(".m_right").find(".ad_phone_text").val();
+            var youbian_text=$(this).parents(".m_right").find(".ad_youbian_text").val();
+
+            var address=$("#inp").val();
+            var name=$(this).parents(".m_right").find(".ad_name").val();
+            var sex=$(this).parents(".m_right").find(".ad_sex").val();
+            var phone=$(this).parents(".m_right").find(".ad_phone").val();
+            var youbian=$(this).parents(".m_right").find(".ad_youbian").val();
+            if(address!=null){
+                alert("dizhi:"+address);
+                if(address!=null){
+                if(sex=="男"){
+                    sex=0;
+                }else {
+                    sex=1;
+                }
+
+                var url = "<%=request.getContextPath()%>/adaddress";
+                var args = {"address": address,"name":name,"phone":phone,"sex":sex,"zip":youbian,"time": new Date()};
+                $.getJSON(url, args, function (data) {
+                        alert("地址回调函数");
+                    }
+                );
+                }
+                //并展示到
+                var td1="<td>"+name+"</td>";
+                var td2="<td>"+phone+"</td>";
+                var td3="<td>"+sex+"</td>";
+                var td4="<td>"+youbian+"</td>";
+                var td5="<td>"+address+"</td>";
+                var style_text="color:#ff4e00;";
+                var td6="<td><a href='#'>删除&nbsp;&nbsp;</a><a onclick='ShowDiv_1('MyDiv1','fade1')' style='"+style_text+"'>&nbsp;&nbsp;编辑</a></td>";
+
+                $(".order_tab").append("<tr class='td_new'></tr>");
+                $(".td_new").append(td1,td2,td3,td4,td5,td6);
+
+            }else{
+                alert("请填写完整信息！");
+            }
+
+        });
+        //取消按钮
+        $(".add_cancel").click(function() {
+            $("#inp").val("");
+            $(this).parents(".m_right").find(".ad_name").val("");
+            $(this).parents(".m_right").find(".ad_sex").val("");
+            $(this).parents(".m_right").find(".ad_phone").val("");
+            $(this).parents(".m_right").find(".ad_youbian").val("");
+        });
+        //地址获取
         $(".yuan select").change(function () {
           var str = "";
           $(".yuan select option:selected").each(function () {
                     str += $(this).text() + " ";
           });
           $('.yuan #inp').val(str);
-        })
+            if($(this).hasClass("address-province")){
+                var province_pid = $(this).val().toString();
+                if (province_pid != 0) {
+                    var url = "<%=request.getContextPath()%>/adcity";
+                    var args = {"pid": province_pid, "time": new Date()};
+                    $.getJSON(url, args, function (data) {
+                            for (var i = 0; i < data.length; i++) {
+                                var cityid=data[i].cityid;
+                                var city = data[i].cityname;
+                                $(".address-city").append("<option value ='" + cityid + "'>" + city + "</option>");
+                            }
+                        }
+                    );
+
+                }
+            }
+            if($(this).hasClass("address-city")){
+                var cityid = $(this).val().toString();
+                if (cityid != 0) {
+                    var url = "<%=request.getContextPath()%>/addistrict";
+                    var args = {"cityid": cityid, "time": new Date()};
+                    $.getJSON(url, args, function (data) {
+                            for (var i = 0; i < data.length; i++) {
+                                var did=data[i].did;
+                                var districtname = data[i].districtname;
+                                $(".address-district").append("<option value ='" + did + "'>" + districtname + "</option>");
+                            }
+                        }
+                    );
+
+                }
+            }
+            if($(this).hasClass("address-district")){
+                var did = $(this).val().toString();
+                if (did != 0) {
+                    var url = "<%=request.getContextPath()%>/adtowns";
+                    var args = {"did": did, "time": new Date()};
+                    $.getJSON(url, args, function (data) {
+                            for (var i = 0; i < data.length; i++) {
+                                var tid=data[i].tid;
+                                var townsname = data[i].townsname;
+                                $(".address-towns").append("<option value ='" + tid + "'>" + townsname + "</option>");
+                            }
+                        }
+                    );
+
+                }
+            }
+            if($(this).hasClass("address-towns")){
+                var tid = $(this).val().toString();
+                if (tid != 0) {
+                    var url = "<%=request.getContextPath()%>/adcommunity";
+                    var args = {"tid": tid, "time": new Date()};
+                    $.getJSON(url, args, function (data) {
+                            for (var i = 0; i < data.length; i++) {
+                                var cid=data[i].cid;
+                                var communityname = data[i].communityname;
+                                $(".address-community").append("<option value ='" + cid + "'>" + communityname + "</option>");
+                            }
+                        }
+                    );
+
+                }
+            }
+        });
 
           $(".tan select").change(function () {
           var str = "";
@@ -491,7 +636,7 @@ h2 {
           });
           $('.tan #inp').val(str);
         })
-        .onchange();
+      <%-- .onchange();--%>
 
     </script>
 	<!--End 用户中心 End--> 
