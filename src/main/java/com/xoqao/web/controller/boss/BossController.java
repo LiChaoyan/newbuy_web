@@ -64,6 +64,26 @@ public class BossController {
     public String product_list(Model model) throws Exception {
         return "shopkeeper/product_list";
     }
+    //    商品添加
+    @RequestMapping("/product_add")
+    public String product_add(Model model) throws Exception {
+        return "shopkeeper/product_add";
+    }
+    //    店员查看（弹窗）
+    @RequestMapping("/member_show")
+    public String  member_show(Model model) throws Exception {
+        return "shopkeeper/member_show";
+    }
+    //    店员查看
+    @RequestMapping("/member_list")
+    public String  member_list(Model model) throws Exception {
+        return "shopkeeper/member_list";
+    }
+    //    店员添加
+    @RequestMapping("/member_add")
+    public String  member_add(Model model) throws Exception {
+        return "shopkeeper/member_add";
+    }
 
 
 
