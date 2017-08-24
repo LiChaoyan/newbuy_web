@@ -267,159 +267,162 @@
         <div class="tittle_wrap">
             <h2>添加线上店铺</h2>
         </div>
-        <div class="aaa">
-            <label>店铺名称</label><input type="text" placeholder="请输入营业执照上的名称" name="shopname"><br>
-            <%--<label>店铺经理</label><input type="text" placeholder="请输入店铺经理姓名" name="" ><br>--%>
-            <label>联系方式</label><input type="text" placeholder="请输入店铺联系方式" name="shopcall"><br>
+        <form role="form" action="<%= request.getContextPath()%>/boss/shopOnLineSub" method="post" enctype="multipart/form-data">
+            <div class="aaa">
+                <label>店铺名称</label><input type="text" placeholder="请输入营业执照上的名称" name="shopname"><br>
+                <%--<label>店铺经理</label><input type="text" placeholder="请输入店铺经理姓名" name="" ><br>--%>
+                <label>联系方式</label><input type="text" placeholder="请输入店铺联系方式" name="shopcall"><br>
 
-            <div class="range_bg">
-                <label>经营范围</label><input type="text" placeholder="-请选择-" name="" id="range"><br>
-                <div class="range">
-                    <input type="checkbox" style="width: 30px;" name="items" value="文化传播">文化传播
-                    <p><input type="checkbox" style="width: 30px;" name="items" value="房地产中介">房地产中介</p>
-                    <p><input type="checkbox" style="width: 30px;" name="items" value="教育发展">教育发展</p>
-                    <p><input type="checkbox" style="width: 30px;" name="items" value="商务咨询服务">商务咨询服务</p>
-                    <p><input type="checkbox" style="width: 30px;" name="items" value="服装贸易">服装贸易</p>
-                    <p><input type="checkbox" style="width: 30px;" name="items" value="农副产品">农副产品</p>
-                    <p><input type="checkbox" style="width: 30px;" name="items" value="餐饮管理">餐饮管理</p>
-                    <p><input type="checkbox" style="width: 30px;" name="items" value="知识产权咨询服务">知识产权咨询服务</p>
-                    <p><input type="checkbox" style="width: 30px;" name="items" value="计算机、网络、数码、信息、电脑科技类">计算机、网络、数码、信息、电脑科技类
-                    </p>
-                    <p><input type="checkbox" style="width: 30px;" name="items" value="进出口类">进出口类</p>
-                    <p><input type="checkbox" style="width: 30px;" name="items" value="电子商务">电子商务</p>
-                    <p><input type="checkbox" style="width: 30px;" name="items" value="广告传媒">广告传媒</p>
 
-                    <button style="width: 30%;margin-left: 35%;" id="ran">提交</button>
+                <label>选择您的所在地区</label>
+                <table style="width: 255px;">
+                    <tbody>
+                    <tr>
+                        <td><select id="privince">
+                            <c:forEach items="${provinces}" var="province">
+                                <option value="${province.pid}">${province.province}</option>
+                            </c:forEach>
+                        </select></td>
+                        <td>
+                            <select id="city" style="display: none">
+                            </select>
+                        </td>
+                        <td>
+                            <select id="district" style="display: none">
+                            </select>
+                        </td>
+                        <td><select id="town" name="city" style="display: none"></select></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="range_bg">
+                    <label>经营范围</label><input type="text" placeholder="-请选择-" name="scope" id="range"><br>
+                    <div class="range">
+                        <input type="checkbox" style="width: 30px;" name="items" value="文化传播">文化传播
+                        <p><input type="checkbox" style="width: 30px;" name="items" value="房地产中介">房地产中介</p>
+                        <p><input type="checkbox" style="width: 30px;" name="items" value="教育发展">教育发展</p>
+                        <p><input type="checkbox" style="width: 30px;" name="items" value="商务咨询服务">商务咨询服务</p>
+                        <p><input type="checkbox" style="width: 30px;" name="items" value="服装贸易">服装贸易</p>
+                        <p><input type="checkbox" style="width: 30px;" name="items" value="农副产品">农副产品</p>
+                        <p><input type="checkbox" style="width: 30px;" name="items" value="餐饮管理">餐饮管理</p>
+                        <p><input type="checkbox" style="width: 30px;" name="items" value="知识产权咨询服务">知识产权咨询服务</p>
+                        <p><input type="checkbox" style="width: 30px;" name="items" value="计算机、网络、数码、信息、电脑科技类">计算机、网络、数码、信息、电脑科技类
+                        </p>
+                        <p><input type="checkbox" style="width: 30px;" name="items" value="进出口类">进出口类</p>
+                        <p><input type="checkbox" style="width: 30px;" name="items" value="电子商务">电子商务</p>
+                        <p><input type="checkbox" style="width: 30px;" name="items" value="广告传媒">广告传媒</p>
+
+                        <button style="width: 30%;margin-left: 35%;" id="ran">提交</button>
+                    </div>
                 </div>
+                <label>一句话描述</label><input type="text" placeholder="请用一句话描述您的店铺" name="shopdes"><br>
+                <label>店铺logo</label><input type="file" name="logo">
+
+                <%--<span class="s_city">--%>
+                <%--<label>所在城市</label><input type="text" placeholder="-请选择-" name="" value="" id="city_s">--%>
+                <%--<br>--%>
+                <%--<div class="s_city_bg">--%>
+                <%--<div class="s_city_c">--%>
+                <%--<h2>请选择收货地区</h2>--%>
+                <%--<table cellpadding="0" cellspacing="0" class="c_tab" style="width: 255px;">--%>
+                <%--<tr>--%>
+                <%--<th>A</th>--%>
+                <%--<td class="c_h"><span>安徽</span><span>澳门</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>B</th>--%>
+                <%--<td class="c_h"><span class="c_check">北京</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>C</th>--%>
+                <%--<td class="c_h"><span>重庆</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>F</th>--%>
+                <%--<td class="c_h"><span>福建</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>G</th>--%>
+                <%--<td class="c_h"><span>广东</span><span>广西</span><span>贵州</span><span>甘肃</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>H</th>--%>
+                <%--<td class="c_h"><span>河北</span><span>河南</span><span>黑龙江</span><span>海南</span><span>湖北</span><span>湖南</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<tr>--%>
+                <%--<th>A</th>--%>
+                <%--<td class="c_h"><span>安徽</span><span>澳门</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>B</th>--%>
+                <%--<td class="c_h"><span class="c_check">北京</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>C</th>--%>
+                <%--<td class="c_h"><span>重庆</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>F</th>--%>
+                <%--<td class="c_h"><span>福建</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>G</th>--%>
+                <%--<td class="c_h"><span>广东</span><span>广西</span><span>贵州</span><span>甘肃</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>H</th>--%>
+                <%--<td class="c_h"><span>河北</span><span>河南</span><span>黑龙江</span><span>海南</span><span>湖北</span><span>湖南</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>J</th>--%>
+                <%--<td class="c_h"><span>江苏</span><span>吉林</span><span>江西</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>L</th>--%>
+                <%--<td class="c_h"><span>辽宁</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>N</th>--%>
+                <%--<td class="c_h"><span>内蒙古</span><span>宁夏</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>Q</th>--%>
+                <%--<td class="c_h"><span>青海</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>S</th>--%>
+                <%--<td class="c_h"><span>上海</span><span>山东</span><span>山西</span><span>四川</span><span>陕西</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>T</th>--%>
+                <%--<td class="c_h"><span>台湾</span><span>天津</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>X</th>--%>
+                <%--<td class="c_h"><span>西藏</span><span>香港</span><span>新疆</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>Y</th>--%>
+                <%--<td class="c_h"><span>云南</span></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                <%--<th>Z</th>--%>
+                <%--<td class="c_h"><span>浙江</span></td>--%>
+                <%--</tr>--%>
+                <%--</table>--%>
+                <%--</div>--%>
+                <%--</div>--%>
+                <%--</span>--%>
+
+                <div id='allmap'
+                     style='width: 50%; height: 50%; position: absolute;margin-left:-11%;display: none'></div>
             </div>
-
-            <label>选择您的所在地区</label>
-            <table>
-                <tbody>
-                <tr>
-                    <td><select id="privince">
-                        <c:forEach items="${provinces}" var="province">
-                            <option value="${province.pid}">${province.province}</option>
-                        </c:forEach>
-                    </select></td>
-                    <td>
-                        <select id="city" style="display: none">
-                        </select>
-                    </td>
-                    <td>
-                        <select id="district" style="display: none">
-                        </select>
-                    </td>
-                    <td><select id="town" name="city" style="display: none"></select></td>
-                </tr>
-                </tbody>
-            </table>
-            <label>一句话描述</label><input type="text" placeholder="请用一句话描述您的店铺" name="shhopdes"><br>
-            <label>店铺logo</label><input type="file" name="logo">
-
-            <span class="s_city">
-				<label>所在城市</label><input type="text" placeholder="-请选择-" name="" value="" id="city_s">
-				<br>
-				<div class="s_city_bg">
-					<div class="s_city_c">
-					<h2>请选择收货地区</h2>
-						<table cellpadding="0" cellspacing="0" class="c_tab" style="width: 255px;">
-						<tr>
-	                            <th>A</th>
-	                            <td class="c_h"><span>安徽</span><span>澳门</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>B</th>
-	                            <td class="c_h"><span class="c_check">北京</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>C</th>
-	                            <td class="c_h"><span>重庆</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>F</th>
-	                            <td class="c_h"><span>福建</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>G</th>
-	                            <td class="c_h"><span>广东</span><span>广西</span><span>贵州</span><span>甘肃</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>H</th>
-	                            <td class="c_h"><span>河北</span><span>河南</span><span>黑龙江</span><span>海南</span><span>湖北</span><span>湖南</span></td>
-	                          </tr>
-	                          <tr>
-							<tr>
-	                            <th>A</th>
-	                            <td class="c_h"><span>安徽</span><span>澳门</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>B</th>
-	                            <td class="c_h"><span class="c_check">北京</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>C</th>
-	                            <td class="c_h"><span>重庆</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>F</th>
-	                            <td class="c_h"><span>福建</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>G</th>
-	                            <td class="c_h"><span>广东</span><span>广西</span><span>贵州</span><span>甘肃</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>H</th>
-	                            <td class="c_h"><span>河北</span><span>河南</span><span>黑龙江</span><span>海南</span><span>湖北</span><span>湖南</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>J</th>
-	                            <td class="c_h"><span>江苏</span><span>吉林</span><span>江西</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>L</th>
-	                            <td class="c_h"><span>辽宁</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>N</th>
-	                            <td class="c_h"><span>内蒙古</span><span>宁夏</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>Q</th>
-	                            <td class="c_h"><span>青海</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>S</th>
-	                            <td class="c_h"><span>上海</span><span>山东</span><span>山西</span><span>四川</span><span>陕西</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>T</th>
-	                            <td class="c_h"><span>台湾</span><span>天津</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>X</th>
-	                            <td class="c_h"><span>西藏</span><span>香港</span><span>新疆</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>Y</th>
-	                            <td class="c_h"><span>云南</span></td>
-	                          </tr>
-	                          <tr>
-	                            <th>Z</th>
-	                            <td class="c_h"><span>浙江</span></td>
-	                          </tr>
-						</table>
-					</div>
-				</div>
-			</span>
-
-            <div id='allmap' style='width: 50%; height: 50%; position: absolute;margin-left:-11%;display: none'></div>
-        </div>
-        <input type="button" class="ui-btn" value="确认提交" name="">
-        <div id="hidebox">
-
-        </div>
+            <input type="button" class="ui-btn" value="确认提交" name="">
+            <div id="hidebox">
+            </div>
+        </form>
     </div>
 </div>
 
@@ -457,6 +460,10 @@
                 $("#town").css("display", "none");
                 //  alert(result);
                 result = eval(result);
+
+                if(result.length==1){
+                    $("#district").attr("name","city");
+                }
                 for (var i = 0; i < result.length; i++) {
                     $("#district").append("<option  value='" + result[i].did + "'> " + result[i].districtname + "</option>")
                 }
