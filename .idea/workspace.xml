@@ -6,24 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="989a3d0c-aa15-403b-b521-393bf8f63768" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/shop/Shop.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/shop/Shop.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/DemoController.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/DemoController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/boss/BossController.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/boss/BossController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/dao/ShopMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/dao/ShopMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/ShopService.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/ShopService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/ShopServicelmpl.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/ShopServicelmpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/shop/Shop.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/shop/Shop.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/DemoController.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/DemoController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/boss/BossController.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/boss/BossController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/dao/ShopMapper.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/dao/ShopMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/ShopService.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/ShopService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/ShopServicelmpl.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/ShopServicelmpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapping/ShopMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapping/ShopMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/ShopMapper.xml" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/ShopMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/shopadd_online.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/shopadd_online.jsp" />
-    </list>
+    <list default="true" id="989a3d0c-aa15-403b-b521-393bf8f63768" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,7 +46,7 @@
             <state relative-caret-position="6302">
               <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
               <folding>
-                <marker date="1503400764812" expanded="false" signature="10425:10438" ph="..." />
+                <marker date="1503542815284" expanded="false" signature="10425:10438" ph="..." />
               </folding>
             </state>
           </provider>
@@ -75,14 +58,14 @@
             <state relative-caret-position="966">
               <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
               <folding>
-                <marker date="1503400151976" expanded="true" signature="300:319" ph="SELECT * FRO... shop" />
-                <marker date="1503400151976" expanded="true" signature="431:587" ph="insert into shop... " />
-                <marker date="1503400151976" expanded="true" signature="713:785" ph="select * fro... shop" />
-                <marker date="1503400151976" expanded="true" signature="745:784" ph="select sid f... boss" />
-                <marker date="1503400151976" expanded="true" signature="910:945" ph="select * fro... shop" />
-                <marker date="1503400151976" expanded="true" signature="1023:1183" ph="UPDATE shop " />
-                <marker date="1503400151976" expanded="true" signature="1287:1392" ph="select count... shop" />
-                <marker date="1503400151976" expanded="true" signature="1524:1688" ph="select shop.... shop" />
+                <marker date="1503542815197" expanded="true" signature="300:319" ph="SELECT * FRO... shop" />
+                <marker date="1503542815197" expanded="true" signature="431:587" ph="insert into shop... " />
+                <marker date="1503542815197" expanded="true" signature="713:785" ph="select * fro... shop" />
+                <marker date="1503542815197" expanded="true" signature="745:784" ph="select sid f... boss" />
+                <marker date="1503542815197" expanded="true" signature="910:945" ph="select * fro... shop" />
+                <marker date="1503542815197" expanded="true" signature="1023:1183" ph="UPDATE shop " />
+                <marker date="1503542815197" expanded="true" signature="1287:1392" ph="select count... shop" />
+                <marker date="1503542815197" expanded="true" signature="1524:1688" ph="select shop.... shop" />
               </folding>
             </state>
           </provider>
@@ -131,7 +114,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapping/CityMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CityMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CityService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CityServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/ShopMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/ShopMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/ShopService.java" />
@@ -139,6 +121,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/shop/Shop.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/boss/BossController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/shopadd_online.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CityServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -566,12 +549,12 @@
       <option name="presentableId" value="Default" />
       <updated>1503478093149</updated>
       <workItem from="1503478096597" duration="2367000" />
-      <workItem from="1503538842833" duration="1546000" />
+      <workItem from="1503538842833" duration="2012000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17141000" />
+    <option name="totallyTimeSpent" value="17607000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="0" width="1938" height="1038" extended-state="0" />
@@ -803,7 +786,7 @@
         <state relative-caret-position="575">
           <caret line="259" column="0" lean-forward="true" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
           <folding>
-            <marker date="1503387749855" expanded="false" signature="8163:8172" ph="..." />
+            <marker date="1503542815278" expanded="false" signature="8163:8172" ph="..." />
           </folding>
         </state>
       </provider>
@@ -954,6 +937,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -961,6 +947,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -969,10 +958,10 @@
         <state relative-caret-position="230">
           <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <marker date="1503394980611" expanded="true" signature="302:344" ph="SELECT pid,p... province" />
-            <marker date="1503394980611" expanded="true" signature="463:531" ph="SELECT cid,p... city" />
-            <marker date="1503394980611" expanded="true" signature="653:733" ph="SELECT did,c... district" />
-            <marker date="1503394980611" expanded="true" signature="854:925" ph="SELECT tid,d... towns" />
+            <marker date="1503542815194" expanded="true" signature="302:344" ph="SELECT pid,p... province" />
+            <marker date="1503542815194" expanded="true" signature="463:531" ph="SELECT cid,p... city" />
+            <marker date="1503542815194" expanded="true" signature="653:733" ph="SELECT did,c... district" />
+            <marker date="1503542815194" expanded="true" signature="854:925" ph="SELECT tid,d... towns" />
           </folding>
         </state>
       </provider>
@@ -1038,14 +1027,14 @@
         <state relative-caret-position="966">
           <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
           <folding>
-            <marker date="1503400151976" expanded="true" signature="300:319" ph="SELECT * FRO... shop" />
-            <marker date="1503400151976" expanded="true" signature="431:587" ph="insert into shop... " />
-            <marker date="1503400151976" expanded="true" signature="713:785" ph="select * fro... shop" />
-            <marker date="1503400151976" expanded="true" signature="745:784" ph="select sid f... boss" />
-            <marker date="1503400151976" expanded="true" signature="910:945" ph="select * fro... shop" />
-            <marker date="1503400151976" expanded="true" signature="1023:1183" ph="UPDATE shop " />
-            <marker date="1503400151976" expanded="true" signature="1287:1392" ph="select count... shop" />
-            <marker date="1503400151976" expanded="true" signature="1524:1688" ph="select shop.... shop" />
+            <marker date="1503542815197" expanded="true" signature="300:319" ph="SELECT * FRO... shop" />
+            <marker date="1503542815197" expanded="true" signature="431:587" ph="insert into shop... " />
+            <marker date="1503542815197" expanded="true" signature="713:785" ph="select * fro... shop" />
+            <marker date="1503542815197" expanded="true" signature="745:784" ph="select sid f... boss" />
+            <marker date="1503542815197" expanded="true" signature="910:945" ph="select * fro... shop" />
+            <marker date="1503542815197" expanded="true" signature="1023:1183" ph="UPDATE shop " />
+            <marker date="1503542815197" expanded="true" signature="1287:1392" ph="select count... shop" />
+            <marker date="1503542815197" expanded="true" signature="1524:1688" ph="select shop.... shop" />
           </folding>
         </state>
       </provider>
@@ -1055,14 +1044,14 @@
         <state relative-caret-position="270">
           <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
-            <marker date="1503388440533" expanded="true" signature="293:420" ph="insert into boss... " />
-            <marker date="1503388440533" expanded="true" signature="540:632" ph="SELECT id,na... boss" />
-            <marker date="1503388440533" expanded="true" signature="749:833" ph="select id,na... boss" />
-            <marker date="1503388440533" expanded="true" signature="949:1029" ph="select id,na... boss" />
-            <marker date="1503388440533" expanded="true" signature="1102:1162" ph="update boss " />
-            <marker date="1503388440533" expanded="true" signature="1695:1800" ph="select bid,i... boss" />
-            <marker date="1503388440533" expanded="true" signature="1919:2031" ph="select bid,i... boss" />
-            <marker date="1503388440533" expanded="true" signature="2154:2294" ph="select bid,i... boss" />
+            <marker date="1503542815193" expanded="true" signature="293:420" ph="insert into boss... " />
+            <marker date="1503542815193" expanded="true" signature="540:632" ph="SELECT id,na... boss" />
+            <marker date="1503542815193" expanded="true" signature="749:833" ph="select id,na... boss" />
+            <marker date="1503542815193" expanded="true" signature="949:1029" ph="select id,na... boss" />
+            <marker date="1503542815193" expanded="true" signature="1102:1162" ph="update boss " />
+            <marker date="1503542815193" expanded="true" signature="1695:1800" ph="select bid,i... boss" />
+            <marker date="1503542815193" expanded="true" signature="1919:2031" ph="select bid,i... boss" />
+            <marker date="1503542815193" expanded="true" signature="2154:2294" ph="select bid,i... boss" />
           </folding>
         </state>
       </provider>
@@ -1165,7 +1154,7 @@
         <state relative-caret-position="6302">
           <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
           <folding>
-            <marker date="1503400764812" expanded="false" signature="10425:10438" ph="..." />
+            <marker date="1503542815284" expanded="false" signature="10425:10438" ph="..." />
           </folding>
         </state>
       </provider>
