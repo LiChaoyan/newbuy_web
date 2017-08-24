@@ -47,6 +47,27 @@ public class BossController {
         return "shopkeeper/Login_shopkeeper";
     }
 
+//    店主概览
+
+    @RequestMapping("/index_shopkeeper")
+    public String index_shopkeeper(Model model) throws Exception {
+        return "shopkeeper/index_shopkeeper";
+    }
+
+//    店铺管理
+    @RequestMapping("/article_list")
+    public String article_list(Model model) throws Exception {
+        return "shopkeeper/article_list";
+    }
+//    商品管理
+    @RequestMapping("/product_list")
+    public String product_list(Model model) throws Exception {
+        return "shopkeeper/product_list";
+    }
+
+
+
+
     /**
      * 店主注册提交
      *

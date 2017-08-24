@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xoqao.web.dao.CommodityMapper" >
+    <!--1.根据一级分类查询商品-->
+    <select id="selectCommodityShopBy1" resultType="com.xoqao.web.bean.commodity.CommodityShop">
+       select   category.cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
+       from commodity,shop,category,city
+       where commodity.sid=shop.sid and shop.city=city.cid and commodity.cgid=category.cgid and big='${big}'
+    </select>
+    <!--2.根据一级分类，二级分类查询商品-->
+    <select id="selectCommodityShopBy2" resultType="com.xoqao.web.bean.commodity.CommodityShop">
+        select   category.cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
+        from commodity,shop,category,city
+        where commodity.sid=shop.sid and commodity.cgid=category.cgid and shop.city=city.cid and big='${big}'and small='${small}'
+    </select>
+    <!--4.根据cgid查询商品信息集合-->
+    <select id="selectCommmodityShopBycgid" resultType="com.xoqao.web.bean.commodity.CommodityShop">
+        select  cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
+        from commodity,shop,city
+        where commodity.sid=shop.sid AND shop.city=city.cid and  commodity.cgid='${page.cgid}'
+    </select>
+    <!--5.根据cgid查询商品数量-->
+    <select id="selectCommodityShopsize" resultType="int">
+        select count(*)
+        from commodity,shop,city
+        where commodity.sid=shop.sid AND city=city.cid
+            <if test="page.cgid!=-1">
+                and  commodity.cgid='${page.cgid}'
+            </if>
+            <if test="page.productname!=null and page.productname.length()>0">
+                AND productname like '%${page.productname}%'
+            </if>
+            <if test="page.city!=null and page.city.length()>0">
+                AND city.cityname IN
+                <foreach collection="page.citysz" item="city" index="index" open="(" separator="," close=")">
+                '${city}'
+                </foreach>
+            </if>
+            <if test="page.part==1 or page.part==0">
+                AND commodity.partstatue='${page.part}'
+            </if>
+    </select>
+    <!--6.根据cgid分页查询商品-->
+    <select id="selectCommodityShopBycgidpage"   resultType="com.xoqao.web.bean.commodity.CommodityShop">
+        select partstatue,commodity.cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
+        <if test="page.attention==1">
+            ,sum(track.total) as rq
+        </if>
+        <if test="page.ases==1">
+            ,count(assess.aid) as asesnum
+        </if>
+        <if test="page.range==0||page.range==1||page.colligate==1">
+            ,${page.rangeString} AS juli
+        </if>
+        <if test="page.colligate==1">
+            ,0.5*commodity.salesvolu+0.333*sum(track.total)+0.167*count(assess.aid) as num
+        </if>
+        from shop,city,(commodity LEFT JOIN assess on assess.cid=commodity.cid)LEFT JOIN track on track.cid=commodity.cid
+        where commodity.sid=shop.sid AND city=city.cid
+        <if test="page.cgid!=-1">
+            and  commodity.cgid='${page.cgid}'
+        </if>
+        <if test="page.productname!=null and page.productname.length()>0">
+            AND productname like '%${page.productname}%'
+        </if>
+        <if test="page.city!=null and page.city.length()>0">
+            AND city.cityname IN
+            <foreach collection="page.citysz" item="city" index="index" open="(" separator="," close=")">
+                '${city}'
+            </foreach>
+        </if>
+        <if test="page.part==1 or page.part==0">
+            AND commodity.partstatue='${page.part}'
+        </if>
+        GROUP by commodity.cid
+        <if test="page.sales==1">
+            ORDER BY commodity.salesvolu desc
+        </if>
+        <if test="page.price==0">
+            ORDER BY commodity.price desc
+        </if>
+        <if test="page.price==1">
+            ORDER BY commodity.price ASC
+        </if>
+        <if test="page.ases==1">
+            ORDER BY asesnum DESC
+        </if>
+        <if test="page.attention==1">
+            ORDER BY rq DESC
+        </if>
+        <if test="page.range==0">
+            ORDER BY juli ASC
+        </if>
+        <if test="page.range==1">
+            ORDER BY juli DESC
+        </if>
+        <if test="page.colligate==1">
+            ORDER BY num DESC,juli ASC
+        </if>
+        LIMIT ${page.start},${page.count}
+    </select>
+    <!--7.根据商品名字模糊查询长度-->
+    <select id="selectCommodityShopsizeByproductname" resultType="int">
+        select count(*)
+        from commodity,shop,city
+        where commodity.sid=shop.sid AND shop.city=city.cid
+        <if test="page.productname!=null">
+            AND productname like '%${page.productname}%'
+        </if>
+        <if test="page.city!=null">
+            AND city.cityname IN
+            <foreach collection="page.citysz" item="city" index="index" open="(" separator="," close=")">
+                '${city}'
+            </foreach>
+        </if>
+        <if test="page.part==1 or page.part==0">
+            AND commodity.partstatue='${page.part}'
+        </if>
+    </select>
+    <!--8.根据商品名字模糊查询page结果集-->
+    <select id="selectCommodityShopByproductname" resultType="com.xoqao.web.bean.commodity.CommodityShop">
+        select partstatue,commodity.cgid,commodity.cid,commodity.sid,commodity.logo,price,productname,salesvolu,bid,city,shop.logo as shoplogo,saddress,shopname,city.cityname
+        from commodity,shop,city
+        where commodity.sid=shop.sid AND city=city.cid
+        <if test="page.productname!=null">
+            AND productname like '%${page.productname}%'
+        </if>
+        <if test="page.city!=null">
+            AND city.cityname IN
+            <foreach collection="page.citysz" item="city" index="index" open="(" separator="," close=")">
+                '${city}'
+            </foreach>
+        </if>
+        <if test="page.part==1 or page.part==0">
+            AND commodity.partstatue='${page.part}'
+        </if>
+        LIMIT ${page.start},${page.count}
+    </select>
+    <!--合作商品多表连接查询-->
+    <select id="selectAllPartshop" resultType="com.xoqao.web.bean.commodity.Partshop">
+       select part_shop.*,commodity.logo as productlogo,price,productname,salesvolu,bid,shop.logo as shoplogo,saddress,shopname,city.cityname
+       FROM part_shop,commodity,city,shop
+       where part_shop.ctid=city.cid and part_shop.cid=commodity.cid and part_shop.sid=shop.bid ;
+    </select>
+    <!--热销商品-->
+    <select id="selecthootBycid" resultType="com.xoqao.web.bean.commodity.Commodity">
+        select commodity.*
+        from commodity
+        where sid = (select sid from commodity where cid='${cid}')
+        ORDER BY salesvolu desc
+        limit 5;
+    </select>
+    <!--根据商品cid查找商品详细信息-->
+    <select id="selectProductBycid" resultType="com.xoqao.web.bean.commodity.CommodityShop">
+        SELECT commodity.cid,commodity.cgid,commodity.sid,
+        bluetoothmac,detailshow,x,y,param1,param2,param3,
+        commodity.logo,commodity.headershow,price,productname,salesvolu,stock,
+        big,small,secend,
+        shop.city,shop.logo as shoplogo,shop.salesvo,shop.shopname,shop.slevel,
+        cityname
+        FROM commodity,city,shop,category
+        where commodity.cgid=category.cgid AND commodity.sid=shop.sid AND
+        shop.city=city.cid AND commodity.cid='${cid}';
+    </select>
+    <!--查找好评个数-->
+    <select id="selectGA" resultType="int">
+        select count(*)
+        from assess
+        where cid='${cid}'AND grade>=4
+    </select>
+    <!--查找中评个数-->
+    <select id="selectMA" resultType="int">
+        select count(*)
+        from assess
+        where cid='${cid}'AND grade BETWEEN 3 and 4 AND grade!=4
+    </select>
+    <!--查找差评个数-->
+    <select id="selectBA" resultType="int">
+        select count(*)
+        from assess
+        where cid='${cid}'AND grade BETWEEN 0 and 3 AND grade!=3
+    </select>
+    <!--查询商品cid对应的评论-->
+    <select id="selectAssesssizeBycid" resultType="int">
+        select count(*)
+        FROM assess,user
+        where assess.uid=user.uid AND assess.cid='${cid}'
+    </select>
+    <select id="selectAssess" resultType="com.xoqao.web.bean.commodity.Assess">
+        select assess.*,user.headerpic
+        FROM assess,user
+        where assess.uid=user.uid AND assess.cid='${page.cid}'
+        <choose>
+            <when test="page.ping==1">
+                AND grade>=4
+            </when>
+            <when test="page.ping==2">
+                AND grade BETWEEN 3 and 4 AND grade!=4
+            </when>
+            <when test="page.ping==3">
+                AND grade BETWEEN 0 and 3 AND grade!=3
+            </when>
+            <when test="page.ping==0">
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+        limit ${page.start},${page.count}
+    </select>
+    <!--商品参数筛选-->
+    <!--1.城市筛选-->
+    <select id="selectAllCity" resultType="com.xoqao.web.bean.commodity.City">
+        select distinct city.cityname
+        from city,shop,commodity
+        where shop.city=city.cid AND commodity.sid=shop.bid
+        <if test="page.cgid!=-1 and page.productname==null">
+            AND commodity.cgid='${page.cgid}'
+        </if>
+        <if test="page.productname!=null and page.cgid==-1 ">
+            AND productname like '%${page.productname}%'
+        </if>
+        <if test="page.part==1 or page.part==0">
+            AND commodity.partstatue='${page.part}'
+        </if>
+    </select>
+</mapper>
