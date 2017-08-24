@@ -220,18 +220,18 @@
 
 <body>
 <div class="header">
-	<div class="header_bg">
-		<div class="header_info">
-			<ul class="li_text">
-				<ul class="li_text">
-					<li id="a">您好，${sessionScope.boss.name} —— <a href="<%= request.getContextPath()%>/boss/logout">退出</a></li>
-					<li><a href="#">卖家中心</a></li>
-					<li><a href="#">商城首页</a></li>
-					<li><a href="<%= request.getContextPath()%>/boss/shopadd_online">添加线上店</a></li>
-				</ul>
-			</ul>
-		</div>
-	</div>
+	<%--<div class="header_bg">--%>
+		<%--<div class="header_info">--%>
+			<%--<ul class="li_text">--%>
+				<%--<ul class="li_text">--%>
+					<%--<li id="a">您好，${sessionScope.boss.name} —— <a href="<%= request.getContextPath()%>/boss/logout">退出</a></li>--%>
+					<%--<li><a href="#">卖家中心</a></li>--%>
+					<%--<li><a href="#">商城首页</a></li>--%>
+					<%--<li><a href="<%= request.getContextPath()%>/boss/shopadd_online">添加线上店</a></li>--%>
+				<%--</ul>--%>
+			<%--</ul>--%>
+		<%--</div>--%>
+	<%--</div>--%>
 	<div class="banner" style="background-color: #fff;">
 		<div class="banner_container" style="width: 850px;margin: 0 auto;height: 30px;padding: 10px 0;background-color: #fff;">
 			<a href="" class="logo" target="_blank"></a>

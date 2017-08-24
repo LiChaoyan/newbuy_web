@@ -243,17 +243,17 @@
 
 <body>
 <div class="header">
-    <div class="header_bg">
-        <div class="header_info">
-            <ul class="li_text">
-                <li id="a">您好，${sessionScope.boss.name} —— <a href="<%= request.getContextPath()%>/boss/logout">退出</a>
-                </li>
-                <li><a href="#">卖家中心</a></li>
-                <li><a href="#">商城首页</a></li>
-                <li><a href="<%= request.getContextPath()%>/boss/shopadd_outline">添加实体店</a></li>
-            </ul>
-        </div>
-    </div>
+    <%--<div class="header_bg">--%>
+        <%--<div class="header_info">--%>
+            <%--<ul class="li_text">--%>
+                <%--<li id="a">您好，${sessionScope.boss.name} —— <a href="<%= request.getContextPath()%>/boss/logout">退出</a>--%>
+                <%--</li>--%>
+                <%--<li><a href="#">卖家中心</a></li>--%>
+                <%--<li><a href="#">商城首页</a></li>--%>
+                <%--<li><a href="<%= request.getContextPath()%>/boss/shopadd_outline">添加实体店</a></li>--%>
+            <%--</ul>--%>
+        <%--</div>--%>
+    <%--</div>--%>
     <div class="banner" style="background-color: #fff;">
         <div class="banner_container"
              style="width: 850px;margin: 0 auto;height: 30px;padding: 10px 0;background-color: #fff;">
@@ -272,7 +272,6 @@
                 <label>店铺名称</label><input type="text" placeholder="请输入营业执照上的名称" name="shopname"><br>
                 <%--<label>店铺经理</label><input type="text" placeholder="请输入店铺经理姓名" name="" ><br>--%>
                 <label>联系方式</label><input type="text" placeholder="请输入店铺联系方式" name="shopcall"><br>
-
 
                 <label>选择您的所在地区</label>
                 <table style="width: 255px;">

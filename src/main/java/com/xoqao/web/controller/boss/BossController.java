@@ -81,6 +81,27 @@ public class BossController {
         return "shopkeeper/Login_shopkeeper";
     }
 
+
+
+    /**
+     * 店铺查看
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/shop_list")
+    public String article_list(Model model) throws Exception {
+        return "shopkeeper/article_list";
+    }
+//    商品管理
+    @RequestMapping("/product_list")
+    public String product_list(Model model) throws Exception {
+        return "shopkeeper/product_list";
+    }
+
+
+
+
     /**
      * 店主登录提交
      *
@@ -97,7 +118,7 @@ public class BossController {
             if (null != bossByStr && MD5Util.encode(password).equals(bossByStr.getPassword())) {
                 httpSession.setAttribute("boss", bossByStr);
                 model.addAttribute("error_msg", "登录成功！");
-                return "shopkeeper/shopadd_online";
+                return "shopkeeper/index_shopkeeper";
             } else {
                 model.addAttribute("error_msg", "登录失败，请检查输入信息是否正确");
             }
@@ -105,6 +126,17 @@ public class BossController {
             model.addAttribute("error_msg", "请输入正确的信息");
         }
         return "shopkeeper/Login_shopkeeper";
+    }
+
+    /**
+     * 进入店主首页概览
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/admin/index")
+    public String adminBossIndex(Model model)throws Exception{
+        return "shopkeeper/index_shopkeeper";
     }
 
     /**
@@ -181,8 +213,6 @@ public class BossController {
      */
     @RequestMapping("/shopadd_online")
     public String Regist_shop(Model model) throws Exception {
-
-
         return "shopkeeper/shopadd_online";
     }
 
