@@ -36,4 +36,22 @@ public class AddressSericelmpl implements AddressService {
     public void Addaddress(@Param("shipAddress") ShipAddress shipAddress)throws Exception{
         addressMapper.Addaddress(shipAddress);
     }
+    public ArrayList<ShipAddress> selectAddress(@Param("uid") int uid)throws Exception{
+        return addressMapper.selectAddress(uid);
+    }
+    public void Deleaddress(@Param("said")int said)throws Exception{
+        addressMapper.Deleaddress(said);
+    }
+    public void Upaddress(@Param("shipAddress") ShipAddress shipAddress)throws Exception{
+        addressMapper.Upaddress(shipAddress);
+    }
+    public void UpmoaddressAll(@Param("uid") int uid)throws Exception{
+        addressMapper.UpmoaddressAll(uid);
+    }
+    public void Upmoaddress(@Param("said") int said)throws Exception{
+        addressMapper.Upmoaddress(said);
+    }
+    public int selectsizeByuid(@Param("uid") int uid)throws Exception{
+        return addressMapper.selectsizeByuid(uid);
+    }
 }

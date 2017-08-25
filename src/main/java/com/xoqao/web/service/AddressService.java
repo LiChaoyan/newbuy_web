@@ -16,4 +16,10 @@ public interface AddressService {
     ArrayList<Address> selectTowns(@Param("did")int did)throws Exception;
     ArrayList<Address> selectCommunity(@Param("tid")int tid)throws Exception;
     void Addaddress(@Param("shipAddress") ShipAddress shipAddress)throws Exception;
+    ArrayList<ShipAddress> selectAddress(@Param("uid") int uid)throws Exception;
+    void Deleaddress(@Param("said")int said)throws Exception;
+    void Upaddress(@Param("shipAddress") ShipAddress shipAddress)throws Exception;
+    void UpmoaddressAll(@Param("uid") int uid)throws Exception;
+    void Upmoaddress(@Param("said") int said)throws Exception;
+    int selectsizeByuid(@Param("uid") int uid)throws Exception;
 }

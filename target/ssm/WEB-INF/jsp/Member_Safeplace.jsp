@@ -323,7 +323,7 @@ h2 {
                 <td align="right">收货人姓名</td>
                   <td style="font-family:'宋体';"><input type="text" placeholder="请输入姓名"  class="add_ipt ad_name" /><span class="ad_name_text">（必填）</span></td>
                 <td align="right">性别</td>
-                <td style="font-family:'宋体';"><input type="text" placeholder="请输入性别" class="add_ipt ad_sex" /><span class="ad_sex_text">（必填）</span></td></td>
+                  <td style="font-family:'宋体';">男：<input type="radio" value="男" name="sex" class="add_ipt ad_sex" style="width:30px;"/>女：<input type="radio" name="sex" value="女" class="add_ipt ad_sex" style="width:30px;"/><span class="ad_sex_text">（必选）</span></td></td>
               </tr>
               <tr>
                 <td align="right">手机号</td>
@@ -333,45 +333,41 @@ h2 {
               </tr>
             </table>
             <p align="right">
-                <a href="#" calss="add_cancel">取消</a>&nbsp; &nbsp; <a href="#" class="add_b">确定</a>
+                <a href="#" calss="add_cancel">取消</a>&nbsp; &nbsp; <a href="#" class="add_b yuan-in">确定</a>
             </p> 
 
             <!-- 已保存的收货地址展示 -->
             <h2>已保存的收货地址</h2>
                 <table border="0" class="order_tab" style="width:930px; text-align:center; margin-bottom:30px;" cellspacing="0" cellpadding="0">
-              <tr>                                                                                                                                                    
-                <td width="130">收货人姓名</td>
-                <td width="130">手机号</td>
-                <td width="130">性别</td>
-                <td width="130">邮编</td>
-                <td width="320">详细地址</td>
-                <td width="100"></td>
-              </tr>
-              <tr>
-                <td>张三</td>
-                <td>15133366666</td>
-                <td>6908765</td>
-                <td>000000</td>
-                <td>河南省郑州市新郑市龙湖镇祥和路一号河南工程学院西区B01-333</td>
-                <td><a href="#">删除&nbsp;&nbsp;</a><a onclick="ShowDiv_1('MyDiv1','fade1')" style="color:#ff4e00;">&nbsp;&nbsp;编辑</a></td>
-              </tr>
-              <tr>
-                <td>李四</td>
-                <td>15133366666</td>
-                <td>6908765</td>
-                <td>000000</td>
-                <td>河南省郑州市新郑市龙湖镇祥和路一号河南工程学院西区B01-333</td>
-                <td><a href="#">删除&nbsp;&nbsp;</a><a onclick="ShowDiv_1('MyDiv1','fade1')" style="color:#ff4e00;">&nbsp;&nbsp;编辑</a></td>
-              </tr>
-              <tr>
-                <td>王五</td>
-                <td>15133366666</td>
-                <td>6908765</td>
-                <td>000000</td>
-                <td>河南省郑州市新郑市龙湖镇祥和路一号河南工程学院西区B01-333</td>
-                <td><a href="#">删除&nbsp;&nbsp;</a><a onclick="ShowDiv_1('MyDiv1','fade1')"  style="color:#ff4e00;">&nbsp;&nbsp;编辑</a></td>
-              </tr>
-            </table>
+                    <tr>
+                        <td width="130">收货人姓名</td>
+                        <td width="130">手机号</td>
+                        <td width="130">性别</td>
+                        <td width="130">邮编</td>
+                        <td width="320">详细地址</td>
+                        <td width="100"></td>
+                    </tr>
+                    <c:forEach items="${ShipAddress}" var="address">
+                        <tr>
+                            <td><span class="ad_name">${address.name}</span>&nbsp;&nbsp;<span class="td_mo">${address.statue}</span><input type="hidden" class="ad_said" value="${address.said}"/></td>
+                            <td class="ad_phone">${address.phone}</td>
+                            <td class="ad_sex">${address.sexword}</td>
+                            <td class="ad_zip">${address.zip}</td>
+                            <td><span class="ad_address">${address.address}</span>
+                                <input type="hidden" class="h-province" value="${address.province}"/>
+                                <input type="hidden" class="h-city" value="${address.city}"/>
+                                <input type="hidden" class="h-district" value="${address.district}"/>
+                                <input type="hidden" class="h-towns" value="${address.towns}"/>
+                                <input type="hidden" class="h-community" value="${address.community}"/>
+                            </td>
+                            <td>
+                                <a class="ad_smo">设为默认</a>
+                                <a class="ad_dele">&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;</a>
+                                <a class="ad_bianji" <%--onclick="ShowDiv_1('MyDiv1','fade1')"--%> style="color:#ff4e00;">&nbsp;&nbsp;编辑</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
             
             </div>
         </div>
@@ -379,91 +375,98 @@ h2 {
 
     <!--Begin 弹出层-编辑收货地址 Begin-->
     <div id="fade1" class="black_overlay"></div>
-    <div id="MyDiv1" class="white_content">             
-        <div class="white_d">
-            <div class="notice_t">
+    <div id="MyDiv1" class="white_content" style="width: 1000px;">
+        <div class="white_d" style="width: 1000px;">
+            <div class="notice_t" style="width: 950px;">
                 <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv_1('MyDiv1','fade1')"><img src="<%= request.getContextPath()%>/Picture/close.gif" /></span>
             </div>
 
-          <div class="notice_c">               
+          <div class="notice_c" style="width: 950px;">
             <h2>修改收货地址</h2>
             <table border="0" class="add_tab" style="width:930px;"  cellspacing="0" cellpadding="0">
              <tr>
                 <td width="135" align="right">配送地区</td>
                 <td colspan="3" style="font-family:'宋体';" class="tan">
-                  <select name="sweets">
-                    <option>河南省</option>
-                    <option>河北省</option>
-                    <option>河南省</option>
-                    <option>山东省</option>
-                    <option>四川省</option>
-                    <option>云南省</option>
+                  <select name="sweets" class="address-province">
+                      <option value="0">省</option>
+                      <c:forEach items="${Province}" var="province">
+                          <option value="${province.pid}">${province.province}</option>
+                      </c:forEach>
                   </select>
-                  <select name="sweets">
-                    <option>郑州市</option>
-                    <option>北京市</option>
-                    <option>上海市</option>
-                    <option>广州市</option>
-                    <option>深圳市</option>
-                    <option>天津市</option>
+                  <select name="sweets" class="address-city">
+                      <option value="0">市</option>
                   </select>
-                  <select name="sweets">
-                    <option>新郑市</option>
-                    <option>新郑</option>
-                    <option>金水区</option>
-                    <option>高新区</option>
-                    <option>丰润区</option>
-                    <option>滦南</option>
+                  <select name="sweets" class="address-district">
+                      <option value="0">地区</option>
                   </select>
-                  <select name="sweets">
-                    <option>龙湖镇</option>
-                    <option>乡镇1</option>
-                    <option>乡镇2</option>
-                    <option>乡镇3</option>
-                    <option>乡镇4</option>
-                    <option>乡镇5</option>
+                  <select name="sweets" class="address-towns">
+                      <option value="0">乡镇</option>
                   </select>
-                  <select name="sweets">
-                    <option>沙窝里村</option>
-                    <option>社区1</option>
-                    <option>社区2</option>
-                    <option>社区3</option>
-                    <option>社区4</option>
-                    <option>社区5</option>
+                  <select name="sweets" class="address-community">
+                      <option value="0">社区</option>
                   </select>(请将具体收货地址在下面的输入框补全)</br>
-              <input type="text" name="" id="inp" value="河南省郑州市新郑市龙湖镇沙窝里村3排9号" class="add_ipt1">
-            <!-- <button class="btn">确定</button> -->
-            
+                  <input type="text" name="" id="inp" value="河南省郑州市新郑市龙湖镇沙窝里村3排9号" class="add_ipt1 ad_address">
+                  <!-- <button class="btn">确定</button> -->
+
                 </td>
-              </tr>   
+              </tr>
               <tr>
                 <td align="right">收货人姓名</td>
-                <td style="font-family:'宋体';"><input type="text" value="张三" class="add_ipt" /></td>
+                <td style="font-family:'宋体';"><input type="text" value="张三" class="add_ipt ad_name" /><span class="ad_name_text"></span><input type="hidden" class="ad_said" value=""/></td>
                 <td align="right">性别</td>
-                <td style="font-family:'宋体';"><input type="text" value="男" class="add_ipt" /></td>
+                <td style="font-family:'宋体';">男：<input type="radio" name="sex" value="男" class="add_ipt ad_sex" style="width:30px;" />女：<input type="radio" name="sex" value="女" class="add_ipt ad_sex" style="width:30px;"/><span class="ad_sex_text"></span></td>
               </tr>
               <tr>
                 <td align="right">手机号</td>
-                <td style="font-family:'宋体';"><input type="text" value="15144369875" class="add_ipt" /></td>
+                <td style="font-family:'宋体';"><input type="text"  value="15144369875" class="add_ipt ad_phone" /><span class="ad_phone_text"></span></td>
                 <td align="right">邮编</td>
-                <td style="font-family:'宋体';"><input type="text" value="000000" class="add_ipt" /></td>
+                <td style="font-family:'宋体';"><input type="text"  value="000000" class="add_ipt ad_zip" /><span class="ad_zip_text"></span></td>
               </tr>
             </table>
             <p align="right">
-                <a href="#">取消</a>&nbsp; &nbsp; <a href="#" class="add_b">保存</a>
-            </p>        
+                <a href="#" class="add_b tan-up">保存</a>
+            </p>
             </div>
         </div>
     </div>
     <script type="text/javascript">
+        //默认地址
+        $(".td_mo").each(function(index){
+           var statue=$(this).text();
+           if(statue=="1"){
+               $(this).addClass("mo");
+               $(this).text("(默认地址)");
+               $(this).parents("tr").find(".ad_smo").text("");
+           }else{
+               $(this).text("");
+           }
+        });
+        $(".ad_smo").click(function(){
+            var yuanmo=$(this).parents(".order_tab").find(".mo");
+            yuanmo.parents("tr").find(".ad_smo").text("设为默认");
+            yuanmo.text("");
+            yuanmo.removeClass("mo");
+
+
+            var said=$(this).parents("tr").find(".ad_said").val();
+            alert("said "+said);
+            var url = "<%=request.getContextPath()%>/upmoaddress";
+            var args = {"said": said,"time": new Date()};
+            $.getJSON(url, args, function (data) {});
+            //修改页面内的
+
+            var xmo=$(this).parents("tr").find(".td_mo");
+            xmo.text("(默认地址)");
+            xmo.addClass("mo");
+            $(this).parents("tr").find(".ad_smo").text("");
+
+        });
         //验证
         $(".ad_name").blur(function(){
             var name=$(this).val();
             var FFF=$(this).parents("td").find(".ad_name_text");
             var testname = /^[\u4E00-\u9FA5A-Za-z]+$/;
-            if(name=="请输入姓名"){
-                FFF.text("姓名不可以为空！")
-            }else if(!testname.test(name)){
+            if(!testname.test(name)){
                 FFF.text("只能输入中文和英文");
             }else{
                 FFF.text("通过");
@@ -473,24 +476,17 @@ h2 {
             var phone=$(this).val();
             var FFF=$(this).parents("td").find(".ad_phone_text");
             var testphone=/^1[34578]\d{9}$/;
-            if(phone=="请输入手机号"){
-                FFF.text("手机号不可以为空");
-            }else if(!(testphone.test(phone))){
+            if(!(testphone.test(phone))){
                 FFF.text("手机号码有误");
             }else{
                 FFF.text("通过");
             }
         });
-        $(".ad_sex").blur(function(){
+        //性别选择
+        $(".ad_sex").click(function(){
             var sex=$(this).val();
             var FFF=$(this).parents("td").find(".ad_sex_text");
-            if(sex=="请输入性别"){
-                FFF.text("性别不可以为空");
-            }else if(sex=="男"||sex=="女"){
                 FFF.text("通过");
-            }else{
-                FFF.text("请填写男或女");
-            }
         });
         $(".ad_youbian").blur(function(){
             var youbian=$(this).val();
@@ -503,45 +499,34 @@ h2 {
             }
         });
         //确定保存
-        $(".add_b").click(function(){
-            var address_text=$(this).parents(".m_right").find(".address-community option:selected").val();
-            var name_text=$(this).parents(".m_right").find(".ad_name_text").val();
-            var sex_text=$(this).parents(".m_right").find(".ad_sex_text").val();
-            var phone_text=$(this).parents(".m_right").find(".ad_phone_text").val();
-            var youbian_text=$(this).parents(".m_right").find(".ad_youbian_text").val();
+        $(".yuan-in").click(function(){
+
+            var name_text=$(this).parents(".m_right").find(".ad_name_text").text();
+            var sex_text=$(this).parents(".m_right").find(".ad_sex_text").text();
+            var phone_text=$(this).parents(".m_right").find(".ad_phone_text").text();
+            var youbian_text=$(this).parents(".m_right").find(".ad_youbian_text").text();
 
             var address=$("#inp").val();
             var name=$(this).parents(".m_right").find(".ad_name").val();
-            var sex=$(this).parents(".m_right").find(".ad_sex").val();
+            var sex=$(this).parents(".m_right").find('input:radio[name="sex"]:checked').val();
             var phone=$(this).parents(".m_right").find(".ad_phone").val();
-            var youbian=$(this).parents(".m_right").find(".ad_youbian").val();
-            if(address!=null){
-                alert("dizhi:"+address);
-                if(address!=null){
-                if(sex=="男"){
-                    sex=0;
-                }else {
-                    sex=1;
-                }
+            var youbian;
+            if(youbian_text=="通过"&&youbian_text==""){
+                 youbian=$(this).parents(".m_right").find(".ad_youbian").val();
+            }else{
+                 youbian="";
+            }
 
+            if(address!=null){
+                //alert(address);
+               // alert(name_text+" "+sex_text+" "+phone_text)
+                if(name_text=="通过"&&sex_text=="通过"&&phone_text=="通过"){
+                    alert("hfeowfioewg");
                 var url = "<%=request.getContextPath()%>/adaddress";
                 var args = {"address": address,"name":name,"phone":phone,"sex":sex,"zip":youbian,"time": new Date()};
-                $.getJSON(url, args, function (data) {
-                        alert("地址回调函数");
-                    }
-                );
-                }
-                //并展示到
-                var td1="<td>"+name+"</td>";
-                var td2="<td>"+phone+"</td>";
-                var td3="<td>"+sex+"</td>";
-                var td4="<td>"+youbian+"</td>";
-                var td5="<td>"+address+"</td>";
-                var style_text="color:#ff4e00;";
-                var td6="<td><a href='#'>删除&nbsp;&nbsp;</a><a onclick='ShowDiv_1('MyDiv1','fade1')' style='"+style_text+"'>&nbsp;&nbsp;编辑</a></td>";
-
-                $(".order_tab").append("<tr class='td_new'></tr>");
-                $(".td_new").append(td1,td2,td3,td4,td5,td6);
+                $.getJSON(url, args, function (data) {});
+                window.location.href="<%=request.getContextPath()%>/Member_Safeplace";
+                }//if
 
             }else{
                 alert("请填写完整信息！");
@@ -557,13 +542,24 @@ h2 {
             $(this).parents(".m_right").find(".ad_youbian").val("");
         });
         //地址获取
+
         $(".yuan select").change(function () {
-          var str = "";
-          $(".yuan select option:selected").each(function () {
-                    str += $(this).text() + " ";
-          });
-          $('.yuan #inp').val(str);
+
+            var t2=$(this).parents(".yuan").find(".address-city");
+            var t3=$(this).parents(".yuan").find(".address-district");
+            var t4=$(this).parents(".yuan").find(".address-towns");
+            var t5=$(this).parents(".yuan").find(".address-community");
+
             if($(this).hasClass("address-province")){
+                t2.css("display","inline");
+                t3.css("display","inline");
+                t4.css("display","inline");
+                t5.css("display","inline");
+
+                $(this).parents(".yuan").find(".address-city option:gt(0)").remove();
+                $(this).parents(".yuan").find(".address-district option:gt(0)").remove();
+                $(this).parents(".yuan").find(".address-towns option:gt(0)").remove();
+                $(this).parents(".yuan").find(".address-community option:gt(0)").remove();
                 var province_pid = $(this).val().toString();
                 if (province_pid != 0) {
                     var url = "<%=request.getContextPath()%>/adcity";
@@ -572,14 +568,28 @@ h2 {
                             for (var i = 0; i < data.length; i++) {
                                 var cityid=data[i].cityid;
                                 var city = data[i].cityname;
-                                $(".address-city").append("<option value ='" + cityid + "'>" + city + "</option>");
+                                $(".yuan .address-city").append("<option value ='" + cityid + "'>" + city + "</option>");
                             }
+                        if(data.length==0){
+                            t2.css("display","none");
+                            t3.css("display","none");
+                            t4.css("display","none");
+                            t5.css("display","none");
+                        }
+
                         }
                     );
 
                 }
             }
             if($(this).hasClass("address-city")){
+                t3.css("display","inline");
+                t4.css("display","inline");
+                t5.css("display","inline");
+
+                $(this).parents(".yuan").find(".address-district option:gt(0)").remove();
+                $(this).parents(".yuan").find(".address-towns option:gt(0)").remove();
+                $(this).parents(".yuan").find(".address-community option:gt(0)").remove();
                 var cityid = $(this).val().toString();
                 if (cityid != 0) {
                     var url = "<%=request.getContextPath()%>/addistrict";
@@ -588,14 +598,24 @@ h2 {
                             for (var i = 0; i < data.length; i++) {
                                 var did=data[i].did;
                                 var districtname = data[i].districtname;
-                                $(".address-district").append("<option value ='" + did + "'>" + districtname + "</option>");
+                                $(".yuan .address-district").append("<option value ='" + did + "'>" + districtname + "</option>");
                             }
+                        if(data.length==0){
+                            t3.css("display","none");
+                            t4.css("display","none");
+                            t5.css("display","none");
+                        }
                         }
                     );
 
                 }
             }
             if($(this).hasClass("address-district")){
+                t4.css("display","inline");
+                t5.css("display","inline");
+
+                $(this).parents(".yuan").find(".address-towns option:gt(0)").remove();
+                $(this).parents(".yuan").find(".address-community option:gt(0)").remove();
                 var did = $(this).val().toString();
                 if (did != 0) {
                     var url = "<%=request.getContextPath()%>/adtowns";
@@ -604,14 +624,21 @@ h2 {
                             for (var i = 0; i < data.length; i++) {
                                 var tid=data[i].tid;
                                 var townsname = data[i].townsname;
-                                $(".address-towns").append("<option value ='" + tid + "'>" + townsname + "</option>");
+                                $(".yuan .address-towns").append("<option value ='" + tid + "'>" + townsname + "</option>");
                             }
+                        if(data.length==0){
+                            t4.css("display","none");
+                            t5.css("display","none");
+                        }
+
                         }
                     );
 
                 }
             }
             if($(this).hasClass("address-towns")){
+                t5.css("display","inline");
+                $(this).parents(".yuan").find(".address-community option:gt(0)").remove();
                 var tid = $(this).val().toString();
                 if (tid != 0) {
                     var url = "<%=request.getContextPath()%>/adcommunity";
@@ -620,23 +647,324 @@ h2 {
                             for (var i = 0; i < data.length; i++) {
                                 var cid=data[i].cid;
                                 var communityname = data[i].communityname;
-                                $(".address-community").append("<option value ='" + cid + "'>" + communityname + "</option>");
+                                $(".yuan .address-community").append("<option value ='" + cid + "'>" + communityname + "</option>");
+                            }
+                            if(data.length==0){
+                                    t5.css("display","none");
                             }
                         }
                     );
 
                 }
             }
+
+            var str = "";
+            $(".yuan select option:selected").each(function () {
+                if($(this).val()!=0){
+                str += $(this).text() + " ";
+                }
+            });
+            $('.yuan #inp').val(str);
         });
 
-          $(".tan select").change(function () {
-          var str = "";
+        //删除
+        $(".ad_dele").click(function(){
+            var said=$(this).parents("tr").find(".ad_said").val();
+            var url = "<%=request.getContextPath()%>/deleaddress";
+            var args = {"said": said, "time": new Date()};
+            $.getJSON(url, args, function (data) {});
+            //删除页面内的
+            $(this).parents("tr").css("display","none");
+        })
+
+        $(".tan select").change(function () {
+
+              var t2=$(this).parents(".tan").find(".address-city");
+              var t3=$(this).parents(".tan").find(".address-district");
+              var t4=$(this).parents(".tan").find(".address-towns");
+              var t5=$(this).parents(".tan").find(".address-community");
+
+
+              if($(this).hasClass("address-province")){
+                  t2.css("display","inline");
+                  t3.css("display","inline");
+                  t4.css("display","inline");
+                  t5.css("display","inline");
+
+                  $(this).parents(".tan").find(".address-city option:gt(0)").remove();
+                  $(this).parents(".tan").find(".address-district option:gt(0)").remove();
+                  $(this).parents(".tan").find(".address-towns option:gt(0)").remove();
+                  $(this).parents(".tan").find(".address-community option:gt(0)").remove();
+                  var province_pid = $(this).val().toString();
+                  if (province_pid != 0) {
+                      var url = "<%=request.getContextPath()%>/adcity";
+                      var args = {"pid": province_pid, "time": new Date()};
+                      $.getJSON(url, args, function (data) {
+                              for (var i = 0; i < data.length; i++) {
+                                  var cityid=data[i].cityid;
+                                  var city = data[i].cityname;
+                                  $(".tan .address-city").append("<option value ='" + cityid + "'>" + city + "</option>");
+                              }
+                              if(data.length==0){
+                                  t2.css("display","none");
+                                  t3.css("display","none");
+                                  t4.css("display","none");
+                                  t5.css("display","none");
+                              }
+
+                          }
+                      );
+
+                  }
+              }
+              if($(this).hasClass("address-city")){
+                  t3.css("display","inline");
+                  t4.css("display","inline");
+                  t5.css("display","inline");
+
+                  $(this).parents(".tan").find(".address-district option:gt(0)").remove();
+                  $(this).parents(".tan").find(".address-towns option:gt(0)").remove();
+                  $(this).parents(".tan").find(".address-community option:gt(0)").remove();
+                  var cityid = $(this).val().toString();
+                  if (cityid != 0) {
+                      var url = "<%=request.getContextPath()%>/addistrict";
+                      var args = {"cityid": cityid, "time": new Date()};
+                      $.getJSON(url, args, function (data) {
+                              for (var i = 0; i < data.length; i++) {
+                                  var did=data[i].did;
+                                  var districtname = data[i].districtname;
+                                  $(".tan .address-district").append("<option value ='" + did + "'>" + districtname + "</option>");
+                              }
+                              if(data.length==0){
+                                  t3.css("display","none");
+                                  t4.css("display","none");
+                                  t5.css("display","none");
+                              }
+                          }
+                      );
+
+                  }
+              }
+              if($(this).hasClass("address-district")){
+                  t4.css("display","inline");
+                  t5.css("display","inline");
+
+                  $(this).parents(".tan").find(".address-towns option:gt(0)").remove();
+                  $(this).parents(".tan").find(".address-community option:gt(0)").remove();
+                  var did = $(this).val().toString();
+                  if (did != 0) {
+                      var url = "<%=request.getContextPath()%>/adtowns";
+                      var args = {"did": did, "time": new Date()};
+                      $.getJSON(url, args, function (data) {
+                              for (var i = 0; i < data.length; i++) {
+                                  var tid=data[i].tid;
+                                  var townsname = data[i].townsname;
+                                  $(".tan .address-towns").append("<option value ='" + tid + "'>" + townsname + "</option>");
+                              }
+                              if(data.length==0){
+                                  t4.css("display","none");
+                                  t5.css("display","none");
+                              }
+
+                          }
+                      );
+
+                  }
+              }
+              if($(this).hasClass("address-towns")){
+                  t5.css("display","inline");
+                  $(this).parents(".tan").find(".address-community option:gt(0)").remove();
+                  var tid = $(this).val().toString();
+                  if (tid != 0) {
+                      var url = "<%=request.getContextPath()%>/adcommunity";
+                      var args = {"tid": tid, "time": new Date()};
+                      $.getJSON(url, args, function (data) {
+                              for (var i = 0; i < data.length; i++) {
+                                  var cid=data[i].cid;
+                                  var communityname = data[i].communityname;
+                                  $(".tan .address-community").append("<option value ='" + cid + "'>" + communityname + "</option>");
+                              }
+                              if(data.length==0){
+                                  t5.css("display","none");
+                              }
+                          }
+                      );
+
+                  }
+              }
+
+              var str = "";
           $(".tan select option:selected").each(function () {
                     str += $(this).text() + " ";
           });
           $('.tan #inp').val(str);
         })
-      <%-- .onchange();--%>
+        //编辑
+        $(".ad_bianji").click(function(){
+
+            var said=$(this).parents("tr").find(".ad_said").val();
+            var name=$(this).parents("tr").find(".ad_name").text();
+            var phone=$(this).parents("tr").find(".ad_phone").text();
+            var zip=$(this).parents("tr").find(".ad_zip").text();
+            var sex=$(this).parents("tr").find(".ad_sex").text();
+            var address=$(this).parents("tr").find(".ad_address").text();
+
+            $(".notice_c .ad_said").val(said);
+            $('.tan #inp').val(address);
+            $(".notice_c .ad_name").val(name);
+            $(".notice_c .ad_phone").val(phone);
+            $(".notice_c .ad_zip").val(zip);
+
+            $(".notice_c input[name=sex][value='"+sex+"']").attr("checked",true);
+            <%--$(".notice_c").find("input[@type=radio]").attr("checked",sex);--%>
+            var province=$(this).parents("tr").find(".h-province").val();
+            var city=$(this).parents("tr").find(".h-city").val();
+            var district=$(this).parents("tr").find(".h-district").val();
+            var towns=$(this).parents("tr").find(".h-towns").val();
+            var community=$(this).parents("tr").find(".h-community").val();
+            //1.
+
+            //$(".tan .address-province option[text='"+province+"']").attr("selected", true);
+            $(".tan .address-province option").each(function(){
+                if($(this).text()==province){
+                    var province_id=$(this).val();
+                    $(".tan .address-province").val(province_id);
+                }
+            });
+            var province_pid=$(".tan .address-province option:selected").val();
+            if (province_pid != 0) {
+                var url = "<%=request.getContextPath()%>/adcity";
+                var args = {"pid": province_pid, "time": new Date()};
+                $.getJSON(url, args, function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                            var tcityid=data[i].cityid;
+                            var tcity = data[i].cityname;
+                            $(".address-city").append("<option value ='" + tcityid + "'>" + tcity + "</option>");
+                        }
+                    //2.
+
+                    //$(".tan .address-city option[text='"+city+"']").attr("selected", true);
+                    $(".tan .address-city option").each(function(){
+                        if($(this).text()==city){
+                            var cityid=$(this).val();
+                            $(".tan .address-city").val(cityid);
+                            //alert("选中 "+cityid);
+                        }
+                    });
+                    var cityid=$(".tan .address-city option:selected").val();
+                    if (cityid != 0) {
+                        var url = "<%=request.getContextPath()%>/addistrict";
+                        var args = {"cityid": cityid, "time": new Date()};
+                        $.getJSON(url, args, function (data) {
+                                for (var i = 0; i < data.length; i++) {
+                                    var tdid = data[i].did;
+                                    var tdistrictname = data[i].districtname;
+                                    $(".address-district").append("<option value ='" + tdid + "'>" + tdistrictname + "</option>");
+                                }
+                            //3.
+                            //$(".tan .address-district option[text='"+district+"']").attr("selected", true);
+                            $(".tan .address-district option").each(function(){
+                                if($(this).text()==district){
+                                    var did=$(this).val();
+                                    $(".tan .address-district").val(did);
+                                }
+                            });
+                            var did=$(".tan .address-district option:selected").val();
+                            if (did != 0) {
+                                var url = "<%=request.getContextPath()%>/adtowns";
+                                var args = {"did": did, "time": new Date()};
+                                $.getJSON(url, args, function (data) {
+                                        for (var i = 0; i < data.length; i++) {
+                                            var ttid=data[i].tid;
+                                            var ttownsname = data[i].townsname;
+                                            $(".address-towns").append("<option value ='" + ttid + "'>" + ttownsname + "</option>");
+                                        }
+                                    //4.
+                                    //$(".tan .address-towns option[text='"+towns+"']").attr("selected", true);
+                                    $(".tan .address-towns option").each(function(){
+                                        if($(this).text()==towns){
+                                            var tid=$(this).val();
+                                            $(".tan .address-towns").val(tid);
+                                        }
+                                    });
+                                    var tid=$(".tan .address-towns option:selected").val();
+                                    if (tid != 0) {
+                                        var url = "<%=request.getContextPath()%>/adcommunity";
+                                        var args = {"tid": tid, "time": new Date()};
+                                        $.getJSON(url, args, function (data) {
+                                                for (var i = 0; i < data.length; i++) {
+                                                    var tcid=data[i].cid;
+                                                    var tcommunityname = data[i].communityname;
+                                                    $(".address-community").append("<option value ='" + tcid + "'>" + tcommunityname + "</option>");
+                                                }
+                                            //5.
+                                            //$(".tan .address-community option[text='"+community+"']").attr("selected", true);
+                                            $(".tan .address-community option").each(function(){
+                                                if($(this).text()==community){
+                                                    var cid=$(this).val();
+                                                    $(".tan .address-community").val(cid);
+                                                }
+                                            });
+                                            //var zui=$(".tan .address-community option:selected").text();
+                                            }
+                                        );
+
+                                    }
+                                    }
+                                );
+
+                            }
+                            }
+                        );
+
+                    }
+                    }
+                );
+
+            }
+
+            //alert(province_pid+" "+cityid+" "+did+" "+tid+" "+zui);
+
+
+            ShowDiv_1('MyDiv1','fade1');
+        });
+
+        //更新
+        $(".tan-up").click(function(){
+
+            var name_text=$(this).parents(".notice_c").find(".ad_name_text").text();
+            var sex_text=$(this).parents(".notice_c").find(".ad_sex_text").text();
+            var phone_text=$(this).parents(".notice_c").find(".ad_phone_text").text();
+            var youbian_text=$(this).parents(".notice_c").find(".ad_youbian_text").text();
+
+            var said=$(this).parents(".notice_c").find(".ad_said").val();
+            var address=$(".tan #inp").val();
+            var name=$(this).parents(".notice_c").find(".ad_name").val();
+            var sex=$(this).parents(".notice_c").find('input:radio[name="sex"]:checked').val();
+            var phone=$(this).parents(".notice_c").find(".ad_phone").val();
+            var youbian;
+            if(youbian_text=="通过"){
+                youbian=$(this).parents(".notice_c").find(".ad_youbian").val();
+            }else{
+                youbian="";
+            }
+
+            if(address!=null){
+
+                if((name_text=="通过"||name_text=="")&&(sex_text=="通过"||sex_text=="")&&(phone_text=="通过"||phone_text=="")){
+
+                    var url = "<%=request.getContextPath()%>/upaddress";
+                    var args = {"said":said,"address": address,"name":name,"phone":phone,"sex":sex,"zip":youbian,"time": new Date()};
+                    $.getJSON(url, args, function (data) {});
+                    //并展示到
+                    window.location.href="<%=request.getContextPath()%>/Member_Safeplace";
+                }//if
+
+            }else{
+                alert("请填写完整信息！");
+            }
+        });
+
 
     </script>
 	<!--End 用户中心 End--> 

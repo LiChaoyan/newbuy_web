@@ -116,11 +116,15 @@ public class DemoController {
     }
 
     @RequestMapping("/Member_Safeplace")
-    public String Member_Safeplace(Model model) throws Exception {
+    public String Member_Safeplace(Model model,HttpServletRequest request,HttpServletResponse response) throws Exception {
         //收货地值第一级
         try {
             ArrayList<Address> provinceArrayList = addressService.selectProvince();
             model.addAttribute("Province",provinceArrayList);
+           // int uid=Integer.parseInt(request.getSession().getAttribute("uid").toString());
+            int uid=6;
+            ArrayList<ShipAddress> addresses=addressService.selectAddress(uid);
+            model.addAttribute("ShipAddress",addresses);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -201,12 +205,65 @@ public class DemoController {
         shipAddress.setAddress(request.getParameter("address"));
         shipAddress.setName(request.getParameter("name"));
         shipAddress.setPhone(request.getParameter("phone"));
-        shipAddress.setSex(Integer.parseInt(request.getParameter("sex")));
+        shipAddress.setSexword(request.getParameter("sex"));
         shipAddress.setZip(request.getParameter("zip"));
         int uid=6;//Integer.parseInt(request.getSession().getAttribute("uid"));
         shipAddress.setUid(uid);
         try {
+            int size=addressService.selectsizeByuid(uid);
+            if(size==0){
+                shipAddress.setStatue(1);
+            }
             addressService.Addaddress(shipAddress);
+            String json="已添加";
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json; charset=utf-8");
+            response.getWriter().write(json);
+            response.getWriter().flush();
+            response.getWriter().close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/deleaddress")
+    public void DeleAddress(HttpServletResponse response,HttpServletRequest request)throws Exception{
+        //收货地址删除
+        int said=Integer.parseInt(request.getParameter("said"));
+        try {
+            addressService.Deleaddress(said);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/upaddress")
+    public void UpAddress(HttpServletResponse response,HttpServletRequest request)throws Exception{
+        //收货地址更新
+        ShipAddress shipAddress=new ShipAddress();
+        shipAddress.setSaid(Integer.parseInt(request.getParameter("said")));
+        shipAddress.setAddress(request.getParameter("address"));
+        shipAddress.setName(request.getParameter("name"));
+        shipAddress.setPhone(request.getParameter("phone"));
+        shipAddress.setSexword(request.getParameter("sex"));
+        shipAddress.setZip(request.getParameter("zip"));
+        int uid=6;//Integer.parseInt(request.getSession().getAttribute("uid"));
+        shipAddress.setUid(uid);
+        try {
+            addressService.Upaddress(shipAddress);
+            System.out.println("更新地址");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/upmoaddress")
+    public void UpmoAddress(HttpServletResponse response,HttpServletRequest request)throws Exception{
+        //收货地址删除
+        int said=Integer.parseInt(request.getParameter("said"));
+        int uid=6;//Integer.parseInt(request.getSession().getAttribute("uid"));
+        try {
+            addressService.UpmoaddressAll(uid);
+            addressService.Upmoaddress
+                    (said);
         }catch (Exception e){
             e.printStackTrace();
         }
