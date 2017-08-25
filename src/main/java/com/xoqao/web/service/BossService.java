@@ -15,4 +15,5 @@ public interface BossService {
     List<Boss> selectBossByphone(String phone)throws Exception;
     List<Boss> selectBossBysid(int sid)throws Exception;
     void upBossphone(Boss boss)throws Exception;
+
 }

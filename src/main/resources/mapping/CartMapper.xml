@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xoqao.web.dao.CartMapper" >
+    <select id="selectGoods" resultType="com.xoqao.web.bean.commodity.Cart">
+        SELECT *
+        from commodities_cart
+        where cid='${cart.cid}' and commodity_name='${cart.commodity_name}' and commodity_pic='${cart.commodity_pic}' and commodity_select='${cart.commodity_select}' and shopname='${cart.shopname}' and sid='${cart.sid}' and uid='${cart.uid}' and price='${cart.price}'
+    </select>
     <select id="Addto" resultType="com.xoqao.web.bean.commodity.Cart">
-        INSERT into commodities_cart(amount,cid,commodity_name,commodity_pic,commodity_select,shopname,sid,price) VALUES ('${cart.amount}','${cart.cid}','${cart.commodity_name}','${cart.commodity_pic}','${cart.commodity_select}','${cart.shopname}','${cart.sid}','${cart.price}')
+        INSERT into commodities_cart(amount,cid,commodity_name,commodity_pic,commodity_select,shopname,sid,uid,price) VALUES ('${cart.amount}','${cart.cid}','${cart.commodity_name}','${cart.commodity_pic}','${cart.commodity_select}','${cart.shopname}','${cart.sid}','${cart.uid}','${cart.price}')
     </select>
     <select id="selectCart" resultType="com.xoqao.web.bean.commodity.Cart">
-        select * from commodities_cart;
+        select * from commodities_cart where uid='${uid}'
     </select>
     <!--查询返回弹窗的数量-->
     <select id="selectNum" resultType="com.xoqao.web.bean.commodity.Cart">
         SELECT count(*) as num,sum(commodities_cart.amount) as jiannum,sum(price*amount) as money
         from commodities_cart
+        where uid='${cart.uid}'
     </select>
     <delete id="deleCart">
         DELETE from commodities_cart where cbid='${cart.cbid}'
@@ -21,40 +27,44 @@
     <!--根据cbid查找信息-->
     <select id="selectCartBycbid" resultType="com.xoqao.web.bean.commodity.Cart">
         SELECT * from commodities_cart
-        where cbid='${cart.cbid}'
+        where cbid='${cbid}'
     </select>
     <!--添加订单-->
     <select id="AddOrder" >
-       INSERT INTO orders(uid,count,totalprice,number,sid)
-       VALUES ('${order.uid}','${order.count}','${order.totalprice}','${order.number}','${order.sid}')
+       INSERT INTO orders(uid,count,totalprice,number,sid,statue,createtime,said,openstatue,freight)
+       VALUES ('${order.uid}','${order.count}','${order.totalprice}','${order.number}','${order.sid}','${order.statue}','${order.createtime}','${order.said}','${order.openstatue}','${order.freight}')
     </select>
     <!--查询添加语句的主键-->
     <select id="selectAddoid" resultType="int">
-        SELECT MAX(oid)
+        SELECT max(oid)
         from orders
+        where uid='${order.uid}' and number='${order.number}' and count='${order.count}' and  totalprice='${order.totalprice}' and sid='${order.sid}'
     </select>
     <!--添加订单商品-->
     <select id="AddOrdergoods">
-        INSERT into ordergoods(oid,cid,sid,count,totalprice,param,goodsname,logo,evaluatestue)
-        VALUES ('${ordergood.oid}','${ordergood.cid}','${ordergood.sid}','${ordergood.count}','${ordergood.totalprice}','${ordergood.param}','${ordergood.goodsname}','${ordergood.logo}','${ordergoods.evaluatestue}')
-    </select>
-    <!--查询添加语句的主键-->
-    <select id="selectAddogid" resultType="int">
-        SELECT MAX(ogid)
-        from ordergoods
+        INSERT into ordergoods(oid,cid,sid,count,totalprice,param,goodsname,logo,evaluatestatue)
+        VALUES ('${ordergood.oid}','${ordergood.cid}','${ordergood.sid}','${ordergood.count}','${ordergood.totalprice}','${ordergood.param}','${ordergood.goodsname}','${ordergood.logo}','${ordergood.evaluatestatue}')
     </select>
     <!--查找订单商品-->
-    <select id="selectOrdergoods" resultType="com.xoqao.web.bean.commodity.Ordergoods">
-        SELECT * from ordergoods
-        where ogid IN
-        <foreach collection="ogs" item="ogid" index="index" open="(" separator="," close=")">
-            '${ogid}'
-        </foreach>
+    <select id="selectOrdergoodsByoid" resultType="com.xoqao.web.bean.Oreder.Ordergoods">
+        SELECT *
+        from ordergoods
+        where oid ='${oid}'
     </select>
     <!--查找订单用户收货地址信息-->
     <select id="selectUAdress" resultType="com.xoqao.web.bean.Address.ShipAddress">
         select *
         from ship_address
         where uid='${uid}' and statue=1;
+    </select>
+    <update id="upOrder">
+        UPDATE orders set statue='${order.statue}',paytime='${order.paytime}',paytype='${order.paytype}',leaveword='${order.leaveword}'
+        where oid='${order.oid}'
+    </update>
+    <!--根据订单号查订单-->
+    <select id="selectOrderByoid" resultType="com.xoqao.web.bean.Oreder.Orders">
+      select *
+      from orders
+      where oid='${oid}'
     </select>
 </mapper>

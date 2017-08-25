@@ -1,4 +1,6 @@
-package com.xoqao.web.bean.commodity;
+package com.xoqao.web.bean.Oreder;
+
+import com.xoqao.web.bean.commodity.Cart;
 
 /**
  * Created by win8.1 on 2017/8/22.
@@ -8,7 +10,7 @@ public class Orders {
     private int count;
     private String createtime;
     private String dealtime;
-    private double freight;
+    private double freight;//运费
     private String number;
     private int openstatue=0;
     private String paytime;
@@ -22,13 +24,6 @@ public class Orders {
     private  String leaveword;
 
     public Orders(){};
-    public Orders(Cart cart){
-        this.uid=cart.getUid();
-        this.count=cart.getAmount();
-        this.sid=cart.getSid();
-        this.totalprice=cart.getAmount()*cart.getPrice();
-
-    }
 
     public String getLeaveword() {
         return leaveword;

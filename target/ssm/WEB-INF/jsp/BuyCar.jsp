@@ -489,7 +489,7 @@
           </tr>
           <tr valign="top" height="150">
           	<td colspan="6" align="right">
-            	<a href="<%= request.getContextPath()%>/index"><img src="<%= request.getContextPath()%>/Picture/buy1.gif" /></a>&nbsp; &nbsp; <a calss="GO_BuyCar_Two" ><img src="<%= request.getContextPath()%>/Picture/buy2.gif" /></a>
+            	<a href="<%= request.getContextPath()%>/index"><img src="<%= request.getContextPath()%>/Picture/buy1.gif" /></a>&nbsp; &nbsp; <a class="GO_BuyCar_Two" ><img src="<%= request.getContextPath()%>/Picture/buy2.gif" /></a>
             </td>
           </tr>
         </table>
@@ -554,37 +554,30 @@
 
                     }
                 });
+                //删除购物车中商品
                 $(this).find(".cart_dele").click(function(){
-                    ShowDiv('MyDiv','fade');
-
-                    $(this).parents("tr").hide();
+                    //ShowDiv('MyDiv','fade');
                     var cart_amount=0;
-                    var url = "<%=request.getContextPath()%>/BuyCar/change";
-                    var args = {"amount": cart_amount,"cbid":cart_cbid, "time": new Date()};
-                    $.getJSON(url,args,function(data){});
-
-                    //总价
-                    var cart_all_money=0;
-                    var this_money=$(this).parents("tr").find(".cart_money").text();
-                    $(".cart_money").each(function(){
-                        cart_all_money=cart_all_money+parseFloat($(this).text());
-                    });
-                    cart_all_money=cart_all_money-this_money;
-                    $(".cart_all_money").text(cart_all_money);
-
+                    window.location.href ="<%= request.getContextPath()%>/BuyCar?amount=0&cbid="+cart_cbid+"";
                 });
             });
 
             var cart_all_money=0.0;
             $(".cart_money").each(function(){
-                cart_all_money=cart_all_money+parseFloat($(this).text());
+                    cart_all_money=cart_all_money+parseFloat($(this).text());
             });
             $(".cart_all_money").text(cart_all_money);
 
             //提交订单
             $(".GO_BuyCar_Two").click(function(){
-                var cbid="6,7";
-                window.location.href="<%= request.getContextPath()%>/BuyCar_Two?cbid="+cbid+"";
+                var cbids="";
+                $(".cart_cbid").each(function(){
+                    var cbid=$(this).val();
+                        cbids=cbids+cbid+",";
+                });
+                if(cbids!=null) {
+                    window.location.href = "<%= request.getContextPath()%>/BuyCar_Two?cbids="+cbids+"";
+                }
             });
 
         });

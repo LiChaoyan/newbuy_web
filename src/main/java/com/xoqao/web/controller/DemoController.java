@@ -3,6 +3,8 @@ package com.xoqao.web.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.xoqao.web.bean.Address.Address;
 import com.xoqao.web.bean.Address.ShipAddress;
+import com.xoqao.web.bean.Oreder.Ordergoods;
+import com.xoqao.web.bean.Oreder.Orders;
 import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
 import com.xoqao.web.bean.commodity.*;
@@ -19,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.*;
 ;
 
@@ -116,13 +120,13 @@ public class DemoController {
     }
 
     @RequestMapping("/Member_Safeplace")
-    public String Member_Safeplace(Model model,HttpServletRequest request,HttpServletResponse response) throws Exception {
+    public String Member_Safeplace(Model model,HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws Exception {
         //收货地值第一级
         try {
             ArrayList<Address> provinceArrayList = addressService.selectProvince();
             model.addAttribute("Province",provinceArrayList);
-           // int uid=Integer.parseInt(request.getSession().getAttribute("uid").toString());
-            int uid=6;
+            User user=(User)httpSession.getAttribute("user");
+            int uid=user.getUid();
             ArrayList<ShipAddress> addresses=addressService.selectAddress(uid);
             model.addAttribute("ShipAddress",addresses);
         }catch (Exception e){
@@ -199,7 +203,7 @@ public class DemoController {
         }
     }
     @RequestMapping("/adaddress")
-    public void AddAddress(HttpServletResponse response,HttpServletRequest request)throws Exception{
+    public void AddAddress(HttpServletResponse response,HttpServletRequest request,HttpSession httpSession)throws Exception{
         //收货地址第5等级
         ShipAddress shipAddress=new ShipAddress();
         shipAddress.setAddress(request.getParameter("address"));
@@ -207,7 +211,8 @@ public class DemoController {
         shipAddress.setPhone(request.getParameter("phone"));
         shipAddress.setSexword(request.getParameter("sex"));
         shipAddress.setZip(request.getParameter("zip"));
-        int uid=6;//Integer.parseInt(request.getSession().getAttribute("uid"));
+        User user=(User)httpSession.getAttribute("user");
+        int uid=user.getUid();
         shipAddress.setUid(uid);
         try {
             int size=addressService.selectsizeByuid(uid);
@@ -237,7 +242,7 @@ public class DemoController {
         }
     }
     @RequestMapping("/upaddress")
-    public void UpAddress(HttpServletResponse response,HttpServletRequest request)throws Exception{
+    public void UpAddress(HttpServletResponse response,HttpServletRequest request,HttpSession httpSession)throws Exception{
         //收货地址更新
         ShipAddress shipAddress=new ShipAddress();
         shipAddress.setSaid(Integer.parseInt(request.getParameter("said")));
@@ -246,7 +251,8 @@ public class DemoController {
         shipAddress.setPhone(request.getParameter("phone"));
         shipAddress.setSexword(request.getParameter("sex"));
         shipAddress.setZip(request.getParameter("zip"));
-        int uid=6;//Integer.parseInt(request.getSession().getAttribute("uid"));
+        User user=(User)httpSession.getAttribute("user");
+        int uid=user.getUid();
         shipAddress.setUid(uid);
         try {
             addressService.Upaddress(shipAddress);
@@ -256,10 +262,11 @@ public class DemoController {
         }
     }
     @RequestMapping("/upmoaddress")
-    public void UpmoAddress(HttpServletResponse response,HttpServletRequest request)throws Exception{
+    public void UpmoAddress(HttpServletResponse response,HttpServletRequest request,HttpSession httpSession)throws Exception{
         //收货地址删除
         int said=Integer.parseInt(request.getParameter("said"));
-        int uid=6;//Integer.parseInt(request.getSession().getAttribute("uid"));
+        User user=(User)httpSession.getAttribute("user");
+        int uid=user.getUid();
         try {
             addressService.UpmoaddressAll(uid);
             addressService.Upmoaddress
@@ -274,28 +281,42 @@ public class DemoController {
     public String Member_Safetel(Model model) throws Exception {
         return "Member_Safetel";
     }
-
     @RequestMapping("/BuyCar_Three")
-    public String BuyCar_Three(Model model) throws Exception {
+    public String BuyCar_Three(Model model,Orders order) throws Exception {
+        //更新订单状态
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        order.setPaytime(sdf.format(new Date()));
+        order.setStatue(1);//待发货
+        cartService.upOrder(order);
+        Orders orders=cartService.selectOrderByoid(order.getOid());
+        model.addAttribute("Order",orders);
         return "BuyCar_Three";
     }
     @RequestMapping("/addtocart")
-    public void AddtoBuyCar(Model model,HttpServletRequest request,HttpServletResponse response) throws Exception {
+    public void AddtoBuyCar(Model model,HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws Exception {
         //添加商品到购物车
         Cart cart=new Cart();
         cart.setCommodity_name(request.getParameter("commodity_name"));
         cart.setAmount(Integer.parseInt(request.getParameter("amount")));
         cart.setCommodity_pic(request.getParameter("commodity_pic"));
         cart.setCommodity_select(request.getParameter("commodity_select"));
-        cart.setUid(Integer.parseInt(request.getParameter("uid")));
         cart.setShopname(request.getParameter("shopname"));
         cart.setCid(Integer.parseInt(request.getParameter("cid")));
         cart.setPrice(Double.parseDouble(request.getParameter("price")));
         cart.setSid(Integer.parseInt(request.getParameter("sid")));
-
+        User user=(User)httpSession.getAttribute("user");
+        cart.setUid(user.getUid());
         try {
             //加入购物车
-             cartService.Addto(cart);
+            //查找是否是同一件商品
+             Cart cart1=cartService.selectGoods(cart);
+             if(cart1==null){
+                 cartService.Addto(cart);
+             }else{
+                 cart1.setAmount(cart1.getAmount()+cart.getAmount());
+                 cartService.ChangeNum(cart1);
+             }
+
             //返回购物车中几种几件，合计多少元
             Cart backNum = cartService.selectNum(cart);
             String json = JSONObject.toJSONString(backNum);
@@ -318,19 +339,24 @@ public class DemoController {
         if(cart.getCbid()!=-1) {
             cart.setAmount(Integer.parseInt(request.getParameter("amount")));
             System.out.println(cart.getAmount());
-            if (cart.getAmount() == 0) {
-                cartService.deleCart(cart);
-            }else if (cart.getAmount() != -1) {
+            if (cart.getAmount() != -1) {
                 cartService.ChangeNum(cart);
             }
         }
     }
     @RequestMapping("/BuyCar")
-    public String BuyCar(Model model,HttpServletRequest request) throws Exception {
+    public String BuyCar(Model model,Cart cart,HttpServletRequest request,HttpSession httpSession) throws Exception {
         System.out.println("查询购物车");
-            //购物车所有商品
+        if(cart.getCbid()!=-1) {
+            if (cart.getAmount() == 0) {
+                cartService.deleCart(cart);
+            }
+        }
+        //购物车所有商品
+        User user=(User)httpSession.getAttribute("user");
+        int uid=user.getUid();
         try {
-            ArrayList<Cart> CartList = cartService.selectCart();
+            ArrayList<Cart> CartList = cartService.selectCart(uid);
             model.addAttribute("CartList", CartList);
         }catch (Exception e){
             e.printStackTrace();
@@ -346,41 +372,53 @@ public class DemoController {
      */
 
     @RequestMapping("/BuyCar_Two")
-    public String BuyCar_Two(String cbids ,Model model) throws Exception {
-        String[] cbidString =cbids.split(",");
-        int[] ogs=new int[cbidString.length];
-        int uid=0;
-        try {
-            for (int i = 0; i < cbidString.length; i++) {
-                int cbid =Integer.parseInt(cbidString[i]);
-                System.out.print(cbid);
-                Cart cart1 = new Cart();
-                cart1.setCbid(cbid);
-                Cart cart = cartService.selectCartBycbid(cart1);
-                uid = cart.getUid();
-                Orders order = new Orders(cart);
-                order.setNumber("20161230000000000001");
-                cartService.AddOrder(order);
-                int oid =cartService.selectAddoid();
-                        //先添加订单，再添加订单商品;
-                Ordergoods ordergood = new Ordergoods(cart);
-                ordergood.setOid(oid);
-                System.out.println("oid: "+oid);
-                cartService.AddOrdergoods(ordergood);
-                int ogid =cartService.selectAddogid();
-                        System.out.println("ogid: "+ogid);
-                ogs[i] = ogid;
-            }
-            //返回订单商品到页面
-            ArrayList<Ordergoods> ordergoodsArrayList = new ArrayList<Ordergoods>();
-            ordergoodsArrayList = cartService.selectOrdergoods(ogs);
-            model.addAttribute("OGsList", ordergoodsArrayList);
-            //返回收货人信息到页面
-            ShipAddress shipAddress = cartService.selectUAdress(uid);
-            model.addAttribute("Adress", shipAddress);
-        }catch (Exception e){
-            e.printStackTrace();
+    public String BuyCar_Two(String cbids ,Model model,HttpSession httpSession) throws Exception {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //返回收货人信息添加到订单里并返回到页面
+        User user=(User) httpSession.getAttribute("user");
+        int uid=user.getUid();
+        ShipAddress shipAddress = cartService.selectUAdress(uid);
+    try {
+        //获取值
+        int count = 0;
+        double totalprice = 0;
+        int sid = 0;
+        String[] cbidString = cbids.split(",");
+        for (int i = 0; i < cbidString.length; i++) {
+            Cart cart = cartService.selectCartBycbid(Integer.parseInt(cbidString[i]));
+            count = count + cart.getAmount();
+            totalprice = totalprice + cart.getAmount() * cart.getPrice();
+            sid = cart.getSid();
         }
+        //创建订单
+        Orders order = new Orders();
+        order.setCreatetime(sdf.format(new Date()));
+        order.setSaid(shipAddress.getSaid());
+        order.setUid(uid);
+        order.setCount(count);
+        order.setTotalprice(totalprice);
+        order.setSid(sid);
+        order.setNumber("");
+        order.setFreight(0);
+        cartService.AddOrder(order);//添加订单
+        int oid = cartService.selectAddoid(order);//返回订单编号oid
+
+        //订单添加商品
+        for (int i = 0; i < cbidString.length; i++) {
+            Cart cart = cartService.selectCartBycbid(Integer.parseInt(cbidString[i]));
+            Ordergoods ordergood = new Ordergoods(cart);
+            ordergood.setOid(oid);
+            cartService.AddOrdergoods(ordergood);//根据订单号添加订单商品
+        }
+        //返回订单商品到页面
+        ArrayList<Ordergoods> ordergoodsArrayList = new ArrayList<Ordergoods>();
+        ordergoodsArrayList = cartService.selectOrdergoodsByoid(oid);
+        model.addAttribute("OGsList", ordergoodsArrayList);
+        model.addAttribute("Address", shipAddress);
+        model.addAttribute("Order",order);
+    }catch (Exception e){
+        e.printStackTrace();
+    }
         return "BuyCar_Two";
     }
 

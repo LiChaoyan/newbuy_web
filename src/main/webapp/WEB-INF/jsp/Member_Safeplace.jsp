@@ -449,7 +449,6 @@ h2 {
 
 
             var said=$(this).parents("tr").find(".ad_said").val();
-            alert("said "+said);
             var url = "<%=request.getContextPath()%>/upmoaddress";
             var args = {"said": said,"time": new Date()};
             $.getJSON(url, args, function (data) {});

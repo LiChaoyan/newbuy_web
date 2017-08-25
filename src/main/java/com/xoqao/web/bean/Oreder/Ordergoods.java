@@ -1,4 +1,6 @@
-package com.xoqao.web.bean.commodity;
+package com.xoqao.web.bean.Oreder;
+
+import com.xoqao.web.bean.commodity.Cart;
 
 /**
  * Created by win8.1 on 2017/8/22.
@@ -7,13 +9,14 @@ public class Ordergoods {
     private int ogid;
     private int cid;
     private int count;
-    private int evaluatestue=0;//评价状态
+    private int evaluatestatue=0;//评价状态
     private int oid;//订单id
     private String param;
     private int sid;
     private double totalprice;
     private String goodsname;
     private String logo;
+
 
     public Ordergoods(){};
     public Ordergoods(Cart cart){
@@ -50,12 +53,12 @@ public class Ordergoods {
         this.count = count;
     }
 
-    public int getEvaluatestue() {
-        return evaluatestue;
+    public int getEvaluatestatue() {
+        return evaluatestatue;
     }
 
-    public void setEvaluatestue(int evaluatestue) {
-        this.evaluatestue = evaluatestue;
+    public void setEvaluatestatue(int evaluatestatue) {
+        this.evaluatestatue = evaluatestatue;
     }
 
     public int getOid() {
