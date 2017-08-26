@@ -416,11 +416,13 @@
             <!--End 购物车未登录 End-->
             <!--Begin 购物车已登录 Begin-->
             <ul class="cars">
-                <li>
-                    <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/car1.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="<%= request.getContextPath()%>/#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
+                <c:forEach items="${Cars}" var="car">
+                    <li>
+                        <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/car1.jpg" width="58" height="58" /></a></div>
+                        <div class="name"><a href="<%= request.getContextPath()%>/#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
+                        <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                    </li>
+                </c:forEach>
             </ul>
             <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
             <div class="price_a"><a href="<%= request.getContextPath()%>/#">去购物车结算</a></div>
