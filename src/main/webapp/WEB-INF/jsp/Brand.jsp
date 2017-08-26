@@ -110,7 +110,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-            <span class="fl">你好，请<a href="Login.jsp">登录</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
+            <span class="fl">你好，请<a href="Login">登录</a>&nbsp; <a href="Regist" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
             <span class="ss">
                 <div class="ss_list">
                     <a href="#">我的</a>
@@ -159,7 +159,7 @@
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.jsp"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
+    <div class="logo"><a href="Index"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
     <!-- 搜索框 -->
     <div class="search">
     <div class="searchbox">
@@ -170,9 +170,9 @@
         <form>
         <div class="search_area" id="search_area">
                 <p style="display: block">
-                <input type="text" name="productname" value="" id="" class="input_1" placeholder="输入商品名称" />
+                <input type="text" name="productname" value=""  class="input_1" placeholder="输入商品名称" />
                 <button onclick="Product()"  class="button_search_1">搜索</button>
-            </p><p><input type="text" name="shopname" value="" id="" class="input_2" placeholder="输入店铺名称" />
+            </p><p><input type="text" name="shopname" value=""  class="input_2" placeholder="输入店铺名称" />
                 <button  onclick="Shop()" class="button_search_2">搜索</button></p>
         </div>
         </form>
@@ -198,7 +198,7 @@
         <div class="car_t">购物车 [ <span>3</span> ]</div>
         <div class="car_bg">
             <!--Begin 购物车未登录 Begin-->
-            <div class="un_login">还未登录！<a href="Login.jsp" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+            <div class="un_login">还未登录！<a href="Login" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
             <!--End 购物车未登录 End-->
             <!--Begin 购物车已登录 Begin-->
             <ul class="cars">
@@ -474,7 +474,17 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
         <ul class="menu_r">                                                                                                                                               
-            <li><a href="Index.jsp">首页</a></li>
+<<<<<<< HEAD
+            <li><a href="Index">首页</a></li>
+            <li><a href="Food">美食</a></li>
+            <li><a href="Fresh">生鲜</a></li>
+            <li><a href="HomeDecoration">家居</a></li>
+            <li><a href="SuitDress">女装</a></li>
+            <li><a href="MakeUp">美妆</a></li>
+            <li><a href="Digital">数码</a></li>
+            <li><a href="GroupBuying">团购</a></li>
+=======
+            <li><a href="<%=request.getContextPath()%>/index">首页</a></li>
             <li><a href="Food.html">美食</a></li>
             <li><a href="Fresh.html">生鲜</a></li>
             <li><a href="HomeDecoration.html">家居</a></li>
@@ -482,45 +492,13 @@
             <li><a href="MakeUp.html">美妆</a></li>
             <li><a href="Digital.html">数码</a></li>
             <li><a href="GroupBuying.html">团购</a></li>
+>>>>>>> f1a10fa1668611771c9d5d7f12639a0125acf7f1
         </ul>
         <div class="m_ad letter">全部加盟商家</div>
     </div>
 </div>
 <!--End Menu End--> 
 <div class="i_bg">
-    <!-- <div class="postion">
-        <span class="fl">全部 > 更多商家 > </span>
-        <span class="n_ch">
-            <span class="fl">店铺类型：<font>线上商铺</font></span>
-            <a href="#"><img src="<%= request.getContextPath()%>/Picture/s_close.gif" /></a>
-        </span>
-    </div> -->
-    <!--Begin 筛选条件 Begin-->
-    <!-- <div class="content mar_10">
-        <table border="0" class="choice" style="width:100%; font-family:'宋体'; margin:0 auto;" cellspacing="0" cellpadding="0">
-          <tr valign="top">
-            <td width="100">&nbsp; 店铺类型：</td>
-            <td class="td_a"><a href="#" class="now">线上商铺</a><a href="#">线下商铺</a></td>
-          </tr>
-          <tr valign="top">
-            <td>&nbsp; 主营商品：</td>                                                                                                       
-            <td class="td_a"><a href="#">食品、生鲜</a><a href="#">母婴、玩具</a><a href="#">家居制品</a><a href="#" class="now">美妆洗护</a><a href="#">女装、内衣</a><a href="#">男装、运动</a><a href="#">手机、电脑、家电</a><a href="#">箱包、鞋靴</a><a href="#">礼品、充值</a></td>
-          </tr>                                              
-          <tr>
-            <td>&nbsp; 指定筛选：</td>
-            <td class="td_a"><a href="#">店铺名称</a><a href="#">旺旺名称</a><a href="#" class="now";>不限</a></td>
-          </tr>                                          
-          <tr>
-            <td>&nbsp; 所在地：</td>                                       
-            <td class="td_a">
-                <input type="button" name="" value="确定">
-                <input type="text" value="">&nbsp;(请输入地区名称，地区之间用逗号分隔)
-            </td>
-          </tr>                                                             
-        </table>                                                                                 
-    </div> -->
-    <!--End 筛选条件 End-->
-    
     <div class="content mar_20">
         <div class="l_history">
             <div class="his_t">
@@ -577,12 +555,12 @@
                     <a href="#">
                         <span class="fl">信用</span>                        
                         <span class="i_up">信用从低到高显示</span>
-                        <span class="i_down"信用格从高到低显示</span>     
+                        <span class="i_down">信用格从高到低显示</span>
                     </a>
                    <a href="#">
                         <span class="fl">好评</span>                        
                         <span class="i_up">好评率从低到高显示</span>
-                        <span class="i_down"好评率从高到低显示</span>     
+                        <span class="i_down">好评率从高到低显示</span>
                     </a>
                 </span>
                 <div class="brand_search fr">
@@ -592,11 +570,6 @@
                     <div class="ss_list_bg">
                         <div class="s_city_t"></div>
                         <div class="ss_list_c">
-                            <!-- <ul>
-                                <li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                            </ul> -->
                             <table border="0" class="c_tab" style="width:235px; margin-top:10px;" cellspacing="0" cellpadding="0">
                           <tr>
                             <th>A</th>
@@ -717,7 +690,7 @@
 
                 <div class="pages">
 
-                    <ul class="page" maxshowpageitem="${page.pagesize}" pagelistcount="${page.count}"  id="page"></ul>
+                    <ul class="page" maxshowpageitem="7" pagelistcount="${page.count}"  id="page"></ul>
 
                 </div>
                 <script type="text/javascript">
@@ -731,7 +704,7 @@
                             //alert(mm);
                         }
                     }
-                    $("#page").initPage(${page.pagesize},${page.p},GG.kk);
+                    $("#page").initPage(${page.listsize},${page.p},GG.kk);
 
                 </script>
                 <script type="text/javascript">
@@ -819,36 +792,12 @@
             <dd><a href="#">线下商家联系</a></dd>
             <dd><a href="#">资讯合作</a></dd>
         </dl>
-
-        <!-- <div class="b_tel_bg">
-            <a href="#" class="b_sh1">新浪微博</a>            
-            <a href="#" class="b_sh2">腾讯微博</a>
-            <p>
-            服务热线：<br />
-            <span>400-123-4567</span>
-            </p>
-        </div>
-        <div class="b_er">
-            <div class="b_er_c"><img src="<%= request.getContextPath()%>/Picture/er.gif" width="118" height="118" /></div>
-            <img src="<%= request.getContextPath()%>/Picture/ss.png" />
-        </div>
-    </div>     -->
     <div class="btmbg">
         <div class="btm">
-            <!-- 备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br /> -->
             <img src="<%= request.getContextPath()%>/Picture/b_1.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_2.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_3.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_4.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_5.gif" width="98" height="33" /><img src="<%= request.getContextPath()%>/Picture/b_6.gif" width="98" height="33" />
         </div>      
     </div>
     <!--End Footer End -->    
 </div>
-
-
 </body>
-
-
 </html>
-<!--
-本代码由js代码网网友上传，js代码网收集并编辑整理;
-尊重他人劳动成果;
-转载请保留js代码链接 - www.jsdaima.com
--->

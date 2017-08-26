@@ -4,6 +4,7 @@ package com.xoqao.web.bean.boss;
  * Created by lcy on 2017/7/12.
  */
 public class Boss {
+
     private Integer bid;
     private String id;//身份证号
     private String name;
@@ -12,6 +13,12 @@ public class Boss {
     private String phone;
     private String pic;
     private Integer sid;
+
+
+    private String facepic; //用户证件像
+    private String idpic;  //身份证正反照
+    private Integer statue;  //店主状态
+
 
     public Integer getBid() {
         return bid;
@@ -77,6 +84,30 @@ public class Boss {
         this.name = name;
     }
 
+    public String getFacepic() {
+        return facepic;
+    }
+
+    public void setFacepic(String facepic) {
+        this.facepic = facepic;
+    }
+
+    public String getIdpic() {
+        return idpic;
+    }
+
+    public void setIdpic(String idpic) {
+        this.idpic = idpic;
+    }
+
+    public Integer getStatue() {
+        return statue;
+    }
+
+    public void setStatue(Integer statue) {
+        this.statue = statue;
+    }
+
     @Override
     public String toString() {
         return "Boss{" +
@@ -88,6 +119,9 @@ public class Boss {
                 ", phone='" + phone + '\'' +
                 ", pic='" + pic + '\'' +
                 ", sid=" + sid +
+                ", facepic='" + facepic + '\'' +
+                ", idpic='" + idpic + '\'' +
+                ", statue=" + statue +
                 '}';
     }
 }

@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xoqao.web.dao.UserMapper" >
-<!--根据手机号查找用户-->
-  <select id="findUserByphone" resultType="com.xoqao.web.bean.user.User">
-    SELECT  * FROM  user where  phone LIKE  '${phone}'
+<mapper namespace="com.xoqao.web.dao.UserMapper">
+    <!--根据手机号查找用户-->
+    <select id="findUserByphone" resultType="com.xoqao.web.bean.user.User">
+    SELECT  uid,gender,password,phone,username,headerpic,id,name,registtime FROM  user where  phone LIKE  '${phone}'
   </select>
 
-  <!--查找所有的用户-->
-  <select id="findAllUsers" resultType="com.xoqao.web.bean.user.User">
+    <!--查找所有的用户-->
+    <select id="findAllUsers" resultType="com.xoqao.web.bean.user.User">
     SELECT * FROM  user
   </select>
+
+    <!--根据用户明或手机好查找用户-->
+    <select id="finduserOr" resultType="com.xoqao.web.bean.user.User">
+    SELECT  uid,gender,password,phone,username,headerpic,id,name,registtime FROM user WHERE phone LIKE  '${loginstr}' OR  username LIKE '${loginstr}'
+  </select>
+    <!--添加用户信息-->
+    <insert id="insert">
+        <selectKey resultType="java.lang.Integer" keyProperty="uid" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO  user (phone,username,password,gender,id,name,headerpic,registtime) VALUES (#{user.phone},#{user.username},#{user.password},#{user.gender},#{user.id},#{user.name},#{user.headerpic},#{user.registtime})
+    </insert>
+
 </mapper>

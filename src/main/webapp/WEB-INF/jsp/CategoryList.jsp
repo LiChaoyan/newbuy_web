@@ -55,6 +55,7 @@
         }
 
 
+
     </style>
 
 </head>
@@ -139,7 +140,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-            <span class="fl">你好，请<a href="Login.jsp">登录</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
+            <span class="fl">你好，请<a href="Login">登录</a>&nbsp; <a href="Regist" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
             <span class="ss">
                 <div class="ss_list">
                     <a href="#">我的</a>
@@ -181,10 +182,11 @@
                     </div>
                 </div>
             </span>
+        </span>
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.jsp"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
+    <div class="logo"><a href="Index"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
     <!-- 搜索框 -->
     <div class="search">
         <div class="searchbox">
@@ -223,7 +225,7 @@
         <div class="car_t">购物车 [ <span>3</span> ]</div>
         <div class="car_bg">
             <!--Begin 购物车未登录 Begin-->
-            <div class="un_login">还未登录！<a href="Login.jsp" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+            <div class="un_login">还未登录！<a href="Login" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
             <!--End 购物车未登录 End-->
             <!--Begin 购物车已登录 Begin-->
             <ul class="cars">
@@ -286,17 +288,19 @@
                     </c:forEach>
                 </ul>
             </div>
-        </div>
-        <!--End 商品分类详情 End-->
-        <ul class="menu_r">
-            <li><a href="Index.jsp">首页</a></li>
-            <li><a href="Food.html">美食</a></li>
-            <li><a href="Fresh.html">生鲜</a></li>
-            <li><a href="HomeDecoration.html">家居</a></li>
-            <li><a href="SuitDress.html">女装</a></li>
-            <li><a href="MakeUp.html">美妆</a></li>
-            <li><a href="Digital.html">数码</a></li>
-            <li><a href="GroupBuying.html">团购</a></li>
+
+        </div>  
+        <!--End 商品分类详情 End-->                                                     
+    	<ul class="menu_r">                                                                                                                                               
+        	<li><a href="Index">首页</a></li>
+            <li><a href="Food">美食</a></li>
+            <li><a href="Fresh">生鲜</a></li>
+            <li><a href="HomeDecoration">家居</a></li>
+            <li><a href="SuitDress">女装</a></li>
+            <li><a href="MakeUp">美妆</a></li>
+            <li><a href="Digital">数码</a></li>
+            <li><a href="GroupBuying">团购</a></li>
+
         </ul>
         <div class="m_ad">全部搜索结果</div>
     </div>
@@ -339,7 +343,7 @@
 
     <div style="width:1200px; margin:0 auto;">
         <div class="clearfix">
-            <p class="shaixuan-tj floatLeft clearfix">
+            <p class="shaixuan-tj floatLeft clearfix" style="font-family:'宋体';">
                 <c:if test="${page.productname!=null&&page.cgid==-1}">
                     <span><a href="/">全部分类</a></span>
                     <i class="icon-angle-right"></i>
@@ -365,7 +369,7 @@
         </div>
 
         <div id="page-search-store" class="mb10 border sxcon">
-            <div class="search-by by-category relative">
+            <div class="search-by by-category relative" style="font-family:'宋体';">
                 <%--  <dl class="relative clearfix">
                     <dt class="floatLeft"><a href="/">城市：</a></dt>
                      <dd class="floatLeft show-con">
@@ -378,25 +382,29 @@
                  </dl>--%>
                 <dl class="relative clearfix">
                     <dt class="floatLeft"><a href="/">城市：</a></dt>
-                    <dd class="floatLeft show-con">
+                    <dd class="floatLeft show-con" style="width: 900px">
                         <c:forEach items="${cityList}" var="city">
-                            <input type="checkbox" value="${city.cityname}"><a class="">${city.cityname}</a></input>
+                            <span><input type="checkbox" value="${city.cityname}"/><a class="">${city.cityname}</a></span>
                         </c:forEach>
                     </dd>
-                    <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>
-                    <dd class="floatLeft"><input class="btn_sure" type="button" value="确定"/></dd>
-                    <dd class="floatLeft"><input type="button" class="sl_cancel" value="取消"/></dd>
-                    <dd class="floatLeft show-more"><h3 class="pointer clearfix"><span>更多</span><i class="icon-angle-down"></i></h3></dd>
+                    <dd class="floatLeft sl-multiple" style="width: 70px"><h3><span>多选</span><i></i></h3></dd>
+                    <dd class="floatLeft show-more" style="width: 70px"><h3 class="pointer clearfix"><span>更多</span><i class="icon-angle-down"></i></h3></dd>
+                    <dd class="sl-multiple-btn" style="width: 900px; align:center;">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="btn_sure" style="background: #F7F7F7" type="button" value="确定"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" class="sl_cancel" style="background: #F7F7F7" value="取消"/>
+                    </dd>
+
 
 
                 </dl>
                 <dl class="relative clearfix" style="border-bottom:0">
                     <dt class="floatLeft"><a href="/">合作商品：</a></dt>
-                    <dd class="floatLeft show-con">
-                        <a href="#" class="" ><input type="checkbox"/>是</a>
+                    <dd class="floatLeft show-con" style="width: 900px">
+                        <a href="#" class="" >是</a>
                         <a href="#" class="" >否</a>
                     </dd>
-                    <dd class="floatLeft sl-multiple"><h3><span>多选</span><i></i></h3></dd>
+                   <%-- <dd class="floatLeft sl-multiple" style="width: 70px"><h3><span>多选</span><i></i></h3></dd>--%>
                 </dl>
 
 
@@ -406,12 +414,33 @@
 
     <script>
         $(function(){
+            //鼠标经过变红
+            /*$(".show-con a").hover(function(){
+                $(this).css("color","#ff4e00");
+            });*/
+
+            //按钮隐藏与显示
+            $(".sl-multiple-btn").hide();
+            $(".show-con input").each(function(index){
+                $(this).hide();
+            });
+            $(".sl-multiple").click(function(){
+                $(".sl-multiple-btn").show();
+                $(".show-con input").each(function(index) {
+                    $(this).show();
+                });
+            });
+
             //按钮取消
             $(".sl_cancel").click(function(event){
                 THI = $(this).parents("dl").find("dd").first();
                 THI.find("input").each(function(index){
                     $(this).removeAttr("checked");
                 })
+                $(".sl-multiple-btn").hide();
+                $(".show-con input").each(function(index){
+                    $(this).hide();
+                });
             });
             //多选确定按钮
             $(".btn_sure").click(function(event){
@@ -682,21 +711,84 @@
                 </li>
             </ul>
         </div>
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                //刷新后，保留now的状态
+                var no_price=${page.price};
+                var no_sales=${page.sales};
+                var no_range=${page.range};
+                var no_ases=${page.ases};
+                var no_attention=${page.attention};
+                var no_colligate=${page.colligate};
+                if((no_price==0||no_price==1)&&no_sales==1&&(no_range==0||no_range==1)&&no_ases==1&&no_attention==1){
+                    no_colligate=1;
+                }
+                if((no_price==0||no_price==1)&&(no_colligate==0)){
+                    $(".now").removeClass("now");
+                    $(".no-price").addClass("now");
+                }
+                if(no_sales==1&&no_colligate==0){
+                    $(".now").removeClass("now");
+                    $(".no-sales").addClass("now");
+                }
+                if(no_attention==1&&no_colligate==0){
+                    $(".now").removeClass("now");
+                    $(".no-attention").addClass("now");
+                }
+                if(no_ases==1&&no_colligate==0){
+                    $(".now").removeClass("now");
+                    $(".no-ases").addClass("now");
+                }
+                if((no_range==0||no_range==1)&&(no_colligate==0)){
+                    $(".now").removeClass("now");
+                    $(".no-range").addClass("now");
+                }
+                if(no_colligate==1){
+                    $(".now").removeClass("now");
+                    $(".no-colligate").addClass("now");
+                }
+
+                $(".list_or a").click(function () {
+                    $(".now").removeClass("now");
+                    $(this).addClass("now");
+                });
+
+                $(".no-price").click(function () {
+                    if(no_price==0){
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&price=1";
+                    }else{
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&price=0";
+                    }
+                });
+                $(".no-range").click(function () {
+                    if(no_range==0){
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&range=1";
+                    }else{
+                        window.location.href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&range=0";
+                    }
+                });
+            });
+        </script>
         <div class="l_list">
             <div class="list_t">
             	<span class="fl list_or">
-                	<a href="#" class="now">默认</a>
-                    <a href="#">
-                    	<span class="fl">销量</span>
-                        <span class="i_up">销量从低到高显示</span>
-                        <span class="i_down">销量从高到低显示</span>
-                    </a>
-                    <a href="#">
+                	<a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&colligate=1" class="no-colligate">综合排序</a>
+                    <a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&sales=1" class="no-sales">销量</a>
+                    <a href="#" class="no-price">
                     	<span class="fl">价格</span>
                         <span class="i_up">价格从低到高显示</span>
                         <span class="i_down">价格从高到低显示</span>
                     </a>
-                    <a href="#">新品</a>
+                    <a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&ases=1" class="no-ases">评价数</a>
+                    <a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&attention=1" class="no-attention">关注度</a>
+                    <a href="#" class="no-range">
+                    	<span class="fl">距离</span>
+                        <span class="i_up">距离从近到远显示</span>
+                        <span class="i_down">距离远高到进显示</span>
+                    </a>
+
+                    <a href="#" class="no-new">新品</a>
                 </span>
                 <span class="fr">共发现${page.listsize}件</span>
             </div>
@@ -705,11 +797,23 @@
                 <ul class="cate_list">
                     <c:forEach items="${CommodityShopArrayList}" var="CommodityShop">
                         <li>
-                            <div class="img"><a href="#"><img src="${CommodityShop.logo}" width="210" height="185" /></a></div>
+                            <div class="img"><a href="<%=request.getContextPath()%>/product?cid=${CommodityShop.cid}"><img src="${CommodityShop.logo}" width="210" height="185" /></a></div>
                             <div class="price">
-                                <font>￥<span>${CommodityShop.price}</span></font> &nbsp; ${CommodityShop.salesvolu}人付款
+                                <font>￥<span>${CommodityShop.price}</span></font> &nbsp; ${CommodityShop.salesvolu}人付款&nbsp;&nbsp;
+                                <c:if test="${page.range!=2||page.colligate==1}">
+                                    ${CommodityShop.juli}米
+                                </c:if>
+                                <c:if test="${page.attention==1}">
+                                    ${CommodityShop.goodsatten}关注
+                                </c:if>
+                                <c:if test="${page.ases==1}">
+                                    ${CommodityShop.asesnum}评论
+                                </c:if>
+                                <c:if test="${page.colligate==1}">
+                                    ${CommodityShop.num}综合
+                                </c:if>
                             </div>
-                            <div class="name"><a href="#">${CommodityShop.productname}</a></div>
+                            <div class="name" title="${CommodityShop.productname}"><a href="<%=request.getContextPath()%>/product?cid=${CommodityShop.cid}">${CommodityShop.productname}</a></div>
                             <div class="pre"><a class="fl">店铺：${CommodityShop.shopname}</a><div class="fr"><img src="<%= request.getContextPath()%>/Images/location.png">${CommodityShop.cityname}</div></div>
                             <div class="carbg">
                                 <a href="#" class="ss">收藏</a>
@@ -732,7 +836,7 @@
                         "kk":function(mm){
                             // alert(mm);
                             // console.log("hellos");
-                            window.location.href="CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&p="+mm;
+                            window.location.href="CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&sales=${page.sales}&price=${page.price}&attention=${page.attention}&range=${page.range}&ases=${page.ases}&colligate=${page.colligate}&p="+mm;
                         }
                     }
                     $("#page").initPage(${page.listsize},${page.p},GG.kk);
