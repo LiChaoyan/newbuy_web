@@ -1,9 +1,12 @@
 package com.xoqao.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.xoqao.web.bean.Address.Address;
+import com.xoqao.web.bean.Address.ShipAddress;
+import com.xoqao.web.bean.Oreder.Ordergoods;
+import com.xoqao.web.bean.Oreder.Orders;
 import com.xoqao.web.bean.category.BigCategory;
 import com.xoqao.web.bean.category.Category;
-import com.xoqao.web.bean.category.SmallCategory;
 import com.xoqao.web.bean.commodity.*;
 import com.xoqao.web.bean.shop.ShopCity;
 import com.xoqao.web.bean.user.User;
@@ -13,13 +16,15 @@ import com.xoqao.web.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.*;
+;
 
 /**
  * 说明：
@@ -44,6 +49,12 @@ public class DemoController {
 
     @Autowired
     CommodityService commodityService;
+
+    @Autowired
+    CartService cartService;
+
+    @Autowired
+    AddressService addressService;
 
     @RequestMapping("/xoqiao")
     public String begin(Model model) throws Exception {
@@ -109,27 +120,305 @@ public class DemoController {
     }
 
     @RequestMapping("/Member_Safeplace")
-    public String Member_Safeplace(Model model) throws Exception {
+    public String Member_Safeplace(Model model,HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws Exception {
+        //收货地值第一级
+        try {
+            ArrayList<Address> provinceArrayList = addressService.selectProvince();
+            model.addAttribute("Province",provinceArrayList);
+            User user=(User)httpSession.getAttribute("user");
+            int uid=user.getUid();
+            ArrayList<ShipAddress> addresses=addressService.selectAddress(uid);
+            model.addAttribute("ShipAddress",addresses);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return "Member_Safeplace";
     }
+
+    @RequestMapping("/adcity")
+    public void adcity(Model model, HttpServletRequest request, HttpServletResponse response)throws Exception {
+        //收货地址第二级
+        String pidString=request.getParameter("pid");
+        System.out.println(pidString);
+        int pid=Integer.parseInt(pidString);//（：：：）
+        System.out.print("身份id： "+pid);
+        ArrayList<Address> cityArrayList= addressService.selectCity(pid);
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json; charset=utf-8");
+            String json = JSONObject.toJSONString(cityArrayList);
+            response.getWriter().write(json.toString());
+            response.getWriter().flush();
+            response.getWriter().close();
+
+    }
+    @RequestMapping("/addistrict")
+    public void Finddistrict(HttpServletResponse response,HttpServletRequest request)throws Exception{
+        //收货地址第三等级
+        int cityid = Integer.parseInt(request.getParameter("cityid"));
+        System.out.print("城市id： "+cityid);
+        try {
+            ArrayList<Address> districtArrayList = addressService.selectDistrict(cityid);
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json; charset=utf-8");
+            String json = JSONObject.toJSONString(districtArrayList);
+            response.getWriter().write(json.toString());
+            response.getWriter().flush();
+            response.getWriter().close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/adtowns")
+    public void Findtowns(HttpServletResponse response,HttpServletRequest request)throws Exception{
+        //收货地址第4等级
+        int did = Integer.parseInt(request.getParameter("did"));
+        System.out.print("县级id： "+did);
+        try {
+            ArrayList<Address> townsArrayList = addressService.selectTowns(did);
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json; charset=utf-8");
+            String json = JSONObject.toJSONString(townsArrayList);
+            response.getWriter().write(json.toString());
+            response.getWriter().flush();
+            response.getWriter().close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/adcommunity")
+    public void FindCommunity(HttpServletResponse response,HttpServletRequest request)throws Exception{
+        //收货地址第5等级
+        int tid = Integer.parseInt(request.getParameter("tid"));
+        System.out.print("乡级id： "+tid);
+        try {
+            ArrayList<Address> communityArrayList = addressService.selectCommunity(tid);
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json; charset=utf-8");
+            String json = JSONObject.toJSONString(communityArrayList);
+            response.getWriter().write(json.toString());
+            response.getWriter().flush();
+            response.getWriter().close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/adaddress")
+    public void AddAddress(HttpServletResponse response,HttpServletRequest request,HttpSession httpSession)throws Exception{
+        //收货地址第5等级
+        ShipAddress shipAddress=new ShipAddress();
+        shipAddress.setAddress(request.getParameter("address"));
+        shipAddress.setName(request.getParameter("name"));
+        shipAddress.setPhone(request.getParameter("phone"));
+        shipAddress.setSexword(request.getParameter("sex"));
+        shipAddress.setZip(request.getParameter("zip"));
+        User user=(User)httpSession.getAttribute("user");
+        int uid=user.getUid();
+        shipAddress.setUid(uid);
+        try {
+            int size=addressService.selectsizeByuid(uid);
+            if(size==0){
+                shipAddress.setStatue(1);
+            }
+            addressService.Addaddress(shipAddress);
+            String json="已添加";
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json; charset=utf-8");
+            response.getWriter().write(json);
+            response.getWriter().flush();
+            response.getWriter().close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/deleaddress")
+    public void DeleAddress(HttpServletResponse response,HttpServletRequest request)throws Exception{
+        //收货地址删除
+        int said=Integer.parseInt(request.getParameter("said"));
+        try {
+            addressService.Deleaddress(said);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/upaddress")
+    public void UpAddress(HttpServletResponse response,HttpServletRequest request,HttpSession httpSession)throws Exception{
+        //收货地址更新
+        ShipAddress shipAddress=new ShipAddress();
+        shipAddress.setSaid(Integer.parseInt(request.getParameter("said")));
+        shipAddress.setAddress(request.getParameter("address"));
+        shipAddress.setName(request.getParameter("name"));
+        shipAddress.setPhone(request.getParameter("phone"));
+        shipAddress.setSexword(request.getParameter("sex"));
+        shipAddress.setZip(request.getParameter("zip"));
+        User user=(User)httpSession.getAttribute("user");
+        int uid=user.getUid();
+        shipAddress.setUid(uid);
+        try {
+            addressService.Upaddress(shipAddress);
+            System.out.println("更新地址");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/upmoaddress")
+    public void UpmoAddress(HttpServletResponse response,HttpServletRequest request,HttpSession httpSession)throws Exception{
+        //收货地址删除
+        int said=Integer.parseInt(request.getParameter("said"));
+        User user=(User)httpSession.getAttribute("user");
+        int uid=user.getUid();
+        try {
+            addressService.UpmoaddressAll(uid);
+            addressService.Upmoaddress
+                    (said);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
     @RequestMapping("/Member_Safetel")
     public String Member_Safetel(Model model) throws Exception {
         return "Member_Safetel";
     }
-
     @RequestMapping("/BuyCar_Three")
-    public String BuyCar_Three(Model model) throws Exception {
+    public String BuyCar_Three(Model model,Orders order) throws Exception {
+        //更新订单状态
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        order.setPaytime(sdf.format(new Date()));
+        order.setStatue(1);//待发货
+        cartService.upOrder(order);
+        Orders orders=cartService.selectOrderByoid(order.getOid());
+        model.addAttribute("Order",orders);
         return "BuyCar_Three";
     }
+    @RequestMapping("/addtocart")
+    public void AddtoBuyCar(Model model,HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws Exception {
+        //添加商品到购物车
+        Cart cart=new Cart();
+        cart.setCommodity_name(request.getParameter("commodity_name"));
+        cart.setAmount(Integer.parseInt(request.getParameter("amount")));
+        cart.setCommodity_pic(request.getParameter("commodity_pic"));
+        cart.setCommodity_select(request.getParameter("commodity_select"));
+        cart.setShopname(request.getParameter("shopname"));
+        cart.setCid(Integer.parseInt(request.getParameter("cid")));
+        cart.setPrice(Double.parseDouble(request.getParameter("price")));
+        cart.setSid(Integer.parseInt(request.getParameter("sid")));
+        User user=(User)httpSession.getAttribute("user");
+        cart.setUid(user.getUid());
+        try {
+            //加入购物车
+            //查找是否是同一件商品
+             Cart cart1=cartService.selectGoods(cart);
+             if(cart1==null){
+                 cartService.Addto(cart);
+             }else{
+                 cart1.setAmount(cart1.getAmount()+cart.getAmount());
+                 cartService.ChangeNum(cart1);
+             }
 
+            //返回购物车中几种几件，合计多少元
+            Cart backNum = cartService.selectNum(cart);
+            String json = JSONObject.toJSONString(backNum);
+
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json; charset=utf-8");
+        response.getWriter().write(json.toString());
+        System.out.println(json.toString());
+        response.getWriter().flush();
+        response.getWriter().close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/BuyCar/change")
+    public void BuyCarChange(HttpServletRequest request)throws Exception{
+        System.out.println("CHANGE购物车");
+        Cart cart=new Cart();
+        cart.setCbid(Integer.parseInt(request.getParameter("cbid")));
+        if(cart.getCbid()!=-1) {
+            cart.setAmount(Integer.parseInt(request.getParameter("amount")));
+            System.out.println(cart.getAmount());
+            if (cart.getAmount() != -1) {
+                cartService.ChangeNum(cart);
+            }
+        }
+    }
     @RequestMapping("/BuyCar")
-    public String BuyCar(Model model) throws Exception {
+    public String BuyCar(Model model,Cart cart,HttpServletRequest request,HttpSession httpSession) throws Exception {
+        System.out.println("查询购物车");
+        if(cart.getCbid()!=-1) {
+            if (cart.getAmount() == 0) {
+                cartService.deleCart(cart);
+            }
+        }
+        //购物车所有商品
+        User user=(User)httpSession.getAttribute("user");
+        int uid=user.getUid();
+        try {
+            ArrayList<Cart> CartList = cartService.selectCart(uid);
+            model.addAttribute("CartList", CartList);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return "BuyCar";
     }
+    /**
+     * 进入查看订单页面
+     * @param model
+     * @param cbids
+     * @return
+     * @throws Exception
+     */
 
     @RequestMapping("/BuyCar_Two")
-    public String BuyCar_Two(Model model) throws Exception {
+    public String BuyCar_Two(String cbids ,Model model,HttpSession httpSession) throws Exception {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //返回收货人信息添加到订单里并返回到页面
+        User user=(User) httpSession.getAttribute("user");
+        int uid=user.getUid();
+        ShipAddress shipAddress = cartService.selectUAdress(uid);
+    try {
+        //获取值
+        int count = 0;
+        double totalprice = 0;
+        int sid = 0;
+        String[] cbidString = cbids.split(",");
+        for (int i = 0; i < cbidString.length; i++) {
+            Cart cart = cartService.selectCartBycbid(Integer.parseInt(cbidString[i]));
+            count = count + cart.getAmount();
+            totalprice = totalprice + cart.getAmount() * cart.getPrice();
+            sid = cart.getSid();
+        }
+        //创建订单
+        Orders order = new Orders();
+        order.setCreatetime(sdf.format(new Date()));
+        order.setSaid(shipAddress.getSaid());
+        order.setUid(uid);
+        order.setCount(count);
+        order.setTotalprice(totalprice);
+        order.setSid(sid);
+        order.setNumber("");
+        order.setFreight(0);
+        cartService.AddOrder(order);//添加订单
+        int oid = cartService.selectAddoid(order);//返回订单编号oid
+
+        //订单添加商品
+        for (int i = 0; i < cbidString.length; i++) {
+            Cart cart = cartService.selectCartBycbid(Integer.parseInt(cbidString[i]));
+            Ordergoods ordergood = new Ordergoods(cart);
+            ordergood.setOid(oid);
+            cartService.AddOrdergoods(ordergood);//根据订单号添加订单商品
+        }
+        //返回订单商品到页面
+        ArrayList<Ordergoods> ordergoodsArrayList = new ArrayList<Ordergoods>();
+        ordergoodsArrayList = cartService.selectOrdergoodsByoid(oid);
+        model.addAttribute("OGsList", ordergoodsArrayList);
+        model.addAttribute("Address", shipAddress);
+        model.addAttribute("Order",order);
+    }catch (Exception e){
+        e.printStackTrace();
+    }
         return "BuyCar_Two";
     }
 
@@ -155,7 +444,6 @@ public class DemoController {
         String ip = request.getHeader("x-forwarded-for");
 
 
-
         if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
 
             ip = request.getHeader("Proxy-Client-IP");
@@ -166,8 +454,15 @@ public class DemoController {
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
+
+
         ip=ip.equals("0:0:0:0:0:0:0:1")?"118.89.171.150":ip;
         ip="118.89.171.150";
+
+
+        ip=ip.equals("0:0:0:0:0:0:0:1")?"118.89.171.150":ip;
+        ip="118.89.171.150";
+
         //获取经纬度，请在Getjw类中实现
         Getjw ipxy=new Getjw();
         page.setRangeString(ipxy.getXY(ip));
@@ -229,7 +524,7 @@ public class DemoController {
         modelAndView.addObject("Page", page);
 
         modelAndView.setViewName("CategoryList");
-
+        System.out.println("建哈哈四号IDhi哦爱哦的hi奥");
         return modelAndView;
 
     }
@@ -237,7 +532,6 @@ public class DemoController {
 
     @RequestMapping("/product")
     public ModelAndView Product(int cid, APage page, Model model) throws Exception {
-
         ModelAndView productmodelAndView = new ModelAndView();
         //基本信息填充（包括评论信息）
         if (cid != -1) {

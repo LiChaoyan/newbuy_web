@@ -50,8 +50,13 @@
             text-align: center;
             cursor: pointer;
         }
-        dd.sl-multiple {
-            border: 1px #ddd solid
+        .sl-multiple {
+            border: 1px #ddd solid;
+            line-height: 23px;
+            font-size: 100%;
+            font-weight: 500;
+            text-align: center;
+            margin-right: 100px;
         }
 
 
@@ -292,7 +297,7 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
     	<ul class="menu_r">                                                                                                                                               
-        	<li><a href="Index">首页</a></li>
+        	<li><a href="<%=request.getContextPath()%>/index">首页</a></li>
             <li><a href="Food">美食</a></li>
             <li><a href="Fresh">生鲜</a></li>
             <li><a href="HomeDecoration">家居</a></li>
@@ -307,7 +312,7 @@
 </div>
 <!--End Menu End-->
 <div class="i_bg">
-
+<%--
     <div class="postion">
         <span class="fl">全部分类 > 美妆个护 > 香水 > </span>
         <span class="n_ch">
@@ -339,6 +344,7 @@
             </tr>
         </table>
     </div>
+    --%>
     <!--End 筛选条件 End-->
 
     <div style="width:1200px; margin:0 auto;">
@@ -382,18 +388,17 @@
                  </dl>--%>
                 <dl class="relative clearfix">
                     <dt class="floatLeft"><a href="/">城市：</a></dt>
-                    <dd class="floatLeft show-con" style="width: 900px">
+                    <dd class="floatLeft show-con" style="width: 800px">
                         <c:forEach items="${cityList}" var="city">
                             <span><input type="checkbox" value="${city.cityname}"/><a class="">${city.cityname}</a></span>
                         </c:forEach>
                     </dd>
-                    <dd class="floatLeft sl-multiple" style="width: 70px"><h3><span>多选</span><i></i></h3></dd>
+                    <dd class="floatLeft sl-multiple" style="width: 40px"><h3><span>多选</span><i></i></h3></dd>
                     <dd class="floatLeft show-more" style="width: 70px"><h3 class="pointer clearfix"><span>更多</span><i class="icon-angle-down"></i></h3></dd>
-                    <dd class="sl-multiple-btn" style="width: 900px; align:center;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input class="btn_sure" style="background: #F7F7F7" type="button" value="确定"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" class="sl_cancel" style="background: #F7F7F7" value="取消"/>
-                    </dd>
+                    <div class="sl-multiple-btn" style="width: 900px; align:center;">
+                        <div class="floatLeft sl-multiple btn_sure" style="width: 40px"><h3><span>确定</span><i></i></h3></div>
+                        <div class="floatLeft sl-multiple sl_cancel" style="width: 40px"><h3><span>取消</span><i></i></h3></div>
+                    </div>
 
 
 
@@ -773,7 +778,7 @@
         <div class="l_list">
             <div class="list_t">
             	<span class="fl list_or">
-                	<a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&colligate=1" class="no-colligate">综合排序</a>
+                	<a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&colligate=1" class="no-colligate now">综合排序</a>
                     <a href="<%=request.getContextPath()%>/CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&sales=1" class="no-sales">销量</a>
                     <a href="#" class="no-price">
                     	<span class="fl">价格</span>

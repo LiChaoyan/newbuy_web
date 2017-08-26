@@ -59,9 +59,9 @@ public class APage {
         //判断每一页开始start
         this.start = (p - 1) * this.count;
         //判断每一页的结束
-        if (this.p == pagesize) {
+      /*  if (this.p == pagesize) {
             this.count = this.listsize % this.count;
-        }
+        }*/
         //判断p的上一页bp
         if (p == 0) {
             this.bp = 0;
