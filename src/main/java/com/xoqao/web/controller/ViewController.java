@@ -22,5 +22,22 @@ public class ViewController {
         return "shopkeeper/shopadd_outline";
     }
 
+    @RequestMapping("admin_boss")
+    public String admin_boss(Model model) throws Exception {
+        return "admin/admin_boss";
+    }
+    @RequestMapping("index_admin")
+    public String index_admin(Model model) throws Exception {
+        return "admin/index_admin";
+    }
+    @RequestMapping("admin_product")
+    public String admin_product(Model model) throws Exception {
+        return "admin/admin_product";
+    }
+    @RequestMapping("admin_shop")
+    public String admin_shop(Model model) throws Exception {
+        return "admin/admin_shop";
+    }
+
 }
 

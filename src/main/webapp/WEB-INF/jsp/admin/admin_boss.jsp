@@ -68,7 +68,16 @@
 			<dt><i class="Hui-iconfont">&#xe616;</i> 店铺管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/article_list" title="资讯管理">查看店铺</a></li>
+					<li><a href="<%=request.getContextPath()%>/admin_shop" title="店铺管理">查看店铺</a></li>
+				</ul>
+			</dd>
+		</dl>
+
+		<dl id="menu-product">
+			<dt class="selected"><i class="Hui-iconfont">&#xe620;</i> 店主管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd style="display: block;">
+				<ul>
+					<li class="current"><a href="<%=request.getContextPath()%>/admin_boss" title="产品管理">查看店主</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -77,48 +86,7 @@
 			<dt><i class="Hui-iconfont">&#xe620;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/product_list" title="产品管理">查看商品</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 合作管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/product_brand" title="品牌管理">品牌管理</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-member">
-			<dt class="selected"><i class="Hui-iconfont">&#xe60d;</i> 店员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd  style="display: block;">
-				<ul>
-					<li class="current"><a href="<%=request.getContextPath()%>/boss/member_list" title="会员列表">会员列表</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 统计管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/charts-1" title="折线图">折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-2" title="时间轴折线图">时间轴折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-3" title="区域图">区域图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-4" title="柱状图">柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-5" title="饼状图">饼状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-6" title="3D柱状图">3D柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-7" title="3D饼状图">3D饼状图</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-system">
-			<dt><i class="Hui-iconfont">&#xe62e;</i> 安全管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/safe_list" title="安全设置">安全设置</a></li>
+					<li><a href="<%=request.getContextPath()%>/admin_product" title="品牌管理">查看商品</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -129,24 +97,20 @@
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="<%=request.getContextPath()%>/boss/index_shopkeeper">首页</a>
-		<span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="<%=request.getContextPath()%>/index_admin">登录</a>
+		<span class="c-gray en">&gt;</span> 店主管理 <span class="c-gray en">&gt;</span> 查看店主<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
 			<div class="text-c">
 				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" name="">
 				<button type="submit" class="btn btn-success radius" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20">
-			 <span class="l"><a href="javascript:;" onclick="member_add('添加用户','/newbuy/boss/member_add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加店铺经理</a>
-			 <a href="javascript:;" onclick="member_add('添加用户','/newbuy/boss/member_add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加客服人员</a></span>
-			 <span class="r">共有数据：<strong>88</strong> 条</span> </div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
 						<tr class="text-c">
 							<th width="25"><input type="checkbox" name="" value=""></th>
-							<th width="80">职位</th>
+							<%--<th width="80">职位</th>--%>
 							<th width="100">姓名</th>
 							<th width="40">性别</th>
 							<th width="90">手机</th>
@@ -160,8 +124,7 @@
 					<tbody>
 						<tr class="text-c">
 							<td><input type="checkbox" value="1" name=""></td>
-							<td>店铺经理</td>
-							<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','/newbuy/boss/member_show','10001','360','400')">张三</u></td>
+							<td>李四</td>
 							<td>男</td>
 							<td>13000000000</td>
 							<td>admin@mail.com</td>
@@ -172,8 +135,7 @@
 						</tr>
 						<tr class="text-c">
 							<td><input type="checkbox" value="1" name=""></td>
-							<td>客服人员</td>
-							<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','/newbuy/boss/member_show','10001','360','400')">李四</u></td>
+							<td>张三</td>
 							<td>女</td>
 							<td>13000000000</td>
 							<td>admin@mail.com</td>
