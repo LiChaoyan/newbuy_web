@@ -84,6 +84,22 @@ public class BossController {
     public String  member_add(Model model) throws Exception {
         return "shopkeeper/member_add";
     }
+    //    修改密码
+    @RequestMapping("/change_password")
+    public String  change_password(Model model) throws Exception {
+        return "shopkeeper/change_password";
+    }
+    //    安全列表
+    @RequestMapping("/safe_list")
+    public String  safe_list(Model model) throws Exception {
+        return "shopkeeper/safe_list";
+    }
+    //    添加法人信息
+    @RequestMapping("/safeman_add")
+    public String  safeman_add(Model model) throws Exception {
+        return "shopkeeper/safeman_add";
+    }
+
 
 
 
