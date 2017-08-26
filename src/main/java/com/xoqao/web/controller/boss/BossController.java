@@ -20,8 +20,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -82,9 +85,9 @@ public class BossController {
     }
 
 
-
     /**
      * 店铺查看
+     *
      * @param model
      * @return
      * @throws Exception
@@ -93,13 +96,48 @@ public class BossController {
     public String article_list(Model model) throws Exception {
         return "shopkeeper/article_list";
     }
-//    商品管理
+
+    //    商品管理
     @RequestMapping("/product_list")
     public String product_list(Model model) throws Exception {
         return "shopkeeper/product_list";
     }
 
+    //    商品添加
+    @RequestMapping("/product_add")
+    public String product_add(Model model) throws Exception {
+        return "shopkeeper/product_add";
+    }
 
+    //    店员查看（弹窗）
+    @RequestMapping("/member_show")
+    public String member_show(Model model) throws Exception {
+        return "shopkeeper/member_show";
+    }
+
+
+    /**
+     * 进入查看店员
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/employ_list")
+    public String member_list(Model model) throws Exception {
+        return "shopkeeper/member_list";
+    }
+
+
+    /**
+     * 添加店员
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/employ_add")
+    public String member_add(Model model) throws Exception {
+        return "shopkeeper/member_add";
+    }
 
 
     /**
@@ -130,12 +168,13 @@ public class BossController {
 
     /**
      * 进入店主首页概览
+     *
      * @param model
      * @return
      * @throws Exception
      */
     @RequestMapping("/admin/index")
-    public String adminBossIndex(Model model)throws Exception{
+    public String adminBossIndex(Model model) throws Exception {
         return "shopkeeper/index_shopkeeper";
     }
 
@@ -244,23 +283,81 @@ public class BossController {
             shop.setShopname(shopname);
             shop.setStel(shopcall);
             shop.setScope(scope);
+            shop.setType("网络零售");
             shop.setSubscrib(shopdes);
             shop.setBid(boss.getBid());
             String s = QiNiuFileUtil.updalodByByte(logo.getBytes());
             shop.setLogo(CommonValue.QINIUPATH + s);
             shop.setHeadershow(CommonValue.QINIUPATH + s);
-           try {
-               shopService.insertShop(shop);
-               model.addAttribute("","添加成功");
-           }catch (Exception e){
-               e.printStackTrace();
-               model.addAttribute("","添加失败");
-           }
+            try {
+                shopService.insertShop(shop);
+                model.addAttribute("error_msg", "添加成功");
+                return "redirect:/boss/shop_list";
+            } catch (Exception e) {
+                e.printStackTrace();
+                model.addAttribute("error_msg", "添加失败");
+            }
             return "shopkeeper/shopadd_online";
         } else {
             model.addAttribute("error_msg", "登录已经过期，请重新登录");
             return "shopkeeper/Login_shopkeeper";
         }
+    }
+
+    /**
+     * 添加实体店提交
+     * @param model
+     * @param shopname
+     * @param shopcall
+     * @param permit
+     * @param logo
+     * @param city
+     * @param scope
+     * @param sever_add
+     * @param lng
+     * @param lat
+     * @param file
+     * @param httpSession
+     * @param redirectAttributes
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/shop/outling/sub")
+    public String shopAddDownLineSub(Model model, String shopname, String shopcall, MultipartFile permit, MultipartFile logo,Integer city, String scope, String sever_add, Double lng, Double lat, @RequestParam("file") CommonsMultipartFile file[], HttpSession httpSession, RedirectAttributes redirectAttributes) throws Exception {
+        if (null != shopname && null != shopcall && null != permit && null != scope && null != sever_add) {
+            Boss boss = (Boss) httpSession.getAttribute("boss");
+            Shop shop = new Shop();
+            shop.setShopname(shopname);
+            shop.setStel(shopcall);
+            shop.setLatitude(lat);
+            shop.setLonggitude(lng);
+            shop.setBid(boss.getBid());
+            shop.setScope(scope);
+            shop.setType("实体零售");
+            shop.setSaddress(sever_add);
+            shop.setCity(city);
+            String per = QiNiuFileUtil.updalodByByte(permit.getBytes()); //上传营业执照
+            String logoStr = QiNiuFileUtil.updalodByByte(logo.getBytes());
+            shop.setLogo(CommonValue.QINIUPATH + logoStr);
+           String others=CommonValue.QINIUPATH + per;
+            for (int i = 0; i <file.length ; i++) {
+                MultipartFile img=file[i];
+                String s = QiNiuFileUtil.updalodByByte(img.getBytes());
+                others=others+";"+CommonValue.QINIUPATH+s;
+            }
+            shop.setPermitpic(others);
+            try {
+                shopService.insertShop(shop);
+                redirectAttributes.addFlashAttribute("error_msg","添加成功");
+                return "redirect:/boss/shop_list";
+            }catch (Exception e){
+                e.printStackTrace();
+                model.addAttribute("error_msg", "请输入正确得参数！");
+            }
+        } else {
+            model.addAttribute("error_msg", "请输入正确得参数！");
+        }
+        return "shopkeeper/shopadd_outline";
     }
 
     /**

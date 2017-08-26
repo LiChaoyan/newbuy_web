@@ -15,6 +15,7 @@ import java.util.List;
  */
 @Service
 public interface ShopMapper {
+
     List<Shop> findAllShops() throws Exception;
 
     Shop saveShops(Shop shop) throws Exception;
@@ -30,4 +31,6 @@ public interface ShopMapper {
     ArrayList<ShopCity> selectShopByname(@Param("page") Page page) throws Exception;
 
     void insertShop(@Param("shop") Shop shop) throws Exception;
+
+    List<Shop> findShopByBid(@Param("bid") Integer bid) throws Exception;
 }

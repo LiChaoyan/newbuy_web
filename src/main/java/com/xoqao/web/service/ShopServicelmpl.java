@@ -45,7 +45,14 @@ public class ShopServicelmpl implements ShopService{
         shopMapper.insertShop(shop);
     }
 
+    public List<Shop> findShopByBid(Integer bid) throws Exception {
+        List<Shop> shopByBid = shopMapper.findShopByBid(bid);
+        return shopByBid;
+    }
+
     public int selectShopsizeByname(String shopname)throws Exception{
         return shopMapper.selectShopsizeByname(shopname);
     }
+
+
 }

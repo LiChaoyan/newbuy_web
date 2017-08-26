@@ -121,7 +121,8 @@
 
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript">
-
+    <c:if test="${!empty error_msg}">alert("${error_msg}");
+    </c:if>
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 

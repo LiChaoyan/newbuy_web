@@ -32,4 +32,6 @@ public interface ShopService {
      */
     void insertShop(Shop shop) throws Exception;
 
+    List<Shop> findShopByBid(Integer bid) throws Exception;
+
 }

@@ -47,20 +47,16 @@
             </dd>
         </dl>
 
-        <dl id="menu-member">
-            <dt><i class="Hui-iconfont">&#xe60d;</i> 店员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+        <dl id="menu-employ">
+            <dt ><i class="Hui-iconfont">&#xe60d;</i> 店员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="<%=request.getContextPath()%>/member-list" title="会员列表">会员列表</a></li>
-                    <li><a href="<%=request.getContextPath()%>/member-del" title="删除的会员">删除的会员</a></li>
-                    <li><a href="<%=request.getContextPath()%>/member-level" title="等级管理">等级管理</a></li>
-                    <li><a href="<%=request.getContextPath()%>/member-scoreoperation" title="积分管理">积分管理</a></li>
-                    <li><a href="<%=request.getContextPath()%>/member-record-browse" title="浏览记录">浏览记录</a></li>
-                    <li><a href="<%=request.getContextPath()%>/member-record-download" title="下载记录">下载记录</a></li>
-                    <li><a href="<%=request.getContextPath()%>/member-record-share" title="分享记录">分享记录</a></li>
+                    <li ><a href="<%=request.getContextPath()%>/boss/employ_list" title="会员列表">会员列表</a></li>
+                    <%--<li class="current"><a href="<%=request.getContextPath()%>/boss/employ_list" title="会员列表">会员列表</a></li>--%>
                 </ul>
             </dd>
         </dl>
+
 
         <dl id="menu-tongji">
             <dt><i class="Hui-iconfont">&#xe61a;</i> 统计管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
