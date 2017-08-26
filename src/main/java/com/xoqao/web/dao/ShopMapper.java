@@ -15,11 +15,22 @@ import java.util.List;
  */
 @Service
 public interface ShopMapper {
-    List<Shop> findAllShops()throws Exception;
-    Shop saveShops(Shop shop)throws Exception;
-    void updateShop(Shop shop)throws Exception;
-    Shop selectShopBybid(@Param("bid")int  bid)throws Exception;
-    Shop selectShopBysid(@Param("sid")int sid)throws Exception;
-    int selectShopsizeByname(@Param("shopname") String shopname)throws Exception;
-    ArrayList<ShopCity> selectShopByname(@Param("page") Page page)throws Exception;
+
+    List<Shop> findAllShops() throws Exception;
+
+    Shop saveShops(Shop shop) throws Exception;
+
+    void updateShop(Shop shop) throws Exception;
+
+    Shop selectShopBybid(@Param("bid") int bid) throws Exception;
+
+    Shop selectShopBysid(@Param("sid") int sid) throws Exception;
+
+    int selectShopsizeByname(@Param("shopname") String shopname) throws Exception;
+
+    ArrayList<ShopCity> selectShopByname(@Param("page") Page page) throws Exception;
+
+    void insertShop(@Param("shop") Shop shop) throws Exception;
+
+    List<Shop> findShopByBid(@Param("bid") Integer bid) throws Exception;
 }

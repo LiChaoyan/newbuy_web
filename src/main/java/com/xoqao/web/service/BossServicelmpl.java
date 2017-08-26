@@ -14,29 +14,51 @@ import java.util.List;
  */
 
 @Service
-public class BossServicelmpl implements BossService{
+public class BossServicelmpl implements BossService {
 
     @Autowired
     private BossMapper bossMapper;
 
-    public Boss saveBoss(Boss boss)throws Exception{
+    public Boss saveBoss(Boss boss) throws Exception {
 
-           return  bossMapper.saveBoss(boss);
+        return bossMapper.saveBoss(boss);
     }
 
-    public List<Boss> selectBossBynickname(String nickname)throws Exception {
+    public List<Boss> selectBossBynickname(String nickname) throws Exception {
         List<Boss> allBosss = bossMapper.selectBossBynickname(nickname);
         return allBosss;
     }
-    public List<Boss> selectBossByphone(String phone)throws Exception {
+
+    public List<Boss> selectBossByphone(String phone) throws Exception {
         List<Boss> allBosss = bossMapper.selectBossByphone(phone);
         return allBosss;
     }
-    public List<Boss> selectBossBysid(int sid )throws Exception {
+
+    public List<Boss> selectBossBysid(int sid) throws Exception {
         List<Boss> allBosss = bossMapper.selectBossBysid(sid);
         return allBosss;
     }
-    public void upBossphone(Boss boss)throws Exception{
+
+    public void upBossphone(Boss boss) throws Exception {
         bossMapper.upBossphone(boss);
+    }
+
+    public void insertBoss(Boss boss) throws Exception {
+        bossMapper.insertBoss(boss);
+    }
+
+    public Boss findBossByphone(String phone) throws Exception {
+        Boss bossByphone = bossMapper.findBossByphone(phone);
+        return bossByphone;
+    }
+
+    public Boss findBoosByNick(String nickname) throws Exception {
+        Boss boosByNick = bossMapper.findBoosByNick(nickname);
+        return boosByNick;
+    }
+
+    public Boss findBossByStr(String loginstr) throws Exception {
+        Boss bossByStr = bossMapper.findBossByStr(loginstr);
+        return bossByStr;
     }
 }
