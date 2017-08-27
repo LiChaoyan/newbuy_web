@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -22,30 +25,30 @@
 <body>
 <div class="cl pd-20" style=" background-color:#5bacb6">
   <dl style="margin-left:80px; color:#fff">
-    <dt><span class="f-18">张三</span>
+    <dt><span class="f-18">${employer.username}</span>
 </div>
 <div class="pd-20">
   <table class="table">
     <tbody>
       <tr>
         <th class="text-r" width="80">性别：</th>
-        <td>男</td>
+        <td>${employer.gender==0?"男":"女"}</td>
       </tr>
       <tr>
         <th class="text-r">手机：</th>
-        <td>13000000000</td>
+        <td>${employer.phone}</td>
       </tr>
       <tr>
         <th class="text-r">邮箱：</th>
-        <td>admin@mail.com</td>
+        <td>${employer.email}</td>
       </tr>
       <tr>
         <th class="text-r">所属店铺：</th>
-        <td>店铺1</td>
+        <td>${employer.shopname}</td>
       </tr>
       <tr>
         <th class="text-r">注册时间：</th>
-        <td>2014.12.20</td>
+        <td><fmt:formatDate value="${employer.addtime}" pattern="yyyy-MM-dd HH:mm:ss"/> </td>
       </tr>
       
     </tbody>

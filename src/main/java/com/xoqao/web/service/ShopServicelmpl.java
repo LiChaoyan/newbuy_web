@@ -50,6 +50,11 @@ public class ShopServicelmpl implements ShopService{
         return shopByBid;
     }
 
+    public Shop findShopBySid(int sid) throws Exception {
+        Shop shopBySid = shopMapper.findShopBySid(sid);
+        return shopBySid;
+    }
+
     public int selectShopsizeByname(String shopname)throws Exception{
         return shopMapper.selectShopsizeByname(shopname);
     }

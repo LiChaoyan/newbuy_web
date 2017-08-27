@@ -30,25 +30,25 @@
 </head>
 <body>
 <article class="cl pd-20">
-	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<form action="<%=request.getContextPath()%>/boss/addEmploySub" method="post" class="form form-horizontal" id="form-member-add">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+				<input type="hidden" name="eid" value="${eid}">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
-					<input name="sex" type="radio" id="sex-1" checked>
+					<input name="sex" type="radio" id="sex-1" value="0" checked>
 					<label for="sex-1">男</label>
 				</div>
 				<div class="radio-box">
-					<input type="radio" id="sex-2" name="sex">
+					<input type="radio" id="sex-2" value="1" name="sex">
 					<label for="sex-2">女</label>
 				</div>
-				
 			</div>
 		</div>
 		<div class="row cl">
@@ -73,11 +73,11 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">所属店铺：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
+				<select class="select" size="1" name="shopid">
 					<option value="" selected>请选择店铺</option>
-					<option value="1">店铺1</option>
-					<option value="2">店铺2</option>
-					<option value="3">店铺3</option>
+					<c:forEach items="${shops}" var="shop">
+						<option value="${shop.sid}">${shop.shopname}</option>
+					</c:forEach>
 				</select>
 				</span> </div>
 		</div>
@@ -109,6 +109,8 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
+    <c:if test="${!empty error_msg}">alert("${error_msg}");
+    </c:if>
 $(function(){
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',

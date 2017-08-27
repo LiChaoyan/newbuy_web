@@ -70,31 +70,44 @@
 				<a class="btn btn-primary radius" data-title="添加线上店铺" _href="<%=request.getContextPath()%>/article-add" onclick="article_addline('添加线上店铺','/newbuy/boss/shopadd_online')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加线上店铺</a>
 				<a class="btn btn-primary radius" data-title="添加实体店铺" _href="<%=request.getContextPath()%>/article-add" onclick="article_add('添加实体店铺','/newbuy/boss/shopadd_outline')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加实体店铺</a>
 				</span>
-				<span class="r">共有店铺：<strong>5</strong> 个</span>
+				<span class="r">共有店铺：<strong>${shops.size()}</strong> 个</span>
 			</div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-bg table-hover table-sort">
 					<thead>
 						<tr class="text-c">
 							<th width="25"><input type="checkbox" name="" value=""></th>
-							<th width="80">店铺经理</th>
+							<th width="80">店铺logo</th>
 							<th width="120">店铺名称</th>
 							<th width="80">店铺类型</th>
 							<th width="80">联系方式</th>
-							<th width="120">更新时间</th>
 							<th width="175">所在地</th>
 							<th width="60">店铺状态</th>
 							<th width="120">操作</th>
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${shops}" var="shop">
+						<tr class="text-c">
+							<td><input type="checkbox" value="" name=""></td>
+							<td><img src="${shop.logo}" width="50" height="50"></td>
+							<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang','10001')" title="查看">${shop.shopname}</u></td>
+							<td>${shop.type}</td>
+							<td>${shop.stel}</td>
+							<td>${shop.saddress}</td>
+							<td class="td-status"><c:if test="${shop.openstatue==1}"><span class="label label-success radius">已上线</span></c:if><c:if test="${shop.openstatue==0}"><span class="label label-success radius">待审核</span></c:if></td>
+							<td class="f-14 td-manage">
+								<!-- <a style="text-decoration:none" onClick="article_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> -->
+								<a style="text-decoration:none" class="ml-5" onClick="article_edit('店铺编辑','shop-addline','10001')" href="javascript:;" title="编辑店铺"><i class="Hui-iconfont">&#xe6df;</i></a>
+								<a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除店铺"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						</tr>
+					</c:forEach>
 						<tr class="text-c">
 							<td><input type="checkbox" value="" name=""></td>
 							<td>刘明慧</td>
 							<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang','10001')" title="查看">格林家的衣服</u></td>
 							<td>线上店铺</td>
 							<td>15166677899</td>
-							<td>2014-6-11 11:11:42</td>
 							<td>河南省郑州市新郑市龙湖镇</td>
 							<td class="td-status"><span class="label label-success radius">已上线</span></td>
 							<td class="f-14 td-manage">
@@ -108,7 +121,6 @@
 							<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang','10001')" title="查看">大叔的小菜</u></td>
 							<td>实体店铺</td>
 							<td>15166677899</td>
-							<td>2014-6-11 11:11:42</td>
 							<td>河北省唐山市遵化市</td>
 							<td class="td-status"><span class="label label-success radius">已上线</span></td>
 							<td class="f-14 td-manage">
@@ -123,7 +135,6 @@
 							<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang','10002')" title="查看">在路上的跑鞋</u></td>
 							<td>实体店铺</td>
 							<td>15166677899</td>
-							<td>2014-6-11 11:11:42</td>
 							<td>重庆市</td>
 							<td class="td-status"><span class="label label-success radius">审核中</span></td>
 							<td class="f-14 td-manage">
@@ -151,11 +162,11 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 $('.table-sort').dataTable({
-	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+	"aaSorting": [[ 2, "desc" ]],//默认第几个排序
 	"bStateSave": true,//状态保存
 	"aoColumnDefs": [
 		//{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-		{"orderable":false,"aTargets":[0,8]}// 不参与排序的列
+		{"orderable":false,"aTargets":[0,7]}// 不参与排序的列
 	]
 });
 
