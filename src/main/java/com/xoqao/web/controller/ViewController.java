@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ViewController {
 
-
-
-
     @RequestMapping("admin_boss")
     public String admin_boss(Model model) throws Exception {
         return "admin/admin_boss";

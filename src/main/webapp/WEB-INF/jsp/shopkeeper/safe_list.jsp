@@ -1,4 +1,8 @@
-﻿<!DOCTYPE HTML>
+﻿﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -26,104 +30,10 @@
 </head>
 <body>
 <!--_header 作为公共模版分离出去-->
-<header class="navbar-wrapper">
-	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="<%=request.getContextPath()%>/Scripts/aboutHui.shtml">双线购</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="<%=request.getContextPath()%>/Scripts/aboutHui.shtml">H-ui</a>
-			<span class="logo navbar-slogan f-l mr-10 hidden-xs">店主管理</span> 
-			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
-			
-			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
-				<ul class="cl">
-					<li>您好，张璐</li>
-					<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">个人中心 <i class="Hui-iconfont">&#xe6d5;</i></a>
-						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-							<!-- <li><a href="#">切换账户</a></li> -->
-							<li><a href="#">退出</a></li>
-						</ul>
-					</li>
-					<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
-					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
-						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
-							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
-							<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
-							<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
-							<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
-							<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
-</div>
-</div>
-</header>
+<jsp:include page="/public_jsp/bossHeader.jsp" flush="true"></jsp:include>
 <!--/_header 作为公共模版分离出去-->
-
+<jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
 <!--_menu 作为公共模版分离出去-->
-<aside class="Hui-aside">
-
-	<div class="menu_dropdown bk_2">
-		<dl id="menu-article">
-			<dt><i class="Hui-iconfont">&#xe616;</i> 店铺管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/article_list" title="资讯管理">查看店铺</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/product_list" title="产品管理">查看商品</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 合作管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/product_brand" title="品牌管理">品牌管理</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-member">
-			<dt><i class="Hui-iconfont">&#xe60d;</i> 店员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd >
-				<ul>
-					<li ><a href="<%=request.getContextPath()%>/boss/member_list" title="会员列表">会员列表</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 统计管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/charts-1" title="折线图">折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-2" title="时间轴折线图">时间轴折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-3" title="区域图">区域图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-4" title="柱状图">柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-5" title="饼状图">饼状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-6" title="3D柱状图">3D柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-7" title="3D饼状图">3D饼状图</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-system">
-			<dt  class="selected"><i class="Hui-iconfont">&#xe62e;</i> 安全管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd  style="display: block;">
-				<ul>
-					<li class="current"><a href="<%=request.getContextPath()%>/boss/safe_list" title="安全设置">安全设置</a></li>
-				</ul>
-			</dd>
-		</dl>
-	</div>
-</aside>
 
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <!--/_menu 作为公共模版分离出去-->
@@ -138,7 +48,7 @@
 				<button type="submit" class="btn btn-success radius" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20">
-			 <span class="l"><a href="javascript:;" onclick="member_add('添加安全信息','/newbuy/boss/safeman_add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加安全信息</a>
+			 <span class="l"><a href="javascript:;" onclick="member_add('添加安全信息','/newbuy/boss/safeman_add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加银行卡信息</a>
 			 <%--<a href="javascript:;" onclick="member_add('添加银行卡','/newbuy/boss/member_add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加银行卡</a></span>--%>
 			 <%--<span class="r">共有数据：<strong>88</strong> 条</span> --%>
 			</div>
@@ -148,22 +58,40 @@
 						<tr class="text-c">
 							<th width="25"><input type="checkbox" name="" value=""></th>
 							<%--<th width="80">职位</th>--%>
-							<th width="100">法人姓名</th>
-							<th width="40">性别</th>
-							<th width="90">手机</th>
-							<th width="150">邮箱</th>
-							<th width="200">所属店铺</th>
+							<th width="100">店铺logo</th>
+							<th width="80">店铺名称</th>
+							<th width="90">法人信息</th>
+							<th width="90">银行信息</th>
+							<th width="200">银行卡号</th>
+							<th width="60">账号余额</th>
 							<%--<th width="130">加入时间</th>--%>
 							<%--<th width="70">状态</th>--%>
 							<th width="100">操作</th>
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${banks}" var="bank">
+						<tr class="text-c">
+							<td><input type="checkbox" value="1" name=""></td>
+							<td><img src="${bank.shop.logo}" height="50" width="80"></td>
+								<%--<td>店铺经理</td>--%>
+							<td>${bank.shop.shopname}</td>
+							<td>${bank.user}</td>
+							<td>${bank.bankName}</td>
+							<td>${bank.cardNumber}</td>
+							<td>${bank.money}</td>
+								<%--<td>2014-6-11 11:11:42</td>--%>
+								<%--<td class="td-status"><span class="label label-success radius">已启用</span></td>--%>
+							<td class="td-manage"><a title="编辑" href="javascript:;" onclick="member_edit('编辑','/newbuy/boss/member_add','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a><a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						</tr>
+					</c:forEach>
+
 						<tr class="text-c">
 							<td><input type="checkbox" value="1" name=""></td>
 							<%--<td>店铺经理</td>--%>
 							<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','/newbuy/boss/member_show','10001','360','400')">张三</u></td>
 							<td>男</td>
+							<td>13000000000</td>
 							<td>13000000000</td>
 							<td>admin@mail.com</td>
 							<td class="text-l">店铺1</td>
@@ -176,6 +104,7 @@
 							<%--<td>客服人员</td>--%>
 							<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','/newbuy/boss/member_show','10001','360','400')">李四</u></td>
 							<td>女</td>
+							<td>13000000000</td>
 							<td>13000000000</td>
 							<td>admin@mail.com</td>
 							<td class="text-l">店铺2</td>
@@ -203,14 +132,14 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 $(function(){
-//	$('.table-sort').dataTable({
-//		"aaSorting": [[ 1, "desc" ]],//默认第几个排序
-//		"bStateSave": true,//状态保存
-//		"aoColumnDefs": [
-//		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-//		  {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
-//		]
-//	});
+	$('.table-sort').dataTable({
+		"aaSorting": [[ 2, "desc" ]],//默认第几个排序
+		"bStateSave": true,//状态保存
+		"aoColumnDefs": [
+		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+		  {"orderable":false,"aTargets":[0,7]}// 制定列不参与排序
+		]
+	});
 
 	$('.table-sort tbody').on( 'click', 'tr', function () {
 		if ( $(this).hasClass('selected') ) {

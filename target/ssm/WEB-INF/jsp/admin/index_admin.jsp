@@ -1,7 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ page isELIgnored="false" %>
+﻿
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -27,84 +24,115 @@
 	<!--/meta 作为公共模版分离出去-->
 
 	<title>概览</title>
+	<style>
+		.form-label {
+			display: block;
+			color: #fff;
+		}
+	</style>
 </head>
 <body>
 <!--_header 作为公共模版分离出去-->
-<jsp:include page="/public_jsp/bossHeader.jsp" flush="true"></jsp:include>
+<header class="navbar-wrapper">
+	<div class="navbar navbar-fixed-top">
 
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="<%=request.getContextPath()%>/aboutHui.shtml">双线购</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="<%=request.getContextPath()%>/aboutHui.shtml">H-ui</a>
+			<span class="logo navbar-slogan f-l mr-10 hidden-xs">管理控制台</span>
+			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+
+			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
+				<ul class="cl">
+					<li>您好，张璐</li>
+					<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">个人中心 <i class="Hui-iconfont">&#xe6d5;</i></a>
+						<ul class="dropDown-menu menu radius box-shadow">
+							<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
+							<!-- <li><a href="#">切换账户</a></li> -->
+							<li><a href="#">退出</a></li>
+						</ul>
+					</li>
+					<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
+					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+						<ul class="dropDown-menu menu radius box-shadow">
+							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
+							<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
+							<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
+							<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
+							<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
 <!--/_header 作为公共模版分离出去-->
-<jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
+
 <!--_menu 作为公共模版分离出去-->
+<aside class="Hui-aside">
+
+	<div class="menu_dropdown bk_2">
+		<dl id="menu-article">
+			<dt><i class="Hui-iconfont">&#xe616;</i> 店铺管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="<%=request.getContextPath()%>/admin_shop" title="店铺管理">查看店铺</a></li>
+				</ul>
+			</dd>
+		</dl>
+
+		<dl id="menu-product">
+			<dt><i class="Hui-iconfont">&#xe620;</i> 店主管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="<%=request.getContextPath()%>/admin_boss" title="产品管理">查看店主</a></li>
+				</ul>
+			</dd>
+		</dl>
+
+		<dl id="menu-product">
+			<dt><i class="Hui-iconfont">&#xe620;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="<%=request.getContextPath()%>/admin_product" title="品牌管理">查看商品</a></li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</aside>
 
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <!--/_menu 作为公共模版分离出去-->
 
-<section class="Hui-article-box">
+<section class="Hui-article-box"  style="background-image: url(<%=request.getContextPath()%>/Picture/admin_bg.png);background-repeat: no-repeat;background-position:center;width: 100%;height: 120%;" >
 	<nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="<%=request.getContextPath()%>/boss/index_shopkeeper" class="maincolor">首页</a>
 		<span class="c-999 en">&gt;</span>
-		<span class="c-666">概览</span>
+		<span class="c-666">登录</span>
 		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
 
 		<article class="cl pd-20">
-			<p class="f-20 text-success">欢迎登陆！</p>
-			<p>登录次数：18 &nbsp;&nbsp;&nbsp;&nbsp; 上次登录时间：2014-6-14 11:19:55 </p>
-			<table class="table table-border table-bordered table-bg">
-				<thead>
-				<tr>
-					<th colspan="7" scope="col">信息概览</th>
-				</tr>
-				<tr class="text-c">
-					<th>统计</th>
-					<th>店铺数</th>
-					<th>商品数</th>
-					<th>销售量</th>
-					<th>销售额</th>
-					<th>合作商家</th>
-
-				</tr>
-				</thead>
-				<tbody>
-				<tr class="text-c">
-					<td>总数</td>
-					<td>4</td>
-					<td>50</td>
-					<td>1000</td>
-					<td>2000</td>
-					<td>10</td>
-				</tr>
-				<tr class="text-c">
-					<td rowspan="4">各店铺统计</td>
-					<td>店铺2</td>
-					<td>10</td>
-					<td>10</td>
-					<td>100</td>
-					<td>x100</td>
-				</tr>
-				<tr class="text-c">
-					<td>店铺3</td>
-					<td>20</td>
-					<td>20</td>
-					<td>100</td>
-					<td>1000</td>
-				</tr>
-				<tr class="text-c">
-					<td>店铺4</td>
-					<td>10</td>
-					<td>20</td>
-					<td>100</td>
-					<td>1000</td>
-				</tr>
-				<tr class="text-c">
-					<td>店铺5</td>
-					<td>10</td>
-					<td>20</td>
-					<td>100</td>
-					<td>1000</td>
-				</tr>
-				</tbody>
-			</table>
-			<div id="container" style="min-width:700px;height:400px"></div>
+			<div style="background-color:#184394;border: 1px solid #f6f6f6;width: 60%;height: 200px;margin-left: 15%;margin-top: 2%;opacity: 0.8;">
+			<form action="" method="post" class="form form-horizontal" id="form-member-add">
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
+					<div class="formControls col-xs-6">
+						<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+					<div class="formControls col-xs-6">
+						<input type="text" class="input-text" value="" placeholder="" id="password" name="mobile">
+					</div>
+				</div>
+				<div class="row cl">
+					<div class="col-xs-12 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+						<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;登录&nbsp;&nbsp;">
+					</div>
+				</div>
+			</form>
+			</div>
 		</article>
 	</div>
 </section>
@@ -120,9 +148,6 @@
 <script type="text/javascript"  src="<%=request.getContextPath()%>/Scripts/lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/Scripts/lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
 <script type="text/javascript">
-    <c:if test="${!empty error_msg}">alert("${error_msg}");
-    </c:if>
-
     $(function () {
         $('#container').highcharts({
             title: {

@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page isELIgnored="false" %>
-=======
-﻿
->>>>>>> wordlu-master
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -124,10 +120,9 @@
 <script type="text/javascript"  src="<%=request.getContextPath()%>/Scripts/lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/Scripts/lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
 <script type="text/javascript">
-<<<<<<< HEAD
     <c:if test="${!empty error_msg}">alert("${error_msg}");
     </c:if>
-=======
+
     $(function () {
         $('#container').highcharts({
             title: {
@@ -175,7 +170,6 @@
             }]
         });
     });
->>>>>>> wordlu-master
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
