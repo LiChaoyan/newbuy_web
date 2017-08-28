@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -427,7 +434,7 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
     	<ul class="menu_r">                                                                                                                                               
-        	<li><a href="<%= request.getContextPath()%>/Index">首页</a></li>
+        	<li><a href="<%= request.getContextPath()%>/index">首页</a></li>
             <li><a href="<%= request.getContextPath()%>/Food">美食</a></li>
             <li><a href="<%= request.getContextPath()%>/Fresh">生鲜</a></li>
             <li><a href="<%= request.getContextPath()%>/HomeDecoration">家居</a></li>
@@ -456,6 +463,26 @@
             <td class="car_th" width="130">金额</td>
             <td class="car_th" width="150">操作</td>
           </tr>
+            <C:forEach items="${CartList}" var="cart" varStatus="cartid">
+                <tr class="car_tr">
+                <td>
+                    <div class="c_s_img"><img src="${cart.commodity_pic}" width="73" height="73" /></div>
+                    ${cart.commodity_name}
+                </td>
+                <td align="center">颜色：灰色</td>
+                <td align="center">
+                    <div class="c_num">
+                        <input type="button" value="" onclick="jianUpdate1(jq(this));" class="car_btn_1" />
+                        <input type="text" value="1" name="" class="car_ipt" />
+                        <input type="button" value="" onclick="addUpdate1(jq(this));" class="car_btn_2" />
+                    </div>
+                </td>
+                <td align="center">￥${cart.price}</td>
+                <td align="center" style="color:#ff4e00;">￥${cart.price*cart.amount}</td>
+                <td align="center"><a onclick="ShowDiv('MyDiv','fade')">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td>
+                </tr>
+            </C:forEach>
+
           <tr>
             <td>
             	<div class="c_s_img"><img src="<%= request.getContextPath()%>/Picture/c_1.jpg" width="73" height="73" /></div>

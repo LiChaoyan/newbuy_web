@@ -4,6 +4,7 @@ package com.xoqao.web.bean.boss;
  * Created by lcy on 2017/7/12.
  */
 public class Boss {
+
     private Integer bid;
     private String id;//身份证号
     private String name;

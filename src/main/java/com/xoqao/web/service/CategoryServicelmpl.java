@@ -93,7 +93,6 @@ public class CategoryServicelmpl implements CategoryService{
                 SmallCategory smallCategory = new SmallCategory();
                 smallCategory.setSmall(small);
                 smallCategory.setCategoryList(categorysecendList);
-                System.out.println("big:"+big+" small:"+small+" secend:"+categorysecendList.get(0).getSecend());
                 smallCategories.add(smallCategory);
 
             }

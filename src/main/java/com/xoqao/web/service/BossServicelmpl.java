@@ -56,4 +56,9 @@ public class BossServicelmpl implements BossService {
         Boss boosByNick = bossMapper.findBoosByNick(nickname);
         return boosByNick;
     }
+
+    public Boss findBossByStr(String loginstr) throws Exception {
+        Boss bossByStr = bossMapper.findBossByStr(loginstr);
+        return bossByStr;
+    }
 }

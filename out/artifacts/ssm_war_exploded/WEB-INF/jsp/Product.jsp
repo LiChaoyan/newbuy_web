@@ -99,7 +99,6 @@
 .coll_body a{display:block; margin:10px; text-align: center; background: #f5f4f4;}
 .coll_body h4{ width: 100%; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat:  no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #BDBDBD; color: #fff; }
 .boxcurrent{background-image:url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_down.png);}
-
  /*多省略号代替出来的文字以*/
  .slh-text {
      overflow: hidden; /*内容超出后隐藏*/
@@ -730,7 +729,7 @@
             <div class="des_choice">
             	<span class="fl">型号选择：</span>
                 <ul>
-                	<li class="checked">30ml<div class="ch_img"></div></li>
+                	<li class="">30ml<div class="ch_img"></div></li>
                     <li>50ml<div class="ch_img"></div></li>
                     <li>100ml<div class="ch_img"></div></li>
                 </ul>
@@ -739,7 +738,7 @@
             	<span class="fl">颜色选择：</span>
                 <ul>
                 	<li>红色<div class="ch_img"></div></li>
-                    <li class="checked">白色<div class="ch_img"></div></li>
+                    <li class="">白色<div class="ch_img"></div></li>
                     <li>黑色<div class="ch_img"></div></li>
                 </ul>
             </div>
@@ -754,18 +753,75 @@
                         <a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/sh_5.gif" /></a>
                     </div>
                 </div>
-                <div class="d_care"><a onclick="ShowDiv('MyDiv','fade')">关注商品</a></div>
+                <div class="d_care"><a>关注商品</a></div><!--onclick="ShowDiv('MyDiv','fade')"-->
             </div>
             <div class="des_join">
             	<div class="j_nums">
                 	<input type="text" value="1" name="" class="n_ipt" />
-                    <input type="button" value="" onclick="addUpdate(jq(this));" class="n_btn_1" />
-                    <input type="button" value="" onclick="jianUpdate(jq(this));" class="n_btn_2" />   
+                    <input type="button" value="" <%--onclick="addUpdate(jq(this))";--%> class="n_btn_1" />
+                    <input type="button" value="" <%--onclick="jianUpdate(jq(this));"--%> class="n_btn_2" />
                 </div>
-                <span class="fl"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="<%= request.getContextPath()%>/Picture/j_car.png" /></a></span>
+                <span class="fl"><a ><img src="<%= request.getContextPath()%>/Picture/j_car.png" /></a></span>
+                <!--onclick="ShowDiv_1('MyDiv1','fade1')"-->
             </div>            
         </div>
+        <%--购物车--%>
+        <script type="text/javascript">
+            $(function() {
+                /*点击添加*/
+                $(".fl a").click(function(){
+                    alert("提交数据");
 
+                    //判断参数是否添加
+                    var cart_amount=1;//从页面获取
+                    var cart_cid=${page.cid};
+                    var cart_commodity_name="${Product.productname}";
+                    var cart_commodity_pic="${Product.logo}";
+                    var cart_commodity_select;//从页面获取
+                    var cart_shopname="${Product.shopname}";
+                    var cart_sid=${Product.sid};
+                    var cart_uid=1;
+                    var cart_price=${Product.price};
+                    var url = "<%=request.getContextPath()%>/addtocart";
+                    if(cart_commodity_name!=null) {
+                        var args = {"amount": cart_amount,"cid": cart_cid,"commodity_name": cart_commodity_name, "commodity_pic": cart_commodity_pic, /* "commodity_select":cart_commodity_select,*/"shopname": cart_shopname, "sid": cart_sid, "uid": cart_uid, "price": cart_price, "time": new Date()};
+                        $.post(url, args, function (result) {
+                            alert(result);
+
+                        });
+                        ShowDiv_1('MyDiv1', 'fade1');
+                    }
+
+                });
+
+                /*参数选择*/
+
+                $(".des_choice li").toggle(
+                    function () {
+                        $(this).addClass("checked").siblings().removeClass("checked");
+                    },
+                    function () {
+                        $(this).removeClass("checked");
+                    }
+                );
+                /*数量加减*/
+                $(".n_btn_1").click(function(){
+                    var num=$(this).parent().find(".n_ipt").val();
+                    num=parseInt(num,10);
+                    if(num>=0&&num<5){
+                      num=num+1;
+                    $(this).parent().find(".n_ipt").val(num);
+                    }
+                })
+                $(".n_btn_2").click(function(){
+                    var num=$(this).parent().find(".n_ipt").val();
+                    if(num>=1){
+                    num=num-1;
+                    $(this).parent().find(".n_ipt").val(num);
+                    }
+                })
+            });
+        </script>
         <div class="s_brand">
             <div class="s_brand_img"><img src="${Product.shoplogo}"></div>
             <div class="s_brand_c"><a href="<%=request.getContextPath()%>/#"></a> <a href="">${Product.shopname}&nbsp;</a><span id="readOnly-shop"></span><br>
@@ -889,7 +945,7 @@
                     <div class="conbox" style="display:block;">
                         <table border="0" align="center" style="width:745px; font-size:14px; font-family:'宋体';" cellspacing="0" cellpadding="0">
                       <tr>
-                          <td width="206" height="412"><img src="${Product.logo}" /></td>
+                          <td width="206" height="412"><img src="${Product.logo}" width="206" height="412" /></td>
                           <td>
                               <span title="${Product.productname}">${Product.productname}</span><br />
                               <span>【商品规格】：5ml</span><br />
@@ -913,7 +969,7 @@
                     <div class="conbox">
                         <table border="0" align="center" style="width:100%; font-family:'宋体'; margin:10px auto;" cellspacing="0" cellpadding="0">
                           <tr>
-                            <td title="${Product.productname}">商品名称：<p class="slh-text" style="width:300px;">${Product.productname}</p></td>
+                            <td title="${Product.productname}">商品名称：<span class="slh-text" style="width:300px;">${Product.productname}</span></td>
                             <td title="${Product.cid}">商品编号：${Product.cid}</td>
                             <td title="迪奥（Dior）">品牌： 迪奥（Dior）</td>
                           </tr>
@@ -1025,9 +1081,13 @@
                                     </table>
                                     <script type="text/javascript">
                                         $(function(){
-                                            var boss_back=${assess.bossback};
+                                            var boss_back;
+                                            if(${assess.bossback!=null}){
+                                                boss_back=${assess.bossback};
+
                                             if(boss_back==null ||boss_back.length()<=0){
                                                 $(".boss-back").hide();
+                                            }
                                             }
                                         });
                                     </script>
@@ -1035,8 +1095,8 @@
                                     <div class="pages">
                                         <a href="<%= request.getContextPath()%>/#" class="p_pre">上一页</a><a href="<%= request.getContextPath()%>/#" class="cur">1</a><a href="<%= request.getContextPath()%>/#">2</a><a href="<%= request.getContextPath()%>/#">3</a>...<a href="<%= request.getContextPath()%>/#">20</a><a href="<%= request.getContextPath()%>/#" class="p_pre">下一页</a>
                                     </div>
-                                     --%>
-                                    <div class="pages">
+                                    --%>
+                                    <div class="pages" style="font-size: 12px;">
 
                                         <ul class="page" maxshowpageitem="7" pagelistcount="${page.count}"  id="page"></ul>
 
@@ -1055,6 +1115,7 @@
                                         $("#page").initPage(${page.listsize},${page.p},GG.kk);
 
                                     </script>
+
                                 </div>
                             <div class="conbox">
 
@@ -1130,7 +1191,7 @@
                   </tr>
                   <tr height="50" valign="bottom">
                   	<td>&nbsp;</td>
-                    <td><a href="<%= request.getContextPath()%>/#" class="b_sure">去购物车结算</a><a href="<%= request.getContextPath()%>/#" class="b_buy">继续购物</a></td>
+                    <td><a href="<%= request.getContextPath()%>/BuyCar" class="b_sure">去购物车结算</a><a href="<%= request.getContextPath()%>/#" class="b_buy">继续购物</a></td>
                   </tr>
                 </table>
                     

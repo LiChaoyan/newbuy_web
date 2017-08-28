@@ -40,7 +40,24 @@ public class ShopServicelmpl implements ShopService{
     public ArrayList<ShopCity> selectShopByname(Page page)throws Exception{
         return shopMapper.selectShopByname(page);
     }
+
+    public void insertShop(Shop shop) throws Exception {
+        shopMapper.insertShop(shop);
+    }
+
+    public List<Shop> findShopByBid(Integer bid) throws Exception {
+        List<Shop> shopByBid = shopMapper.findShopByBid(bid);
+        return shopByBid;
+    }
+
+    public Shop findShopBySid(int sid) throws Exception {
+        Shop shopBySid = shopMapper.findShopBySid(sid);
+        return shopBySid;
+    }
+
     public int selectShopsizeByname(String shopname)throws Exception{
         return shopMapper.selectShopsizeByname(shopname);
     }
+
+
 }
