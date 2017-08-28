@@ -23,6 +23,7 @@
     <mvc:resources mapping="/public_jsp/**" location="/public_jsp/"/>
 
     <mvc:resources mapping="/back/**" location="/back/"/>
+    <mvc:resources mapping="/layui/**" location="/layui/"/>
 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"
