@@ -2,7 +2,7 @@ package com.xoqao.web.service;
 
 
 import com.xoqao.web.bean.user.User;
-import org.apache.ibatis.annotations.Param;
+
 
 import java.util.List;
 

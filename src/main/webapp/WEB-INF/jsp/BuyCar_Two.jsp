@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html> 
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -470,7 +477,7 @@
         	<div class="two_t">
             	<span class="fr"><a href="<%= request.getContextPath()%>/BuyCar.html">修改</a></span> 商品列表
             </div>
-            <table border="0" class="car_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
+            <table border="0" class="car_tab od-goods" style="width:1110px;" cellspacing="0" cellpadding="0">
               <tr>
                 <td class="car_th" width="550">商品名称</td>
                 <td class="car_th" width="140">属性</td>
@@ -478,65 +485,50 @@
                 <td class="car_th" width="130">单价</td>
                 <td class="car_th" width="140">小计</td>
               </tr>
-              <tr>
-                <td>
-                    <div class="c_s_img"><img src="<%= request.getContextPath()%>/Picture/c_1.jpg" width="73" height="73" /></div>
-                    Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
-                </td>
-                <td align="center">颜色：灰色</td>
-                <td align="center">1</td>
-                <td align="center">￥620.00</td>
-                <td align="center" style="color:#ff4e00;">￥620.00</td>
-              </tr>
-              <tr class="car_tr">
-                <td>
-                    <div class="c_s_img"><img src="<%= request.getContextPath()%>/Picture/c_2.jpg" width="73" height="73" /></div>
-                    Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
-                </td>
-                <td align="center">颜色：灰色</td>
-                <td align="center">1</td>
-                <td align="center">￥620.00</td>
-                <td align="center" style="color:#ff4e00;">￥620.00</td>
-              </tr>
-              <tr>
-                <td>
-                    <div class="c_s_img"><img src="<%= request.getContextPath()%>/Picture/c_3.jpg" width="73" height="73" /></div>
-                    Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
-                </td>
-                <td align="center">颜色：灰色</td>
-                <td align="center">1</td>
-                <td align="center">￥620.00</td>
-                <td align="center" style="color:#ff4e00;">￥620.00</td>
-              </tr>
+                <c:forEach items="${OGsList}" var="Order" varStatus="Orderid">
+                    <tr>
+                        <td>
+                            <div class="c_s_img"><img src="${Order.logo}" width="73" height="73" /></div>
+                            ${Order.goodsname}<input type="hidden" value="${Order.oid}" class="od-oid"/>
+                        </td>
+                        <td align="center">${Order.param}</td>
+                        <td align="center" class="od-count">${Order.count}</td>
+                        <td align="center">￥${Order.totalprice*Order.count}</td>
+                        <td align="center" style="color:#ff4e00;">￥<span class="od-xzong">${Order.totalprice}</span></td>
+                    </tr>
+                </c:forEach>
               <tr>
                 <td colspan="5" align="right" style="font-family:'Microsoft YaHei';">
-                    共4件商品 &nbsp;商品总价：￥1899.00
+                    共<sapn>${Order.count}</sapn>件商品 &nbsp;商品总价：￥${Order.totalprice-Order.freight}
                 </td>
               </tr>
             </table>
-            
+
             <div class="two_t">
             	<span class="fr"></span>收货人信息
             </div>
             <table border="0" class="peo_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
             <tr>
                 <td class="p_td">姓名</td>
-                <td>*璐</td>
+                <td>${Address.name}</td>
+                <td class="p_td">性别</td>
+                <td>${Address.sexword}</td>
+                <%--
                 <td class="p_td">昵称</td>
                 <td>谦谦君子<a href="<%= request.getContextPath()%>/Member_Safehead.html" class="fr" style="color:#ff4e00;">修改</a></td>
+                 --%>
               </tr>
               <tr>
-                <td class="p_td" width="160">商品名称</td>
-                <td width="395">酒水饮料</td>
+               <%-- <td class="p_td" width="160">商品名称</td>
+                <td width="395">酒水饮料</td>--%>
+                <td class="p_td" width="160">邮政编码</td>
+                <td width="395">${Address.zip}</td>
                 <td class="p_td" width="160">手机号</td>
-                <td width="395">12345678343<a href="<%= request.getContextPath()%>/Member_Safetel.html" class="fr" style="color:#ff4e00;">修改</a></td>
+                <td width="395">${Address.phone}<a href="<%= request.getContextPath()%>/Member_Safetel" class="fr" style="color:#ff4e00;">修改</a></td>
               </tr>
               <tr>
-              <td class="p_td">邮政编码</td>
-                <td>6011111</td>
-                <td class="p_td">详细信息</td>
-                <td>四川省成都市武侯区<a href="<%= request.getContextPath()%>/Member_Safeplace.html" class="fr" style="color:#ff4e00;">修改</a></td>
-                
+                <td class="p_td">详细地址</td>
+                <td>${Address.address}<a href="<%= request.getContextPath()%>/Member_Safeplace" class="fr" style="color:#ff4e00;">修改</a></td>
               </tr>
             </table>
             
@@ -552,18 +544,18 @@
             <table border="0" style="width:900px; margin-top:20px;" cellspacing="0" cellpadding="0">
               <tr>
                 <td align="right">、
-                    商品总价: <font color="#ff4e00">￥1815.00</font>  + 配送费用: <font color="#ff4e00">￥15.00</font>
+                    商品总价: <font color="#ff4e00">￥${Order.totalprice-Order.freight}</font>  + 配送费用: <font color="#ff4e00">￥${Order.freight}</font>
                 </td>
               </tr>
               <tr height="70">
                 <td align="right">
-                	<b style="font-size:14px;">应付款金额：<span style="font-size:22px; color:#ff4e00;">￥2899</span></b>
+                	<b style="font-size:14px;">应付款金额：<span style="font-size:22px; color:#ff4e00;">￥${Order.totalprice}</span></b>
                 </td>
               </tr>
               <tr height="70">
-                <td align="right"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="<%= request.getContextPath()%>/Picture/btn_sure.gif" /></a></td>
+                <td align="right"><a class="od-confirm" onclick="ShowDiv_1('MyDiv1','fade1')"><img src="<%= request.getContextPath()%>/Picture/btn_sure.gif" /></a></td>
               </tr>  
-            </table>      	
+            </table>
         </div>
     </div>
 
@@ -582,12 +574,33 @@
                     <li>货到付款<div class="ch_img"></div></li>
                     <li>支付宝<div class="ch_img"></div></li>
                 </ul>
-                <a href="<%= request.getContextPath()%>/BuyCar_Three"><button class="fr" style="margin-right: 70px;width: 60px;height: 30px;">付款</button></a>
+                <a><button class="fr od-fu" style="margin-right: 70px;width: 60px;height: 30px;">付款</button></a>
             </div>
         </div>
     </div>
 	<!--End 第二步：确认订单信息 End-->
-    
+    <script type="text/javascript">
+
+            //付款方式
+            $(".pay li").click(function(){
+                $(this).parent("ul").find(".checked").removeClass("checked");
+                $(this).addClass("checked");
+            })
+
+            //获取订单oid
+
+            //付款
+            $(".od-fu").click(function(){
+                var oid=$(".od-oid").val();
+                var li=$(".pay").find(".checked");
+                var paytype=li.text();
+                var leaveword=$(".add_txt").val();
+                alert(oid+" "+paytype);
+                //提交订单()
+                 window.location.href ="<%= request.getContextPath()%>/BuyCar_Three?oid="+oid+"&paytype="+paytype+"&leaveword="+leaveword+""
+
+            });
+    </script>
     
     <!--Begin Footer Begin -->
     <div class="b_btm_bg bg_color">

@@ -1429,7 +1429,8 @@ ul.cate_list li:hover .carbg a.j_car{
 }
 
 .pages{
-	overflow:hidden; color:#888888; padding:20px 10px; text-align:right; font-size:16px; font-family:"宋体"; margin-top:20px;
+	float:right;
+	overflow:hidden;color:#888888; padding:20px 10px; text-align:right; font-size:16px; font-family:"宋体"; margin-top:20px;
 }
 .pages a{
 	height:36px; line-height:36px; overflow:hidden; color:#666666; font-size:16px; text-align:center; display:inline-block; padding:0 12px; margin:0 4px; border:1px solid #cccccc; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px;
