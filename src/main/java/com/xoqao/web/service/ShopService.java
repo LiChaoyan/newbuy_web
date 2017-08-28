@@ -34,4 +34,6 @@ public interface ShopService {
 
     List<Shop> findShopByBid(Integer bid) throws Exception;
 
+    Shop findShopBySid(int sid)throws Exception;
+
 }

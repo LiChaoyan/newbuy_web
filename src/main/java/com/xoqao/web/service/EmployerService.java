@@ -22,4 +22,8 @@ public interface EmployerService {
     void updatePass( String pas, Integer eid)throws Exception;
 
     void updateStatue( String statue,Integer eid)throws Exception;
+
+    List<Employer> findEmployerBySidIden( Integer sid, Integer identity, Integer statue)throws Exception;
+
+    Employer findEmployerById( Integer eid)throws Exception;
 }

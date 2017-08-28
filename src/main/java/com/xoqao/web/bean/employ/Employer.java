@@ -3,6 +3,7 @@ package com.xoqao.web.bean.employ;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * 说明：
@@ -24,6 +25,7 @@ public class Employer {
     private String des;
     private String logo;
     private Integer statue;
+    private Date addtime;
 
     public Integer getEid() {
         return eid;
@@ -119,5 +121,13 @@ public class Employer {
 
     public void setStatue(Integer statue) {
         this.statue = statue;
+    }
+
+    public Date getAddtime() {
+        return addtime;
+    }
+
+    public void setAddtime(Date addtime) {
+        this.addtime = addtime;
     }
 }

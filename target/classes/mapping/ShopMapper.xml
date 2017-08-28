@@ -59,5 +59,10 @@
       FROM shop
       WHERE bid=#{bid}
     </select>
-
+    <!--根据店铺id查看店铺-->
+    <select id="findShopBySid" resultType="com.xoqao.web.bean.shop.Shop">
+     SELECT sid,bid,salesvo,slevel,shopname,type,stel,city,saddress,scope,subscrib,logo,latitude,longgitude,showpic,headershow,permitpic,chain,openstatue
+      FROM shop
+      WHERE sid=#{sid}
+    </select>
 </mapper>

@@ -7,19 +7,25 @@
         <selectKey resultType="java.lang.Integer" keyProperty="eid" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT INTO employer (des,email,gender,identity,logo,name,password,phone,sid,username) VALUES
-        (#{employer.des},#{employer.email},#{employer.gender},#{employer.identity},#{employer.logo},#{employer.name},#{employer.password},#{employer.phone},#{employer.sid},#{employer.username})
+        INSERT INTO employer (des,email,gender,identity,logo,name,password,phone,sid,username,addtime) VALUES
+        (#{employer.des},#{employer.email},#{employer.gender},#{employer.identity},#{employer.logo},#{employer.name},#{employer.password},#{employer.phone},#{employer.sid},#{employer.username},#{employer.addtime})
     </insert>
 
     <!--根据店铺id查看店员信息-->
     <select id="findEmployerBySid" resultType="com.xoqao.web.bean.employ.Employer">
-        SELECT eid,des,email,gender,identity,logo,name,password,phone,sid,username,statue
+        SELECT eid,des,email,gender,identity,logo,name,password,phone,sid,username,statue,addtime
         FROM employer
         WHERE sid =#{sid}
     </select>
 
+    <!--根据店铺id和店员身份查看店员信息-->
+    <select id="findEmployerBySidIden" resultType="com.xoqao.web.bean.employ.Employer">
+         SELECT eid,des,email,gender,identity,logo,name,password,phone,sid,username,statue,addtime
+        FROM employer
+        WHERE sid =#{sid} AND identity=#{identity} AND statue=#{statue}
+    </select>
     <!--修改店员身份状态信息-->
-    <update id="updateIdentity" >
+    <update id="updateIdentity">
         UPDATE employer SET identity=#{identity} WHERE eid=#{eid}
     </update>
 
@@ -32,5 +38,11 @@
     <update id="updateStatue">
           UPDATE employer SET statue=#{statue} WHERE eid=#{eid}
     </update>
-    
+
+    <!--根据店员id查看店员-->
+    <select id="findEmployerById" resultType="com.xoqao.web.bean.employ.Employer">
+           SELECT eid,des,email,gender,identity,logo,name,password,phone,sid,username,statue,addtime
+        FROM employer
+        WHERE eid =#{eid}
+    </select>
 </mapper>

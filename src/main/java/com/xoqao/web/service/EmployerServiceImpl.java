@@ -38,4 +38,14 @@ public class EmployerServiceImpl implements EmployerService {
     public void updateStatue(String statue, Integer eid) throws Exception {
         employerMapper.updateStatue(statue, eid);
     }
+
+    public List<Employer> findEmployerBySidIden(Integer sid, Integer identity, Integer statue) throws Exception {
+        List<Employer> employerBySidIden = employerMapper.findEmployerBySidIden(sid, identity, statue);
+        return employerBySidIden;
+    }
+
+    public Employer findEmployerById(Integer eid) throws Exception {
+        Employer employerById = employerMapper.findEmployerById(eid);
+        return employerById;
+    }
 }

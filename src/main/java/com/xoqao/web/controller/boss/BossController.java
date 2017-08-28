@@ -5,28 +5,27 @@ import com.xoqao.web.bean.city.City;
 import com.xoqao.web.bean.city.District;
 import com.xoqao.web.bean.city.Province;
 import com.xoqao.web.bean.city.Towns;
+import com.xoqao.web.bean.employ.EmPloyerCuShop;
+import com.xoqao.web.bean.employ.Employer;
 import com.xoqao.web.bean.shop.Shop;
 import com.xoqao.web.bean.user.User;
 import com.xoqao.web.commen.CommonValue;
-import com.xoqao.web.service.BossService;
-import com.xoqao.web.service.CityService;
-import com.xoqao.web.service.ShopService;
-import com.xoqao.web.service.UserService;
+import com.xoqao.web.service.*;
 import com.xoqao.web.utils.MD5Util;
 import com.xoqao.web.utils.QiNiuFileUtil;
 import org.intellij.lang.annotations.RegExp;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -47,6 +46,8 @@ public class BossController {
     private CityService cityService;
     @Autowired
     private ShopService shopService;
+    @Autowired
+    private EmployerService employerService;
 
     /**
      * 返回所有的省份
@@ -93,7 +94,12 @@ public class BossController {
      * @throws Exception
      */
     @RequestMapping("/shop_list")
-    public String article_list(Model model) throws Exception {
+    public String article_list(Model model,HttpSession httpSession) throws Exception {
+      Boss boss= (Boss) httpSession.getAttribute("boss");
+        if(null!=boss){
+            List<Shop> shopByBid = shopService.findShopByBid(boss.getBid());
+            model.addAttribute("shops",shopByBid);
+        }
         return "shopkeeper/article_list";
     }
 
@@ -110,35 +116,130 @@ public class BossController {
     }
 
     //    店员查看（弹窗）
-    @RequestMapping("/member_show")
-    public String member_show(Model model) throws Exception {
+
+    /**
+     * 查看店员信息
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/employer_show/{eid}")
+    public String member_show(Model model,@PathVariable("eid") Integer eid) throws Exception {
+        Employer employerById = employerService.findEmployerById(eid);
+        Shop shopBySid = shopService.findShopBySid(employerById.getSid());
+        EmPloyerCuShop emPloyerCuShop=new EmPloyerCuShop();
+        BeanUtils.copyProperties(employerById,emPloyerCuShop);
+        emPloyerCuShop.setShopname(shopBySid.getShopname());
+        emPloyerCuShop.setLogo(shopBySid.getLogo());
+        model.addAttribute("employer",emPloyerCuShop);
         return "shopkeeper/member_show";
     }
 
 
     /**
      * 进入查看店员
+     *
      * @param model
      * @return
      * @throws Exception
      */
     @RequestMapping("/employ_list")
-    public String member_list(Model model) throws Exception {
+    public String member_list(Model model, HttpSession httpSession) throws Exception {
+        Boss boss = (Boss) httpSession.getAttribute("boss");
+        List<Shop> shopByBid = shopService.findShopByBid(boss.getBid());
+        List<EmPloyerCuShop> emPloyerCuShops = new ArrayList<EmPloyerCuShop>();
+        for (int i = 0; i < shopByBid.size(); i++) {
+            List<Employer> employerBySid = employerService.findEmployerBySid(shopByBid.get(i).getSid());
+            for (int j = 0; j <employerBySid.size() ; j++) {
+                EmPloyerCuShop emPloyerCuShop=new EmPloyerCuShop();
+                BeanUtils.copyProperties(employerBySid.get(j),emPloyerCuShop);
+                emPloyerCuShop.setShopname(shopByBid.get(i).getShopname());
+                emPloyerCuShop.setLogo(shopByBid.get(i).getLogo());
+                emPloyerCuShops.add(emPloyerCuShop);
+            }
+        }
+        model.addAttribute("employers",emPloyerCuShops);
         return "shopkeeper/member_list";
     }
 
 
     /**
      * 添加店员
+     *
      * @param model
      * @return
      * @throws Exception
      */
-    @RequestMapping("/employ_add")
-    public String member_add(Model model) throws Exception {
-        return "shopkeeper/member_add";
+    @RequestMapping("/employ_add/{eid}")
+    public String member_add(Model model, @PathVariable("eid") Integer eid, HttpSession httpSession) throws Exception {
+        Boss boss = (Boss) httpSession.getAttribute("boss");
+        if (null != boss) {
+            List<Shop> shopByBid = shopService.findShopByBid(boss.getBid());
+            model.addAttribute("shops", shopByBid);
+            model.addAttribute("eid", eid);
+            return "shopkeeper/member_add";
+        }
+        return null;
+    }
+    //    修改密码
+    @RequestMapping("/change_password")
+    public String  change_password(Model model) throws Exception {
+        return "shopkeeper/change_password";
+    }
+    //    安全列表
+    @RequestMapping("/safe_list")
+    public String  safe_list(Model model) throws Exception {
+        return "shopkeeper/safe_list";
+    }
+    //    添加法人信息
+    @RequestMapping("/safeman_add")
+    public String  safeman_add(Model model) throws Exception {
+        return "shopkeeper/safeman_add";
     }
 
+
+    /**
+     * 提交添加店员
+     *
+     * @param model
+     * @param eid
+     * @param username
+     * @param sex
+     * @param mobile
+     * @param email
+     * @param password
+     * @param shopid
+     * @param beizhu
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/addEmploySub")
+    public String employerAddSub(Model model, Integer eid, String username, Integer sex, String mobile, String email, String password, Integer shopid, String beizhu, RedirectAttributes redirectAttributes) throws Exception {
+        if (null != mobile && null != email && null != password && null != shopid) {
+            Employer employer = new Employer();
+            employer.setDes(beizhu);
+            employer.setEmail(email);
+            employer.setGender(sex);
+            employer.setIdentity(eid);
+            employer.setName(username);
+            employer.setPassword(MD5Util.encode(password));
+            employer.setPhone(mobile);
+            employer.setSid(shopid);
+            employer.setAddtime(new Date());
+            try {
+                employerService.insertEmployer(employer);
+                redirectAttributes.addFlashAttribute("error_msg", "添加店员成功");
+                return "redirect:/boss/employ_list";
+            } catch (Exception e) {
+                e.printStackTrace();
+                redirectAttributes.addFlashAttribute("error_msg", "添加店员失败，检查手机号，邮箱");
+                return "redirect:/boss/employ_add/" + eid;
+            }
+        } else {
+            redirectAttributes.addFlashAttribute("error_msg", "添加店员失败，检查手机号，邮箱");
+            return "redirect:/boss/employ_add/" + eid;
+        }
+    }
 
     /**
      * 店主登录提交
@@ -306,6 +407,7 @@ public class BossController {
 
     /**
      * 添加实体店提交
+     *
      * @param model
      * @param shopname
      * @param shopcall
@@ -323,7 +425,7 @@ public class BossController {
      * @throws Exception
      */
     @RequestMapping("/shop/outling/sub")
-    public String shopAddDownLineSub(Model model, String shopname, String shopcall, MultipartFile permit, MultipartFile logo,Integer city, String scope, String sever_add, Double lng, Double lat, @RequestParam("file") CommonsMultipartFile file[], HttpSession httpSession, RedirectAttributes redirectAttributes) throws Exception {
+    public String shopAddDownLineSub(Model model, String shopname, String shopcall, MultipartFile permit, MultipartFile logo, Integer city, String scope, String sever_add, Double lng, Double lat, @RequestParam("file") CommonsMultipartFile file[], HttpSession httpSession, RedirectAttributes redirectAttributes) throws Exception {
         if (null != shopname && null != shopcall && null != permit && null != scope && null != sever_add) {
             Boss boss = (Boss) httpSession.getAttribute("boss");
             Shop shop = new Shop();
@@ -339,18 +441,18 @@ public class BossController {
             String per = QiNiuFileUtil.updalodByByte(permit.getBytes()); //上传营业执照
             String logoStr = QiNiuFileUtil.updalodByByte(logo.getBytes());
             shop.setLogo(CommonValue.QINIUPATH + logoStr);
-           String others=CommonValue.QINIUPATH + per;
-            for (int i = 0; i <file.length ; i++) {
-                MultipartFile img=file[i];
+            String others = CommonValue.QINIUPATH + per;
+            for (int i = 0; i < file.length; i++) {
+                MultipartFile img = file[i];
                 String s = QiNiuFileUtil.updalodByByte(img.getBytes());
-                others=others+";"+CommonValue.QINIUPATH+s;
+                others = others + ";" + CommonValue.QINIUPATH + s;
             }
             shop.setPermitpic(others);
             try {
                 shopService.insertShop(shop);
-                redirectAttributes.addFlashAttribute("error_msg","添加成功");
+                redirectAttributes.addFlashAttribute("error_msg", "添加成功");
                 return "redirect:/boss/shop_list";
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
                 model.addAttribute("error_msg", "请输入正确得参数！");
             }
