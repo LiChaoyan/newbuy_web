@@ -13,14 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ViewController {
 
-    @RequestMapping("/shopadd_online")
-    public String Regist_shop(Model model) throws Exception {
-        return "shopkeeper/shopadd_online";
-    }
-    @RequestMapping("/shopadd_outline")
-    public String shopadd_outline(Model model) throws Exception {
-        return "shopkeeper/shopadd_outline";
-    }
+
+
 
     @RequestMapping("admin_boss")
     public String admin_boss(Model model) throws Exception {

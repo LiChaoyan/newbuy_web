@@ -44,7 +44,7 @@
 	<div class="login">
     	<div class="log_img"><img src="<%= request.getContextPath()%>/Picture/l_img.png" width="611" height="425" /></div>
 		<div class="log_c">
-        	<form role="form" action="<%= request.getContextPath()%>/user/login/sub" method="post">
+        	<form role="form" action="<%= request.getContextPath()%>/boss/login/sub" method="post">
             <table border="0" style="width:370px; font-size:14px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr height="50" valign="top">
               	<td width="55">&nbsp;</td>
@@ -55,11 +55,11 @@
               </tr>
               <tr height="70">
                 <td>用户名</td>
-                <td><input type="text" name="username" value="" class="l_user" /></td>
+                <td><input type="text" name="username" value="" class="l_user" placeholder="请输入用户名或手机号"/></td>
               </tr>
               <tr height="70">
                 <td>密&nbsp; &nbsp; 码</td>
-                <td><input type="password" value="" name="password" class="l_pwd" /></td>
+                <td><input type="password" value="" name="password" class="l_pwd" placeholder="请输入密码"/></td>
               </tr>
               <tr>
               <%--<tr height="70">--%>

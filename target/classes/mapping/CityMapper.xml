@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xoqao.web.dao.CityMapper">
+    <!--查找所有的省份-->
+    <select id="findprovince" resultType="com.xoqao.web.bean.city.Province">
+        SELECT pid,province,url,mark FROM province
+    </select>
+    <!--根据省份id查找城市-->
+    <select id="findCityByCid" resultType="com.xoqao.web.bean.city.City">
+        SELECT cid,pid,citycode,cityname,url,mark FROM city WHERE pid=#{pid}
+    </select>
+    <!--根据城市id查找县市-->
+    <select id="findDistrctByCid" resultType="com.xoqao.web.bean.city.District">
+    SELECT did,cid,districtcode,districtname,url,mark FROM district WHERE cid=#{cid}
+    </select>
+    <!--根据县市id查找乡镇-->
+    <select id="findTownsBydis" resultType="com.xoqao.web.bean.city.Towns">
+        SELECT tid,did,townscode,townsname,url,mark FROM towns WHERE did=#{did}
+    </select>
+</mapper>

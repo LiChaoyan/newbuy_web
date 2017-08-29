@@ -40,4 +40,9 @@
     <select id="findBoosByNick" resultType="com.xoqao.web.bean.boss.Boss">
         select bid,id,name,nickname,password,phone,pic,facepic,idpic,statue from boss where nickname LIKE  '${nickname}'
     </select>
+
+    <!--根据手机号或用户名查找店主-->
+    <select id="findBossByStr" resultType="com.xoqao.web.bean.boss.Boss">
+        select bid,id,name,nickname,password,phone,pic,facepic,idpic,statue from boss where nickname LIKE  '${loginstr}' OR phone like '${loginstr}'
+    </select>
 </mapper>

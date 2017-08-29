@@ -5,24 +5,30 @@
     float: left;
     padding: 5px 10px;
     cursor: pointer;
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
 }
 .page .pageItem{
-    border: solid thin #DDDDDD;
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;/*solid thin #DDDDDD;*/
     margin: 5px;
 }
 .page .pageItemActive{
-    border: solid thin #0099FF;
+    border: 1px solid #ff4e00;/*solid thin #ff4e00*/;
     margin: 5px;
-    background-color: #0099FF;
+    background-color: #ff4e00;
     color:white;
 }
 .page .pageItem:hover{
-    border: solid thin #0099FF;
-    background-color: #0099FF;
+    border: 1px solid #ff4e00/*solid thin #ff4e00*/;
+    background-color: #ff4e00;
     color:white;
 }
 .page .pageItemDisable{
-    border: solid thin #DDDDDD;
+
+    border: 1px solid #cccccc;/*solid thin #eaeaea;*/
     margin: 5px;
-    background-color: #DDDDDD;
+    background-color: #eaeaea;
 }

@@ -1,4 +1,11 @@
+<<<<<<< HEAD
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
+=======
 ﻿
+>>>>>>> wordlu-master
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -27,62 +34,13 @@
 </head>
 <body>
 <!--_header 作为公共模版分离出去-->
-<header class="navbar-wrapper">
-	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="<%=request.getContextPath()%>/aboutHui.shtml">双线购</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="<%=request.getContextPath()%>/aboutHui.shtml">H-ui</a>
-			<span class="logo navbar-slogan f-l mr-10 hidden-xs">店主管理</span>
-			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+<jsp:include page="/public_jsp/bossHeader.jsp" flush="true"></jsp:include>
 
-			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
-				<ul class="cl">
-					<li>您好，张璐</li>
-					<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">个人中心 <i class="Hui-iconfont">&#xe6d5;</i></a>
-						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-							<!-- <li><a href="#">切换账户</a></li> -->
-							<li><a href="#">退出</a></li>
-						</ul>
-					</li>
-					<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
-					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
-						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
-							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
-							<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
-							<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
-							<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
-							<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-</header>
 <!--/_header 作为公共模版分离出去-->
-
+<jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
 <!--_menu 作为公共模版分离出去-->
-<aside class="Hui-aside">
 
-	<div class="menu_dropdown bk_2">
-		<dl id="menu-article">
-			<dt><i class="Hui-iconfont">&#xe616;</i> 店铺管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/article_list" title="资讯管理">查看店铺</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/product_list" title="产品管理">查看商品</a></li>
-				</ul>
-			</dd>
-		</dl>
-
+<<<<<<< HEAD
 		<dl>
 			<dt><i class="Hui-iconfont">&#xe620;</i> 合作管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
@@ -130,6 +88,8 @@
 		</dl>
 	</div>
 </aside>
+=======
+>>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <!--/_menu 作为公共模版分离出去-->
 
@@ -218,6 +178,10 @@
 <script type="text/javascript"  src="<%=request.getContextPath()%>/Scripts/lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/Scripts/lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
 <script type="text/javascript">
+
+    <c:if test="${!empty error_msg}">alert("${error_msg}");
+    </c:if>
+
     $(function () {
         $('#container1').highcharts({
             chart: {

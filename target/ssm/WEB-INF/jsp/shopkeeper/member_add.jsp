@@ -1,4 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<<<<<<< HEAD
+=======
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
+>>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -27,17 +33,26 @@
 </head>
 <body>
 <article class="cl pd-20">
+<<<<<<< HEAD
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+=======
+	<form action="<%=request.getContextPath()%>/boss/addEmploySub" method="post" class="form form-horizontal" id="form-member-add">
+>>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+<<<<<<< HEAD
+=======
+				<input type="hidden" name="eid" value="${eid}">
+>>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
+<<<<<<< HEAD
 					<input name="sex" type="radio" id="sex-1" checked>
 					<label for="sex-1">男</label>
 				</div>
@@ -46,6 +61,15 @@
 					<label for="sex-2">女</label>
 				</div>
 				
+=======
+					<input name="sex" type="radio" id="sex-1" value="0" checked>
+					<label for="sex-1">男</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" value="1" name="sex">
+					<label for="sex-2">女</label>
+				</div>
+>>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 			</div>
 		</div>
 		<div class="row cl">
@@ -60,6 +84,7 @@
 				<input type="text" class="input-text" placeholder="@" name="email" id="email">
 			</div>
 		</div>
+<<<<<<< HEAD
 		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">所属店铺：</label>
@@ -69,6 +94,23 @@
 					<option value="1">店铺1</option>
 					<option value="2">店铺2</option>
 					<option value="3">店铺3</option>
+=======
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="password" class="input-text" placeholder="@" name="password" id="password">
+			</div>
+		</div>
+
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">所属店铺：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="shopid">
+					<option value="" selected>请选择店铺</option>
+					<c:forEach items="${shops}" var="shop">
+						<option value="${shop.sid}">${shop.shopname}</option>
+					</c:forEach>
+>>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 				</select>
 				</span> </div>
 		</div>
@@ -100,6 +142,11 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
+=======
+    <c:if test="${!empty error_msg}">alert("${error_msg}");
+    </c:if>
+>>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 $(function(){
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',
@@ -125,6 +172,13 @@ $(function(){
 				required:true,
 				email:true,
 			},
+<<<<<<< HEAD
+=======
+            password:{
+                required:true,
+                password:true,
+            },
+>>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 			uploadfile:{
 				required:true,
 			},

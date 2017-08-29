@@ -1,4 +1,11 @@
+<<<<<<< HEAD
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
+=======
 ﻿
+>>>>>>> wordlu-master
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -27,6 +34,9 @@
 </head>
 <body>
 <!--_header 作为公共模版分离出去-->
+<<<<<<< HEAD
+<jsp:include page="/public_jsp/bossHeader.jsp" flush="true"></jsp:include>
+=======
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
 		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="<%=request.getContextPath()%>/aboutHui.shtml">双线购</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="<%=request.getContextPath()%>/aboutHui.shtml">H-ui</a>
@@ -59,9 +69,13 @@
 		</div>
 	</div>
 </header>
+>>>>>>> wordlu-master
 <!--/_header 作为公共模版分离出去-->
-
+<jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
 <!--_menu 作为公共模版分离出去-->
+<<<<<<< HEAD
+
+=======
 <aside class="Hui-aside">
 
 	<div class="menu_dropdown bk_2">
@@ -130,6 +144,7 @@
 		</dl>
 	</div>
 </aside>
+>>>>>>> wordlu-master
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <!--/_menu 作为公共模版分离出去-->
 
@@ -218,6 +233,10 @@
 <script type="text/javascript"  src="<%=request.getContextPath()%>/Scripts/lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/Scripts/lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
+    <c:if test="${!empty error_msg}">alert("${error_msg}");
+    </c:if>
+=======
     $(function () {
         $('#container1').highcharts({
             chart: {
@@ -333,6 +352,7 @@
             }]
         });
     });
+>>>>>>> wordlu-master
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

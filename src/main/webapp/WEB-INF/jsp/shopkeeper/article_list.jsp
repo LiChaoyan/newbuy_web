@@ -1,4 +1,8 @@
-﻿<!DOCTYPE HTML>
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -26,111 +30,18 @@
 </head>
 <body>
 <!--_header 作为公共模版分离出去-->
-<header class="navbar-wrapper">
-	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="<%=request.getContextPath()%>/aboutHui.shtml">双线购</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="<%=request.getContextPath()%>/aboutHui.shtml">H-ui</a>
-			<span class="logo navbar-slogan f-l mr-10 hidden-xs">店主管理</span> 
-			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
-			
-			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
-				<ul class="cl">
-					<li>您好，张璐</li>
-					<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">个人中心 <i class="Hui-iconfont">&#xe6d5;</i></a>
-						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-							<!-- <li><a href="#">切换账户</a></li> -->
-							<li><a href="#">退出</a></li>
-						</ul>
-					</li>
-					<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
-					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
-						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
-							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
-							<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
-							<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
-							<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
-							<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-</header>
+<jsp:include page="/public_jsp/bossHeader.jsp" flush="true"></jsp:include>
 <!--/_header 作为公共模版分离出去-->
-
+<jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
 <!--_menu 作为公共模版分离出去-->
-<aside class="Hui-aside">
-	
-	<div class="menu_dropdown bk_2">
-		<dl id="menu-article">
-			<dt class="selected"><i class="Hui-iconfont">&#xe616;</i> 店铺管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd style="display: block;">
-				<ul>
-					<li class="current"><a href="<%=request.getContextPath()%>/boss/article_list" title="店铺管理">查看店铺</a></li>
-				</ul>
-			</dd>
-		</dl>
-		
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/product_list" title="产品管理">查看商品</a></li>
-		</ul>
-	</dd>
-</dl>
 
-	<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 合作管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/product-brand" title="品牌管理">品牌管理</a></li>
-		</ul>
-	</dd>
-</dl>
-		
-		<dl id="menu-member">
-		<dt><i class="Hui-iconfont">&#xe60d;</i> 店员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-		<dd>
-			<ul>
-				<li><a href="<%=request.getContextPath()%>/boss/ member_list" title="会员列表">会员列表</a></li>
-			</ul>
-		</dd>
-	</dl>
-		
-		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 统计管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/charts-1" title="折线图">折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-2" title="时间轴折线图">时间轴折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-3" title="区域图">区域图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-4" title="柱状图">柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-5" title="饼状图">饼状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-6" title="3D柱状图">3D柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-7" title="3D饼状图">3D饼状图</a></li>
-		</ul>
-	</dd>
-</dl>
-		<dl id="menu-system">
-			<dt><i class="Hui-iconfont">&#xe62e;</i> 安全管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/safe_list" title="安全设置">安全设置</a></li>
-				</ul>
-			</dd>
-		</dl>
-</div>
-</aside>
 <div class="dislpayArrow hidden-xs">
 	<a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a>
 </div>
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="<%=request.getContextPath()%>/boss/index_shopkeeper">首页</a>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="<%=request.getContextPath()%>/boss/admin/index">首页</a>
 		<span class="c-gray en">&gt;</span>
 		店铺管理
 		<span class="c-gray en">&gt;</span>
@@ -156,34 +67,47 @@
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20">
 				<span class="l">
-				<a class="btn btn-primary radius" data-title="添加线上店铺" _href="<%=request.getContextPath()%>/article-add" onclick="article_addline('添加线上店铺','/newbuy/shopadd_online')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加线上店铺</a>
-				<a class="btn btn-primary radius" data-title="添加实体店铺" _href="<%=request.getContextPath()%>/article-add" onclick="article_add('添加实体店铺','/newbuy/shopadd_outline')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加实体店铺</a>
+				<a class="btn btn-primary radius" data-title="添加线上店铺" _href="<%=request.getContextPath()%>/article-add" onclick="article_addline('添加线上店铺','/newbuy/boss/shopadd_online')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加线上店铺</a>
+				<a class="btn btn-primary radius" data-title="添加实体店铺" _href="<%=request.getContextPath()%>/article-add" onclick="article_add('添加实体店铺','/newbuy/boss/shopadd_outline')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加实体店铺</a>
 				</span>
-				<span class="r">共有店铺：<strong>5</strong> 个</span>
+				<span class="r">共有店铺：<strong>${shops.size()}</strong> 个</span>
 			</div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-bg table-hover table-sort">
 					<thead>
 						<tr class="text-c">
 							<th width="25"><input type="checkbox" name="" value=""></th>
-							<th width="80">店铺经理</th>
+							<th width="80">店铺logo</th>
 							<th width="120">店铺名称</th>
 							<th width="80">店铺类型</th>
 							<th width="80">联系方式</th>
-							<th width="120">更新时间</th>
 							<th width="175">所在地</th>
 							<th width="60">店铺状态</th>
 							<th width="120">操作</th>
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${shops}" var="shop">
+						<tr class="text-c">
+							<td><input type="checkbox" value="" name=""></td>
+							<td><img src="${shop.logo}" width="50" height="50"></td>
+							<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang','10001')" title="查看">${shop.shopname}</u></td>
+							<td>${shop.type}</td>
+							<td>${shop.stel}</td>
+							<td>${shop.saddress}</td>
+							<td class="td-status"><c:if test="${shop.openstatue==1}"><span class="label label-success radius">已上线</span></c:if><c:if test="${shop.openstatue==0}"><span class="label label-success radius">待审核</span></c:if></td>
+							<td class="f-14 td-manage">
+								<!-- <a style="text-decoration:none" onClick="article_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> -->
+								<a style="text-decoration:none" class="ml-5" onClick="article_edit('店铺编辑','shop-addline','10001')" href="javascript:;" title="编辑店铺"><i class="Hui-iconfont">&#xe6df;</i></a>
+								<a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除店铺"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						</tr>
+					</c:forEach>
 						<tr class="text-c">
 							<td><input type="checkbox" value="" name=""></td>
 							<td>刘明慧</td>
 							<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang','10001')" title="查看">格林家的衣服</u></td>
 							<td>线上店铺</td>
 							<td>15166677899</td>
-							<td>2014-6-11 11:11:42</td>
 							<td>河南省郑州市新郑市龙湖镇</td>
 							<td class="td-status"><span class="label label-success radius">已上线</span></td>
 							<td class="f-14 td-manage">
@@ -197,7 +121,6 @@
 							<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang','10001')" title="查看">大叔的小菜</u></td>
 							<td>实体店铺</td>
 							<td>15166677899</td>
-							<td>2014-6-11 11:11:42</td>
 							<td>河北省唐山市遵化市</td>
 							<td class="td-status"><span class="label label-success radius">已上线</span></td>
 							<td class="f-14 td-manage">
@@ -212,7 +135,6 @@
 							<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang','10002')" title="查看">在路上的跑鞋</u></td>
 							<td>实体店铺</td>
 							<td>15166677899</td>
-							<td>2014-6-11 11:11:42</td>
 							<td>重庆市</td>
 							<td class="td-status"><span class="label label-success radius">审核中</span></td>
 							<td class="f-14 td-manage">
@@ -240,11 +162,11 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 $('.table-sort').dataTable({
-	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+	"aaSorting": [[ 2, "desc" ]],//默认第几个排序
 	"bStateSave": true,//状态保存
 	"aoColumnDefs": [
 		//{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-		{"orderable":false,"aTargets":[0,8]}// 不参与排序的列
+		{"orderable":false,"aTargets":[0,7]}// 不参与排序的列
 	]
 });
 

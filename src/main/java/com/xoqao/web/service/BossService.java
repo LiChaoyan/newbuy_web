@@ -26,4 +26,6 @@ public interface BossService {
 
     Boss findBoosByNick( String nickname)throws Exception;
 
+    Boss findBossByStr( String loginstr)throws Exception;
+
 }
