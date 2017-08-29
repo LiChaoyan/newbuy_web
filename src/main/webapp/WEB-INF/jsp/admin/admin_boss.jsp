@@ -73,7 +73,7 @@
 			</dd>
 		</dl>
 
-		<dl id="menu-product">
+		<dl id="menu-boss">
 			<dt class="selected"><i class="Hui-iconfont">&#xe620;</i> 店主管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd style="display: block;">
 				<ul>
@@ -110,10 +110,10 @@
 					<thead>
 						<tr class="text-c">
 							<th width="25"><input type="checkbox" name="" value=""></th>
-							<%--<th width="80">职位</th>--%>
 							<th width="100">姓名</th>
 							<th width="40">性别</th>
 							<th width="90">手机</th>
+							<th width="80">银行卡</th>
 							<th width="150">邮箱</th>
 							<th width="200">所属店铺</th>
 							<th width="130">加入时间</th>
@@ -127,8 +127,9 @@
 							<td>李四</td>
 							<td>男</td>
 							<td>13000000000</td>
+							<td>6217000180008859225</td>
 							<td>admin@mail.com</td>
-							<td class="text-l">店铺1</td>
+							<td>店铺1</td>
 							<td>2014-6-11 11:11:42</td>
 							<td class="td-status"><span class="label label-success radius">已启用</span></td>
 							<td class="td-manage"><a style="text-decoration:none" onClick="member_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/newbuy/boss/member_add','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','/newbuy/boss/change_password','10001','600','270')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
@@ -138,8 +139,9 @@
 							<td>张三</td>
 							<td>女</td>
 							<td>13000000000</td>
+							<td>6217000180008859225</td>
 							<td>admin@mail.com</td>
-							<td class="text-l">店铺2</td>
+							<td>店铺2</td>
 							<td>2014-6-11 11:11:42</td>
 							<td class="td-status"><span class="label label-success radius">已启用</span></td>
 							<td class="td-manage"><a style="text-decoration:none" onClick="member_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/newbuy/boss/member_add','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','change-password','10001','600','270')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>

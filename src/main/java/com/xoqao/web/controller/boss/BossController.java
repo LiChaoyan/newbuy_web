@@ -99,8 +99,31 @@ public class BossController {
     public String  safeman_add(Model model) throws Exception {
         return "shopkeeper/safeman_add";
     }
-
-
+    //合作商品管理页面
+    @RequestMapping("/coop_product")
+    public String coop_product(Model model) throws Exception {
+        return "shopkeeper/coop_product";
+    }
+    //合作建立概览
+    @RequestMapping("/coop_build")
+    public String coop_build(Model model) throws Exception {
+        return "shopkeeper/coop_build";
+    }
+    //可配货查看
+    @RequestMapping("/view_pickup")
+    public String view_pickup(Model model) throws Exception {
+        return "shopkeeper/view_pickup";
+    }
+    //地区热点分析
+    @RequestMapping("/hot_spots")
+    public String hot_spots(Model model) throws Exception {
+        return "shopkeeper/hot_spots";
+    }
+    //配货数据统计
+    @RequestMapping("/data_count")
+    public String data_count(Model model) throws Exception {
+        return "shopkeeper/data_count";
+    }
 
 
 
