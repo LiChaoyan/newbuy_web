@@ -146,7 +146,7 @@
 					<table class="table table-border table-bordered table-bg table-hover table-sort">
 						<thead>
 							<tr class="text-c">
-								<th width="40"><input name="" type="checkbox" value=""></th>
+								<%--<th width="40"><input name="" type="checkbox" value=""></th>--%>
 								<th width="100">产品名称</th>
 								<th width="60">所属店铺</th>
 								<th width="100">单价</th>
@@ -158,7 +158,7 @@
 						</thead>
 						<tbody>
 							<tr class="text-c va-m">
-								<td><input name="" type="checkbox" value=""></td>
+								<%--<td><input name="" type="checkbox" value=""></td>--%>
 								<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show','10001')" href="javascript:;"><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui/images/gq/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
 								<td>义乌小商品批发城</td>
 								<td><span class="price">356.0</span> 元/平米</td>
@@ -167,7 +167,7 @@
 								<td>200</td>
 							</tr>
 							<tr class="text-c va-m">
-								<td><input name="" type="checkbox" value=""></td>
+								<%--<td><input name="" type="checkbox" value=""></td>--%>
 								<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show','10001')" href="javascript:;"><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui/images/gq/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
 								<td>义乌小商品批发城</td>
 								<td><span class="price">356.0</span> 元/平米</td>

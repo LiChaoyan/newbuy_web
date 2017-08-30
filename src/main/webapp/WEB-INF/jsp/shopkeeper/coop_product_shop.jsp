@@ -34,55 +34,49 @@
 <!--/_menu 作为公共模版分离出去-->
 
 
+
 <section class="Hui-article-box">
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 合作管理 <span class="c-gray en">&gt;</span> 合作商品管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<nav class="breadcrumb"><a href="<%=request.getContextPath()%>/boss/coop_product"><i class="Hui-iconfont">&#xe67f;</i>返回</a><a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 
 	<div class="Hui-article">
 		<article class="cl pd-20">
-			<div class="text-c"> 
-				<input type="text" name=""  placeholder=" 商品名称" style="width:250px" class="input-text">
-				<button name=""  class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜商品</button>
+			<div class="text-c">
+				<input type="text" name=""  placeholder=" 店铺名称" style="width:250px" class="input-text">
+				<button name=""  class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜店铺</button>
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20"><span class="r">共有数据：<strong>54</strong> 条</span> </div>
 			<div class="mt-10">
 				<table class="table table-border table-bordered table-bg table-sort">
 					<thead>
 					<tr class="text-c">
-						<%--<th width="25"><input type="checkbox" name="" value=""></th>--%>
 						<th width="100">合作商品</th>
-						<th width="100">商品描述</th>
-						<th width="100">合作店铺数量</th>
-						<th width="100">总销量</th>
-						<th width="100">操作</th>
+						<th width="100">合作店铺</th>
+						<th width="100">LOGO</th>
+						<th width="100">销售量（件）</th>
+						<th width="100">销售额（￥）</th>
 					</tr>
 					</thead>
 					<tbody>
 					<tr class="text-c">
-						<td><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui.admin/images/cn.gif"> 东鹏</td>
-						<td class="text-l">东鹏陶瓷被评为“中国名牌”、“国家免检产品”</td>
-						<td>5</td>
+						<td>东鹏瓷器</td>
+						<td>店铺1</td>
+					    <td><img src="<%=request.getContextPath()%>/Picture/temp/brand/dongpeng.jpeg"></td>
+						<td>500</td>
 						<td>1000</td>
-						<td class="f-14 product-brand-manage">
-							<a style="text-decoration:none" title="查看合作"  style="color: #5a98de;" href="<%=request.getContextPath()%>/boss/coop_product_shop">查看合作<i class="Hui-iconfont">&#xe6df;</i></a>
-						</td>
 					</tr>
 					<tr class="text-c">
-						<td><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui.admin/images/cn.gif"> 西鹏</td>
-						<td class="text-l">东鹏陶瓷被评为“中国名牌”、“国家免检产品”</td>
-						<td>5</td>
-						<td>2000</td>
-						<td class="f-14 product-brand-manage">
-							<a style="text-decoration:none" title="查看合作"  style="color: #5a98de;" href="<%=request.getContextPath()%>/boss/coop_product_shop">查看合作<i class="Hui-iconfont">&#xe6df;</i></a>
-						</td>
+						<td>东鹏瓷器</td>
+						<td>店铺2</td>
+						<td><img src="<%=request.getContextPath()%>/Picture/temp/brand/dongpeng.jpeg"></td>
+						<td>600</td>
+						<td>1000</td>
 					</tr>
 					<tr class="text-c">
-						<td><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui.admin/images/cn.gif"> 大鹏</td>
-						<td class="text-l">东鹏陶瓷被评为“中国名牌”、“国家免检产品”</td>
-						<td>5</td>
-						<td>3000</td>
-						<td class="f-14 product-brand-manage">
-							<a style="text-decoration:none" title="查看合作"  style="color: #5a98de;" href="<%=request.getContextPath()%>/boss/coop_product_shop">查看合作<i class="Hui-iconfont">&#xe6df;</i></a>
-						</td>
+						<td>东鹏瓷器</td>
+						<td>店铺3</td>
+						<td><img src="<%=request.getContextPath()%>/Picture/temp/brand/dongpeng.jpeg"></td>
+						<td>700</td>
+						<td>1000</td>
 					</tr>
 					</tbody>
 				</table>

@@ -1,11 +1,9 @@
-<<<<<<< HEAD
+
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page isELIgnored="false" %>
-=======
 ﻿
->>>>>>> wordlu-master
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -35,62 +33,9 @@
 <body>
 <!--_header 作为公共模版分离出去-->
 <jsp:include page="/public_jsp/bossHeader.jsp" flush="true"></jsp:include>
-
 <!--/_header 作为公共模版分离出去-->
-<jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
 <!--_menu 作为公共模版分离出去-->
-
-<<<<<<< HEAD
-		<dl>
-			<dt><i class="Hui-iconfont">&#xe620;</i> 合作管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/coop_product" title="合作商品管理">合作商品管理</a></li>
-					<li><a href="<%=request.getContextPath()%>/boss/coop_build" title="合作建立概览">合作建立概览</a></li>
-					<li><a href="<%=request.getContextPath()%>/boss/view_pickup" title="可配货查看">可配货查看</a></li>
-					<li><a href="<%=request.getContextPath()%>/boss/hot_spots" title="地区热点分析">地区热点分析</a></li>
-					<li><a href="<%=request.getContextPath()%>/boss/data_count" title="配货数据统计">配货数据统计</a></li>
-				</ul>
-
-			</dd>
-		</dl>
-
-		<dl id="menu-member">
-			<dt><i class="Hui-iconfont">&#xe60d;</i> 店员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/ member_list" title="会员列表">会员列表</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 统计管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/charts-1" title="折线图">折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-2" title="时间轴折线图">时间轴折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-3" title="区域图">区域图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-4" title="柱状图">柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-5" title="饼状图">饼状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-6" title="3D柱状图">3D柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-7" title="3D饼状图">3D饼状图</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-system">
-			<dt><i class="Hui-iconfont">&#xe62e;</i> 安全管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/safe_list" title="安全设置">安全设置</a></li>
-				</ul>
-			</dd>
-		</dl>
-	</div>
-</aside>
-=======
->>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
-<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
@@ -98,7 +43,7 @@
 		<span class="c-999 en">&gt;</span>
 		<span class="c-666">概览</span>
 		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-	<div class="Hui-article">
+	<div class="Hui-article"  style="margin-left: 15px;">
 
 		<p class="cl pd-20">
 			<p class="f-20 text-success">欢迎登陆！&nbsp;&nbsp;&nbsp;&nbsp;
@@ -218,7 +163,7 @@
             tooltip: {
                 headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
                 pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f} 件</b></td></tr>',
                 footerFormat: '</table>',
                 shared: true,
                 useHTML: true

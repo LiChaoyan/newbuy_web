@@ -159,7 +159,7 @@
 						<tbody>
 							<tr class="text-c va-m">
 								<%--<td><input name="" type="checkbox" value=""></td>--%>
-								<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show','10001')" href="javascript:;"><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui/images/gq/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
+								<td><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show','10001')" href="javascript:;"><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui/images/gq/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
 								<td>义乌小商品批发城</td>
 								<td>郑州</td>
 								<td>1000</td>
@@ -168,7 +168,7 @@
 							</tr>
 							<tr class="text-c va-m">
 								<%--<td><input name="" type="checkbox" value=""></td>--%>
-								<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show','10001')" href="javascript:;"><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui/images/gq/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
+								<td><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show','10001')" href="javascript:;"><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui/images/gq/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
 								<td>义乌小商品批发城</td>
 								<td>郑州</td>
 								<td>1000</td>

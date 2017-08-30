@@ -35,51 +35,6 @@
 <jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
 <!--_menu 作为公共模版分离出去-->
 
-<<<<<<< HEAD
-=======
-	<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 合作管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/product-brand" title="品牌管理">品牌管理</a></li>
-		</ul>
-	</dd>
-</dl>
-		
-		<dl id="menu-member">
-		<dt><i class="Hui-iconfont">&#xe60d;</i> 店员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-		<dd>
-			<ul>
-				<li><a href="<%=request.getContextPath()%>/boss/ member_list" title="会员列表">会员列表</a></li>
-			</ul>
-		</dd>
-	</dl>
-		
-		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 统计管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/charts-1" title="折线图">折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-2" title="时间轴折线图">时间轴折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-3" title="区域图">区域图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-4" title="柱状图">柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-5" title="饼状图">饼状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-6" title="3D柱状图">3D柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-7" title="3D饼状图">3D饼状图</a></li>
-		</ul>
-	</dd>
-</dl>
-		<dl id="menu-system">
-			<dt><i class="Hui-iconfont">&#xe62e;</i> 安全管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/safe_list" title="安全设置">安全设置</a></li>
-				</ul>
-			</dd>
-		</dl>
-</div>
-</aside>
->>>>>>> wordlu-master
 <div class="dislpayArrow hidden-xs">
 	<a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a>
 </div>
@@ -184,7 +139,7 @@
 							<td class="td-status"><span class="label label-success radius">审核中</span></td>
 							<td class="f-14 td-manage">
 								<!-- <a style="text-decoration:none" onClick="article_shenhe(this,'10001')" href="javascript:;" title="审核">审核</a> -->
-								<a style="text-decoration:none" class="ml-5" onClick="article_edit('店铺编辑','shop-add','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+								<a style="text-decoration:none" class="ml-5" onClick="article_edit('店铺编辑','/newbuy/boss/shopadd_online','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
 								<a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 						</tr>
 					</tbody>

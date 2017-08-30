@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-﻿<!DOCTYPE HTML>
-=======
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE HTML>
->>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 <html>
 <head>
 <meta charset="utf-8">
@@ -34,122 +30,17 @@
 </head>
 <body>
 <!--_header 作为公共模版分离出去-->
-<<<<<<< HEAD
-<header class="navbar-wrapper">
-	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="<%=request.getContextPath()%>/Scripts/aboutHui.shtml">双线购</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="<%=request.getContextPath()%>/Scripts/aboutHui.shtml">H-ui</a>
-			<span class="logo navbar-slogan f-l mr-10 hidden-xs">店主管理</span> 
-			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
-			
-			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
-				<ul class="cl">
-					<li>您好，张璐</li>
-					<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">个人中心 <i class="Hui-iconfont">&#xe6d5;</i></a>
-						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-							<!-- <li><a href="#">切换账户</a></li> -->
-							<li><a href="#">退出</a></li>
-						</ul>
-					</li>
-					<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
-					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
-						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
-							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
-							<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
-							<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
-							<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
-							<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
-</div>
-</div>
-</header>
-<!--/_header 作为公共模版分离出去-->
-
-<!--_menu 作为公共模版分离出去-->
-<aside class="Hui-aside">
-
-	<div class="menu_dropdown bk_2">
-		<dl id="menu-article">
-			<dt><i class="Hui-iconfont">&#xe616;</i> 店铺管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/article_list" title="资讯管理">查看店铺</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/product_list" title="产品管理">查看商品</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 合作管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/product_brand" title="品牌管理">品牌管理</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-member">
-			<dt class="selected"><i class="Hui-iconfont">&#xe60d;</i> 店员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd  style="display: block;">
-				<ul>
-					<li class="current"><a href="<%=request.getContextPath()%>/boss/member_list" title="会员列表">会员列表</a></li>
-				</ul>
-			</dd>
-		</dl>
-
-		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 统计管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/charts-1" title="折线图">折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-2" title="时间轴折线图">时间轴折线图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-3" title="区域图">区域图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-4" title="柱状图">柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-5" title="饼状图">饼状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-6" title="3D柱状图">3D柱状图</a></li>
-					<li><a href="<%=request.getContextPath()%>/charts-7" title="3D饼状图">3D饼状图</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-system">
-			<dt><i class="Hui-iconfont">&#xe62e;</i> 安全管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/boss/safe_list" title="安全设置">安全设置</a></li>
-				</ul>
-			</dd>
-		</dl>
-	</div>
-</aside>
-=======
 <jsp:include page="/public_jsp/bossHeader.jsp" flush="true"></jsp:include>
 <!--/_header 作为公共模版分离出去-->
 <jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
 <!--_menu 作为公共模版分离出去-->
->>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
-<<<<<<< HEAD
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="<%=request.getContextPath()%>/boss/index_shopkeeper">首页</a>
 		<span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-=======
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
->>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 	<div class="Hui-article">
 		<article class="cl pd-20">
 			<div class="text-c">
@@ -157,13 +48,8 @@
 				<button type="submit" class="btn btn-success radius" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20">
-<<<<<<< HEAD
-			 <span class="l"><a href="javascript:;" onclick="member_add('添加用户','/newbuy/boss/member_add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加店铺经理</a>
-			 <a href="javascript:;" onclick="member_add('添加用户','/newbuy/boss/member_add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加客服人员</a></span>
-=======
 			 <span class="l"><a href="javascript:;" onclick="member_add('添加用户','/newbuy/boss/employ_add/1','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加店铺经理</a>
 			 <a href="javascript:;" onclick="member_add('添加用户','/newbuy/boss/employ_add/2','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加客服人员</a></span>
->>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 			 <span class="r">共有数据：<strong>88</strong> 条</span> </div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -182,8 +68,6 @@
 						</tr>
 					</thead>
 					<tbody>
-<<<<<<< HEAD
-=======
 					<c:forEach items="${employers}" var="employer">
 						<tr class="text-c">
 							<td><input type="checkbox" value="1" name=""></td>
@@ -198,7 +82,6 @@
 							<td class="td-manage"><a style="text-decoration:none" onClick="member_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/newbuy/boss/member_add','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','change-password','10001','600','270')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 						</tr>
 					</c:forEach>
->>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 						<tr class="text-c">
 							<td><input type="checkbox" value="1" name=""></td>
 							<td>店铺经理</td>
@@ -209,11 +92,7 @@
 							<td class="text-l">店铺1</td>
 							<td>2014-6-11 11:11:42</td>
 							<td class="td-status"><span class="label label-success radius">已启用</span></td>
-<<<<<<< HEAD
 							<td class="td-manage"><a style="text-decoration:none" onClick="member_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/newbuy/boss/member_add','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','/newbuy/boss/change_password','10001','600','270')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-=======
-							<td class="td-manage"><a style="text-decoration:none" onClick="member_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/newbuy/boss/member_add','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','change-password','10001','600','270')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
->>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 						</tr>
 						<tr class="text-c">
 							<td><input type="checkbox" value="1" name=""></td>
@@ -246,12 +125,9 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-<<<<<<< HEAD
-=======
     <c:if test="${!empty error_msg}">alert("${error_msg}");
     </c:if>
 
->>>>>>> 53dcd462319bb938ffb700fe7ab7bc20b23a5da9
 $(function(){
 	$('.table-sort').dataTable({
 		"aaSorting": [[ 1, "desc" ]],//默认第几个排序

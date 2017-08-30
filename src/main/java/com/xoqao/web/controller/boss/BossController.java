@@ -201,11 +201,22 @@ public class BossController {
     public String coop_product(Model model) throws Exception {
         return "shopkeeper/coop_product";
     }
+    //合作商品管理页面-查看合作
+    @RequestMapping("/coop_product_shop")
+    public String coop_product_shop(Model model) throws Exception {
+        return "shopkeeper/coop_product_shop";
+    }
     //合作建立概览
     @RequestMapping("/coop_build")
     public String coop_build(Model model) throws Exception {
         return "shopkeeper/coop_build";
     }
+    //合作建立概览-查看合作
+    @RequestMapping("/coop_build_product")
+    public String coop_build_product(Model model) throws Exception {
+        return "shopkeeper/coop_build_product";
+    }
+
     //可配货查看
     @RequestMapping("/view_pickup")
     public String view_pickup(Model model) throws Exception {
@@ -221,6 +232,13 @@ public class BossController {
     public String data_count(Model model) throws Exception {
         return "shopkeeper/data_count";
     }
+    //首页
+    @RequestMapping("/index_shopkeeper")
+    public String index_shopkeeper(Model model) throws Exception {
+        return "shopkeeper/index_shopkeeper";
+    }
+
+
     /**
      * 提交添加店员
      *
