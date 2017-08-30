@@ -10,11 +10,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * E-mail：lzhuo_1995@163.com
  */
 @Controller
-@RequestMapping("/shopmanager")
+@RequestMapping("/shop")
 public class ShopmanagerController {
 
+    /**
+     * 店铺经理首页
+     * */
     @RequestMapping("/indexShopManager")
-    public String indexShopManager(Model model)throws Exception{
+    public String indexShopManager1(Model model) throws Exception {
         return "shopmanager/Index_ShopManager";
     }
+
+    /**
+     * 商品管理( 默认查看商品 )
+     * */
+    @RequestMapping("/managerGoods")
+    public String managerGoods(Model model)throws Exception{
+        return "shopmanager/managedGoods/ManagedGoods";
+    }
+
+    /**
+     * 添加、删除商品
+     * */
+    @RequestMapping("/addDeletedGoods")
+    public String addDeletedGoods(Model model)throws Exception{
+        return "shopmanager/managedGoods/AddDeletedGoods";
+    }
+
+    /**
+     * 商品上下架
+     * */
+    @RequestMapping("/upDownGoods")
+    public String upDownGoods(Model model)throws Exception{
+        return "shopmanager/managedGoods/UpDownGoods";
+    }
+
+    /**
+     * 热力分析
+     * */
+    @RequestMapping("/heatMap")
+    public String heatMap(Model model)throws Exception{
+        return "shopmanager/HeatMap";
+    }
+
 }
