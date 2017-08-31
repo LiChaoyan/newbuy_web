@@ -55,14 +55,12 @@
 
 <script>
     var data = [
-        {name: '海门', value: 119},
-        {name: '鄂尔多斯', value: 102},
-        {name: '招远', value: 12}
+        {name: '盐城', value: 15},
+        {name: '赤峰', value: 116}
     ];
     var geoCoordMap = {
-        '海门': [121.15, 31.89],
-        '鄂尔多斯': [109.781327, 39.608266],
-        '招远': [120.38, 37.35]
+        '盐城': [120.13, 33.38],
+        '赤峰': [118.87, 42.28]
     };
 
     var convertData = function (data) {
@@ -76,14 +74,13 @@
                 });
             }
         }
-        return res;
+        return res
     };
-    // 基于准备好的dom，初始化echarts实例
-    var mChart = echarts.init(document.getElementById('main'), 'macarons');
+
     option = {
         backgroundColor: '#404a59',
         title: {
-            text: '全国主要城市销售情况',
+            text: '全国主要城市销量',
             subtext: '销售量/销售额',
 //            sublink: 'http://www.pm25.in',
             left: 'center',
@@ -98,7 +95,7 @@
             orient: 'vertical',
             y: 'bottom',
             x: 'right',
-            data: ['销售额'],
+            data: ['销量'],
             textStyle: {
                 color: '#fff'
             }
@@ -123,7 +120,7 @@
         },
         series: [
             {
-                name: '销售额',
+                name: '销量',
                 type: 'scatter',
                 coordinateSystem: 'geo',
                 data: convertData(data),
@@ -152,7 +149,7 @@
                 coordinateSystem: 'geo',
                 data: convertData(data.sort(function (a, b) {
                     return b.value - a.value;
-                }).slice(0, 6)),
+                }).slice(0, 5)),
                 symbolSize: function (val) {
                     return val[2] / 10;
                 },
@@ -179,7 +176,8 @@
             }
         ]
     };
-    mChart.setOption(option);
+    var myChart = echarts.init(document.getElementById('main'));
+    myChart.setOption(option);
 </script>
 
 <script>

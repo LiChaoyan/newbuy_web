@@ -24,5 +24,6 @@
     <jsp:include page="/public_jsp/shopmanager/shopmanagerHeaderRight.jsp"></jsp:include>
 </div>
 
+
 </body>
 </html>
