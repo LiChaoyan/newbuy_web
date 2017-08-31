@@ -13,22 +13,27 @@
     <script type="text/javascript" src="<%= request.getContextPath()%>/layui/dist/layui.js"></script>
 </head>
 <body>
-<ul class="layui-nav">
-    <li class="layui-nav-item">
-        <a href="<%=request.getContextPath()%>/shop/indexShopManager" style="font-size: 20px">商家店铺监控中心</a>
-    </li>
-    <li class="layui-nav-item layui-this">
-        <a href="<%=request.getContextPath()%>/shop/managerGoods">查看商品</a>
-    </li>
-    <li class="layui-nav-item">
-        <a href="<%=request.getContextPath()%>/shop/addDeletedGoods">增删商品</a>
-    </li>
-    <li class="layui-nav-item">
-        <a href="<%=request.getContextPath()%>/shop/upDownGoods">商品上下架</a>
-    </li>
-</ul>
+<div class="layui-row" style="background-image: url(<%=request.getContextPath()%>/Images/shopmanagerbgd.jpg)">
+    <div class="layui-col-md6">
+        <ul class="layui-nav" style="background: transparent">
+            <li class="layui-nav-item">
+                <jsp:include page="/public_jsp/shopmanager/secondmenu.jsp"></jsp:include>
+            </li>
+            <li class="layui-nav-item layui-this">
+                <a href="<%=request.getContextPath()%>/shop/managerGoods">查看商品</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="<%=request.getContextPath()%>/shop/addDeletedGoods">增删商品</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="<%=request.getContextPath()%>/shop/upDownGoods">商品上下架</a>
+            </li>
+        </ul>
+    </div>
+    <jsp:include page="/public_jsp/shopmanager/shopmanagerHeaderRight.jsp"></jsp:include>
+</div>
 
-<div class="layui-col-md12" style="padding-left: 10%;padding-right: 10%;">
+<div class="layui-row" style="padding: 10px 10% 10px 10%;">
     <div class="layui-row">
         <blockquote class="site-text layui-elem-quote">
             <label class="layui-input-inline">
@@ -38,49 +43,25 @@
         </blockquote>
     </div>
 
-    <table id="viewGoods"></table>
-
+    <table class="layui-table" lay-data="{height:'full', url:'/demo/table/user/', page:true}"
+           style="width: 1005px">
+        <thead>
+        <tr>
+            <th lay-data="{field:'id', width:110}">商品编号</th>
+            <th lay-data="{field:'name', width:160}">商品名</th>
+            <th lay-data="{field:'info', width:460}">描述</th>
+            <th lay-data="{field:'price', width:95, sort: true}">单价</th>
+            <th lay-data="{field:'sellnum', width:80, sort: true}">销售量</th>
+            <th lay-data="{field:'sellmoney', width:80, sort: true}">销售额</th>
+            <th lay-data="{field:'statue', width:100}">上架状态</th>
+        </tr>
+        </thead>
+    </table>
 </div>
 
 <script>
     layui.use('table', function () {
         var table = layui.table;
-
-        //展示已知数据
-        table.render({
-            elem: '#viewGoods'
-            , data: [{
-                "id": "10001"
-                , "name": "魅族"
-                , "info": "手机"
-                , "sellnum": "100"
-                , "sellmoney": "1000"
-                , "statue": "已上架"
-            }]
-            , height: 'full'
-            , width: 1080
-            , cols: [[ //标题栏
-                {field: 'id', title: '商品编号', width: 150}
-                , {field: 'name', title: '商品名', width: 200}
-                , {field: 'info', title: '描述', width: 370}
-                , {field: 'sellnum', title: '销售量', width: 120, sort: true}
-                , {field: 'sellmoney', title: '销售额', width: 120, sort: true}
-                , {field: 'statue', title: '上架状态', width: 111}
-            ]]
-            , skin: 'row' //表格风格
-            , even: true
-            , page: true //是否显示分页
-            , limits: [5, 10]
-            , limit: 10 //每页默认显示的数量
-        });
-    });
-</script>
-<script>
-    //注意：导航 依赖 element 模块，否则无法进行功能性操作
-    layui.use('element', function () {
-        var element = layui.element;
-
-        //…
     });
 </script>
 </body>

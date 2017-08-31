@@ -37,7 +37,7 @@
         .Page_Show {
             width: 100%;
             height: 500px;
-            background-image: url(<%=request.getContextPath()%>/Images/shopmanagerbg.jpg);
+            background-image: url(<%=request.getContextPath()%>/Images/shopmanagerbgd.jpg);
         }
 
         .Page_Services {
@@ -69,11 +69,6 @@
         </div>
     </div>
 
-    <%--<div class="layui-row">--%>
-    <%--<blockquote class="site-text layui-elem-quote" style="font-size: 20px">--%>
-    <%--销售统计--%>
-    <%--</blockquote>--%>
-    <%--</div>--%>
     <div class="layui-row">
         <div id="mainleft" class="page_Middle layui-col-md6"></div>
         <div id="mainright" class="page_Middle layui-col-md6"></div>
@@ -86,18 +81,16 @@
     <div class="layui-col-md2">
         <ul class="layui-nav" style="background: transparent">
             <li class="layui-nav-item">
-                <a href="<%=request.getContextPath()%>/shop/managerGoods" style="color: #333333;font-size: 25px"><i class="layui-icon">&#xe628;</i>&nbsp;商品管理</a>
-                <%--<dl class="layui-nav-child"> <!-- 二级菜单 -->--%>
-                    <%--<dd><a href="#"></a></dd>--%>
-                    <%--<dd><a href="#"></a></dd>--%>
-                <%--</dl>--%>
+                <a href="<%=request.getContextPath()%>/shop/managerGoods" style="color: #333333;font-size: 25px"><i
+                        class="layui-icon">&#xe628;</i>&nbsp;商品管理</a>
             </li>
         </ul>
     </div>
     <div class="layui-col-md2">
         <ul class="layui-nav" style="background: transparent">
             <li class="layui-nav-item">
-                <a href="javascript:;" style="color: #333333;font-size: 25px"><i class="layui-icon">&#xe620;</i>&nbsp;定位管理</a>
+                <a href="<%=request.getContextPath()%>/shop/location" style="color: #333333;font-size: 25px"><i
+                        class="layui-icon">&#xe620;</i>&nbsp;定位管理</a>
             </li>
         </ul>
     </div>
@@ -112,21 +105,24 @@
     <div class="layui-col-md2">
         <ul class="layui-nav" style="background: transparent">
             <li class="layui-nav-item">
-                <a href="javascript:;" style="color: #333333;font-size: 25px"><i class="layui-icon">&#xe62c;</i>&nbsp;数据统计</a>
+                <a href="<%=request.getContextPath()%>/shop/statistics" style="color: #333333;font-size: 25px"><i
+                        class="layui-icon">&#xe62c;</i>&nbsp;数据统计</a>
             </li>
         </ul>
     </div>
     <div class="layui-col-md2">
         <ul class="layui-nav" style="background: transparent">
             <li class="layui-nav-item">
-                <a href="javascript:;" style="color: #333333;font-size: 25px"><i class="layui-icon">&#xe60a;</i>&nbsp;订单管理</a>
+                <a href="<%=request.getContextPath()%>/shop/order" style="color: #333333;font-size: 25px"><i
+                        class="layui-icon">&#xe60a;</i>&nbsp;订单管理</a>
             </li>
         </ul>
     </div>
     <div class="layui-col-md2">
         <ul class="layui-nav" style="background: transparent">
             <li class="layui-nav-item">
-                <a href="javascript:;" style="color: #333333;font-size: 25px"><i class="layui-icon">&#x1005;</i>&nbsp;收银系统</a>
+                <a href="<%=request.getContextPath()%>/shop/cashier" style="color: #333333;font-size: 25px"><i
+                        class="layui-icon">&#x1005;</i>&nbsp;收银系统</a>
             </li>
         </ul>
     </div>
@@ -136,7 +132,7 @@
 
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('mainleft'),'macarons');
+    var myChart = echarts.init(document.getElementById('mainleft'), 'macarons');
 
     // 指定图表的配置项和数据
     var option = {
@@ -209,7 +205,7 @@
 </script>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('mainright'),'macarons');
+    var myChart = echarts.init(document.getElementById('mainright'), 'macarons');
     option = {
         title: {
             text: '销售额',

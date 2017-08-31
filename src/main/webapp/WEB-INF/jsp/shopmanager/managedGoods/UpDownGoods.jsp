@@ -11,24 +11,28 @@
     <title>商品上下架</title>
     <link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/layui/dist/css/layui.css"/>
     <script type="text/javascript" src="<%= request.getContextPath()%>/layui/dist/layui.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath()%>/layui/dist/lay/modules/table.js"></script>
 </head>
 <body>
-<ul class="layui-nav">
-    <li class="layui-nav-item">
-        <a href="<%=request.getContextPath()%>/shop/indexShopManager" style="font-size: 20px">商家店铺监控中心</a>
-    </li>
-    <li class="layui-nav-item">
-        <a href="<%=request.getContextPath()%>/shop/managerGoods">查看商品</a>
-    </li>
-    <li class="layui-nav-item">
-        <a href="<%=request.getContextPath()%>/shop/addDeletedGoods">增删商品</a>
-    </li>
-    <li class="layui-nav-item  layui-this">
-        <a href="<%=request.getContextPath()%>/shop/upDownGoods">商品上下架</a>
-    </li>
-</ul>
+<div class="layui-row" style=";background-image: url(<%=request.getContextPath()%>/Images/shopmanagerbgd.jpg)">
+    <div class="layui-col-md6">
+        <ul class="layui-nav" style="background: transparent">
+            <jsp:include page="/public_jsp/shopmanager/secondmenu.jsp"></jsp:include>
+            <li class="layui-nav-item">
+                <a href="<%=request.getContextPath()%>/shop/managerGoods">查看商品</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="<%=request.getContextPath()%>/shop/addDeletedGoods">增删商品</a>
+            </li>
+            <li class="layui-nav-item  layui-this">
+                <a href="<%=request.getContextPath()%>/shop/upDownGoods">商品上下架</a>
+            </li>
+        </ul>
+    </div>
+    <jsp:include page="/public_jsp/shopmanager/shopmanagerHeaderRight.jsp"></jsp:include>
+</div>
 
-<div class="layui-col-md12" style="padding-left: 10%;padding-right: 10%;">
+<div class="layui-row" style="padding: 10px 10% 10px 10%">
     <div class="layui-row">
         <blockquote class="site-text layui-elem-quote">
             <button class="layui-btn layui-btn-small">批量上架</button>
@@ -36,67 +40,43 @@
         </blockquote>
     </div>
 
-    <table class="layui-table" lay-even="" lay-skin="row">
+    <table class="layui-table" lay-data="{height:'full', url:'/demo/table/user/', page:true}"
+           style="width: 1005px">
         <thead>
         <tr>
-            <td width="50">
-                <input type="checkbox" name="" lay-skin="primary">
-            </td>
-            <td width="110">商品编号</td>
-            <td width="160">商品名</td>
-            <td>描述</td>
-            <td width="110">单价</td>
-            <td width="110">上架状态</td>
-            <td width="110">操作</td>
+            <th lay-data="{fixed:'left',width:80,align:'center',toolbar:'#checkbox'}">
+                <label>
+                    <input type="checkbox" name="" lay-skin="primary"/>
+                </label>
+            </th>
+            <th lay-data="{field:'id', width:110}">商品编号</th>
+            <th lay-data="{field:'name', width:160}">商品名</th>
+            <th lay-data="{field:'info', width:460}">描述</th>
+            <th lay-data="{field:'price', width:95, sort: true}">单价</th>
+            <th lay-data="{field:'statue', width:100}">上架状态</th>
+            <th lay-data="{width:80, align:'center', toolbar: '#delete'}">操作</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td>
-                <input type="checkbox" name="" lay-skin="primary">
-            </td>
-            <td>001</td>
-            <td>小米</td>
-            <td>手机</td>
-            <td>100</td>
-            <td>已上架</td>
-            <td>
-                <div class="layui-btn-group">
-                    <button class="layui-btn layui-btn-mini">上架</button>
-                    <button class="layui-btn layui-btn-mini layui-btn-danger">下架</button>
-                </div>
-            </td>
-        </tr>
-        </tbody>
     </table>
 
-    <div id="page"></div>
 </div>
-
-<script>
-    layui.use(['laypage', 'layer'], function () {
-        var laypage = layui.laypage
-            , layer = layui.layer;
-
-        //完整功能
-        laypage.render({
-            elem: 'page'
-            , count: 100
-            , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
-            , jump: function (obj) {
-                console.log(obj)
-            }
-        });
-    });
+<script type="text/html" id="checkbox">
+    <label>
+        <input class="layui-form" type="checkbox" name="" lay-skin="primary">
+    </label>
+</script>
+<script type="text/html" id="delete">
+    <div class="layui-btn-group">
+        <button class="layui-btn layui-btn-mini">上架</button>
+        <button class="layui-btn layui-btn-mini layui-btn-danger">下架</button>
+    </div>
 </script>
 
 <script>
-    //注意：导航 依赖 element 模块，否则无法进行功能性操作
-    layui.use('element', function () {
-        var element = layui.element;
-
-        //…
+    layui.use('table', function () {
+        var table = layui.table;
     });
 </script>
+
 </body>
 </html>

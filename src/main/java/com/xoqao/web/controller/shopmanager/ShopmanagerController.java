@@ -46,11 +46,43 @@ public class ShopmanagerController {
     }
 
     /**
+     * 定位管理
+     * */
+    @RequestMapping("/location")
+    public String location(Model model)throws Exception{
+        return "shopmanager/Location";
+    }
+
+    /**
      * 热力分析
      * */
     @RequestMapping("/heatMap")
     public String heatMap(Model model)throws Exception{
         return "shopmanager/HeatMap";
+    }
+
+    /**
+     * 数据统计
+     * */
+    @RequestMapping("/statistics")
+    public String statistics(Model model)throws Exception{
+        return "shopmanager/Statistics";
+    }
+
+    /**
+     * 订单
+     * */
+    @RequestMapping("/order")
+    public String order(Model model)throws Exception{
+        return "shopmanager/Order";
+    }
+
+    /**
+     * 收银
+     * */
+    @RequestMapping("/cashier")
+    public String cashier(Model model)throws Exception{
+        return "shopmanager/Cashier";
     }
 
 }
