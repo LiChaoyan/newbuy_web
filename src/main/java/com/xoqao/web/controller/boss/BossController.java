@@ -211,6 +211,12 @@ public class BossController {
     public String coop_build(Model model) throws Exception {
         return "shopkeeper/coop_build";
     }
+    //合作建立概览-查看店铺
+    @RequestMapping("/view_pickup_shop")
+    public String view_pickup_shop(Model model) throws Exception {
+        return "shopkeeper/view_pickup_shop";
+    }
+
     //合作建立概览-查看合作
     @RequestMapping("/coop_build_product")
     public String coop_build_product(Model model) throws Exception {

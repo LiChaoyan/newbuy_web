@@ -39,7 +39,7 @@
 
 	<div class="Hui-article">
 		<article class="cl pd-20">
-			<div class="text-c"> 
+			<div class="text-c">
 				<input type="text" name=""  placeholder=" 商品名称" style="width:250px" class="input-text">
 				<button name=""  class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜商品</button>
 			</div>

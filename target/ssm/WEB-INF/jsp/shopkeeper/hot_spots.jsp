@@ -142,42 +142,45 @@
 					<input type="text" name=""  placeholder=" 商品名称" style="width:250px" class="input-text">
 					<button name="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜商品</button>
 				</div>
-				<div class="mt-20">
-					<table class="table table-border table-bordered table-bg table-hover table-sort">
-						<thead>
-							<tr class="text-c">
-								<%--<th width="40"><input name="" type="checkbox" value=""></th>--%>
-								<th width="100">产品名称</th>
-								<th width="60">所属店铺</th>
-								<th width="100">单价</th>
-								<th width="100">销售量(件)</th>
-								<th width="100">销售额(￥)</th>
-								<th width="60">合作数量</th>
-								<%--<th width="100">操作</th>--%>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="text-c va-m">
-								<%--<td><input name="" type="checkbox" value=""></td>--%>
-								<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show','10001')" href="javascript:;"><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui/images/gq/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
-								<td>义乌小商品批发城</td>
-								<td><span class="price">356.0</span> 元/平米</td>
-								<td>1000</td>
-								<td>10000</td>
-								<td>200</td>
-							</tr>
-							<tr class="text-c va-m">
-								<%--<td><input name="" type="checkbox" value=""></td>--%>
-								<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show','10001')" href="javascript:;"><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui/images/gq/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
-								<td>义乌小商品批发城</td>
-								<td><span class="price">356.0</span> 元/平米</td>
-								<td>1000</td>
-								<td>10000</td>
-								<td>200</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+				<div id="main" style="width: 100%;height: 600px;margin-top:20px;"></div>
+
+			<%--<div class="mt-20">--%>
+					<%--<table class="table table-border table-bordered table-bg table-hover table-sort">--%>
+						<%--<thead>--%>
+							<%--<tr class="text-c">--%>
+								<%--&lt;%&ndash;<th width="40"><input name="" type="checkbox" value=""></th>&ndash;%&gt;--%>
+								<%--<th width="100">产品名称</th>--%>
+								<%--<th width="60">所属店铺</th>--%>
+								<%--<th width="100">单价</th>--%>
+								<%--<th width="100">销售量(件)</th>--%>
+								<%--<th width="100">销售额(￥)</th>--%>
+								<%--<th width="60">合作数量</th>--%>
+								<%--&lt;%&ndash;<th width="100">操作</th>&ndash;%&gt;--%>
+							<%--</tr>--%>
+						<%--</thead>--%>
+						<%--<tbody>--%>
+							<%--<tr class="text-c va-m">--%>
+								<%--&lt;%&ndash;<td><input name="" type="checkbox" value=""></td>&ndash;%&gt;--%>
+								<%--<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show','10001')" href="javascript:;"><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui/images/gq/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>--%>
+								<%--<td>义乌小商品批发城</td>--%>
+								<%--<td><span class="price">356.0</span> 元/平米</td>--%>
+								<%--<td>1000</td>--%>
+								<%--<td>10000</td>--%>
+								<%--<td>200</td>--%>
+							<%--</tr>--%>
+							<%--<tr class="text-c va-m">--%>
+								<%--&lt;%&ndash;<td><input name="" type="checkbox" value=""></td>&ndash;%&gt;--%>
+								<%--<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show','10001')" href="javascript:;"><img title="国内品牌" src="<%=request.getContextPath()%>/Css/static/h-ui/images/gq/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>--%>
+								<%--<td>义乌小商品批发城</td>--%>
+								<%--<td><span class="price">356.0</span> 元/平米</td>--%>
+								<%--<td>1000</td>--%>
+								<%--<td>10000</td>--%>
+								<%--<td>200</td>--%>
+							<%--</tr>--%>
+						<%--</tbody>--%>
+					<%--</table>--%>
+				<%--</div>--%>
+
 			</div>
 		</div>
 
@@ -195,150 +198,231 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/zTree/v3/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/echarts.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/china.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/china.json"></script>
+
+
 <script type="text/javascript">
-var setting = {
-	view: {
-		dblClickExpand: false,
-		showLine: false,
-		selectedMulti: false
-	},
-	data: {
-		simpleData: {
-			enable:true,
-			idKey: "id",
-			pIdKey: "pId",
-			rootPId: ""
-		}
-	},
-	callback: {
-		beforeClick: function(treeId, treeNode) {
-			var zTree = $.fn.zTree.getZTreeObj("tree");
-			if (treeNode.isParent) {
-				zTree.expandNode(treeNode);
-				return false;
-			} else {
-				demoIframe.attr("src",treeNode.file + "");
-				return true;
-			}
-		}
-	}
-};
+    // $(function () {
+    //     $('#container1').highcharts({
+    //         chart: {
+    //             type: 'column'
+    //         },
+    //         title: {
+    //             text: 'Monthly Average Rainfall'
+    //         },
+    //         subtitle: {
+    //             text: 'Source: WorldClimate.com'
+    //         },
+    //         xAxis: {
+    //             categories: [
+    //                 '一月',
+    //                 '二月',
+    //                 '三月',
+    //                 '四月',
+    //                 '五月',
+    //                 '六月',
+    //                 '七月',
+    //                 '八月',
+    //                 '九月',
+    //                 '十月',
+    //                 '十一月',
+    //                 '十二月'
+    //             ]
+    //         },
+    //         yAxis: {
+    //             min: 0,
+    //             title: {
+    //                 text: 'Rainfall (mm)'
+    //             }
+    //         },
+    //         tooltip: {
+    //             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+    //             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+    //                 '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+    //             footerFormat: '</table>',
+    //             shared: true,
+    //             useHTML: true
+    //         },
+    //         plotOptions: {
+    //             column: {
+    //                 pointPadding: 0.2,
+    //                 borderWidth: 0
+    //             }
+    //         },
+    //         series: [{
+    //             name: 'Tokyo',
+    //             data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
 
-var zNodes =[
-	{ id:1, pId:0, name:"一级分类", open:true},
-	{ id:11, pId:1, name:"二级分类"},
-	{ id:111, pId:11, name:"三级分类"},
-	{ id:112, pId:11, name:"三级分类"},
-	{ id:113, pId:11, name:"三级分类"},
-	{ id:114, pId:11, name:"三级分类"},
-	{ id:115, pId:11, name:"三级分类"},
-	{ id:12, pId:1, name:"二级分类 1-2"},
-	{ id:121, pId:12, name:"三级分类 1-2-1"},
-	{ id:122, pId:12, name:"三级分类 1-2-2"},
-];
+    //         }, {
+    //             name: 'New York',
+    //             data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
 
-var code;
+    //         }, {
+    //             name: 'London',
+    //             data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
 
-function showCode(str) {
-	if (!code) code = $("#code");
-	code.empty();
-	code.append("<li>"+str+"</li>");
-}
+    //         }, {
+    //             name: 'Berlin',
+    //             data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
 
-//$(document).ready(function(){
-//	var t = $("#treeDemo");
-//	t = $.fn.zTree.init(t, setting, zNodes);
-//	demoIframe = $("#testIframe");
-//	demoIframe.bind("load", loadReady);
-//	var zTree = $.fn.zTree.getZTreeObj("tree");
-//	zTree.selectNode(zTree.getNodeByParam("id",'11'));
-//});
+    //         }]
+    //     });
+    // });
+    var data = [
+        {name: '鄂尔多斯', value: 121},
+        {name: '青岛', value: 118},
+        {name: '上海', value: 215},
+        {name: '攀枝花', value: 251},
+        {name: '承德', value: 215},
+        {name: '厦门', value: 216},
+        {name: '烟台', value: 218},
+        {name: '张家口', value: 311},
+        {name: '广州', value: 318},
+        {name: '大连', value: 117},
+        {name: '西安', value: 111},
+        {name: '北京', value: 119},
+        {name: '邯郸', value: 118},
+        {name: '郑州', value: 113},
+        {name: '哈尔滨', value: 114},
+        {name: '唐山', value: 119}
+    ];
+    var geoCoordMap = {
+        '鄂尔多斯':[109.781327,39.608266],
+        '青岛':[120.33,36.07],
+        '上海':[121.48,31.22],
+        '攀枝花':[101.718637,26.582347],
+        '承德':[117.93,40.97],
+        '厦门':[118.1,24.46],
+        '烟台':[121.39,37.52],
+        '张家口':[114.87,40.82],
+        '广州':[113.23,23.16],
+        '大连':[121.62,38.92],
+        '西安':[108.95,34.27],
+        '北京':[116.46,39.92],
+        '邯郸':[114.47,36.6],
+        '郑州':[113.65,34.76],
+        '哈尔滨':[126.63,45.75],
+        '唐山':[118.02,39.63]
 
-// $('.table-sort').dataTable({
-// 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
-// 	"bStateSave": true,//状态保存
-// 	"aoColumnDefs": [
-// 	  {"orderable":false,"aTargets":[0,7]}// 制定列不参与排序
-// 	]
-// });
-/*图片-添加*/
-function product_add(title,url){
-	var index = layer.open({
-		type: 2,
-		title: title,
-		content: url
-	});
-	layer.full(index);
-}
-/*图片-查看*/
-function product_show(title,url,id){
-	var index = layer.open({
-		type: 2,
-		title: title,
-		content: url
-	});
-	layer.full(index);
-}
-/*图片-审核*/
-function product_shenhe(obj,id){
-	layer.confirm('审核文章？', {
-		btn: ['通过','不通过'],
-		shade: false
-	},
-	function(){
-		$(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="product_start(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
-		$(obj).parents("tr").find(".td-status")('<span class="label label-success radius">已发布</span>');
-		$(obj).remove();
-		layer.msg('已发布', {icon:6,time:1000});
-	},
-	function(){
-		$(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="product_shenqing(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
-		$(obj).parents("tr").find(".td-status")('<span class="label label-danger radius">未通过</span>');
-		$(obj).remove();
-    	layer.msg('未通过', {icon:5,time:1000});
-	});
-}
-/*图片-下架*/
-function product_stop(obj,id){
-	layer.confirm('确认要下架吗？',function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="product_start(this,id)" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a>');
-		$(obj).parents("tr").find(".td-status")('<span class="label label-defaunt radius">已下架</span>');
-		$(obj).remove();
-		layer.msg('已下架!',{icon: 5,time:1000});
-	});
-}
+    };
 
-/*图片-发布*/
-function product_start(obj,id){
-	layer.confirm('确认要发布吗？',function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="product_stop(this,id)" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>');
-		$(obj).parents("tr").find(".td-status")('<span class="label label-success radius">已发布</span>');
-		$(obj).remove();
-		layer.msg('已发布!',{icon: 6,time:1000});
-	});
-}
-/*图片-申请上线*/
-function product_shenqing(obj,id){
-	$(obj).parents("tr").find(".td-status")('<span class="label label-default radius">待审核</span>');
-	$(obj).parents("tr").find(".td-manage")("");
-	layer.msg('已提交申请，耐心等待审核!', {icon: 1,time:2000});
-}
-/*图片-编辑*/
-function product_edit(title,url,id){
-	var index = layer.open({
-		type: 2,
-		title: title,
-		content: url
-	});
-	layer.full(index);
-}
-/*图片-删除*/
-function product_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
-	});
-}
+    var convertData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        return res;
+    };
+    var myChart = echarts.init(document.getElementById('main'));
+    option = {
+        backgroundColor: '#404a59',
+        title: {
+            text: '地区热点分析',
+            subtext: '商品销售地区热点',
+            sublink: 'index.html',
+            left: 'center',
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        tooltip : {
+            trigger: 'item'
+        },
+        legend: {
+            orient: 'vertical',
+            y: 'bottom',
+            x:'right',
+            data:['销量'],
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        geo: {
+            map: 'china',
+            label: {
+                emphasis: {
+                    show: false
+                }
+            },
+            roam: true,
+            itemStyle: {
+                normal: {
+                    areaColor: '#323c48',
+                    borderColor: '#111'
+                },
+                emphasis: {
+                    areaColor: '#2a333d'
+                }
+            }
+        },
+        series : [
+            {
+                name: '销量',
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                data: convertData(data),
+                symbolSize: function (val) {  //标记的大小，用下面的公式计算
+                    return val[2] / 10;
+                },
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#ddb926'
+                    }
+                }
+            },
+            {
+                name: '销售量',
+                type: 'effectScatter',
+                coordinateSystem: 'geo',
+                data: convertData(data.sort(function (a, b) {
+                    return 1;
+                }).slice(0, 6)),
+                symbolSize: function (val) {
+                    return 2;
+                },
+                showEffectOn: 'render',
+                rippleEffect: {
+                    brushType: 'stroke'
+                },
+                hoverAnimation: true,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#f4e925',
+                        shadowBlur: 10,
+                        shadowColor: '#333'
+                    }
+                },
+                zlevel: 1
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

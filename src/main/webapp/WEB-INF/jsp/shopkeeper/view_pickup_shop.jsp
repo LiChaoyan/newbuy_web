@@ -22,7 +22,7 @@
 <script>DD_belatedPNG.fix('*');</script><![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>可配货查看</title>
+<title>合作商品管理</title>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/Scripts/lib/zTree/v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
 </head>
 <body>
@@ -33,68 +33,97 @@
 <jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
 <!--/_menu 作为公共模版分离出去-->
 
-<section class="Hui-article-box">
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="<%=request.getContextPath()%>/index_admin">登录</a><span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 查看商品 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-	<div class="Hui-article">
-			<div class="pd-20">
-				<div class="text-c">
-					<input type="text" name=""  placeholder=" 商品名称" style="width:250px" class="input-text">
-					<button name="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜商品</button>
-				</div>
-				<div class="cl pd-5 bg-1 bk-gray mt-20">
-					<button name="" class="btn btn-success" type="submit">提交合作</button>
-					<span class="r">共有数据：<strong>54</strong> 条</span> </div>
-				<div class="mt-20">
-					<table class="table table-border table-bordered table-bg table-hover table-sort">
-						<thead>
-							<tr class="text-c">
-								<th width="40"><input name="" type="checkbox" value=""></th>
-								<th width="100">商品名称</th>
-								<th width="150">商品描述</th>
-								<th width="100">推荐合作店铺</th>
-								<th width="100">店铺所在地</th>
-								<th width="100">推荐配送数量(件)</th>
-								<th width="100">操作</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="text-c va-m">
-								<td><input name="" type="checkbox" value=""></td>
-								<td>东鹏陶瓷</td>
-								<td class="text-l">东鹏陶瓷被评为“中国名牌”、“国家免检产品”</td>
-								<td>
-									<a href="<%=request.getContextPath()%>/boss/view_pickup_shop">义乌小商品批发城</a>
-								</td>
-								<td>郑州</td>
-								<td>1000</td>
-								<td class="f-14 product-brand-manage">
-									<a style="text-decoration:none" href="<%=request.getContextPath()%>/boss/view_pickup_shop">查看相似店铺<i class="Hui-iconfont">&#xe6df;</i></a>
-								</td>
-							</tr>
-							<tr class="text-c va-m">
-								<td><input name="" type="checkbox" value=""></td>
-								<td>东鹏陶瓷</td>
-								<td class="text-l">东鹏陶瓷被评为“中国名牌”、“国家免检产品”</td>
-								<td>
-									<a href="<%=request.getContextPath()%>/boss/view_pickup_shop">义乌小商品批发城</a>
-								</td>
-								<td>郑州</td>
-								<td>1000</td>
-								<td class="f-14 product-brand-manage">
-									<a style="text-decoration:none"   href="<%=request.getContextPath()%>/boss/view_pickup_shop">查看相似店铺<i class="Hui-iconfont">&#xe6df;</i></a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
 
+
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><a href="<%=request.getContextPath()%>/boss/view_pickup"><i class="Hui-iconfont">&#xe67f;</i>返回</a><a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="text-c">
+				<input type="text" name=""  placeholder=" 店铺名称" style="width:250px" class="input-text">
+				<button name=""  class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜店铺</button>
+			</div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"><span class="r">共有数据：<strong>54</strong> 条</span> </div>
+			<div class="mt-10">
+				<table class="table table-border table-bordered table-bg">
+					<thead>
+					<tr class="text-c">
+						<th width="100">推荐合作店铺</th>
+						<th width="100">合作商品</th>
+						<th width="100">详细地址</th>
+						<th width="100">销售量（件）</th>
+						<th width="100">销售额（￥）</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr class="text-c">
+						<td>义务小商品批发城</td>
+						<td>东鹏瓷器</td>
+						<td class="text-l">河南省郑州市新郑市龙湖镇</td>
+						<td>500</td>
+						<td>1000</td>
+					</tr>
+					</tbody>
+				</table>
+				<br><br>
+				<table class="table table-border table-bordered table-bg table-sort">
+					<caption style="font-weight: bold;font-size: 16px;">相似店铺推荐</caption>
+					<thead>
+					<tr class="text-c">
+						<th width="100">相似店铺推荐</th>
+						<th width="100">合作商品</th>
+						<th width="100">详细地址</th>
+						<th width="100">销售量（件）</th>
+						<th width="100">销售额（￥）</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr class="text-c">
+						<td>店铺1</td>
+						<td>东鹏瓷器</td>
+						<td class="text-l">河南省郑州市新郑市龙湖镇</td>
+						<td>500</td>
+						<td>1000</td>
+					</tr>
+					<tr class="text-c">
+						<td>店铺2</td>
+						<td>东鹏瓷器</td>
+						<td class="text-l">河南省郑州市新郑市龙湖镇</td>
+						<td>500</td>
+						<td>1000</td>
+					</tr>
+					<tr class="text-c">
+						<td>店铺3</td>
+						<td>东鹏瓷器</td>
+						<td class="text-l">河南省郑州市新郑市龙湖镇</td>
+						<td>400</td>
+						<td>1000</td>
+					</tr>
+					<tr class="text-c">
+						<td>店铺4</td>
+						<td>东鹏瓷器</td>
+						<td class="text-l">河南省郑州市新郑市龙湖镇</td>
+						<td>300</td>
+						<td>1000</td>
+					</tr>
+					<tr class="text-c">
+						<td>店铺5</td>
+						<td>东鹏瓷器</td>
+						<td class="text-l">河南省郑州市新郑市龙湖镇</td>
+						<td>300</td>
+						<td>1000</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</article>
 	</div>
 </section>
+
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/layer2/.4/layer.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/Css/static/h-ui/js/H-ui.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/Css/static/h-ui.admin/js/H-ui.admin.page.js"></script>
 <!--/_footer /作为公共模版分离出去-->
@@ -106,11 +135,11 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/lib/zTree/v3/js/jquery.ztree.all-3.5.min.js"></script>
 <script type="text/javascript">
     $('.table-sort').dataTable({
-        "aaSorting": [[ 1, "desc" ]],//默认第几个排序
+        "aaSorting": [[ 3, "desc" ]],//默认第几个排序
         "bStateSave": true,//状态保存
         "aoColumnDefs": [
             //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-            {"orderable":false,"aTargets":[0,5]}// 制定列不参与排序
+            {"orderable":false,"aTargets":[0,4]}// 制定列不参与排序
         ]
     });
 </script>
