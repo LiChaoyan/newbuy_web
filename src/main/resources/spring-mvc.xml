@@ -13,7 +13,6 @@
     <!-- 自动扫描  @Controller-->
     <context:component-scan base-package="com.xoqao.web.controller"/>
     <!--静态资源访问-->
-
     <mvc:resources mapping="/js/**" location="/js/"/>
     <mvc:resources mapping="/Css/**" location="/Css/"/>
 
@@ -80,8 +79,8 @@
         </property>
     </bean>
     <!--全局异常处理器-->
-    <!-- <bean class="com.xoqao.web.exception.CustomExceptionResolver"></bean>
- -->
+    <!-- <bean class="com.xoqao.web.exception.CustomExceptionResolver"></bean>-->
+
      <!--数据校验-->
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">

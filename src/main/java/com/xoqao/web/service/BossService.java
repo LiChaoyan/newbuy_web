@@ -10,10 +10,22 @@ import java.util.List;
  */
 public interface BossService {
 
-    Boss saveBoss(Boss boss)throws Exception;
-    List<Boss> selectBossBynickname(String nickname)throws Exception;
-    List<Boss> selectBossByphone(String phone)throws Exception;
-    List<Boss> selectBossBysid(int sid)throws Exception;
-    void upBossphone(Boss boss)throws Exception;
+    Boss saveBoss(Boss boss) throws Exception;
+
+    List<Boss> selectBossBynickname(String nickname) throws Exception;
+
+    List<Boss> selectBossByphone(String phone) throws Exception;
+
+    List<Boss> selectBossBysid(int sid) throws Exception;
+
+    void upBossphone(Boss boss) throws Exception;
+
+    void insertBoss( Boss boss) throws Exception;
+
+    Boss findBossByphone( String phone)throws Exception;
+
+    Boss findBoosByNick( String nickname)throws Exception;
+
+    Boss findBossByStr( String loginstr)throws Exception;
 
 }

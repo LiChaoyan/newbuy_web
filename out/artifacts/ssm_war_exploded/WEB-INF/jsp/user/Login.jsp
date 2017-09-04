@@ -50,11 +50,7 @@
               	<td width="55">&nbsp;</td>
                 <td>
                 	<span class="fl" style="font-size:24px;">登录</span>
-<<<<<<< HEAD
                     <span class="fr">还没有商城账号，<a href="<%= request.getContextPath()%>/user/Regist.html" style="color:#ff4e00;">立即注册</a></span>
-=======
-                    <span class="fr">还没有商城账号，<a href="<%= request.getContextPath()%>/user/Regist" style="color:#ff4e00;">立即注册</a></span>
->>>>>>> wordlu-master
                 </td>
               </tr>
               <tr height="70">
@@ -99,10 +95,8 @@
 </div>
 <!--End Footer End -->
 <script type="text/javascript">
-
     <c:if test="${!empty error_msg}">alert("${error_msg}");
     </c:if>
-
 </script>
 </body>
 </html>
