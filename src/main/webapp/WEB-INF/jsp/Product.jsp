@@ -409,26 +409,46 @@
         <span class="fl" style="margin-left: 10px;"><a href="<%= request.getContextPath()%>/#">咖啡</a><a href="<%= request.getContextPath()%>/#">iphone 6S</a><a href="<%= request.getContextPath()%>/#">新鲜美食</a><a href="<%= request.getContextPath()%>/#">蛋糕</a><a href="<%= request.getContextPath()%>/#">日用品</a><a href="<%= request.getContextPath()%>/#">连衣裙</a></span>
     </div></div>
     <div class="i_car">
-        <div class="car_t">购物车 [ <span>3</span> ]</div>
+        <div class="car_t">购物车 [ <span> ${fn:length(xCartList)} </span> ]</div>
         <div class="car_bg">
-            <!--Begin 购物车未登录 Begin-->
-            <div class="un_login">还未登录！<a href="<%= request.getContextPath()%>/Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
-            <!--End 购物车未登录 End-->
+            <c:if test="${uid==0}">
+                <!--Begin 购物车未登录 Begin-->
+                <div class="un_login">还未登录！<a href="<%= request.getContextPath()%>/user/Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+                <!--End 购物车未登录 End-->
+            </c:if>
+            <c:if test="${uid!=0}">
+                <div class="un_login">已登录！查看购物车！</div>
+            </c:if>
             <!--Begin 购物车已登录 Begin-->
-            <ul class="cars">
-                <c:forEach items="${Cars}" var="car">
+            <ul class="cars"  style="width:283px;height:83px;overflow: scroll;">
+                <c:forEach items="${xCartList}" var="car">
                     <li>
-                        <div class="img"><a href="<%= request.getContextPath()%>/#"><img src="<%= request.getContextPath()%>/Picture/car1.jpg" width="58" height="58" /></a></div>
-                        <div class="name"><a href="<%= request.getContextPath()%>/#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
-                        <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                        <div class="img"><a href="<%=request.getContextPath()%>/product?cid=${car.cid}"><img src="${car.commodity_pic}" width="58" height="58" /></a></div>
+                        <div class="name"><a href="<%=request.getContextPath()%>/product?cid=${car.cid}">${car.commodity_name}</a></div>
+                        <div class="price"><font color="#ff4e00">￥<span class="car-price">${car.price}</span></font> X<span class="car-count">${car.amount}</span></div>
                     </li>
                 </c:forEach>
             </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
-            <div class="price_a"><a href="<%= request.getContextPath()%>/#">去购物车结算</a></div>
+            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span class="car-money"></span></div>
+            <div class="price_a"><a href="<%= request.getContextPath()%>/BuyCar">去购物车结算</a></div>
             <!--End 购物车已登录 End-->
         </div>
     </div>
+    <script type="text/javascript">
+        var money=0;
+        $('.cars li').each(function(index){
+            var price=$(this).find(".car-price").text();
+            var count=$(this).find(".car-count").text();
+            money=money*1+price*1*count*1;
+        });
+        $('.car-money').text(money);
+        <%--var size=$(".car li").length;
+        if(size==0&&${uid!=0}){
+            $(".cars").text("购物车为空");
+            $(".price_sum").hide();
+            $(".price_a").hide();
+        }--%>
+    </script>
 </div>
 <!--End Header End--> 
 <!--Begin Menu Begin-->

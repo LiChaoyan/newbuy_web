@@ -457,7 +457,8 @@
     <div class="content mar_20">
     	
         <!--Begin 支付宝支付 Begin -->
-    	<div class="warning">        	
+        <C:forEach items="${OrderList}" var="Order">
+    	<div class="warning">
             <table border="0" style="width:1000px; text-align:center;" cellspacing="0" cellpadding="0">
               <tr height="35">
                 <td style="font-size:18px;">
@@ -476,8 +477,9 @@
                 	<a href="<%= request.getContextPath()%>/Index">返回首页</a> &nbsp; &nbsp; <a href="<%= request.getContextPath()%>/Order_My">查看订单</a>
                 </td>
               </tr>
-            </table>        	
+            </table>
         </div>
+        </C:forEach>
     </div>
 	<!--End 第三步：提交订单 End--> 
     

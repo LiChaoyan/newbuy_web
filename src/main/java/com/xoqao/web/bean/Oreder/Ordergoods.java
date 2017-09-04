@@ -27,6 +27,7 @@ public class Ordergoods {
         this.totalprice=cart.getPrice()*cart.getAmount();
         this.goodsname=cart.getCommodity_name();
         this.logo=cart.getCommodity_pic();
+        System.out.println(this.cid);
     }
 
     public int getOgid() {

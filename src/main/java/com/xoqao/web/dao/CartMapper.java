@@ -29,12 +29,17 @@ public interface CartMapper {
     //添加订单商品
     void AddOrdergoods(@Param("ordergood") Ordergoods ordergood)throws Exception;
     //查找订单商品
-    ArrayList<Ordergoods> selectOrdergoodsByoid(@Param("oid")int oid)throws Exception;
+    ArrayList<Ordergoods> selectOrdergoodsByoids(@Param("oids")int[] oids)throws Exception;
+    ArrayList<Ordergoods> selectOrdergoodsByoid(@Param("oid") int oid)throws Exception;
     //查找订单用户收货地址
     ShipAddress selectUAdress(@Param("uid") int uid)throws Exception;
     //更新订单
     void upOrder(@Param("order")Orders order)throws Exception;
     //根据订单号查订单
     Orders selectOrderByoid(@Param("oid")int oid)throws Exception;
-
+    ArrayList<Orders> selectOrderByoids(@Param("oids") String[] oids)throws Exception;
+    //获取cbids所对应的不同sid
+    ArrayList<Cart> selectSidsBycbids(@Param("ycbid") int[] ycbid)throws Exception;
+    //获取sid所对应的cbid
+    ArrayList<Cart> selectCbidsBysid(@Param("sid") int sid,@Param("cbidString") String[] cbidString)throws Exception;
 }

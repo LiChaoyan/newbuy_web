@@ -46,10 +46,18 @@
         VALUES ('${ordergood.oid}','${ordergood.cid}','${ordergood.sid}','${ordergood.count}','${ordergood.totalprice}','${ordergood.param}','${ordergood.goodsname}','${ordergood.logo}','${ordergood.evaluatestatue}')
     </select>
     <!--查找订单商品-->
+    <select id="selectOrdergoodsByoids" resultType="com.xoqao.web.bean.Oreder.Ordergoods">
+        SELECT *
+        from ordergoods
+        where oid in
+        <foreach collection="oids" item="oid" index="index" open="(" separator="," close=")">
+            '${oid}'
+        </foreach>
+    </select>
     <select id="selectOrdergoodsByoid" resultType="com.xoqao.web.bean.Oreder.Ordergoods">
         SELECT *
         from ordergoods
-        where oid ='${oid}'
+        where oid='${oid}'
     </select>
     <!--查找订单用户收货地址信息-->
     <select id="selectUAdress" resultType="com.xoqao.web.bean.Address.ShipAddress">
@@ -66,5 +74,31 @@
       select *
       from orders
       where oid='${oid}'
+    </select>
+    <select id="selectOrderByoids" resultType="com.xoqao.web.bean.Oreder.Orders">
+        select *
+        from orders
+        where oid IN
+        <foreach collection="oids" item="oid" index="index" open="(" separator="," close=")">
+            '${oid}'
+        </foreach>
+    </select>
+    <!--获取cbids所对应的不同sid-->
+    <select id="selectSidsBycbids" resultType="com.xoqao.web.bean.commodity.Cart">
+        SELECT DISTINCT sid
+        from commodities_cart
+        where cbid in
+            <foreach collection="ycbid" item="cbid" index="index" open="(" separator="," close=")">
+                   '${cbid}'
+            </foreach>
+    </select>
+    <!--获取sid所对应的cbids-->
+    <select id="selectCbidsBysid" resultType="com.xoqao.web.bean.commodity.Cart">
+        SELECT cbid
+        from commodities_cart
+        where sid= '${sid}' and cbid in
+        <foreach collection="cbidString" item="cbid" index="index" open="(" separator="," close=")">
+            '${cbid}'
+        </foreach>
     </select>
 </mapper>

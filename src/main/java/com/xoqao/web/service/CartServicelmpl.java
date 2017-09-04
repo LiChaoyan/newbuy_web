@@ -56,7 +56,10 @@ public class CartServicelmpl implements CartService{
          cartMapper.AddOrdergoods(ordergood);
     }
     //查找订单商品
-    public ArrayList<Ordergoods> selectOrdergoodsByoid(@Param("oid")int oid)throws Exception{
+    public ArrayList<Ordergoods> selectOrdergoodsByoids(@Param("oids")int[] oids)throws Exception{
+        return cartMapper.selectOrdergoodsByoids(oids);
+    }
+    public ArrayList<Ordergoods> selectOrdergoodsByoid(@Param("oid") int oid)throws Exception{
         return cartMapper.selectOrdergoodsByoid(oid);
     }
     //查找订单用户收货地址
@@ -71,5 +74,17 @@ public class CartServicelmpl implements CartService{
     public Orders selectOrderByoid(@Param("oid")int oid)throws Exception{
         return cartMapper.selectOrderByoid(oid);
     }
+    public ArrayList<Orders> selectOrderByoids(@Param("oids") String[] oids)throws Exception{
+        return cartMapper.selectOrderByoids(oids);
+    }
+    //获取cbids所对应的不同sid
+    public ArrayList<Cart> selectSidsBycbids(@Param("ycbid") int[] ycbid)throws Exception{
+        return cartMapper.selectSidsBycbids(ycbid);
+    }
+    //获取sid所对应的cbid
+    public ArrayList<Cart> selectCbidsBysid(@Param("sid") int sid,@Param("cbidString") String[] cbidString)throws Exception{
+        return cartMapper.selectCbidsBysid(sid,cbidString);
+    }
+
 
 }

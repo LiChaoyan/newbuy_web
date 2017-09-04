@@ -454,6 +454,7 @@
     <div class="content mar_20">
     	<table border="0" class="car_tab" style="width:1200px; margin-bottom:50px;" cellspacing="0" cellpadding="0">
           <tr>
+            <td class="car_th" width="20">序号</td>
             <td class="car_th" width="490">商品名称</td>
             <td class="car_th" width="140">属性</td>
             <td class="car_th" width="150">购买数量</td>
@@ -462,8 +463,8 @@
             <td class="car_th" width="150">操作</td>
           </tr>
             <C:forEach items="${CartList}" var="cart" varStatus="cartid">
-                <tr class="">
-                    <input type="hidden" class="cart_cbid" value="${cart.cbid}"></input>
+                <tr>
+                    <td><input type="checkbox" CHECKED="checked" name="cbid" class="cart_cbid" value="${cart.cbid}"/></td>
                 <td>
                     <div class="c_s_img"><img src="${cart.commodity_pic}" width="73" height="73" /></div>
                     ${cart.commodity_name}
@@ -483,8 +484,8 @@
             </C:forEach>
           <tr height="70">
           	<td colspan="6" style="font-family:'Microsoft YaHei'; border-bottom:0;">
-            	<label class="r_rad"><input type="checkbox" name="clear" checked="checked" /></label><label class="r_txt">清空购物车</label>
-                <span class="fr">商品总价：<b style="font-size:22px; color:#ff4e00;">￥<span class="cart_all_money">2899</span></b></span>
+            	<label class="r_rad"><input type="checkbox" CHECKED="checked" name="clear" id="quxu" /></label><label class="r_txt">全选</label>
+                <span class="fr">商品总价：<b style="font-size:22px; color:#ff4e00;">￥<span class="cart_all_money"></span></b></span>
             </td>
           </tr>
           <tr valign="top" height="150">
@@ -562,18 +563,77 @@
                 });
             });
 
+        //复选框
+            $("#quxu").click(function(){
+                if ($(this).attr('checked')){
+                    $(this).attr('checked',false);
+                } else {
+                    $(this).attr("checked",true);
+                }
+            })
+        $(".cart_cbid").click(function(){
+            if ($(this).attr('checked')){
+                $(this).attr('checked',false);
+            } else {
+                $(this).attr("checked",true);
+            }
+            //总价
             var cart_all_money=0.0;
-            $(".cart_money").each(function(){
-                    cart_all_money=cart_all_money+parseFloat($(this).text());
+            $(".cart_cbid").each(function () {
+                if ($(this).attr('checked')) {
+                    var cart_money=$(this).parents("tr").find(".cart_money").text();
+                    cart_money=parseFloat(cart_money);
+                    cart_all_money=cart_all_money+cart_money;
+                }
             });
             $(".cart_all_money").text(cart_all_money);
+        })
+
+            //全选
+        $("#quxu").click(function(){
+            if ($(this).attr('checked')){
+                $(".cart_cbid").each(function(){
+                    $(this).prop('checked', true);
+                    $(this).attr('checked', true);
+                });
+            } else {
+                $(".cart_cbid").each(function(){
+                    $(this).attr('checked', false);
+                  $(this).prop('checked', false);
+                });
+            }
+            //总价
+            var cart_all_money=0.0;
+            $(".cart_cbid").each(function () {
+                if ($(this).attr('checked')) {
+                    var cart_money=$(this).parents("tr").find(".cart_money").text();
+                    cart_money=parseFloat(cart_money);
+                    cart_all_money=cart_all_money+cart_money;
+                }
+            });
+            $(".cart_all_money").text(cart_all_money);
+        })
+
+            //总价
+            var cart_all_money=0.0;
+            $(".cart_cbid").each(function () {
+                if ($(this).attr('checked')) {
+                    var cart_money=$(this).parents("tr").find(".cart_money").text();
+                    cart_money=parseFloat(cart_money);
+                    cart_all_money=cart_all_money+cart_money;
+                }
+            });
+            $(".cart_all_money").text(cart_all_money);
+
 
             //提交订单
             $(".GO_BuyCar_Two").click(function(){
                 var cbids="";
-                $(".cart_cbid").each(function(){
-                    var cbid=$(this).val();
-                        cbids=cbids+cbid+",";
+                $(".cart_cbid").each(function () {
+                    if ($(this).attr('checked')) {
+                        var cbid=$(this).val();
+                            cbids=cbids+cbid+",";
+                    }
                 });
                 if(cbids!=null) {
                     window.location.href = "<%= request.getContextPath()%>/BuyCar_Two?cbids="+cbids+"";

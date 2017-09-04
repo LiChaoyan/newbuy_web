@@ -282,14 +282,24 @@ public class DemoController {
         return "Member_Safetel";
     }
     @RequestMapping("/BuyCar_Three")
-    public String BuyCar_Three(Model model,Orders order) throws Exception {
+    public String BuyCar_Three(Model model,HttpServletRequest request) throws Exception {
         //更新订单状态
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        order.setPaytime(sdf.format(new Date()));
-        order.setStatue(1);//待发货
-        cartService.upOrder(order);
-        Orders orders=cartService.selectOrderByoid(order.getOid());
-        model.addAttribute("Order",orders);
+        String oidString=request.getParameter("oids");
+        String paytype=request.getParameter("paytype");
+        String leaveword=request.getParameter("leaveword");
+        String[] oids=oidString.split(",");
+        for(int i=0;i<oids.length;i++) {
+            Orders order=new Orders();
+            order.setOid(Integer.parseInt(oids[i]));
+            order.setPaytime(sdf.format(new Date()));
+            order.setLeaveword(leaveword);
+            order.setPaytype(paytype);
+            order.setStatue(1);//待发货
+            cartService.upOrder(order);
+        }
+        ArrayList<Orders> orderList=cartService.selectOrderByoids(oids);
+        model.addAttribute("OrderList",orderList);
         return "BuyCar_Three";
     }
     @RequestMapping("/addtocart")
@@ -383,12 +393,30 @@ public class DemoController {
         int count = 0;
         double totalprice = 0;
         int sid = 0;
+        int a=cbids.lastIndexOf(",");
+        cbids=cbids.substring(0,a);
         String[] cbidString = cbids.split(",");
-        for (int i = 0; i < cbidString.length; i++) {
-            Cart cart = cartService.selectCartBycbid(Integer.parseInt(cbidString[i]));
+        int[] ycbid=new int[cbidString.length];
+        for (int i=0;i<cbidString.length;i++){
+            ycbid[i]=Integer.parseInt(cbidString[i]);
+            System.out.println(ycbid[i]);
+        }
+        //获取cbids所对应的不同sid
+        System.out.println(cbids);
+        ArrayList<Cart> sids=new ArrayList<Cart>();
+        try {
+           sids = cartService.selectSidsBycbids(ycbid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        int[] oids=new int[sids.size()];
+        for(int index=0;index<sids.size();index++){
+            ArrayList<Cart> cbidsBysid=cartService.selectCbidsBysid(sids.get(index).getSid(),cbidString);
+        for (int i = 0; i < cbidsBysid.size(); i++) {
+            Cart cart = cartService.selectCartBycbid(cbidsBysid.get(i).getCbid());
             count = count + cart.getAmount();
             totalprice = totalprice + cart.getAmount() * cart.getPrice();
-            sid = cart.getSid();
+            sid = cbidsBysid.get(i).getSid();
         }
         //创建订单
         Orders order = new Orders();
@@ -402,20 +430,38 @@ public class DemoController {
         order.setFreight(0);
         cartService.AddOrder(order);//添加订单
         int oid = cartService.selectAddoid(order);//返回订单编号oid
-
+        oids[index]=oid;
         //订单添加商品
-        for (int i = 0; i < cbidString.length; i++) {
-            Cart cart = cartService.selectCartBycbid(Integer.parseInt(cbidString[i]));
+        for (int i = 0; i < cbidsBysid.size(); i++) {
+            Cart cart = cartService.selectCartBycbid(cbidsBysid.get(i).getCbid());
             Ordergoods ordergood = new Ordergoods(cart);
             ordergood.setOid(oid);
             cartService.AddOrdergoods(ordergood);//根据订单号添加订单商品
+            cartService.deleCart(cart);//并删除购物车中的对应商品
+
+        }
         }
         //返回订单商品到页面
-        ArrayList<Ordergoods> ordergoodsArrayList = new ArrayList<Ordergoods>();
-        ordergoodsArrayList = cartService.selectOrdergoodsByoid(oid);
-        model.addAttribute("OGsList", ordergoodsArrayList);
+        double allprice=0.0;
+        double allyun=0.0;
+        ArrayList<Orders> orderlist=new ArrayList<Orders>();
+        for(int i=0;i<oids.length;i++){
+            //根据订单号返回订单商品
+            ArrayList<Ordergoods> goodslist=cartService.selectOrdergoodsByoid(oids[i]);
+            Orders orders=new Orders();
+            orders.setGoodsList(goodslist);
+            orders.setOid(oids[i]);
+            orderlist.add(orders);
+            allprice=allprice+orders.getTotalprice();
+            allyun=allyun+orders.getFreight();
+        }
+       // ArrayList<Ordergoods> ordergoodsArrayList = new ArrayList<Ordergoods>();
+       // ordergoodsArrayList = cartService.selectOrdergoodsByoids(oids);
+
+        model.addAttribute("OrderList", orderlist);
         model.addAttribute("Address", shipAddress);
-        model.addAttribute("Order",order);
+        model.addAttribute("ALLprice",allprice);
+        model.addAttribute("Allyun",allyun);
     }catch (Exception e){
         e.printStackTrace();
     }
@@ -533,7 +579,7 @@ public class DemoController {
 
 
     @RequestMapping("/product")
-    public ModelAndView Product(int cid, APage page, Model model) throws Exception {
+    public ModelAndView Product(int cid, APage page, Model model,HttpSession httpSession) throws Exception {
         ModelAndView productmodelAndView = new ModelAndView();
         //基本信息填充（包括评论信息）
         if (cid != -1) {
@@ -557,7 +603,13 @@ public class DemoController {
             ArrayList<Assess> assessArrayList = commodityService.selectAssess(page);
             productmodelAndView.addObject("AssessList", assessArrayList);
         }
-
+        //右上角购物车
+        User user=(User) httpSession.getAttribute("user");
+        if(user!=null) {
+            ArrayList<Cart> xCartList = cartService.selectCart(user.getUid());
+            productmodelAndView.addObject("xCartList", xCartList);
+            productmodelAndView.addObject("uid", user.getUid());
+        }
         productmodelAndView.setViewName("Product");
         return productmodelAndView;
 

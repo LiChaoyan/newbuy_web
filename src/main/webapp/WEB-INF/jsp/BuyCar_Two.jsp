@@ -485,23 +485,26 @@
                 <td class="car_th" width="130">单价</td>
                 <td class="car_th" width="140">小计</td>
               </tr>
-                <c:forEach items="${OGsList}" var="Order" varStatus="Orderid">
+                <c:forEach items="${OrderList}" var="Order" varStatus="Orderid">
+                    <input type="hidden" value="${Order.oid}" class="od-oid"/>
+                    <c:forEach items="${Order.goodsList}" var="goods" varStatus="goodsid">
                     <tr>
                         <td>
-                            <div class="c_s_img"><img src="${Order.logo}" width="73" height="73" /></div>
-                            ${Order.goodsname}<input type="hidden" value="${Order.oid}" class="od-oid"/>
+                            <div class="c_s_img"><img src="${goods.logo}" width="73" height="73" /></div>
+                            ${goods.goodsname}
                         </td>
-                        <td align="center">${Order.param}</td>
-                        <td align="center" class="od-count">${Order.count}</td>
-                        <td align="center">￥${Order.totalprice*Order.count}</td>
-                        <td align="center" style="color:#ff4e00;">￥<span class="od-xzong">${Order.totalprice}</span></td>
+                        <td align="center">${goods.param}</td>
+                        <td align="center" class="od-count">${goods.count}</td>
+                        <td align="center">￥${goods.totalprice/goods.count}</td>
+                        <td align="center" style="color:#ff4e00;">￥<span class="od-xzong">${goods.totalprice}</span></td>
+                    </tr>
+                    </c:forEach>
+                    <tr>
+                        <td colspan="5" align="right" style="font-family:'Microsoft YaHei';">
+                            共<sapn>${Order.count}</sapn>件商品 &nbsp;商品总价：￥${Order.totalprice-Order.freight}
+                        </td>
                     </tr>
                 </c:forEach>
-              <tr>
-                <td colspan="5" align="right" style="font-family:'Microsoft YaHei';">
-                    共<sapn>${Order.count}</sapn>件商品 &nbsp;商品总价：￥${Order.totalprice-Order.freight}
-                </td>
-              </tr>
             </table>
 
             <div class="two_t">
@@ -544,12 +547,12 @@
             <table border="0" style="width:900px; margin-top:20px;" cellspacing="0" cellpadding="0">
               <tr>
                 <td align="right">、
-                    商品总价: <font color="#ff4e00">￥${Order.totalprice-Order.freight}</font>  + 配送费用: <font color="#ff4e00">￥${Order.freight}</font>
+                    商品总价: <font color="#ff4e00">￥${ALLprice-Allyun}</font>  + 配送费用: <font color="#ff4e00">￥${Allyun}</font>
                 </td>
               </tr>
               <tr height="70">
                 <td align="right">
-                	<b style="font-size:14px;">应付款金额：<span style="font-size:22px; color:#ff4e00;">￥${Order.totalprice}</span></b>
+                	<b style="font-size:14px;">应付款金额：<span style="font-size:22px; color:#ff4e00;">￥${ALLprice}</span></b>
                 </td>
               </tr>
               <tr height="70">
@@ -591,13 +594,16 @@
 
             //付款
             $(".od-fu").click(function(){
-                var oid=$(".od-oid").val();
+                var oid="";
+                $(".od-oid").each(function(){
+                    oid=oid+$(this).val()+",";
+                });
                 var li=$(".pay").find(".checked");
                 var paytype=li.text();
                 var leaveword=$(".add_txt").val();
                 alert(oid+" "+paytype);
                 //提交订单()
-                 window.location.href ="<%= request.getContextPath()%>/BuyCar_Three?oid="+oid+"&paytype="+paytype+"&leaveword="+leaveword+""
+                 window.location.href ="<%= request.getContextPath()%>/BuyCar_Three?oids="+oid+"&paytype="+paytype+"&leaveword="+leaveword+""
 
             });
     </script>
