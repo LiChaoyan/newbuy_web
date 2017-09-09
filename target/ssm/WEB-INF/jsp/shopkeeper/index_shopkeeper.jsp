@@ -31,9 +31,18 @@
 <body>
 <!--_header 作为公共模版分离出去-->
 <jsp:include page="/public_jsp/bossHeader.jsp" flush="true"></jsp:include>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 78a503e3fd4dbf72d6ea85daa8fac65f781ba061
 <!--/_header 作为公共模版分离出去-->
 <!--_menu 作为公共模版分离出去-->
+<<<<<<< HEAD
 <jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
+=======
+
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+>>>>>>> 78a503e3fd4dbf72d6ea85daa8fac65f781ba061
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
