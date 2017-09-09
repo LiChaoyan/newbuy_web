@@ -48,7 +48,7 @@
 				<button type="submit" class="btn btn-success radius" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20">
-			 <span class="l"><a href="javascript:;" onclick="member_add('添加安全信息','/newbuy/boss/safeman_add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加安全信息</a>
+			 <span class="l"><a href="javascript:;" onclick="member_add('添加安全信息','/newbuy/boss/safeman_add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加银行卡信息</a>
 			 <%--<a href="javascript:;" onclick="member_add('添加银行卡','/newbuy/boss/member_add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加银行卡</a></span>--%>
 			 <%--<span class="r">共有数据：<strong>88</strong> 条</span> --%>
 			</div>
@@ -61,6 +61,7 @@
 							<th width="100">店铺logo</th>
 							<th width="80">店铺名称</th>
 							<th width="90">法人信息</th>
+							<th width="90">银行信息</th>
 							<th width="200">银行卡号</th>
 							<th width="60">账号余额</th>
 							<%--<th width="130">加入时间</th>--%>
@@ -76,6 +77,7 @@
 								<%--<td>店铺经理</td>--%>
 							<td>${bank.shop.shopname}</td>
 							<td>${bank.user}</td>
+							<td>${bank.bankName}</td>
 							<td>${bank.cardNumber}</td>
 							<td>${bank.money}</td>
 								<%--<td>2014-6-11 11:11:42</td>--%>
@@ -90,6 +92,7 @@
 							<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','/newbuy/boss/member_show','10001','360','400')">张三</u></td>
 							<td>男</td>
 							<td>13000000000</td>
+							<td>13000000000</td>
 							<td>admin@mail.com</td>
 							<td class="text-l">店铺1</td>
 							<%--<td>2014-6-11 11:11:42</td>--%>
@@ -101,6 +104,7 @@
 							<%--<td>客服人员</td>--%>
 							<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','/newbuy/boss/member_show','10001','360','400')">李四</u></td>
 							<td>女</td>
+							<td>13000000000</td>
 							<td>13000000000</td>
 							<td>admin@mail.com</td>
 							<td class="text-l">店铺2</td>
@@ -133,7 +137,7 @@ $(function(){
 		"bStateSave": true,//状态保存
 		"aoColumnDefs": [
 		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-		  {"orderable":false,"aTargets":[0,6]}// 制定列不参与排序
+		  {"orderable":false,"aTargets":[0,7]}// 制定列不参与排序
 		]
 	});
 

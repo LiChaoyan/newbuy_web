@@ -81,7 +81,7 @@
 			</dd>
 		</dl>
 
-		<dl id="menu-product">
+		<dl id="menu-boss">
 			<dt><i class="Hui-iconfont">&#xe620;</i> 店主管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>

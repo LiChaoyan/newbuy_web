@@ -38,14 +38,20 @@
             </dd>
         </dl>
 
-        <dl id="menu-part">
+        <dl>
             <dt><i class="Hui-iconfont">&#xe620;</i> 合作管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="<%=request.getContextPath()%>/product-brand" title="品牌管理">品牌管理</a></li>
+                    <li><a href="<%=request.getContextPath()%>/boss/coop_product" title="合作商品管理">合作商品管理</a></li>
+                    <li><a href="<%=request.getContextPath()%>/boss/coop_build" title="合作建立概览">合作建立概览</a></li>
+                    <li><a href="<%=request.getContextPath()%>/boss/view_pickup" title="可配货查看">可配货查看</a></li>
+                    <li><a href="<%=request.getContextPath()%>/boss/hot_spots" title="地区热点分析">地区热点分析</a></li>
+                    <li><a href="<%=request.getContextPath()%>/boss/data_count" title="配货数据统计">配货数据统计</a></li>
                 </ul>
+
             </dd>
         </dl>
+
 
         <dl id="menu-employ">
             <dt ><i class="Hui-iconfont">&#xe60d;</i> 店员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
@@ -76,9 +82,11 @@
             <dt><i class="Hui-iconfont">&#xe62e;</i> 安全管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="<%=request.getContextPath()%>/boss/safe_list" title="安全设置">安全设置</a></li>
+                    <li><a href="<%=request.getContextPath()%>/boss/safe_list" title="安全设置">银行卡设置</a></li>
                 </ul>
             </dd>
         </dl>
     </div>
 </aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+

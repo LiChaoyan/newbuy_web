@@ -7,7 +7,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="989a3d0c-aa15-403b-b521-393bf8f63768" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/Scripts/lib/china.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/Scripts/lib/china.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/Scripts/lib/echarts.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/coop_build.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/coop_build_product.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/coop_product.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/coop_product_shop.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/data_count.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/hot_spots.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/view_pickup.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/view_pickup_shop.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/coop_build.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/coop_build_product.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/coop_product.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/coop_product_shop.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/data_count.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/hot_spots.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/view_pickup.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/commodity/Getjw.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/commodity/Getjw.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/ViewController.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/ViewController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/boss/BossController.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/boss/BossController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/utils/IdNetUtil.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/utils/IdNetUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/utils/QiNiuFileUtil.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/utils/QiNiuFileUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/commodity/Getjw.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/commodity/Getjw.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/ViewController.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/ViewController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/boss/BossController.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/boss/BossController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/utils/IdNetUtil.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/utils/IdNetUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/utils/QiNiuFileUtil.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/utils/QiNiuFileUtil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/boss/BossController.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/boss/BossController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/admin_boss.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/admin_boss.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/index_admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/index_admin.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/article_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/article_list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/index_shopkeeper.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/index_shopkeeper.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/public_jsp/boss_admin_side.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/public_jsp/boss_admin_side.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/ssm/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/admin/admin_boss.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/admin/admin_boss.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/admin/index_admin.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/admin/index_admin.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/article_list.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/article_list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/change_password.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/change_password.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/index_shopkeeper.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/index_shopkeeper.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/safe_list.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/safe_list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/safeman_add.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/shopkeeper/safeman_add.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/public_jsp/boss_admin_side.jsp" afterPath="$PROJECT_DIR$/target/ssm/public_jsp/boss_admin_side.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,9 +66,27 @@
       <file leaf-file-name="BossController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/boss/BossController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5083">
-              <caret line="252" column="20" lean-forward="false" selection-start-line="252" selection-start-column="20" selection-end-line="252" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="6164">
+              <caret line="299" column="20" lean-forward="false" selection-start-line="299" selection-start-column="20" selection-end-line="299" selection-end-column="20" />
+              <folding>
+                <marker date="1504922181262" expanded="true" signature="12294:12300" ph="{...}" />
+                <marker date="1504922181262" expanded="true" signature="12306:12444" ph="/**...*/" />
+                <marker date="1504922181262" expanded="true" signature="12595:13224" ph="{...}" />
+                <marker date="1504922181262" expanded="true" signature="13230:13324" ph="/**...*/" />
+                <marker date="1504922181262" expanded="true" signature="13424:13477" ph="{...}" />
+                <marker date="1504922181262" expanded="true" signature="13483:13601" ph="/**...*/" />
+                <marker date="1504922181262" expanded="true" signature="13713:13800" ph="{...}" />
+                <marker date="1504922181262" expanded="true" signature="13806:13898" ph="/**...*/" />
+                <marker date="1504922181262" expanded="true" signature="14130:16126" ph="{...}" />
+                <marker date="1504922181262" expanded="true" signature="16132:16226" ph="/**...*/" />
+                <marker date="1504922181262" expanded="true" signature="16326:16377" ph="{...}" />
+                <marker date="1504922181262" expanded="true" signature="16383:16477" ph="/**...*/" />
+                <marker date="1504922181262" expanded="true" signature="16582:16634" ph="{...}" />
+                <marker date="1504922181262" expanded="true" signature="16640:16734" ph="/**...*/" />
+                <marker date="1504922181262" expanded="true" signature="16961:18031" ph="{...}" />
+                <marker date="1504922181262" expanded="true" signature="18037:18393" ph="/**...*/" />
+                <marker date="1504922181262" expanded="true" signature="18763:20339" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,16 +101,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="safe_list.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="safe_list.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/safe_list.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-3174">
               <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
               <folding>
-                <marker date="1503915926260" expanded="true" signature="8550:8570" ph="..." />
-                <marker date="1503915926260" expanded="true" signature="8659:8667" ph="&amp;##xe6e1;" />
-                <marker date="1503915926260" expanded="true" signature="8989:9009" ph="..." />
-                <marker date="1503915926260" expanded="true" signature="9097:9105" ph="&amp;##xe631;" />
+                <marker date="1504922169057" expanded="true" signature="8550:8570" ph="..." />
+                <marker date="1504922169057" expanded="true" signature="8659:8667" ph="&amp;##xe6e1;" />
+                <marker date="1504922169057" expanded="true" signature="8989:9009" ph="..." />
+                <marker date="1504922169057" expanded="true" signature="9097:9105" ph="&amp;##xe631;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index_shopkeeper.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/index_shopkeeper.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="5" column="6" lean-forward="true" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+              <folding>
+                <marker date="1504922284043" expanded="true" signature="5871:5885" ph="..." />
+                <marker date="1504922284043" expanded="true" signature="5960:5990" ph="..." />
+                <marker date="1504922284043" expanded="true" signature="6044:6053" ph="..." />
               </folding>
             </state>
           </provider>
@@ -58,8 +133,8 @@
       <file leaf-file-name="boss_admin_side.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/public_jsp/boss_admin_side.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1794">
-              <caret line="78" column="95" lean-forward="false" selection-start-line="78" selection-start-column="95" selection-end-line="78" selection-end-column="95" />
+            <state relative-caret-position="1932">
+              <caret line="84" column="95" lean-forward="false" selection-start-line="84" selection-start-column="95" selection-end-line="84" selection-end-column="95" />
               <folding />
             </state>
           </provider>
@@ -71,10 +146,43 @@
             <state relative-caret-position="3864">
               <caret line="168" column="54" lean-forward="false" selection-start-line="168" selection-start-column="54" selection-end-line="168" selection-end-column="54" />
               <folding>
-                <marker date="1503883359159" expanded="true" signature="11611:11631" ph="..." />
-                <marker date="1503883359159" expanded="true" signature="11721:11729" ph="&amp;##xe603;" />
-                <marker date="1503883359159" expanded="true" signature="12052:12072" ph="..." />
-                <marker date="1503883359159" expanded="true" signature="12161:12169" ph="&amp;##xe6de;" />
+                <marker date="1504922180912" expanded="false" signature="8546:8566" ph="..." />
+                <marker date="1504922180912" expanded="true" signature="8672:8680" ph="&amp;##xe6e2;" />
+                <marker date="1504922180912" expanded="true" signature="9700:12615" ph="..." />
+                <marker date="1504922180912" expanded="true" signature="9729:9924" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="9815:9922" ph="[...]" />
+                <marker date="1504922180912" expanded="true" signature="9928:9941" ph="/*...*/" />
+                <marker date="1504922180912" expanded="true" signature="9977:10073" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="10003:10049" ph="{&quot;title&quot;: title...}" />
+                <marker date="1504922180912" expanded="true" signature="10074:10087" ph="/*...*/" />
+                <marker date="1504922180912" expanded="true" signature="10127:10223" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="10153:10199" ph="{&quot;title&quot;: title...}" />
+                <marker date="1504922180912" expanded="true" signature="10224:10233" ph="/*...*/" />
+                <marker date="1504922180912" expanded="true" signature="10273:10369" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="10299:10345" ph="{&quot;title&quot;: title...}" />
+                <marker date="1504922180912" expanded="true" signature="10370:10379" ph="/*...*/" />
+                <marker date="1504922180912" expanded="true" signature="10408:10697" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="10450:10693" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="10461:10686" ph="{&quot;type&quot;: 'POST'...}" />
+                <marker date="1504922180912" expanded="true" signature="10539:10622" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="10648:10681" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="10699:10708" ph="/*...*/" />
+                <marker date="1504922180912" expanded="true" signature="10740:11485" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="10766:10827" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="10840:11151" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="11164:11480" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="11486:11495" ph="/*...*/" />
+                <marker date="1504922180912" expanded="true" signature="11525:11924" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="11567:11920" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="11630:11650" ph="..." />
+                <marker date="1504922180912" expanded="true" signature="11740:11748" ph="&amp;##xe603;" />
+                <marker date="1504922180912" expanded="true" signature="11926:11935" ph="/*...*/" />
+                <marker date="1504922180912" expanded="true" signature="11966:12364" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="12008:12360" ph="{...}" />
+                <marker date="1504922180912" expanded="true" signature="12071:12091" ph="..." />
+                <marker date="1504922180912" expanded="true" signature="12180:12188" ph="&amp;##xe6de;" />
+                <marker date="1504922180912" expanded="true" signature="12365:12376" ph="/*...*/" />
+                <marker date="1504922180912" expanded="true" signature="12410:12606" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -104,7 +212,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/article_list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/member_list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/product_list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/index_shopkeeper.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/change_password.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/ViewController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/bankShop/BankShop.java" />
@@ -117,18 +224,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/boss/BossController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/public_jsp/boss_admin_side.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/safe_list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/index_shopkeeper.jsp" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsFlowSettings">
-    <service-enabled>false</service-enabled>
-    <exe-path />
-    <annotation-enable>false</annotation-enable>
-    <other-services-enabled>false</other-services-enabled>
-    <auto-save>true</auto-save>
-  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
@@ -139,11 +240,6 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-9" />
-    <option name="width" value="1932" />
-    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -355,11 +451,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.xoqao.web.bean.bankShop" />
-    </key>
-  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -545,20 +636,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1504920998713</updated>
-      <workItem from="1504921006204" duration="591000" />
+      <workItem from="1504921006204" duration="738000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17421000" />
+    <option name="totallyTimeSpent" value="17568000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="0" width="1932" height="1038" extended-state="1" />
+    <frame x="-9" y="0" width="1932" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32718894" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -566,7 +658,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2764977" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2764977" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -584,7 +676,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32718894" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -647,6 +738,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="51" column="70" lean-forward="false" selection-start-line="51" selection-start-column="70" selection-end-line="51" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -655,20 +747,20 @@
         <state relative-caret-position="-588">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1503883302019" expanded="true" signature="284:590" ph="SELECT * fro... commodities_cart" />
-            <marker date="1503883302019" expanded="true" signature="684:972" ph="INSERT into commodities_cart... " />
-            <marker date="1503883302019" expanded="true" signature="1071:1120" ph="select * fro... commodities_cart" />
-            <marker date="1503883302019" expanded="true" signature="1239:1390" ph="SELECT count... commodities_cart" />
-            <marker date="1503883302019" expanded="true" signature="1440:1494" ph="DELETE from " />
-            <marker date="1503883302019" expanded="true" signature="1545:1623" ph="UPDATE commo... " />
-            <marker date="1503883302019" expanded="true" signature="1750:1809" ph="SELECT * fro... commodities_cart" />
-            <marker date="1503883302019" expanded="true" signature="1875:2168" ph="INSERT INTO orders... " />
-            <marker date="1503883302019" expanded="true" signature="2260:2445" ph="SELECT max(o... orders" />
-            <marker date="1503883302019" expanded="true" signature="2518:2823" ph="INSERT into ordergoods... " />
-            <marker date="1503883302019" expanded="true" signature="2954:3014" ph="SELECT * fro... ordergoods" />
-            <marker date="1503883302019" expanded="true" signature="3145:3219" ph="select * fro... ship_address" />
-            <marker date="1503883302019" expanded="true" signature="3269:3429" ph="UPDATE order... " />
-            <marker date="1503883302019" expanded="true" signature="3551:3602" ph="select * fro... orders" />
+            <marker date="1504922144972" expanded="true" signature="284:590" ph="SELECT * fro... commodities_cart" />
+            <marker date="1504922144972" expanded="true" signature="684:972" ph="INSERT into commodities_cart... " />
+            <marker date="1504922144972" expanded="true" signature="1071:1120" ph="select * fro... commodities_cart" />
+            <marker date="1504922144972" expanded="true" signature="1239:1390" ph="SELECT count... commodities_cart" />
+            <marker date="1504922144972" expanded="true" signature="1440:1494" ph="DELETE from " />
+            <marker date="1504922144972" expanded="true" signature="1545:1623" ph="UPDATE commo... " />
+            <marker date="1504922144972" expanded="true" signature="1750:1809" ph="SELECT * fro... commodities_cart" />
+            <marker date="1504922144972" expanded="true" signature="1875:2168" ph="INSERT INTO orders... " />
+            <marker date="1504922144972" expanded="true" signature="2260:2445" ph="SELECT max(o... orders" />
+            <marker date="1504922144972" expanded="true" signature="2518:2823" ph="INSERT into ordergoods... " />
+            <marker date="1504922144972" expanded="true" signature="2954:3014" ph="SELECT * fro... ordergoods" />
+            <marker date="1504922144972" expanded="true" signature="3145:3219" ph="select * fro... ship_address" />
+            <marker date="1504922144972" expanded="true" signature="3269:3429" ph="UPDATE order... " />
+            <marker date="1504922144972" expanded="true" signature="3551:3602" ph="select * fro... orders" />
           </folding>
         </state>
       </provider>
@@ -848,12 +940,12 @@
         <state relative-caret-position="425">
           <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <marker date="1503883302019" expanded="true" signature="849:986" ph="SELECT eid,d... " />
-            <marker date="1503883302019" expanded="true" signature="1128:1311" ph="SELECT eid,d... " />
-            <marker date="1503883302019" expanded="true" signature="1389:1446" ph="UPDATE emplo... " />
-            <marker date="1503883302019" expanded="true" signature="1519:1571" ph="UPDATE emplo... " />
-            <marker date="1503883302019" expanded="true" signature="1646:1699" ph="UPDATE emplo... " />
-            <marker date="1503883302019" expanded="true" signature="1831:1968" ph="SELECT eid,d... " />
+            <marker date="1504922144983" expanded="true" signature="849:986" ph="SELECT eid,d... " />
+            <marker date="1504922144983" expanded="true" signature="1128:1311" ph="SELECT eid,d... " />
+            <marker date="1504922144983" expanded="true" signature="1389:1446" ph="UPDATE emplo... " />
+            <marker date="1504922144983" expanded="true" signature="1519:1571" ph="UPDATE emplo... " />
+            <marker date="1504922144983" expanded="true" signature="1646:1699" ph="UPDATE emplo... " />
+            <marker date="1504922144983" expanded="true" signature="1831:1968" ph="SELECT eid,d... " />
           </folding>
         </state>
       </provider>
@@ -863,16 +955,16 @@
         <state relative-caret-position="207">
           <caret line="49" column="24" lean-forward="true" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
           <folding>
-            <marker date="1503883302034" expanded="true" signature="299:318" ph="SELECT * FRO... shop" />
-            <marker date="1503883302034" expanded="true" signature="430:586" ph="insert into shop... " />
-            <marker date="1503883302034" expanded="true" signature="712:784" ph="select * fro... shop" />
-            <marker date="1503883302034" expanded="true" signature="744:783" ph="select sid f... boss" />
-            <marker date="1503883302034" expanded="true" signature="909:944" ph="select * fro... shop" />
-            <marker date="1503883302034" expanded="true" signature="1021:1181" ph="UPDATE shop " />
-            <marker date="1503883302034" expanded="true" signature="1285:1390" ph="select count... shop" />
-            <marker date="1503883302034" expanded="true" signature="1522:1686" ph="select shop.... shop" />
-            <marker date="1503883302034" expanded="true" signature="2440:2627" ph="SELECT bid,s... shop" />
-            <marker date="1503883302034" expanded="true" signature="2743:2930" ph="SELECT sid,b... shop" />
+            <marker date="1504922144993" expanded="true" signature="299:318" ph="SELECT * FRO... shop" />
+            <marker date="1504922144993" expanded="true" signature="430:586" ph="insert into shop... " />
+            <marker date="1504922144993" expanded="true" signature="712:784" ph="select * fro... shop" />
+            <marker date="1504922144993" expanded="true" signature="744:783" ph="select sid f... boss" />
+            <marker date="1504922144993" expanded="true" signature="909:944" ph="select * fro... shop" />
+            <marker date="1504922144993" expanded="true" signature="1021:1181" ph="UPDATE shop " />
+            <marker date="1504922144993" expanded="true" signature="1285:1390" ph="select count... shop" />
+            <marker date="1504922144993" expanded="true" signature="1522:1686" ph="select shop.... shop" />
+            <marker date="1504922144993" expanded="true" signature="2440:2627" ph="SELECT bid,s... shop" />
+            <marker date="1504922144993" expanded="true" signature="2743:2930" ph="SELECT sid,b... shop" />
           </folding>
         </state>
       </provider>
@@ -890,10 +982,10 @@
         <state relative-caret-position="306">
           <caret line="24" column="95" lean-forward="false" selection-start-line="24" selection-start-column="95" selection-end-line="24" selection-end-column="95" />
           <folding>
-            <marker date="1503883483985" expanded="true" signature="10023:10043" ph="..." />
-            <marker date="1503883483985" expanded="true" signature="10133:10141" ph="&amp;##xe603;" />
-            <marker date="1503883483985" expanded="true" signature="10464:10484" ph="..." />
-            <marker date="1503883483985" expanded="true" signature="10573:10581" ph="&amp;##xe6de;" />
+            <marker date="1504922145129" expanded="true" signature="10023:10043" ph="..." />
+            <marker date="1504922145129" expanded="true" signature="10133:10141" ph="&amp;##xe603;" />
+            <marker date="1504922145129" expanded="true" signature="10464:10484" ph="..." />
+            <marker date="1504922145129" expanded="true" signature="10573:10581" ph="&amp;##xe6de;" />
           </folding>
         </state>
       </provider>
@@ -919,7 +1011,7 @@
         <state relative-caret-position="202">
           <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -929,14 +1021,14 @@
         <state relative-caret-position="69">
           <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding>
-            <marker date="1503883302019" expanded="true" signature="293:420" ph="insert into boss... " />
-            <marker date="1503883302019" expanded="true" signature="540:632" ph="SELECT id,na... boss" />
-            <marker date="1503883302019" expanded="true" signature="749:833" ph="select id,na... boss" />
-            <marker date="1503883302019" expanded="true" signature="949:1029" ph="select id,na... boss" />
-            <marker date="1503883302019" expanded="true" signature="1102:1162" ph="update boss " />
-            <marker date="1503883302019" expanded="true" signature="1695:1800" ph="select bid,i... boss" />
-            <marker date="1503883302019" expanded="true" signature="1919:2031" ph="select bid,i... boss" />
-            <marker date="1503883302019" expanded="true" signature="2154:2294" ph="select bid,i... boss" />
+            <marker date="1504922144970" expanded="true" signature="293:420" ph="insert into boss... " />
+            <marker date="1504922144970" expanded="true" signature="540:632" ph="SELECT id,na... boss" />
+            <marker date="1504922144970" expanded="true" signature="749:833" ph="select id,na... boss" />
+            <marker date="1504922144970" expanded="true" signature="949:1029" ph="select id,na... boss" />
+            <marker date="1504922144970" expanded="true" signature="1102:1162" ph="update boss " />
+            <marker date="1504922144970" expanded="true" signature="1695:1800" ph="select bid,i... boss" />
+            <marker date="1504922144970" expanded="true" signature="1919:2031" ph="select bid,i... boss" />
+            <marker date="1504922144970" expanded="true" signature="2154:2294" ph="select bid,i... boss" />
           </folding>
         </state>
       </provider>
@@ -965,23 +1057,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/index_shopkeeper.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1817">
-          <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/article_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3864">
           <caret line="168" column="54" lean-forward="false" selection-start-line="168" selection-start-column="54" selection-end-line="168" selection-end-column="54" />
           <folding>
-            <marker date="1503883359159" expanded="true" signature="11611:11631" ph="..." />
-            <marker date="1503883359159" expanded="true" signature="11721:11729" ph="&amp;##xe603;" />
-            <marker date="1503883359159" expanded="true" signature="12052:12072" ph="..." />
-            <marker date="1503883359159" expanded="true" signature="12161:12169" ph="&amp;##xe6de;" />
+            <marker date="1504922180912" expanded="false" signature="8546:8566" ph="..." />
+            <marker date="1504922180912" expanded="true" signature="8672:8680" ph="&amp;##xe6e2;" />
+            <marker date="1504922180912" expanded="true" signature="9700:12615" ph="..." />
+            <marker date="1504922180912" expanded="true" signature="9729:9924" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="9815:9922" ph="[...]" />
+            <marker date="1504922180912" expanded="true" signature="9928:9941" ph="/*...*/" />
+            <marker date="1504922180912" expanded="true" signature="9977:10073" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="10003:10049" ph="{&quot;title&quot;: title...}" />
+            <marker date="1504922180912" expanded="true" signature="10074:10087" ph="/*...*/" />
+            <marker date="1504922180912" expanded="true" signature="10127:10223" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="10153:10199" ph="{&quot;title&quot;: title...}" />
+            <marker date="1504922180912" expanded="true" signature="10224:10233" ph="/*...*/" />
+            <marker date="1504922180912" expanded="true" signature="10273:10369" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="10299:10345" ph="{&quot;title&quot;: title...}" />
+            <marker date="1504922180912" expanded="true" signature="10370:10379" ph="/*...*/" />
+            <marker date="1504922180912" expanded="true" signature="10408:10697" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="10450:10693" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="10461:10686" ph="{&quot;type&quot;: 'POST'...}" />
+            <marker date="1504922180912" expanded="true" signature="10539:10622" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="10648:10681" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="10699:10708" ph="/*...*/" />
+            <marker date="1504922180912" expanded="true" signature="10740:11485" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="10766:10827" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="10840:11151" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="11164:11480" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="11486:11495" ph="/*...*/" />
+            <marker date="1504922180912" expanded="true" signature="11525:11924" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="11567:11920" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="11630:11650" ph="..." />
+            <marker date="1504922180912" expanded="true" signature="11740:11748" ph="&amp;##xe603;" />
+            <marker date="1504922180912" expanded="true" signature="11926:11935" ph="/*...*/" />
+            <marker date="1504922180912" expanded="true" signature="11966:12364" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="12008:12360" ph="{...}" />
+            <marker date="1504922180912" expanded="true" signature="12071:12091" ph="..." />
+            <marker date="1504922180912" expanded="true" signature="12180:12188" ph="&amp;##xe6de;" />
+            <marker date="1504922180912" expanded="true" signature="12365:12376" ph="/*...*/" />
+            <marker date="1504922180912" expanded="true" signature="12410:12606" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1047,24 +1164,42 @@
         <state relative-caret-position="184">
           <caret line="8" column="61" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="61" />
           <folding>
-            <marker date="1503910518770" expanded="true" signature="670:811" ph="SELECT sid,s... bank_shop" />
-            <marker date="1503910518770" expanded="true" signature="884:946" ph="UPDATE bank_... " />
+            <marker date="1504922168997" expanded="true" signature="670:811" ph="SELECT sid,s... bank_shop" />
+            <marker date="1504922168997" expanded="true" signature="884:946" ph="UPDATE bank_... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/boss/BossController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5083">
-          <caret line="252" column="20" lean-forward="false" selection-start-line="252" selection-start-column="20" selection-end-line="252" selection-end-column="20" />
-          <folding />
+        <state relative-caret-position="6164">
+          <caret line="299" column="20" lean-forward="false" selection-start-line="299" selection-start-column="20" selection-end-line="299" selection-end-column="20" />
+          <folding>
+            <marker date="1504922181262" expanded="true" signature="12294:12300" ph="{...}" />
+            <marker date="1504922181262" expanded="true" signature="12306:12444" ph="/**...*/" />
+            <marker date="1504922181262" expanded="true" signature="12595:13224" ph="{...}" />
+            <marker date="1504922181262" expanded="true" signature="13230:13324" ph="/**...*/" />
+            <marker date="1504922181262" expanded="true" signature="13424:13477" ph="{...}" />
+            <marker date="1504922181262" expanded="true" signature="13483:13601" ph="/**...*/" />
+            <marker date="1504922181262" expanded="true" signature="13713:13800" ph="{...}" />
+            <marker date="1504922181262" expanded="true" signature="13806:13898" ph="/**...*/" />
+            <marker date="1504922181262" expanded="true" signature="14130:16126" ph="{...}" />
+            <marker date="1504922181262" expanded="true" signature="16132:16226" ph="/**...*/" />
+            <marker date="1504922181262" expanded="true" signature="16326:16377" ph="{...}" />
+            <marker date="1504922181262" expanded="true" signature="16383:16477" ph="/**...*/" />
+            <marker date="1504922181262" expanded="true" signature="16582:16634" ph="{...}" />
+            <marker date="1504922181262" expanded="true" signature="16640:16734" ph="/**...*/" />
+            <marker date="1504922181262" expanded="true" signature="16961:18031" ph="{...}" />
+            <marker date="1504922181262" expanded="true" signature="18037:18393" ph="/**...*/" />
+            <marker date="1504922181262" expanded="true" signature="18763:20339" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/public_jsp/boss_admin_side.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1794">
-          <caret line="78" column="95" lean-forward="false" selection-start-line="78" selection-start-column="95" selection-end-line="78" selection-end-column="95" />
+        <state relative-caret-position="1932">
+          <caret line="84" column="95" lean-forward="false" selection-start-line="84" selection-start-column="95" selection-end-line="84" selection-end-column="95" />
           <folding />
         </state>
       </provider>
@@ -1082,10 +1217,22 @@
         <state relative-caret-position="-3174">
           <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
           <folding>
-            <marker date="1503915926260" expanded="true" signature="8550:8570" ph="..." />
-            <marker date="1503915926260" expanded="true" signature="8659:8667" ph="&amp;##xe6e1;" />
-            <marker date="1503915926260" expanded="true" signature="8989:9009" ph="..." />
-            <marker date="1503915926260" expanded="true" signature="9097:9105" ph="&amp;##xe631;" />
+            <marker date="1504922169057" expanded="true" signature="8550:8570" ph="..." />
+            <marker date="1504922169057" expanded="true" signature="8659:8667" ph="&amp;##xe6e1;" />
+            <marker date="1504922169057" expanded="true" signature="8989:9009" ph="..." />
+            <marker date="1504922169057" expanded="true" signature="9097:9105" ph="&amp;##xe631;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shopkeeper/index_shopkeeper.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="6" lean-forward="true" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <folding>
+            <marker date="1504922284043" expanded="true" signature="5871:5885" ph="..." />
+            <marker date="1504922284043" expanded="true" signature="5960:5990" ph="..." />
+            <marker date="1504922284043" expanded="true" signature="6044:6053" ph="..." />
           </folding>
         </state>
       </provider>

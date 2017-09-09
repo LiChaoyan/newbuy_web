@@ -31,12 +31,9 @@
 <body>
 <!--_header 作为公共模版分离出去-->
 <jsp:include page="/public_jsp/bossHeader.jsp" flush="true"></jsp:include>
-
 <!--/_header 作为公共模版分离出去-->
-<jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
 <!--_menu 作为公共模版分离出去-->
-
-<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<jsp:include page="/public_jsp/boss_admin_side.jsp" flush="true"></jsp:include>
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
@@ -44,12 +41,14 @@
 		<span class="c-999 en">&gt;</span>
 		<span class="c-666">概览</span>
 		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-	<div class="Hui-article">
+	<div class="Hui-article"  style="margin-left: 15px;">
 
-		<article class="cl pd-20">
-			<p class="f-20 text-success">欢迎登陆！</p>
-			<p>登录次数：18 &nbsp;&nbsp;&nbsp;&nbsp; 上次登录时间：2014-6-14 11:19:55 </p>
-			<table class="table table-border table-bordered table-bg">
+		<p class="cl pd-20">
+			<p class="f-20 text-success">欢迎登陆！&nbsp;&nbsp;&nbsp;&nbsp;
+			<p style="font-size: 14px;"> 登录次数：18 &nbsp;&nbsp;&nbsp;&nbsp; 上次登录时间：2014-6-14 11:19:55</p></p>
+			<div class="col-md-12">
+
+			<table class="table table-border table-bordered table-bg col-md-4" style="height:400px;">
 				<thead>
 				<tr>
 					<th colspan="7" scope="col">信息概览</th>
@@ -65,7 +64,7 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr class="text-c">
+				<tr class="text-c" style="font-weight: 500;">
 					<td>总数</td>
 					<td>4</td>
 					<td>50</td>
@@ -79,7 +78,7 @@
 					<td>10</td>
 					<td>10</td>
 					<td>100</td>
-					<td>x100</td>
+					<td>100</td>
 				</tr>
 				<tr class="text-c">
 					<td>店铺3</td>
@@ -104,7 +103,9 @@
 				</tr>
 				</tbody>
 			</table>
-			<div id="container" style="min-width:700px;height:400px"></div>
+				<div id="container1" class="col-md-6" style="min-width:700px;height:400px"></div>
+			</div><br><br><br><hr>
+			<div id="container" style="min-width:700px;height:400px;margin-left:20px;"></div>
 		</article>
 	</div>
 </section>
@@ -120,9 +121,78 @@
 <script type="text/javascript"  src="<%=request.getContextPath()%>/Scripts/lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/Scripts/lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
 <script type="text/javascript">
+
     <c:if test="${!empty error_msg}">alert("${error_msg}");
     </c:if>
 
+    $(function () {
+        $('#container1').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '各店铺统计'
+            },
+            subtitle: {
+                text: '商品数、销售量、销售额、合作商家数的统计'
+            },
+            xAxis: {
+                categories: [
+                    '店铺1',
+                    '店铺2',
+                    '店铺3',
+                    '店铺4',
+                    '店铺5',
+                    '店铺6',
+                    '店铺7',
+                    '店铺8',
+                    '店铺9',
+                    '店铺10',
+                    '店铺11',
+                    '店铺12'
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '（个）'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} 件</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: '商品数',
+                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+            }, {
+                name: '销售量',
+                data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+
+            }, {
+                name: '销售额',
+                data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+            }, {
+                name: '合作商家数',
+                data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
+            }]
+        });
+    });
+</script>
+<script type="text/javascript">
     $(function () {
         $('#container').highcharts({
             title: {
