@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="487417ae-a2ed-46d7-aec0-cf4bb2b8bf7f" name="Default" comment="完善购物车选择事件,不同店铺不同订单">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/Oreder/Ordergoods.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/Oreder/Ordergoods.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/Oreder/Orders.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/bean/Oreder/Orders.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/dao/CartMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/dao/CartMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/CartService.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/CartService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/CartServicelmpl.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/service/CartServicelmpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm.war" afterPath="$PROJECT_DIR$/target/ssm.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/Oreder/Ordergoods.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/Oreder/Ordergoods.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/Oreder/Orders.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/bean/Oreder/Orders.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/dao/CartMapper.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/dao/CartMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/CartService.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/CartService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/CartServicelmpl.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/service/CartServicelmpl.class" />
+    <list default="true" id="487417ae-a2ed-46d7-aec0-cf4bb2b8bf7f" name="Default" comment="路径统一">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Carheader.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/public_jsp/fenlei.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/DemoController.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/controller/DemoController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xoqao/web/utils/QiNiuFileUtil.class" afterPath="$PROJECT_DIR$/target/classes/com/xoqao/web/utils/QiNiuFileUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/DemoController.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/controller/DemoController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/utils/QiNiuFileUtil.class" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/com/xoqao/web/utils/QiNiuFileUtil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/Oreder/Ordergoods.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/Oreder/Ordergoods.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/Oreder/Orders.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/Oreder/Orders.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/CommodityShop.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/CommodityShop.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CartMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CartMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CartService.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CartService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CartServicelmpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CartServicelmpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapping/CartMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapping/CartMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Brand.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Brand.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Three.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Three.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Two.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Two.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Product.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Product.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapping/BossMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapping/BossMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapping/CartMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapping/CartMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/public_jsp/indexheader.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/public_jsp/indexheader.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapping/ShopMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapping/ShopMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapping/UserMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapping/UserMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/spring-mvc.xml" afterPath="$PROJECT_DIR$/target/classes/spring-mvc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/ssm/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/BossMapper.xml" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/BossMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/CartMapper.xml" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/CartMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/ShopMapper.xml" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/ShopMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/UserMapper.xml" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/mapping/UserMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/spring-mvc.xml" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/classes/spring-mvc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Brand.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Brand.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/BuyCar.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/BuyCar.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/BuyCar_Three.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/BuyCar_Three.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/BuyCar_Two.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/BuyCar_Two.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/CategoryList.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/CategoryList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Index.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Product.jsp" afterPath="$PROJECT_DIR$/target/ssm/WEB-INF/jsp/Product.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ssm/public_jsp/indexheader.jsp" afterPath="$PROJECT_DIR$/target/ssm/public_jsp/indexheader.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -7618,98 +7620,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DemoController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="296" column="36" lean-forward="false" selection-start-line="296" selection-start-column="36" selection-end-line="296" selection-end-column="36" />
-              <folding>
-                <element signature="e#15337#15343#0" expanded="true" />
-                <element signature="e#16976#16984#0" expanded="true" />
-                <element signature="e#19473#19488#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuyCar_Two.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Two.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="605" column="115" lean-forward="false" selection-start-line="605" selection-start-column="115" selection-end-line="605" selection-end-column="115" />
-              <folding>
-                <marker date="1504522742382" expanded="false" signature="30936:30950" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuyCar_Three.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Three.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-207">
-              <caret line="481" column="17" lean-forward="false" selection-start-line="481" selection-start-column="17" selection-end-line="481" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Product.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Product.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="422" column="58" lean-forward="false" selection-start-line="422" selection-start-column="58" selection-end-line="422" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Orders.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/Oreder/Orders.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CartMapper.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/CartMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="81" column="35" lean-forward="false" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
-              <folding>
-                <marker date="1504522742363" expanded="true" signature="284:590" ph="SELECT * fro... commodities_cart" />
-                <marker date="1504522742363" expanded="true" signature="684:972" ph="INSERT into commodities_cart... " />
-                <marker date="1504522742363" expanded="true" signature="1071:1120" ph="select * fro... commodities_cart" />
-                <marker date="1504522742363" expanded="true" signature="1239:1390" ph="SELECT count... commodities_cart" />
-                <marker date="1504522742363" expanded="true" signature="1440:1494" ph="DELETE from " />
-                <marker date="1504522742363" expanded="true" signature="1545:1623" ph="UPDATE commo... " />
-                <marker date="1504522742363" expanded="true" signature="1750:1809" ph="SELECT * fro... commodities_cart" />
-                <marker date="1504522742363" expanded="true" signature="1875:2168" ph="INSERT INTO orders... " />
-                <marker date="1504522742363" expanded="true" signature="2260:2445" ph="SELECT max(o... orders" />
-                <marker date="1504522742363" expanded="true" signature="2518:2823" ph="INSERT into ordergoods... " />
-                <marker date="1504522742363" expanded="true" signature="2955:3006" ph="SELECT * fro... ordergoods" />
-                <marker date="1504522742363" expanded="true" signature="2955:3008" ph="SELECT * fro... ordergoods" />
-                <marker date="1504522742363" expanded="true" signature="3255:3314" ph="SELECT * fro... ordergoods" />
-                <marker date="1504522742363" expanded="true" signature="3445:3519" ph="select * fro... ship_address" />
-                <marker date="1504522742363" expanded="true" signature="3569:3729" ph="UPDATE order... " />
-                <marker date="1504522742363" expanded="true" signature="3851:3893" ph="select * fro... orders" />
-                <marker date="1504522742363" expanded="true" signature="3851:3902" ph="select * fro... orders" />
-                <marker date="1504522742363" expanded="true" signature="4007:4053" ph="select * fro... orders" />
-                <marker date="1504522742363" expanded="true" signature="4007:4056" ph="select * fro... orders" />
-                <marker date="1504522742363" expanded="true" signature="4324:4373" ph="SELECT DISTI... commodities_cart" />
-                <marker date="1504522742363" expanded="true" signature="4678:4759" ph="SELECT cbid commodities_cart" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -7717,6 +7628,7 @@
         <option value="Interface" />
         <option value="Tag Library Descriptor" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -7737,10 +7649,16 @@
       <find>add_tab</find>
       <find>two_bg</find>
       <find>car_tab</find>
-      <find>index</find>
       <find>BuyCar</find>
       <find>cart_cbid</find>
       <find>add_txt</find>
+      <find>index</find>
+      <find>shop/</find>
+      <find>assesstu</find>
+      <find>/product</find>
+      <find>/brand</find>
+      <find>/Ca</find>
+      <find>/index</find>
     </findStrings>
     <replaceStrings>
       <replace>.yuan</replace>
@@ -7757,23 +7675,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/backmanage/AssessTu.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/back/assets/pages/js/page.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Page.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/back/assets/pages/css/page.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/Css/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/APage.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/back/assets/dtjsx/css/dstyle.css" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Brand.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Brand.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Car.java" />
         <option value="D:/student_SOFT/java/apache-maven-3.5.0-bin/localRepository/org/springframework/spring-core/4.2.5.RELEASE/spring-core-4.2.5.RELEASE.jar!/org/springframework/util/ReflectionUtils.class" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/user/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/UserService.java" />
         <option value="$PROJECT_DIR$/newbuy_web.iml" />
         <option value="$PROJECT_DIR$/src/main/webapp/Scripts/shopshow.js" />
@@ -7781,7 +7687,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Cart.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/Login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Product.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Orders.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/UserOrder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/ShipAddress.java" />
@@ -7799,15 +7704,28 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sousuo.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/Oreder/Orders.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/BossService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Three.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Two.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/CartMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/CartMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CartService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/service/CartServicelmpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/public_jsp/indexheader.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/public_jsp/Carheader.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Brand.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Carheader.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Three.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/public_jsp/fenlei.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Brand.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/CommodityShop.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Two.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/user/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Product.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp" />
       </list>
     </option>
   </component>
@@ -7842,7 +7760,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
-    <option name="height" value="703" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -7863,8 +7781,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -7973,7 +7889,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -7995,33 +7919,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mapping" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newbuy_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemId" value="back" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -8043,37 +7953,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newbuy_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newbuy_web" />
+              <option name="myItemId" value="back" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -8092,14 +7988,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -8122,41 +8010,13 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Oreder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newbuy_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newbuy_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="commodity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -8168,6 +8028,11 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="ToolWindowMessages.ShowToolbar" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Workplaces\intellij idea\newbuy_web\src\main\webapp\WEB-INF\jsp" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -8753,6 +8618,7 @@
       <workItem from="1503536287867" duration="39123000" />
       <workItem from="1503616316150" duration="45759000" />
       <workItem from="1503708232751" duration="1936000" />
+      <workItem from="1505005264209" duration="21035000" />
     </task>
     <task id="LOCAL-00002" summary="初始基本环境配置-ssm">
       <created>1499498559722</created>
@@ -8936,11 +8802,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503670869909</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="完善购物车选择事件,不同店铺不同订单">
+      <created>1504524659763</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1504524659763</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225227000" />
+    <option name="totallyTimeSpent" value="246855000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -8952,54 +8825,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="703" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5181543" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.432247" sideWeight="0.4969743" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0075642965" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39965695" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20926243" sideWeight="0.70574886" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38593483" sideWeight="0.48931298" order="8" side_tool="false" content_ui="tabs" x="462" y="234" width="625" height="193" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933104" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0055350554" sideWeight="0.48184568" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2572899" sideWeight="0.7980333" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933104" sideWeight="0.48789713" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933104" sideWeight="0.49394855" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25037822" sideWeight="0.56857854" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25036603" sideWeight="0.43142146" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5181543" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43278688" sideWeight="0.4969743" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0075642965" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0075642965" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39965695" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -9009,17 +8848,21 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933104" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.055737704" sideWeight="0.48184568" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.063464835" sideWeight="0.7980333" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36363637" sideWeight="0.7980333" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.48789713" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.49394855" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30332828" sideWeight="0.56857854" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20499243" sideWeight="0.56857854" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25036603" sideWeight="0.43142146" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13207547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13207547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -9055,7 +8898,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="配置可运行环境，完成注册待店主注册分页Controller部分内容，（差一点：传错误状态到前台）" />
     <MESSAGE value="配置可运行环境，完成店主注册，自后连接到店铺注册界面" />
     <MESSAGE value="lcy店铺修改（未完成）" />
     <MESSAGE value="lcy店铺修改，店铺商品分类添加" />
@@ -9080,14 +8922,15 @@
     <MESSAGE value="收货地址添加完成部分" />
     <MESSAGE value="收货地址增删改查完成" />
     <MESSAGE value="订单添加" />
-    <option name="LAST_COMMIT_MESSAGE" value="订单添加" />
+    <MESSAGE value="完善购物车选择事件,不同店铺不同订单" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善购物车选择事件,不同店铺不同订单" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="41" />
+      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -9096,123 +8939,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/back/assets/pages/js/page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/Login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-79">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/UserExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5359">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/user/Id.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/shop/Shop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1007">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/APage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/ShopMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.2.5.RELEASE/spring-jdbc-4.2.5.RELEASE.jar!/org/springframework/jdbc/support/JdbcUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="207" column="0" lean-forward="false" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/BossMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="1" column="21" lean-forward="false" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/BossMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/Scripts/select.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-69">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="80" column="11" lean-forward="true" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/service/BossServicelmpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="19" column="11" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/backmanage/bossAdd.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2708">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/backmanage/shopUpdate.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -9283,14 +9009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="466" column="47" lean-forward="false" selection-start-line="466" selection-start-column="47" selection-end-line="466" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/student_SOFT/java/JDK/java/jdk1.8.0_51/src.zip!/java/util/Timer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -9324,29 +9042,6 @@
         <state relative-caret-position="693">
           <caret line="71" column="10" lean-forward="false" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/CommodityMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3362">
-          <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-          <folding>
-            <marker date="1503044968794" expanded="true" signature="333:639" ph="select categ... commodity" />
-            <marker date="1503044968794" expanded="true" signature="788:1116" ph="select categ... commodity" />
-            <marker date="1503044968794" expanded="true" signature="1268:1542" ph="select cgid,... commodity" />
-            <marker date="1503044968794" expanded="true" signature="2583:4744" ph="select parts... shop" />
-            <marker date="1503044968794" expanded="true" signature="5601:6364" ph="select parts... commodity" />
-            <marker date="1503044968794" expanded="true" signature="6495:6767" ph="select part_... part_shop" />
-            <marker date="1503044968794" expanded="true" signature="6894:7050" ph="select commo... commodity" />
-            <marker date="1503044968794" expanded="true" signature="6957:7001" ph="select sid f... commodity" />
-            <marker date="1503044968794" expanded="true" signature="7194:7674" ph="SELECT commo... commodity" />
-            <marker date="1503044968794" expanded="true" signature="7760:7834" ph="select count... assess" />
-            <marker date="1503044968794" expanded="true" signature="7919:8019" ph="select count... assess" />
-            <marker date="1503044968794" expanded="true" signature="8104:8204" ph="select count... assess" />
-            <marker date="1503044968794" expanded="true" signature="8308:8406" ph="select count... assess" />
-            <marker date="1503044968794" expanded="true" signature="8509:9128" ph="select asses... assess" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -9395,14 +9090,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/user/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="99" column="53" lean-forward="true" selection-start-line="99" selection-start-column="53" selection-end-line="99" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/Oreder/Ordergoods.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -9415,32 +9102,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Product.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="422" column="58" lean-forward="false" selection-start-line="422" selection-start-column="58" selection-end-line="422" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/Oreder/Orders.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Three.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-207">
-          <caret line="481" column="17" lean-forward="false" selection-start-line="481" selection-start-column="17" selection-end-line="481" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -9484,36 +9145,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="559" column="38" lean-forward="false" selection-start-line="559" selection-start-column="38" selection-end-line="559" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Two.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="605" column="115" lean-forward="false" selection-start-line="605" selection-start-column="115" selection-end-line="605" selection-end-column="115" />
-          <folding>
-            <marker date="1504522742382" expanded="false" signature="30936:30950" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="296" column="36" lean-forward="false" selection-start-line="296" selection-start-column="36" selection-end-line="296" selection-end-column="36" />
-          <folding>
-            <element signature="e#15337#15343#0" expanded="true" />
-            <element signature="e#16976#16984#0" expanded="true" />
-            <element signature="e#19473#19488#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/CartMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -9541,6 +9172,238 @@
             <marker date="1504522742363" expanded="true" signature="4324:4373" ph="SELECT DISTI... commodities_cart" />
             <marker date="1504522742363" expanded="true" signature="4678:4759" ph="SELECT cbid commodities_cart" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/Oreder/Orders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public_jsp/login_Header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/boss/BossController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="159" column="11" lean-forward="true" selection-start-line="159" selection-start-column="11" selection-end-line="159" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/web-forms.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="529" column="16" lean-forward="false" selection-start-line="529" selection-start-column="16" selection-end-line="529" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public_jsp/boss_admin_side.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public_jsp/indexheader.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4363">
+          <caret line="322" column="5" lean-forward="false" selection-start-line="322" selection-start-column="5" selection-end-line="322" selection-end-column="5" />
+          <folding>
+            <marker date="1505012125331" expanded="false" signature="6368:12101" ph="..." />
+            <marker date="1505012125331" expanded="false" signature="6825:6854" ph="..." />
+            <marker date="1505012125331" expanded="false" signature="9870:12083" ph="..." />
+            <marker date="1505012125331" expanded="false" signature="9958:9972" ph="..." />
+            <marker date="1505012125331" expanded="false" signature="12600:12614" ph="..." />
+            <marker date="1505012125331" expanded="false" signature="13708:13726" ph="..." />
+            <marker date="1505012125331" expanded="false" signature="14081:14095" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Carheader.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-80">
+          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/backmanage/AssessTu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-759">
+          <caret line="18" column="74" lean-forward="true" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public_jsp/bossHeader.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Three.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="95" column="46" lean-forward="true" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Brand.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="31" column="65" lean-forward="true" selection-start-line="31" selection-start-column="65" selection-end-line="31" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public_jsp/fenlei.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-115">
+          <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/Commodity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1712">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/bean/commodity/CommodityShop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding>
+            <element signature="e#4008#4009#0" expanded="true" />
+            <element signature="e#4056#4057#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/BuyCar_Two.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="178" column="18" lean-forward="false" selection-start-line="178" selection-start-column="18" selection-end-line="178" selection-end-column="18" />
+          <folding>
+            <marker date="1505034538245" expanded="false" signature="4414:4428" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/CommodityMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="156" column="27" lean-forward="false" selection-start-line="156" selection-start-column="27" selection-end-line="156" selection-end-column="27" />
+          <folding>
+            <marker date="1503044968794" expanded="true" signature="333:639" ph="select categ... commodity" />
+            <marker date="1503044968794" expanded="true" signature="788:1116" ph="select categ... commodity" />
+            <marker date="1503044968794" expanded="true" signature="1268:1542" ph="select cgid,... commodity" />
+            <marker date="1503044968794" expanded="true" signature="2583:4744" ph="select parts... shop" />
+            <marker date="1503044968794" expanded="true" signature="5601:6364" ph="select parts... commodity" />
+            <marker date="1503044968794" expanded="true" signature="6495:6767" ph="select part_... part_shop" />
+            <marker date="1503044968794" expanded="true" signature="6894:7050" ph="select commo... commodity" />
+            <marker date="1503044968794" expanded="true" signature="6957:7001" ph="select sid f... commodity" />
+            <marker date="1503044968794" expanded="true" signature="7194:7674" ph="SELECT commo... commodity" />
+            <marker date="1503044968794" expanded="true" signature="7760:7834" ph="select count... assess" />
+            <marker date="1503044968794" expanded="true" signature="7919:8019" ph="select count... assess" />
+            <marker date="1503044968794" expanded="true" signature="8104:8204" ph="select count... assess" />
+            <marker date="1503044968794" expanded="true" signature="8308:8406" ph="select count... assess" />
+            <marker date="1503044968794" expanded="true" signature="8509:9128" ph="select asses... assess" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/dao/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/user/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1127">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Product.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="550" column="23" lean-forward="false" selection-start-line="550" selection-start-column="23" selection-end-line="550" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/back/assets/pages/css/page.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/CategoryList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xoqao/web/controller/DemoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1530">
+          <caret line="542" column="24" lean-forward="false" selection-start-line="542" selection-start-column="21" selection-end-line="542" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
