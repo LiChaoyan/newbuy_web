@@ -17,13 +17,6 @@
     <meta charset="utf-8"/>
     <title>头部</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/Css/style.css" />
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/n_nav.js"></script>
-    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/Css/shopshow.css" />
-
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/shade.js"></script>   <!-- 控制弹窗 -->
-    <script type="text/javascript" src="<%= request.getContextPath()%>/Scripts/jquery.1.4.2-min.js"></script>
 
 </head>
 <body>

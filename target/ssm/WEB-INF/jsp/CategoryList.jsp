@@ -592,6 +592,7 @@
                         </li>
                     </c:forEach>
                 </ul>
+
                 <div class="pages">
 
                     <ul class="page" maxshowpageitem="5" pagelistcount="${page.count}"  id="page"></ul>
@@ -604,7 +605,7 @@
                     }
                     var GG = {
                         "kk":function(mm){
-                            // alert(mm);
+                             alert(mm);
                             // console.log("hellos");
                             window.location.href="CategoryList?cgid=${page.cgid}&productname=${page.productname}&city=${page.city}&part=${page.part}&sales=${page.sales}&price=${page.price}&attention=${page.attention}&range=${page.range}&ases=${page.ases}&colligate=${page.colligate}&p="+mm;
                         }
