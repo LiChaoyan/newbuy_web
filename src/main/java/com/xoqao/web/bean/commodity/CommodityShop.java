@@ -216,7 +216,9 @@ public class CommodityShop {
 
     public void setHeadershow(String headershow) {
         this.headershow = headershow;
-    }
+        }
+
+
 
     public String getParam1() {
         return param1;
