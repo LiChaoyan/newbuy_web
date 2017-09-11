@@ -6,64 +6,33 @@ import java.io.Serializable;
  * Created by win8.1 on 2017/7/10.
  */
 public class Shop implements Serializable {
-    private Integer sid;
-    private double latitude;
-    private String logo;
-    private double longgitude;
-    private String saddress;
-    private int salesvo;
-    private String shopname;
-    private String showpic;
-    private double slevel;
-    private String stel;
-    private String subscrib;
-    private String type;
-    private String headershow;
-    private String bossnick;
-    private String bosspass;
-    private String bosspic;
-    private String permitpic;
-    private String scope;
-    private String city;
 
-    public Integer getSid() {
+    private int sid;
+    private String shopname;//店铺名称
+    private String saddress; //地址
+    private String stel;  //电话
+    private Double slevel; //星级
+    private Double longgitude; //经度
+    private Double latitude;//纬度
+    private String type; //店铺类型
+    private Integer salesvo; //销售总量
+    private String subscrib;  //店铺描述
+    private String logo;  //店铺logo
+    private String showpic; //店铺展示图片
+    private String headershow;  //头部展示
+    private String permitpic; //营业执照图片
+    private String scope;  //经营范围
+    private Integer city;//店铺所在城市
+    private Integer bid;//店主id
+    private Integer chain;//连锁
+    private Integer openstatue;
+
+    public int getSid() {
         return sid;
     }
 
-    public void setSid(Integer sid) {
+    public void setSid(int sid) {
         this.sid = sid;
-    }
-
-    public String getLogo() {
-        return logo;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
-
-    public double getLonggitude() {
-        return longgitude;
-    }
-
-    public void setLonggitude(double longgitude) {
-        this.longgitude = longgitude;
-    }
-
-    public String getSaddress() {
-        return saddress;
-    }
-
-    public void setSaddress(String saddress) {
-        this.saddress = saddress;
-    }
-
-    public int getSalesvo() {
-        return salesvo;
-    }
-
-    public void setSalesvo(int salesvo) {
-        this.salesvo = salesvo;
     }
 
     public String getShopname() {
@@ -74,52 +43,12 @@ public class Shop implements Serializable {
         this.shopname = shopname;
     }
 
-    public String getShowpic() {
-        return showpic;
+    public String getSaddress() {
+        return saddress;
     }
 
-    public void setShowpic(String showpic) {
-        this.showpic = showpic;
-    }
-
-    public double getSlevel() {
-        return slevel;
-    }
-
-    public void setSlevel(double slevel) {
-        this.slevel = slevel;
-    }
-
-    public String getSubscrib() {
-        return subscrib;
-    }
-
-    public void setSubscrib(String subscrib) {
-        this.subscrib = subscrib;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getHeadershow() {
-        return headershow;
-    }
-
-    public void setHeadershow(String headershow) {
-        this.headershow = headershow;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
+    public void setSaddress(String saddress) {
+        this.saddress = saddress;
     }
 
     public String getStel() {
@@ -130,30 +59,76 @@ public class Shop implements Serializable {
         this.stel = stel;
     }
 
-
-
-    public String getBossnick() {
-        return bossnick;
+    public Double getSlevel() {
+        return slevel;
     }
 
-    public void setBossnick(String bossnick) {
-        this.bossnick = bossnick;
+    public void setSlevel(Double slevel) {
+        this.slevel = slevel;
     }
 
-    public String getBosspass() {
-        return bosspass;
+    public Double getLonggitude() {
+        return longgitude;
     }
 
-    public void setBosspass(String bosspass) {
-        this.bosspass = bosspass;
+    public void setLonggitude(Double longgitude) {
+        this.longgitude = longgitude;
     }
 
-    public String getBosspic() {
-        return bosspic;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    public void setBosspic(String bosspic) {
-        this.bosspic = bosspic;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getSalesvo() {
+        return salesvo;
+    }
+
+    public void setSalesvo(Integer salesvo) {
+        this.salesvo = salesvo;
+    }
+
+    public String getSubscrib() {
+        return subscrib;
+    }
+
+    public void setSubscrib(String subscrib) {
+        this.subscrib = subscrib;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public String getShowpic() {
+        return showpic;
+    }
+
+    public void setShowpic(String showpic) {
+        this.showpic = showpic;
+    }
+
+    public String getHeadershow() {
+        return headershow;
+    }
+
+    public void setHeadershow(String headershow) {
+        this.headershow = headershow;
     }
 
     public String getPermitpic() {
@@ -172,37 +147,60 @@ public class Shop implements Serializable {
         this.scope = scope;
     }
 
-    public String getCity() {
+    public Integer getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(Integer city) {
         this.city = city;
+    }
+
+    public Integer getBid() {
+        return bid;
+    }
+
+    public void setBid(Integer bid) {
+        this.bid = bid;
+    }
+
+    public Integer getChain() {
+        return chain;
+    }
+
+    public void setChain(Integer chain) {
+        this.chain = chain;
+    }
+
+    public Integer getOpenstatue() {
+        return openstatue;
+    }
+
+    public void setOpenstatue(Integer openstatue) {
+        this.openstatue = openstatue;
     }
 
     @Override
     public String toString() {
         return "Shop{" +
                 "sid=" + sid +
-                ", latitude=" + latitude +
-                ", logo='" + logo + '\'' +
-                ", longgitude=" + longgitude +
-                ", saddress='" + saddress + '\'' +
-                ", salesvo=" + salesvo +
                 ", shopname='" + shopname + '\'' +
-                ", showpic='" + showpic + '\'' +
+                ", saddress='" + saddress + '\'' +
+                ", stel='" + stel + '\'' +
                 ", slevel=" + slevel +
-                ", phone='" + stel + '\'' +
-                ", subscrib='" + subscrib + '\'' +
+                ", longgitude=" + longgitude +
+                ", latitude=" + latitude +
                 ", type='" + type + '\'' +
+                ", salesvo=" + salesvo +
+                ", subscrib='" + subscrib + '\'' +
+                ", logo='" + logo + '\'' +
+                ", showpic='" + showpic + '\'' +
                 ", headershow='" + headershow + '\'' +
-                ", bossnick='" + bossnick + '\'' +
-                ", bosspass='" + bosspass + '\'' +
-                ", bosspic='" + bosspic + '\'' +
                 ", permitpic='" + permitpic + '\'' +
                 ", scope='" + scope + '\'' +
-                ", city='" + city + '\'' +
+                ", city=" + city +
+                ", bid=" + bid +
+                ", chain=" + chain +
+                ", openstatue=" + openstatue +
                 '}';
     }
-
 }

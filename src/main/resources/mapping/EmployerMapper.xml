@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xoqao.web.dao.EmployerMapper">
+
+    <!--添加店员信息-->
+    <insert id="insertEmployer">
+        <selectKey resultType="java.lang.Integer" keyProperty="eid" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO employer (des,email,gender,identity,logo,name,password,phone,sid,username) VALUES
+        (#{employer.des},#{employer.email},#{employer.gender},#{employer.identity},#{employer.logo},#{employer.name},#{employer.password},#{employer.phone},#{employer.sid},#{employer.username})
+    </insert>
+
+    <!--根据店铺id查看店员信息-->
+    <select id="findEmployerBySid" resultType="com.xoqao.web.bean.employ.Employer">
+        SELECT eid,des,email,gender,identity,logo,name,password,phone,sid,username,statue
+        FROM employer
+        WHERE sid =#{sid}
+    </select>
+
+    <!--修改店员身份状态信息-->
+    <update id="updateIdentity" >
+        UPDATE employer SET identity=#{identity} WHERE eid=#{eid}
+    </update>
+
+    <!--修改店员登录密码-->
+    <update id="updatePass">
+        UPDATE employer SET password=#{pas} WHERE eid=#{eid}
+    </update>
+
+    <!--修改店员状态-->
+    <update id="updateStatue">
+          UPDATE employer SET statue=#{statue} WHERE eid=#{eid}
+    </update>
+    
+</mapper>

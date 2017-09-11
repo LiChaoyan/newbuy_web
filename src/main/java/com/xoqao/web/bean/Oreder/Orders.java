@@ -2,6 +2,8 @@ package com.xoqao.web.bean.Oreder;
 
 import com.xoqao.web.bean.commodity.Cart;
 
+import java.util.ArrayList;
+
 /**
  * Created by win8.1 on 2017/8/22.
  */
@@ -22,8 +24,23 @@ public class Orders {
     private double totalprice;
     private int uid;
     private  String leaveword;
-
+    private ArrayList<Ordergoods> goodsList;
     public Orders(){};
+
+    public ArrayList<Ordergoods> getGoodsList() {
+        return goodsList;
+    }
+
+    public void setGoodsList(ArrayList<Ordergoods> goodsList) {
+        this.goodsList = goodsList;
+        int num=0;double sum=0.0;
+        for(int i=0;i<goodsList.size();i++){
+            num=num+goodsList.get(i).getCount();
+            sum=sum+goodsList.get(i).getTotalprice();
+        }
+        this.count=num;
+        this.totalprice=sum;
+    }
 
     public String getLeaveword() {
         return leaveword;
