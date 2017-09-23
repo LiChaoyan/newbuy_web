@@ -33,18 +33,8 @@
 </head>
 <body>  
 <!--Begin Header Begin-->
-<<<<<<< HEAD
+
 <jsp:include page="/public_jsp/login_Header.jsp" flush="true"></jsp:include>
-=======
-<div class="soubg">
-	<div class="sou">
-        <span class="fr">
-        	<span >你好，请<a href="<%= request.getContextPath()%>/user/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/user/Regist" style="color:#ff4e00;">免费注册 &nbsp;</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="<%= request.getContextPath()%>/Picture/s_tel.png" align="absmiddle" /></a></span>
-        </span>
-    </div>
-</div>
->>>>>>> wordlu-master
 <!--End Header End--> 
 <!--Begin Login Begin-->
 <div class="log_bg">	
@@ -60,11 +50,8 @@
               	<td width="55">&nbsp;</td>
                 <td>
                 	<span class="fl" style="font-size:24px;">登录</span>
-<<<<<<< HEAD
-                    <span class="fr">还没有商城账号，<a href="<%= request.getContextPath()%>/user/Regist.html" style="color:#ff4e00;">立即注册</a></span>
-=======
-                    <span class="fr">还没有商城账号，<a href="<%= request.getContextPath()%>/user/Regist" style="color:#ff4e00;">立即注册</a></span>
->>>>>>> wordlu-master
+                    <span class="fr"><a href="<%= request.getContextPath()%>/boss/Login_shopkeeper" style="color:#ff4e00;">店主登陆</a></span>
+
                 </td>
               </tr>
               <tr height="70">
@@ -109,10 +96,8 @@
 </div>
 <!--End Footer End -->
 <script type="text/javascript">
-
     <c:if test="${!empty error_msg}">alert("${error_msg}");
     </c:if>
-
 </script>
 </body>
 </html>

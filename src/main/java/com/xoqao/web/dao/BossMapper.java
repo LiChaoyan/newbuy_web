@@ -14,8 +14,20 @@ import java.util.List;
 @Service
 public interface BossMapper {
     Boss saveBoss(Boss boss);
-    List<Boss> selectBossBynickname(@Param("nickname") String nickname)throws Exception;
-    List<Boss> selectBossByphone(@Param("phone") String phone)throws Exception;
-    List<Boss> selectBossBysid(@Param("sid") int sid)throws Exception;
-    void upBossphone(Boss boss)throws Exception;
+
+    List<Boss> selectBossBynickname(@Param("nickname") String nickname) throws Exception;
+
+    List<Boss> selectBossByphone(@Param("phone") String phone) throws Exception;
+
+    List<Boss> selectBossBysid(@Param("sid") int sid) throws Exception;
+
+    void upBossphone(Boss boss) throws Exception;
+
+    void insertBoss(@Param("boss") Boss boss) throws Exception;
+
+    Boss findBossByphone(@Param("phone") String phone)throws Exception;
+
+    Boss findBoosByNick(@Param("nickname") String nickname)throws Exception;
+
+    Boss findBossByStr(@Param("loginstr") String loginstr)throws Exception;
 }

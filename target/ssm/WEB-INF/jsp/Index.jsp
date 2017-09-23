@@ -132,6 +132,7 @@
 </head>
 <body>  
 <!--Begin Header Begin-->
+<%--
 <div class="soubg">
     <div class="sou">
         <!--Begin 所在收货地区 Begin-->
@@ -270,22 +271,22 @@
             <li><a href="#">店铺</a></li>
         </ul>
 
-        <form>
+        <form name="form" method="get" action="CategoryList?productname=?&p=1">
             <div class="search_area" id="search_area">
                 <p style="display: block">
-                    <input type="text" name="productname" value="" id="" class="input_1" placeholder="输入商品名称" />
+                    <input type="text" name="productname" value=""  class="input_1" placeholder="输入商品名称" />
                     <button onclick="Product()"  class="button_search_1">搜索</button>
-                </p><p><input type="text" name="shopname" value="" id="" class="input_2" placeholder="输入店铺名称" />
+                </p><p><input type="text" name="shopname" value=""  class="input_2" placeholder="输入店铺名称" />
                 <button  onclick="Shop()" class="button_search_2">搜索</button></p>
             </div>
         </form>
         <script type="text/javascript">
             function Product() {
-                form.action="CategoryList?productname=?&p=1";
+                form.action="<%=request.getContextPath()%>/CategoryList?productname=?&p=1";
                 form.submit();
             }
             function Shop() {
-                form.action="brand?shopname=?&p=1";
+                form.action="<%=request.getContextPath()%>/brand?shopname=?&p=1";
                 form.submit();
             }
         </script>
@@ -318,7 +319,8 @@
             <!--End 购物车已登录 End-->
         </div>
     </div>
-</div>
+</div>--%>
+<jsp:include page="/WEB-INF/jsp/Carheader.jsp" flush="true"></jsp:include>
 <!--End Header End--> 
 <!--Begin Menu Begin-->
 <div class="menu_bg">
@@ -359,16 +361,7 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
     	<ul class="menu_r">                                                                                                                                               
-<<<<<<< HEAD
-        	<li><a href="Index">首页</a></li>
-            <li><a href="Food">美食</a></li>
-            <li><a href="Fresh">生鲜</a></li>
-            <li><a href="HomeDecoration">家居</a></li>
-            <li><a href="SuitDress">女装</a></li>
-            <li><a href="MakeUp">美妆</a></li>
-            <li><a href="Digital">数码</a></li>
-            <li><a href="GroupBuying">团购</a></li>
-=======
+
         	<li><a href="#">首页</a></li>
             <li><a href="Food.html">美食</a></li>
             <li><a href="Fresh.html">生鲜</a></li>
@@ -377,7 +370,7 @@
             <li><a href="MakeUp.html">美妆</a></li>
             <li><a href="Digital.html">数码</a></li>
             <li><a href="GroupBuying.html">团购</a></li>
->>>>>>> f1a10fa1668611771c9d5d7f12639a0125acf7f1
+
         </ul>
         <div class="m_ad">活动资讯&nbsp;|&nbsp;|&nbsp;旺铺推荐</div>
     </div>

@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="newbuy_web" />
-        <module name="ssm" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

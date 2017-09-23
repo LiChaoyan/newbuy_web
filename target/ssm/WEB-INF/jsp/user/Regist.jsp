@@ -41,24 +41,19 @@
             background-color: #fff4ef;
             margin-top: -50px;
         }
-
         #progressbar li.active:before, #progressbar li.active:after {
             background: #ff3200;
             color: white;
         }
-
         #progressbar li {
             color: #ff3200;
         }
-
         #msform .action-button {
             width: 100px;
             background: #ff3200;
         }
     </style>
-<<<<<<< HEAD
     <script type="text/javascript">
-
         var flag = {
             "phonenumber": false,
             "verify": false,
@@ -68,7 +63,6 @@
             "password": false,
         };
         $(function () {
-
             // 手机号校验
             $("#txtNumber").blur(function () {
                 var phonenumber = $(this).val();
@@ -82,11 +76,9 @@
                     return;
                 }
             });
-
             // 验证码校验
             $("#txtVerify").blur(function () {
                 var verify = $(this).val();
-
                 var pattern = /\b(^[0-9]{4,6}$)\b/;
                 if (!pattern.test(verify)) {
                     $("#verify\\.info").html("验证码错误");
@@ -97,11 +89,9 @@
                     return;
                 }
             });
-
             $("#txtUserName").blur(function () {
                 // 用户名校验
                 var username = $(this).val();
-
                 // 校验规则，可调整
                 var pattern = /\b(^['A-Za-z0-9]{4,20}$)\b/;
                 if (!pattern.test(username)) {
@@ -112,11 +102,9 @@
                     flag.username = true;
                 }
             });
-
             // 密码校验
             $("#txtPassword").blur(function () {
                 var password = $(this).val();
-
                 var pattern = /\b(^['A-Za-z0-9]{4,20}$)\b/;
                 if (!pattern.test(password)) {
                     $("#password\\.info").html("密码格式不正确");
@@ -127,11 +115,9 @@
                     return;
                 }
             });
-
             // 密码重复校验
             $("#txtRepeatPass").blur(function () {
                 var repeatPass = $(this).val();
-
                 var pattern = /\b(^['A-Za-z0-9]{4,20}$)\b/;
                 if (repeatPass != $("#txtPassword").val()) {
                     $("#repeatPass\\.info").html("两次密码输入不一致");
@@ -145,7 +131,6 @@
             // 身份证验证
             $("#txtidnum").blur(function () {
                 var idnum = $(this).val();
-
                 var pattern = /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X|x)$/;
                 if (!pattern.test(idnum)) {
                     $("#idnum\\.info").html("身份证格式不正确");
@@ -170,7 +155,6 @@
 //                    flag.myname = true;
 //                }
 //            });
-
             $("#msform").submit(function () {
                 var ok = flag.email && flag.password && flag.nickname;
                 if (ok == false) {
@@ -180,159 +164,15 @@
                 }
                 return true;
             });
-
-
         })
-
     </script>
     <style type="text/css">
-=======
-<script type="text/javascript">
-   var flag = {
-                "phonenumber":false,
-                "verify":false,
-               "idnum":false,
-               "myname":false,
-               "username":false,
-               "password":false,
-            };
-      $(function(){
-
-                 // 手机号校验
-                $("#txtNumber").blur(function(){
-                    var phonenumber=$(this).val(); 
-                    var pattern = /^1(3|4|5|7|8)\d{9}$/; 
-                    if (!pattern.test(phonenumber)) { 
-                        $("#phonenumber\\.info").html("手机号格式不正确"); 
-                        return;    
-                    }else{ 
-                        $("#phonenumber\\.info").html(""); 
-                        flag.phonenumber=true; 
-                        return; 
-                    } 
-                });
-
-                // 验证码校验
-                $("#txtVerify").blur(function(){
-                    var verify=$(this).val(); 
-
-                    var pattern = /\b(^[0-9]{4,6}$)\b/; 
-                    if (!pattern.test(verify)) { 
-                        $("#verify\\.info").html("验证码错误"); 
-                        return;    
-                    }else{ 
-                        $("#verify\\.info").html(""); 
-                        flag.verify=true; 
-                        return; 
-                    } 
-                });
-
-          $("#txtUserName").blur(function(){
-              // 用户名校验
-              var username = $(this).val();
-
-              // 校验规则，可调整
-              var pattern = /\b(^['A-Za-z0-9]{4,20}$)\b/;
-              if(!pattern.test(username)){
-                  $("#username\\.info").html("用户名不合法");
-                  return;
-              }else{
-                  $("#username\\.info").html("");
-                  flag.username = true;
-              }
-          });
-
-          // 密码校验
-          $("#txtPassword").blur(function(){
-              var password=$(this).val();
-
-              var pattern = /\b(^['A-Za-z0-9]{4,20}$)\b/;
-              if (!pattern.test(password)) {
-                  $("#password\\.info").html("密码格式不正确");
-                  return;
-              }else{
-                  $("#password\\.info").html("");
-                  //flag.password=true;
-                  return;
-              }
-          });
-
-          // 密码重复校验
-          $("#txtRepeatPass").blur(function(){
-              var repeatPass = $(this).val();
-
-              var pattern = /\b(^['A-Za-z0-9]{4,20}$)\b/;
-              if (repeatPass!=$("#txtPassword").val()) {
-                  $("#repeatPass\\.info").html("两次密码输入不一致");
-                  return;
-              }else{
-                  $("#repeatPass\\.info").html("");
-                  flag.password = true;
-                  return;
-              }
-          });
-          // 身份证验证
-          $("#txtidnum").blur(function(){
-              var idnum = $(this).val();
-
-              var pattern=/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X|x)$/;
-              if(!pattern.test(idnum)){
-                  $("#idnum\\.info").html("身份证格式不正确");
-                  return;
-              }else{
-                  $("#idnum\\.info").html("");
-                  flag.idnum = true;
-              }
-          });
-          //姓名校验
-          $("#txtName").blur(function(){
-              // 用户名校验
-              var myname = $(this).val();
-
-              // 校验规则，可调整
-              var pattern = /\b(^['A-Za-z0-9]{4,20}$)\b/;
-              if(!pattern.test(myname)){
-                  $("#myname\\.info").html("姓名与身份证不符");
-                  return;
-              }else{
-                  $("#myname\\.info").html("");
-                  flag.myname = true;
-              }
-          });
-
-          $("#msform").submit(function(){
-              var ok = flag.email&&flag.password&&flag.nickname;
-              if(ok==false){
-                  alert("表单项正在检测或存在错误");
-                  history.back();
-                  return false;
-              }
-              return true;
-          });
-
-
-            })
->>>>>>> wordlu-master
-
-
     </style>
 </head>
 <body>
 <!--Begin Header Begin-->
-<<<<<<< HEAD
 <jsp:include page="/public_jsp/login_Header.jsp" flush="true"></jsp:include>
 <!--End Header End-->
-=======
-<div class="soubg">
-  <div class="sou">
-        <span class="fr">
-          <span >你好，请<a href="<%= request.getContextPath()%>/user/Login">登录</a>&nbsp; <a href="<%= request.getContextPath()%>/user/Regist" style="color:#ff4e00;">免费注册 &nbsp;</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="<%= request.getContextPath()%>/Picture/s_tel.png" align="absmiddle" /></a></span>
-        </span>
-    </div>
-</div>
-<!--End Header End--> 
->>>>>>> wordlu-master
 <!--Begin Login Begin-->
 <div class="log_bg">
     <div class="top">
@@ -396,7 +236,8 @@
                     <%--<a href="#" style="font-size:12px; font-family:'宋体';">重新发送</a>--%>
                     <%--<span id="verify.info" style="color:red"></span><br>--%>
 
-                    <input type="button" name="next" class="next action-button" value="下一步"/>
+                    <input type="button" name="next" class="next action-button" value="下一步"/><br>
+                    <a href="<%= request.getContextPath()%>/boss/Regist_Boss" style="font-size: 14px;width: 20%;margin-left: 5%;">商家注册</a>
                 </fieldset form="msform">
                 <fieldset>
                     <h2 class="fs-title">填写个人信息</h2>
@@ -455,10 +296,8 @@
 <script src="<%= request.getContextPath()%>/js/zzsc.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-
     <c:if test="${!empty error_msg}">alert("${error_msg}");
     </c:if>
-
 </script>
 </body>
 </html>

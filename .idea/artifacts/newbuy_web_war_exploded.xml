@@ -52,9 +52,12 @@
           <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:4.1.6" />
           <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:0.9.5" />
-          <element id="library" level="project" name="Maven: net.sf.json-lib:json-lib:2.4" />
-          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.8.0" />
-          <element id="library" level="project" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" />
+          <element id="library" level="project" name="Maven: org.jetbrains:annotations-java5:15.0" />
+          <element id="library" level="project" name="Maven: com.qiniu:qiniu-java-sdk:7.2.7" />
+          <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:3.3.1" />
+          <element id="library" level="project" name="Maven: com.squareup.okio:okio:1.8.0" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.6.2" />
+          <element id="library" level="project" name="Maven: com.qiniu:happy-dns-java:0.1.4" />
         </element>
       </element>
       <element id="directory" name="META-INF">
