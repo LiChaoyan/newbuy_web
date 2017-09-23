@@ -19,9 +19,13 @@ public interface EmployerMapper {
 
     List<Employer> findEmployerBySid(@Param("sid") Integer sid)throws Exception;
 
+    List<Employer> findEmployerBySidIden(@Param("sid") Integer sid,@Param("identity") Integer identity,@Param("statue") Integer statue)throws Exception;
+
     void updateIdentity(@Param("identity") Integer identity,@Param("eid") Integer eid)throws Exception;
 
     void updatePass(@Param("pas") String pas,@Param("eid") Integer eid)throws Exception;
 
     void updateStatue(@Param("statue") String statue,@Param("eid") Integer eid)throws Exception;
+
+    Employer findEmployerById(@Param("eid") Integer eid)throws Exception;
 }

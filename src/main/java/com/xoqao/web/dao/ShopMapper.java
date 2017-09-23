@@ -33,4 +33,6 @@ public interface ShopMapper {
     void insertShop(@Param("shop") Shop shop) throws Exception;
 
     List<Shop> findShopByBid(@Param("bid") Integer bid) throws Exception;
+
+    Shop findShopBySid(@Param("sid") int sid)throws Exception;
 }
