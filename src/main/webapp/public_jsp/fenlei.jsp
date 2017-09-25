@@ -36,10 +36,12 @@
                                 </div>
                             </c:forEach>
                         </div>
+                        <%--
                         <div class="zj_r">
                             <a href="#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
                             <a href="#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
                         </div>
+                        --%>
                     </div>
                 </li>
             </c:forEach>
@@ -48,12 +50,8 @@
 </div>
 <!--End 商品分类详情 End-->
 <ul class="menu_r">
-    <li><a href="<%= request.getContextPath()%>/Index.html">首页</a></li>
-    <li><a href="<%= request.getContextPath()%>/Food.html">美食</a></li>
-    <li><a href="<%= request.getContextPath()%>/Fresh.html">生鲜</a></li>
-    <li><a href="<%= request.getContextPath()%>/HomeDecoration.html">家居</a></li>
-    <li><a href="<%= request.getContextPath()%>/SuitDress.html">女装</a></li>
-    <li><a href="<%= request.getContextPath()%>/MakeUp.html">美妆</a></li>
-    <li><a href="<%= request.getContextPath()%>/Digital.html">数码</a></li>
-    <li><a href="<%= request.getContextPath()%>/GroupBuying.html">团购</a></li>
+    <li><a href="<%= request.getContextPath()%>/index.html">首页</a></li>
+    <li><a href="<%= request.getContextPath()%>/CategoryList?big=女装/男装&p=1">女装/男装</a></li>
+    <li><a href="<%= request.getContextPath()%>/CategoryList?big=家用电器&p=1">家用电器</a></li>
+    <li><a href="<%= request.getContextPath()%>/CategoryList?big=电脑办公&p=1">电脑办公</a></li>
 </ul>

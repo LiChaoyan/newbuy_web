@@ -79,5 +79,9 @@ public class CommodityServicelmpl implements CommodityService{
     public List<City> selectAllCity(Page page)throws Exception{
         return commodityMapper.selectAllCity(page);
     }
+    //足迹
+    public ArrayList<CommodityShop> selectTrackByuid(int uid)throws Exception{
+        return commodityMapper.selectTrackByuid(uid);
+    }
 
 }

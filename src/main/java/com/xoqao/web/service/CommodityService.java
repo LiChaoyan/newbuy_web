@@ -33,14 +33,16 @@ public interface CommodityService {
     //商品详情页对象
     CommodityShop selectProductBycid(int cid)throws Exception;
     //查找好评中评差评个数
-    int selectGA(@Param("cid") int cid)throws Exception;
-    int selectMA(@Param("cid") int cid)throws Exception;
-    int selectBA(@Param("cid") int cid)throws Exception;
-    int selectAssesssizeBycid(@Param("cid") int cid)throws Exception;
+    int selectGA(int cid)throws Exception;
+    int selectMA(int cid)throws Exception;
+    int selectBA(int cid)throws Exception;
+    int selectAssesssizeBycid(int cid)throws Exception;
     //查找评论
-    ArrayList<Assess> selectAssess(@Param("page")APage page)throws Exception;
+    ArrayList<Assess> selectAssess(APage page)throws Exception;
     //商品参数筛选
     //1.城市筛选
     List<City> selectAllCity(Page page)throws Exception;
+    //足迹
+    ArrayList<CommodityShop> selectTrackByuid(int uid)throws Exception;
 
 }

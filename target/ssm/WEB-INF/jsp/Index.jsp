@@ -132,194 +132,7 @@
 </head>
 <body>  
 <!--Begin Header Begin-->
-<%--
-<div class="soubg">
-    <div class="sou">
-        <!--Begin 所在收货地区 Begin-->
-        <span class="s_city_b">
-            <span class="fl"><div class="location"></div></span>
-            <span class="s_city">
-                <span>北京</span>
-                <div class="s_city_bg">
-                    <div class="s_city_t"></div>
-                    <div class="s_city_c">
-                        <h2>请选择收货地区</h2>
-                        <table border="0" class="c_tab" style="width:235px; margin-top:10px;" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <th>A</th>
-                            <td class="c_h"><span>安徽</span><span>澳门</span></td>
-                          </tr>
-                          <tr>
-                            <th>B</th>
-                            <td class="c_h"><span class="c_check">北京</span></td>
-                          </tr>
-                          <tr>
-                            <th>C</th>
-                            <td class="c_h"><span>重庆</span></td>
-                          </tr>
-                          <tr>
-                            <th>F</th>
-                            <td class="c_h"><span>福建</span></td>
-                          </tr>
-                          <tr>
-                            <th>G</th>
-                            <td class="c_h"><span>广东</span><span>广西</span><span>贵州</span><span>甘肃</span></td>
-                          </tr>
-                          <tr>
-                            <th>H</th>
-                            <td class="c_h"><span>河北</span><span>河南</span><span>黑龙江</span><span>海南</span><span>湖北</span><span>湖南</span></td>
-                          </tr>
-                          <tr>
-                            <th>J</th>
-                            <td class="c_h"><span>江苏</span><span>吉林</span><span>江西</span></td>
-                          </tr>
-                          <tr>
-                            <th>L</th>
-                            <td class="c_h"><span>辽宁</span></td>
-                          </tr>
-                          <tr>
-                            <th>N</th>
-                            <td class="c_h"><span>内蒙古</span><span>宁夏</span></td>
-                          </tr>
-                          <tr>
-                            <th>Q</th>
-                            <td class="c_h"><span>青海</span></td>
-                          </tr>
-                          <tr>
-                            <th>S</th>
-                            <td class="c_h"><span>上海</span><span>山东</span><span>山西</span><span>四川</span><span>陕西</span></td>
-                          </tr>
-                          <tr>
-                            <th>T</th>
-                            <td class="c_h"><span>台湾</span><span>天津</span></td>
-                          </tr>
-                          <tr>
-                            <th>X</th>
-                            <td class="c_h"><span>西藏</span><span>香港</span><span>新疆</span></td>
-                          </tr>
-                          <tr>
-                            <th>Y</th>
-                            <td class="c_h"><span>云南</span></td>
-                          </tr>
-                          <tr>
-                            <th>Z</th>
-                            <td class="c_h"><span>浙江</span></td>
-                          </tr>
-                        </table>
-                    </div>
-                </div>
-            </span>
-        </span>
-        <!--End 所在收货地区 End-->
-        <span class="fr">
-            <span class="fl">你好，请<a href="Login">登录</a>&nbsp; <a href="Regist" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
-            <span class="ss">
-                <div class="ss_list">
-                    <a href="#">我的</a>
-                    <div class="ss_list_bg">
-                        <div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                            <ul>
-                                <li><a href="#">我的订单</a></li>
-                                <li><a href="#">我的消息</a></li>
-                                <li><a href="#">我的收藏夹</a></li>
-                            </ul>
-                        </div>
-                    </div>     
-                </div>
-                <div class="ss_list">
-                    <a href="#">客户服务</a>
-                    <div class="ss_list_bg">
-                        <div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                            <ul>
-                                <li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-                <div class="ss_list">
-                    <a href="#">网站导航</a>
-                    <div class="ss_list_bg">
-                        <div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                            <ul>
-                                <li><a href="#">网站导航</a></li>
-                                <li><a href="#">网站导航</a></li>
-                                <li><a href="#">网站导航</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-            </span>
-            <!-- <span class="fl">|&nbsp;关注我们：</span>
-            <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="Picture/s_tel.png" align="absmiddle" /></a></span>
-        </span> -->
-        </span>
-    </div>
-</div>
-<div class="top">
-    <div class="logo"><a href="Index"><img src="<%= request.getContextPath()%>/Picture/logo.png" /></a></div>
-    <!-- 搜索框 -->
-    <div class="search">
-    <div class="searchbox">
-        <ul id="ul_menus">
-            <li><a href="#" class="style_1">商品</a></li>
-            <li><a href="#">店铺</a></li>
-        </ul>
 
-        <form name="form" method="get" action="CategoryList?productname=?&p=1">
-            <div class="search_area" id="search_area">
-                <p style="display: block">
-                    <input type="text" name="productname" value=""  class="input_1" placeholder="输入商品名称" />
-                    <button onclick="Product()"  class="button_search_1">搜索</button>
-                </p><p><input type="text" name="shopname" value=""  class="input_2" placeholder="输入店铺名称" />
-                <button  onclick="Shop()" class="button_search_2">搜索</button></p>
-            </div>
-        </form>
-        <script type="text/javascript">
-            function Product() {
-                form.action="<%=request.getContextPath()%>/CategoryList?productname=?&p=1";
-                form.submit();
-            }
-            function Shop() {
-                form.action="<%=request.getContextPath()%>/brand?shopname=?&p=1";
-                form.submit();
-            }
-        </script>
-        <!-- <div>
-        <form>
-            <p style="display: block;"><input type="text" value="" class="s_ipt input_1" /></p>
-            <p><input type="submit" value="搜索" class="s_btn" /></p>
-        </form> 
-        </div>  -->                    
-
-        <span class="fl" style="margin-left: 10px;"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
-    </div></div>
-    <div class="i_car">
-        <div class="car_t">购物车 [ <span>3</span> ]</div>
-        <div class="car_bg">
-            <!--Begin 购物车未登录 Begin-->
-            <div class="un_login">还未登录！<a href="Login" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
-            <!--End 购物车未登录 End-->
-            <!--Begin 购物车已登录 Begin-->
-            <ul class="cars">
-                <li>
-                    <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/car1.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
-             
-            </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
-            <div class="price_a"><a href="#">去购物车结算</a></div>
-            <!--End 购物车已登录 End-->
-        </div>
-    </div>
-</div>--%>
 <jsp:include page="/WEB-INF/jsp/Carheader.jsp" flush="true"></jsp:include>
 <!--End Header End--> 
 <!--Begin Menu Begin-->
@@ -349,10 +162,6 @@
                                         </div>
                                     </c:forEach>
                                 </div>
-                                <div class="zj_r">
-                                    <a href="#"><img src="<%= request.getContextPath()%>/Picture/n_img1.jpg" width="236" height="200" /></a>
-                                    <a href="#"><img src="<%= request.getContextPath()%>/Picture/n_img2.jpg" width="236" height="200" /></a>
-                                </div>
                             </div>
                         </li>
                     </c:forEach>
@@ -360,16 +169,12 @@
             </div>
         </div>  
         <!--End 商品分类详情 End-->                                                     
-    	<ul class="menu_r">                                                                                                                                               
+    	<ul class="menu_r">
 
         	<li><a href="#">首页</a></li>
-            <li><a href="Food.html">美食</a></li>
-            <li><a href="Fresh.html">生鲜</a></li>
-            <li><a href="HomeDecoration.html">家居</a></li>
-            <li><a href="SuitDress.html">女装</a></li>
-            <li><a href="MakeUp.html">美妆</a></li>
-            <li><a href="Digital.html">数码</a></li>
-            <li><a href="GroupBuying.html">团购</a></li>
+            <li><a href="<%= request.getContextPath()%>/CategoryList?big=女装/男装">女装/男装</a></li>
+            <li><a href="<%= request.getContextPath()%>/CategoryList?big=家用电器">家用电器</a></li>
+            <li><a href="<%= request.getContextPath()%>/CategoryList?big=电脑办公">电脑办公</a></li>
 
         </ul>
         <div class="m_ad">活动资讯&nbsp;|&nbsp;|&nbsp;旺铺推荐</div>
@@ -403,6 +208,17 @@
         </script>
         <!--End Banner End-->
         <div class="inews">
+            <div class="h_l_img" style="width:225px; height:399px;">
+                <div class="img"><img src="<%= request.getContextPath()%>/Picture/l_img.jpg" width="225" height="399" /></div>
+                <div class="pri_bg">
+                    <span class="price fl">￥53.00</span>
+                    <span class="fr">16R</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%--
+        <div class="inews">
         	<div class="news_t">
             	<span class="fr"><a href="#">更多 ></a></span>活动资讯
             </div>
@@ -425,7 +241,9 @@
     
             </form>
         </div>
-    </div>
+        --%>
+
+    <%--
     <!--Begin 热门商品 Begin-->
     <div class="content mar_10">
     	<div class="h_l_img">
@@ -1072,10 +890,11 @@
         </div>
     </div>    
     <!--End 数码家电 End-->
+    --%>
     <!--Begin 猜你喜欢 Begin-->
     <div class="i_t mar_10">
         <span class="fl">合作商品</span>
-        <span class="i_mores fr"><a href="#">更多</a></span>
+        <span class="i_mores fr"><a href="<%=request.getContextPath()%>/CooperationList">更多</a></span>
     </div>
     <div class="like">
         <div id="featureContainer1">

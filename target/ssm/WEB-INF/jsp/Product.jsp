@@ -469,7 +469,8 @@
                 </c:forEach>
             </section>--%>
         </div>
-        <div class="l_list"> 
+        <div class="l_list">
+            <%--
            <div class="des_border">
                 <div class="des_tit">
                     <ul>
@@ -510,7 +511,7 @@
                 </div>
                 
             </div>
-
+             --%>
              <div class="pro_con margin-t55" style="overflow:hidden;">
                 <div class="pro_tab">
                     <ul>

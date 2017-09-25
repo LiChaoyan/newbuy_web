@@ -223,4 +223,11 @@
             AND commodity.partstatue='${page.part}'
         </if>
     </select>
+    <!--查找用户足迹-->
+    <select id="selectTrackByuid" resultType="com.xoqao.web.bean.commodity.CommodityShop">
+        SELECT commodity.productname,commodity.price,commodity.salesvolu,commodity.logo,commodity.cid
+        from commodity,track
+        where uid='${uid}' and track.cid=commodity.cid
+        LIMIT 0,5;
+    </select>
 </mapper>

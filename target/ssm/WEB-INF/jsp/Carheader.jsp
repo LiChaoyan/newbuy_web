@@ -100,20 +100,19 @@
         <!--End 所在收货地区 End-->
         <span class="fr">
             <span class="fl">你好，请<a href="<%=request.getContextPath()%>/user/Login.html">登录</a>&nbsp; <a href="<%=request.getContextPath()%>/user/Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;<!-- |&nbsp;<a href="#">我的订单</a>&nbsp; -->|</span>
-            <span class="ss">
+            <span class="ss" style="width: 50px;">
                 <div class="ss_list">
                     <a href="#">我的</a>
                     <div class="ss_list_bg">
                         <div class="s_city_t"></div>
                         <div class="ss_list_c">
                             <ul>
-                                <li><a href="#">我的订单</a></li>
-                                <li><a href="#">我的消息</a></li>
-                                <li><a href="#">我的收藏夹</a></li>
+                                <li><a href="<%=request.getContextPath()%>/Order_My">我的订单</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
+                <%--
                 <div class="ss_list">
                     <a href="#">客户服务</a>
                     <div class="ss_list_bg">
@@ -140,6 +139,7 @@
                         </div>
                     </div>
                 </div>
+                --%>
             </span>
             <!-- <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
@@ -158,7 +158,7 @@
                 <li><a href="#">店铺</a></li>
             </ul>
 
-            <form name="form" method="get" action="CategoryList?productname=?&p=1">
+            <form name="form" method="get">
                 <div class="search_area" id="search_area">
                     <p style="display: block">
                         <input type="text" name="productname" value=""  class="input_1" placeholder="输入商品名称" />

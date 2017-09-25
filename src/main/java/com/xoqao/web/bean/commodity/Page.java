@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Page {
     int p=1;//当前页数,从1开始
     int start=0;//每页开始在数据库中的位置
-    int count = 4;//每页记录
+    int count = 16;//每页记录
     int listsize=0;
     int pagesize;
     int bp=0;//beforepage

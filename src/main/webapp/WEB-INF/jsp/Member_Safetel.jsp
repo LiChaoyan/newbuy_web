@@ -175,14 +175,14 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
                 <ul>
                     <li><a href="<%= request.getContextPath()%>/Member_User">个人信息</a></li>
                     <li><a href="<%= request.getContextPath()%>/Member_Safe" class="now">修改个人信息</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Collect">我的收藏</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Msg">我的评价</a></li>
+                    <li><a href="<%= request.getContextPath()%>/#">我的收藏</a></li>
+                    <li><a href="<%= request.getContextPath()%>/#">我的评价</a></li>
                 </ul>
             </div>
             <div class="left_m">
                 <div class="left_m_t t_bg1">订单中心</div>
                 <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_Order">我的订单</a></li>
+                    <li><a href="<%= request.getContextPath()%>/Order_My">我的订单</a></li>
                     <li><a href="<%= request.getContextPath()%>/Member_Address">收货地址</a></li>
                     <li><a href="#">我的购物车</a></li>
                     <li><a href="#">已买到的商品</a></li>

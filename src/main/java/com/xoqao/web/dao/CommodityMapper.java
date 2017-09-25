@@ -38,5 +38,6 @@ public interface CommodityMapper {
     //商品参数筛选
     //1.城市筛选
     List<City> selectAllCity(@Param("page")Page page)throws Exception;
-
+    //足迹
+    ArrayList<CommodityShop> selectTrackByuid(@Param("uid") int uid)throws Exception;
 }

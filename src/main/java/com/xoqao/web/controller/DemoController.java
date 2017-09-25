@@ -520,31 +520,26 @@ public class DemoController {
     }
 
     @RequestMapping("/index")
-    public ModelAndView INDEX(Model model,HttpSession httpSession) throws Exception {
+    public String INDEX(Model model,HttpSession httpSession) throws Exception {
         //动态添加商品分类
         ArrayList<BigCategory> list = categoryService.select123List();
-        model.addAttribute("List", list);
         ArrayList<Partshop> partshops = commodityService.selectAllPartshop();
-        model.addAttribute("partshops", partshops);
-
+        httpSession.setAttribute("List",list);
+        httpSession.setAttribute("partshops", partshops);
         //右上角购物车
-        ModelAndView modelAndView=new ModelAndView();
         User user=(User) httpSession.getAttribute("user");
         if(user!=null) {
             ArrayList<Cart> xCartList = cartService.selectCart(user.getUid());
-            modelAndView.addObject("xCartList", xCartList);
-            modelAndView.addObject("uid", user.getUid());
+            httpSession.setAttribute("xCartList", xCartList);
+            httpSession.setAttribute("uid", user.getUid());
         }
-
-        modelAndView.setViewName("Index");
-        return modelAndView;
+        return "/Index";
     }
 
     @RequestMapping("/CategoryList")
     public ModelAndView showCategoryListpage(Page page, Model model, HttpServletRequest request,HttpSession httpSession) throws Exception {
         //获取ip
         String ip = request.getHeader("x-forwarded-for");
-
 
         if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
 
@@ -576,14 +571,24 @@ public class DemoController {
         ArrayList<CommodityShop> arrayList = new ArrayList<CommodityShop>();
         //动态添加商品分类
         ModelAndView modelAndView = new ModelAndView();
-        ArrayList<BigCategory> list = categoryService.select123List();
-        modelAndView.addObject("List", list);
-
 
         //筛选信息
         List<City> cityList = commodityService.selectAllCity(page);
         modelAndView.addObject("cityList", cityList);
 
+        //推荐商品
+        ArrayList<CommodityShop> tjList=new ArrayList<CommodityShop>();
+        User user=(User) httpSession.getAttribute("user");
+        if(user!=null) {
+            tjList = commodityService.selectTrackByuid(user.getUid());
+        }else{
+            Page page1=new Page();
+            page1.setP(1);page1.setCgid(page.getCgid());page1.setProductname(page.getProductname());
+            page1.setCount(5);
+            page1.setSales(1);
+            tjList = commodityService.selectCommodityShopBycgidpage(page1);
+        }
+        modelAndView.addObject("tjList",tjList);
         //多条件筛选
         //根据cgid,筛选信息分页查询
         int size = 0;
@@ -606,12 +611,10 @@ public class DemoController {
             }
 
         }
-        //右上角购物车
-        User user=(User) httpSession.getAttribute("user");
-        if(user!=null) {
-            ArrayList<Cart> xCartList = cartService.selectCart(user.getUid());
-            modelAndView.addObject("xCartList", xCartList);
-            modelAndView.addObject("uid", user.getUid());
+        if(page.getBig()!=null){
+            arrayList  = commodityService.selectCommodityShopBy1(page.getBig());
+            size=arrayList.size();
+            page.setPage(page.getP(), size);
         }
 
         // 放入转发参数
@@ -624,18 +627,8 @@ public class DemoController {
 
     }
     @RequestMapping("/carheader")
-    public ModelAndView CarHeader(HttpSession httpSession)throws Exception{
-        //右上角购物车
-        ModelAndView modelAndView=new ModelAndView();
-        User user=(User) httpSession.getAttribute("user");
-        if(user!=null) {
-            ArrayList<Cart> xCartList = cartService.selectCart(user.getUid());
-            modelAndView.addObject("xCartList", xCartList);
-            modelAndView.addObject("uid", user.getUid());
-            System.out.println("uid"+user.getUid());
-        }
-        modelAndView.setViewName("Carheader");
-        return modelAndView;
+    public String CarHeader(HttpSession httpSession)throws Exception{
+        return "/Carheader";
     }
 
     @RequestMapping("/product")
@@ -646,9 +639,6 @@ public class DemoController {
         model.addAttribute("List", list);
         //基本信息填充（包括评论信息）
         if (cid != -1) {
-            //动态添加商品分类
-            ArrayList<BigCategory> xlist = categoryService.selectShopBycid(cid);
-            productmodelAndView.addObject("ShopList", xlist);
             //热销商品
             ArrayList<Commodity> hootList = commodityService.selecthootBycid(cid);
             productmodelAndView.addObject("hootList", hootList);
@@ -667,13 +657,6 @@ public class DemoController {
             ArrayList<Assess> assessArrayList = commodityService.selectAssess(page);
             productmodelAndView.addObject("AssessList", assessArrayList);
         }
-        //右上角购物车
-        User user=(User) httpSession.getAttribute("user");
-        if(user!=null) {
-            ArrayList<Cart> xCartList = cartService.selectCart(user.getUid());
-            productmodelAndView.addObject("xCartList", xCartList);
-            productmodelAndView.addObject("uid", user.getUid());
-        }
         productmodelAndView.setViewName("Product");
         return productmodelAndView;
 
@@ -681,7 +664,39 @@ public class DemoController {
     }
 
     @RequestMapping("/CooperationList")
-    public String CooperationList(Model model) throws Exception {
+    public String CooperationList(Model model,Page page) throws Exception {
+        //多条件筛选
+        //根据cgid,筛选信息分页查询
+        ArrayList<CommodityShop> arrayList=new ArrayList<CommodityShop>();
+        int size = 0;
+        if ((page.getCgid() > 0)) {
+            try {
+                size = commodityService.selectCommodityShopsize(page);
+                page.setPage(page.getP(), size);
+                arrayList = commodityService.selectCommodityShopBycgidpage(page);
+                //筛选信息导航栏填写
+                if (page.getCgid() != -1) {
+                    List<Category> categoryList = categoryService.selectCategoryBycgid(page.getCgid());
+                    page.setBig(categoryList.get(0).getBig());
+                    page.setSmall(categoryList.get(0).getSmall());
+                    page.setSecend(categoryList.get(0).getSecend());
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        if(page.getBig()!=null){
+            arrayList  = commodityService.selectCommodityShopBy1(page.getBig());
+            size=arrayList.size();
+            page.setPage(page.getP(), size);
+        }
+
+        // 放入转发参数
+        model.addAttribute("CommodityShopArrayList", arrayList);
+        // 放入jsp路径
+        model.addAttribute("Page", page);
         return "CooperationList";
     }
 
