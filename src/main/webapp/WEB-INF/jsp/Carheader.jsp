@@ -107,7 +107,8 @@
                         <div class="s_city_t"></div>
                         <div class="ss_list_c">
                             <ul>
-                                <li><a href="<%=request.getContextPath()%>/Order_My">我的订单</a></li>
+                                 <li><a href="<%=request.getContextPath()%>/Member_User">个人中心</a></li>
+                                 <li><a href="<%=request.getContextPath()%>/Order_My">我的订单</a></li>
                             </ul>
                         </div>
                     </div>

@@ -89,18 +89,11 @@ public class DemoController {
             System.out.println(shoparrayList.size());
             modelAndView2.addObject("ShopList", shoparrayList);
         }
-        //右上角购物车
+        //推荐商品
+        ArrayList<CommodityShop> tjList=new ArrayList<CommodityShop>();
         User user=(User) httpSession.getAttribute("user");
-        if(user!=null) {
-            ArrayList<Cart> xCartList = cartService.selectCart(user.getUid());
-            modelAndView2.addObject("xCartList", xCartList);
-            modelAndView2.addObject("uid", user.getUid());
-        }
-
-        //动态添加商品分类
-        ArrayList<BigCategory> list = categoryService.select123List();
-        modelAndView2.addObject("List", list);
-
+        commodityService.selectZuji(user.getUid(),page);
+        httpSession.setAttribute("tjList",tjList);
         modelAndView2.addObject("Page", page);
         modelAndView2.setViewName("Brand");
         return modelAndView2;
@@ -301,6 +294,8 @@ public class DemoController {
         String oidString=request.getParameter("oids");
         String paytype=request.getParameter("paytype");
         String leaveword=request.getParameter("leaveword");
+        String cbids=request.getParameter("cbids");
+        String[] cbidsInt=cbids.split(",");
         String[] oids=oidString.split(",");
         for(int i=0;i<oids.length;i++) {
             Orders order=new Orders();
@@ -311,18 +306,15 @@ public class DemoController {
             order.setStatue(1);//待发货
             cartService.upOrder(order);
         }
+        for(int i=0;i<cbidsInt.length;i++){
+            Cart cart=new Cart();
+            cart.setCbid(Integer.parseInt(cbidsInt[i]));
+            cartService.deleCart(cart);//并删除购物车中的对应商品
+        }
+
         ArrayList<Orders> orderList=cartService.selectOrderByoids(oids);
         model.addAttribute("OrderList",orderList);
-        //右上角购物车
-        User user=(User)httpSession.getAttribute("user");
-        if(user!=null) {
-            ArrayList<Cart> xCartList = cartService.selectCart(user.getUid());
-            model.addAttribute("xCartList", xCartList);
-            model.addAttribute("uid", user.getUid());
-        }
-        //动态添加商品分类
-        ArrayList<BigCategory> list = categoryService.select123List();
-        model.addAttribute("List", list);
+
 
         return "BuyCar_Three";
     }
@@ -379,7 +371,7 @@ public class DemoController {
         }
     }
     @RequestMapping("/BuyCar")
-    public ModelAndView BuyCar(Model model,Cart cart,HttpServletRequest request,HttpSession httpSession) throws Exception {
+    public String BuyCar(Model model,Cart cart,HttpServletRequest request,HttpSession httpSession) throws Exception {
         System.out.println("查询购物车");
         if(cart.getCbid()!=-1) {
             if (cart.getAmount() == 0) {
@@ -395,20 +387,10 @@ public class DemoController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        //右上角购物车
-        ModelAndView modelAndView=new ModelAndView();
-        if(user!=null) {
-            ArrayList<Cart> xCartList = cartService.selectCart(user.getUid());
-            modelAndView.addObject("xCartList", xCartList);
-            modelAndView.addObject("uid", user.getUid());
-        }
-        //动态添加商品分类
-        ArrayList<BigCategory> list = categoryService.select123List();
-        model.addAttribute("List", list);
 
-        modelAndView.setViewName("BuyCar");
-        return modelAndView;
+        return "/BuyCar";
     }
+
     /**
      * 进入查看订单页面
      * @param model
@@ -429,6 +411,7 @@ public class DemoController {
         int count = 0;
         double totalprice = 0;
         int sid = 0;
+        String yuancbids=cbids;
         int a=cbids.lastIndexOf(",");
         cbids=cbids.substring(0,a);
         String[] cbidString = cbids.split(",");
@@ -473,7 +456,7 @@ public class DemoController {
             Ordergoods ordergood = new Ordergoods(cart);
             ordergood.setOid(oid);
             cartService.AddOrdergoods(ordergood);//根据订单号添加订单商品
-            cartService.deleCart(cart);//并删除购物车中的对应商品
+          //  cartService.deleCart(cart);//并删除购物车中的对应商品
 
         }
         }
@@ -491,16 +474,7 @@ public class DemoController {
             allprice=allprice+orders.getTotalprice();
             allyun=allyun+orders.getFreight();
         }
-        //右上角购物车
-        if(user!=null) {
-            ArrayList<Cart> xCartList = cartService.selectCart(user.getUid());
-            model.addAttribute("xCartList", xCartList);
-            model.addAttribute("uid", user.getUid());
-        }
-        //动态添加商品分类
-        ArrayList<BigCategory> list = categoryService.select123List();
-        model.addAttribute("List", list);
-
+        model.addAttribute("cbids",yuancbids);
         model.addAttribute("OrderList", orderlist);
         model.addAttribute("Address", shipAddress);
         model.addAttribute("ALLprice",allprice);
@@ -556,10 +530,6 @@ public class DemoController {
         ip=ip.equals("0:0:0:0:0:0:0:1")?"118.89.171.150":ip;
         ip="118.89.171.150";
 
-
-        ip=ip.equals("0:0:0:0:0:0:0:1")?"118.89.171.150":ip;
-        ip="118.89.171.150";
-
         //获取经纬度，请在Getjw类中实现
         Getjw ipxy=new Getjw();
         page.setRangeString(ipxy.getXY(ip));
@@ -579,16 +549,12 @@ public class DemoController {
         //推荐商品
         ArrayList<CommodityShop> tjList=new ArrayList<CommodityShop>();
         User user=(User) httpSession.getAttribute("user");
-        if(user!=null) {
-            tjList = commodityService.selectTrackByuid(user.getUid());
-        }else{
-            Page page1=new Page();
-            page1.setP(1);page1.setCgid(page.getCgid());page1.setProductname(page.getProductname());
-            page1.setCount(5);
-            page1.setSales(1);
-            tjList = commodityService.selectCommodityShopBycgidpage(page1);
+        int uid=0;
+        if(user!=null){
+            uid=user.getUid();
         }
-        modelAndView.addObject("tjList",tjList);
+        tjList=commodityService.selectZuji(uid,page);
+        httpSession.setAttribute("tjList",tjList);
         //多条件筛选
         //根据cgid,筛选信息分页查询
         int size = 0;

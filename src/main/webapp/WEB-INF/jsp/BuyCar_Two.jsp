@@ -50,7 +50,7 @@
     <div class="content mar_20">
     	<div class="two_bg">
         	<div class="two_t">
-            	<span class="fr"><a href="<%= request.getContextPath()%>/BuyCar.html">修改</a></span> 商品列表
+            	<span class="fr"><a href="<%= request.getContextPath()%>/BuyCar">修改</a></span> 商品列表
             </div>
             <table border="0" class="car_tab od-goods" style="width:1110px;" cellspacing="0" cellpadding="0">
               <tr>
@@ -178,7 +178,7 @@
                 var leaveword=$(".add_txt").val();
                 //alert(oid+" "+paytype);
                 //提交订单()
-                 window.location.href ="<%= request.getContextPath()%>/BuyCar_Three?oids="+oid+"&paytype="+paytype+"&leaveword="+leaveword+""
+                 window.location.href ="<%= request.getContextPath()%>/BuyCar_Three?oids="+oid+"&paytype="+paytype+"&leaveword="+leaveword+"&cbids=${cbids}"
 
             });
     </script>

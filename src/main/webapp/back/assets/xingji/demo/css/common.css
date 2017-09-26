@@ -12,7 +12,7 @@ h2 a { color: #444 }
 h3 { color: #555; font-size: 1.6em; letter-spacing: .5px; }
 
 ul { margin-left: 0; padding-left: 2px }
-ul li { font-size: 1.3em }
+/*ul li { font-size: 1.3em }*/
 
 /* pygments */
 blockquote { background: url('http://wbotelhos.com/images/quote.gif') no-repeat; border-radius: 4px; margin-left: 0; padding-left: 22px }

@@ -51,7 +51,7 @@
 <!--End 商品分类详情 End-->
 <ul class="menu_r">
     <li><a href="<%= request.getContextPath()%>/index.html">首页</a></li>
-    <li><a href="<%= request.getContextPath()%>/CategoryList?big=女装/男装&p=1">女装/男装</a></li>
+    <li><a href="<%= request.getContextPath()%>/CategoryList?big=女装/男装&p=1">女/男装</a></li>
     <li><a href="<%= request.getContextPath()%>/CategoryList?big=家用电器&p=1">家用电器</a></li>
     <li><a href="<%= request.getContextPath()%>/CategoryList?big=电脑办公&p=1">电脑办公</a></li>
 </ul>

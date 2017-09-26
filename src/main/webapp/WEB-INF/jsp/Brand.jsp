@@ -46,44 +46,18 @@
         <div class="l_history">
             <div class="his_t">
                 <span class="fl">浏览历史</span>
-                <span class="fr"><a href="#">清空</a></span>
+               <%-- <span class="fr"><a href="#">清空</a></span>--%>
             </div>
             <ul>
+                <c:forEach items="${tjList}" var="tjPro">
                 <li>
-                    <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/his_1.jpg" width="185" height="162" /></a></div>
-                    <div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                    <div class="img"><a href="<%=request.getContextPath()%>/product?cid=${tjPro.cid}"><img src="${tjPro.logo}" width="185" height="162" /></a></div>
+                    <div class="name" title="${tjPro.productname}"><a href="<%=request.getContextPath()%>/product?cid=${tjPro.cid}">${tjPro.productname}</a></div>
                     <div class="price">
-                        <font>￥<span>368.00</span></font> &nbsp; 18R
+                        <font>￥<span>${tjPro.price}</span></font> &nbsp; ${tjPro.salesvolu}人付款
                     </div>
                 </li>
-                <li>
-                    <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/his_2.jpg" width="185" height="162" /></a></div>
-                    <div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                        <font>￥<span>768.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/his_3.jpg" width="185" height="162" /></a></div>
-                    <div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                        <font>￥<span>680.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/his_4.jpg" width="185" height="162" /></a></div>
-                    <div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                        <font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="<%= request.getContextPath()%>/Picture/his_5.jpg" width="185" height="162" /></a></div>
-                    <div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                        <font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
+                </c:forEach>
             </ul>
         </div>
         <div class="l_list">

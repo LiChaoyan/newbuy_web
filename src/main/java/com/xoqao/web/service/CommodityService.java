@@ -44,5 +44,5 @@ public interface CommodityService {
     List<City> selectAllCity(Page page)throws Exception;
     //足迹
     ArrayList<CommodityShop> selectTrackByuid(int uid)throws Exception;
-
+    ArrayList<CommodityShop> selectZuji(int uid,Page page)throws Exception;
 }

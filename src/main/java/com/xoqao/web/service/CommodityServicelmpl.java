@@ -83,5 +83,18 @@ public class CommodityServicelmpl implements CommodityService{
     public ArrayList<CommodityShop> selectTrackByuid(int uid)throws Exception{
         return commodityMapper.selectTrackByuid(uid);
     }
-
+    public ArrayList<CommodityShop> selectZuji(int uid,Page page)throws Exception{
+       ArrayList<CommodityShop> tjList=new ArrayList<CommodityShop>();
+        if(uid!=0) {
+            tjList = selectTrackByuid(uid);
+        }else{
+            Page page1=new Page();
+            page1.setP(1);page1.setCgid(page.getCgid());page1.setProductname(page.getProductname());
+            page1.setShopname(page.getShopname());
+            page1.setCount(5);
+            page1.setSales(1);
+            tjList = selectCommodityShopBycgidpage(page1);
+        }
+        return tjList;
+    }
 }

@@ -21,6 +21,9 @@
     <delete id="deleCart">
         DELETE from commodities_cart where cbid='${cart.cbid}'
     </delete>
+    <delete id="deleCartByoid">
+        DELETE from commodities_cart where oid='${oid}' and cbid=(select )
+    </delete>
     <update id="ChangeNum">
         UPDATE commodities_cart  set amount='${cart.amount}' where cbid='${cart.cbid}'
     </update>
