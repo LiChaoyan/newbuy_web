@@ -12,8 +12,16 @@
 <aside class="Hui-aside">
 
     <div class="menu_dropdown bk_2">
-        <dl id="menu-index">
-            <dt><i class="Hui-iconfont">&#xe616;</i> 首页<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+        <dl id="index">
+                <dt><i class="Hui-iconfont">&#xe61a;</i> 监控中心<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <ul>
+                        <li><a href="<%=request.getContextPath()%>/boss/admin/index" title="概览查看">概览查看</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        <dl id="menu-tongji">
+            <dt><i class="Hui-iconfont">&#xe616;</i> 监控中心<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
                     <li><a href="<%=request.getContextPath()%>/boss/admin/index" title="概览查看">概览查看</a></li>
@@ -63,21 +71,6 @@
             </dd>
         </dl>
 
-
-        <dl id="menu-tongji">
-            <dt><i class="Hui-iconfont">&#xe61a;</i> 统计管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="#" title="折线图">折线图</a></li>
-                    <li><a href="#" title="时间轴折线图">时间轴折线图</a></li>
-                    <li><a href="#" title="区域图">区域图</a></li>
-                    <li><a href="#" title="柱状图">柱状图</a></li>
-                    <li><a href="#" title="饼状图">饼状图</a></li>
-                    <li><a href="#" title="3D柱状图">3D柱状图</a></li>
-                    <li><a href="#" title="3D饼状图">3D饼状图</a></li>
-                </ul>
-            </dd>
-        </dl>
         <dl id="menu-system">
             <dt><i class="Hui-iconfont">&#xe62e;</i> 安全管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>

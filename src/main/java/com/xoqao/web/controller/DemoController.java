@@ -92,8 +92,13 @@ public class DemoController {
         //推荐商品
         ArrayList<CommodityShop> tjList=new ArrayList<CommodityShop>();
         User user=(User) httpSession.getAttribute("user");
-        commodityService.selectZuji(user.getUid(),page);
+        int uid=0;
+        if(user!=null){
+            uid=user.getUid();
+        }
+        tjList=commodityService.selectZuji(uid,page);
         httpSession.setAttribute("tjList",tjList);
+
         modelAndView2.addObject("Page", page);
         modelAndView2.setViewName("Brand");
         return modelAndView2;

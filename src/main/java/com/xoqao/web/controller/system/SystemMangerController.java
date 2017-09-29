@@ -1,4 +1,4 @@
-package com.xoqao.web.controller.boss;
+package com.xoqao.web.controller.system;
 
 import com.xoqao.web.bean.bankShop.BankShop;
 import com.xoqao.web.bean.bankShop.BankShopSuShop;
@@ -15,7 +15,6 @@ import com.xoqao.web.commen.CommonValue;
 import com.xoqao.web.service.*;
 import com.xoqao.web.utils.MD5Util;
 import com.xoqao.web.utils.QiNiuFileUtil;
-import org.intellij.lang.annotations.RegExp;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +24,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
@@ -34,14 +32,18 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 说明：
- * Author: lovegod
- * Date:  2017/8/21.
- * Email:dx96_j@163.com
+ * Created by win8.1 on 2017/9/29.
  */
 @Controller
-@RequestMapping("/boss")
-public class BossController {
+@RequestMapping("/system")
+public class SystemMangerController {
+    /*
+    * 系统后台管理员登录
+    */
+
+    /*
+    * 系统后台管理员首页
+    */
 
     @Autowired
     private BossService bossService;
@@ -69,15 +71,55 @@ public class BossController {
     }
 
     /**
-     * 进入店主注册页面
+     * 系统管理员登录提交
+     *
+     * @param model
+     * @param username
+     * @param password
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/login/sub")
+    public String LoginSub(Model model, String username, String password, HttpSession httpSession) throws Exception {
+        if (null != username && null != password) {
+            Boss bossByStr = bossService.findBossByStr(username);
+            if (null != bossByStr && MD5Util.encode(password).equals(bossByStr.getPassword())) {
+                httpSession.setAttribute("boss", bossByStr);
+                model.addAttribute("error_msg", "登录成功！");
+                return "systemmanager/index_shopkeeper";
+            } else {
+                model.addAttribute("error_msg", "登录失败，请检查输入信息是否正确");
+            }
+        } else {
+            model.addAttribute("error_msg", "请输入正确的信息");
+        }
+        return "systemmanager/Login_shopkeeper";
+    }
+
+    /**
+     * 进入系统管理员首页概览
      *
      * @param model
      * @return
      * @throws Exception
      */
-    @RequestMapping("/Regist_Boss")
-    public String Regist_shopkeeper(Model model) throws Exception {
-        return "shopkeeper/Regist_shopkeeper";
+    @RequestMapping("/admin/index")
+    public String adminBossIndex(Model model) throws Exception {
+        return "systemmanager/index_shopkeeper";
+    }
+
+    /**
+     * 系统管理员退出登录
+     *
+     * @param model
+     * @param httpSession
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/logout")
+    public String logout(Model model, HttpSession httpSession) throws Exception {
+        httpSession.invalidate();
+        return "systemmanager/Login_shopkeeper";
     }
 
 
@@ -95,25 +137,18 @@ public class BossController {
             List<Shop> shopByBid = shopService.findShopByBid(boss.getBid());
             model.addAttribute("shops", shopByBid);
         }
-        return "shopkeeper/article_list";
+        return "systemmanager/article_list";
     }
 
-    //    商品管理
-    @RequestMapping("/product_list")
-    public String product_list(Model model) throws Exception {
-        return "shopkeeper/product_list";
+    //    类别管理
+    @RequestMapping("/category_list")
+    public String category_list(Model model) throws Exception {
+        return "systemmanager/category_list";
     }
-
-    //    商品添加
-    @RequestMapping("/product_add")
-    public String product_add(Model model) throws Exception {
-        return "shopkeeper/product_add";
-    }
-
     //    店员查看（弹窗）
 
     /**
-     * 查看店员信息
+     * 查看管理员信息
      *
      * @param model
      * @return
@@ -128,12 +163,12 @@ public class BossController {
         emPloyerCuShop.setShopname(shopBySid.getShopname());
         emPloyerCuShop.setLogo(shopBySid.getLogo());
         model.addAttribute("employer", emPloyerCuShop);
-        return "shopkeeper/member_show";
+        return "systemmanager/member_show";
     }
 
 
     /**
-     * 进入查看店员
+     * 进入查看管理员
      *
      * @param model
      * @return
@@ -155,12 +190,12 @@ public class BossController {
             }
         }
         model.addAttribute("employers", emPloyerCuShops);
-        return "shopkeeper/member_list";
+        return "systemmanager/member_list";
     }
 
 
     /**
-     * 添加店员
+     * 添加管理员
      *
      * @param model
      * @return
@@ -173,16 +208,11 @@ public class BossController {
             List<Shop> shopByBid = shopService.findShopByBid(boss.getBid());
             model.addAttribute("shops", shopByBid);
             model.addAttribute("eid", eid);
-            return "shopkeeper/member_add";
+            return "systemmanager/member_add";
         }
         return null;
     }
 
-    //    修改密码
-    @RequestMapping("/change_password")
-    public String change_password(Model model) throws Exception {
-        return "shopkeeper/change_password";
-    }
     //    安全列表
 
     /**
@@ -210,7 +240,7 @@ public class BossController {
             }
             model.addAttribute("banks", bankShopSuShops);
         }
-        return "shopkeeper/safe_list";
+        return "systemmanager/safe_list";
     }
 
     //    添加法人信息
@@ -228,54 +258,13 @@ public class BossController {
         Boss boss = (Boss) httpSession.getAttribute("boss");
         List<Shop> shopByBid = shopService.findShopByBid(boss.getBid());
         model.addAttribute("shops", shopByBid);
-        return "shopkeeper/safeman_add";
-    }
-    //合作商品管理页面
-    @RequestMapping("/coop_product")
-    public String coop_product(Model model) throws Exception {
-        return "shopkeeper/coop_product";
-    }
-    //合作商品管理页面-查看合作
-    @RequestMapping("/coop_product_shop")
-    public String coop_product_shop(Model model) throws Exception {
-        return "shopkeeper/coop_product_shop";
-    }
-    //合作建立概览
-    @RequestMapping("/coop_build")
-    public String coop_build(Model model) throws Exception {
-        return "shopkeeper/coop_build";
-    }
-    //合作建立概览-查看店铺
-    @RequestMapping("/view_pickup_shop")
-    public String view_pickup_shop(Model model) throws Exception {
-        return "shopkeeper/view_pickup_shop";
+        return "systemmanager/safeman_add";
     }
 
-    //合作建立概览-查看合作
-    @RequestMapping("/coop_build_product")
-    public String coop_build_product(Model model) throws Exception {
-        return "shopkeeper/coop_build_product";
-    }
-
-    //可配货查看
-    @RequestMapping("/view_pickup")
-    public String view_pickup(Model model) throws Exception {
-        return "shopkeeper/view_pickup";
-    }
-    //地区热点分析
-    @RequestMapping("/hot_spots")
-    public String hot_spots(Model model) throws Exception {
-        return "shopkeeper/hot_spots";
-    }
-    //配货数据统计
-    @RequestMapping("/data_count")
-    public String data_count(Model model) throws Exception {
-        return "shopkeeper/data_count";
-    }
     //首页
     @RequestMapping("/index_shopkeeper")
     public String index_shopkeeper(Model model) throws Exception {
-        return "shopkeeper/index_shopkeeper";
+        return "systemmanager/index_shopkeeper";
     }
 
     /**
@@ -357,108 +346,6 @@ public class BossController {
 
     }
 
-    /**
-     * 店主登录提交
-     *
-     * @param model
-     * @param username
-     * @param password
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping("/login/sub")
-    public String LoginSub(Model model, String username, String password, HttpSession httpSession) throws Exception {
-        if (null != username && null != password) {
-            Boss bossByStr = bossService.findBossByStr(username);
-            if (null != bossByStr && MD5Util.encode(password).equals(bossByStr.getPassword())) {
-                httpSession.setAttribute("boss", bossByStr);
-                model.addAttribute("error_msg", "登录成功！");
-                return "shopkeeper/index_shopkeeper";
-            } else {
-                model.addAttribute("error_msg", "登录失败，请检查输入信息是否正确");
-            }
-        } else {
-            model.addAttribute("error_msg", "请输入正确的信息");
-        }
-        return "shopkeeper/Login_shopkeeper";
-    }
-
-    /**
-     * 进入店主首页概览
-     *
-     * @param model
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping("/admin/index")
-    public String adminBossIndex(Model model) throws Exception {
-        return "shopkeeper/index_shopkeeper";
-    }
-
-    /**
-     * 店主退出登录
-     *
-     * @param model
-     * @param httpSession
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping("/logout")
-    public String logout(Model model, HttpSession httpSession) throws Exception {
-        httpSession.invalidate();
-        return "shopkeeper/Login_shopkeeper";
-    }
-
-    /**
-     * 店主注册提交
-     *
-     * @param model
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping("/regist_sub")
-    public String registSub(Model model, String phonenumber, String username, String password, String id, String myname, MultipartFile idz, MultipartFile idf, MultipartFile face) throws Exception {
-        if (idz != null && idf != null && face != null) {
-            User userByphone = userService.findUserByphone(phonenumber);
-            Boss bossByphone = bossService.findBossByphone(phonenumber);
-            Boss boosByNick = bossService.findBoosByNick(username);
-            if (null == boosByNick) {  //判断用户名是否已存在
-                if (null == userByphone && null == bossByphone) {   //判断手机号是否已经存在
-                    Boss boss = new Boss();
-                    boss.setNickname(username);
-                    boss.setPhone(phonenumber);
-                    boss.setId(id);
-                    boss.setName(myname);
-                    boss.setPassword(MD5Util.encode(password));
-                    String facepic = QiNiuFileUtil.updalodByByte(face.getBytes());
-                    boss.setFacepic(CommonValue.QINIUPATH + facepic);
-                    String idze = QiNiuFileUtil.updalodByByte(idz.getBytes());
-                    String idfe = QiNiuFileUtil.updalodByByte(idf.getBytes());
-                    boss.setIdpic(CommonValue.QINIUPATH + idze + ";" + CommonValue.QINIUPATH + idfe);
-                    try {
-                        bossService.insertBoss(boss);
-                        model.addAttribute("error_msg", "注册成功！");
-                        return "user/Login";
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        model.addAttribute("error_msg", "注册失败，请重新尝试！");
-                        return "shopkeeper/Regist_shopkeeper";
-                    }
-
-                } else {
-                    model.addAttribute("error_msg", "改手机号已存在");
-                    return "shopkeeper/Regist_shopkeeper";
-                }
-            } else {
-                model.addAttribute("error_msg", "用户名已存在");
-                return "shopkeeper/Regist_shopkeeper";
-            }
-
-        } else {
-            model.addAttribute("error_msg", "请注意输入数据");
-            return "shopkeeper/Regist_shopkeeper";
-        }
-    }
 
     /**
      * 进入添加线上店铺
@@ -469,7 +356,7 @@ public class BossController {
      */
     @RequestMapping("/shopadd_online")
     public String Regist_shop(Model model) throws Exception {
-        return "shopkeeper/shopadd_online";
+        return "systemmanager/shopadd_online";
     }
 
     /**
@@ -481,7 +368,7 @@ public class BossController {
      */
     @RequestMapping("/shopadd_outline")
     public String shopadd_outline(Model model) throws Exception {
-        return "shopkeeper/shopadd_outline";
+        return "systemmanager/shopadd_outline";
     }
 
     /**
@@ -514,10 +401,10 @@ public class BossController {
                 e.printStackTrace();
                 model.addAttribute("error_msg", "添加失败");
             }
-            return "shopkeeper/shopadd_online";
+            return "systemmanager/shopadd_online";
         } else {
             model.addAttribute("error_msg", "登录已经过期，请重新登录");
-            return "shopkeeper/Login_shopkeeper";
+            return "systemmanager/Login_shopkeeper";
         }
     }
 
@@ -575,7 +462,7 @@ public class BossController {
         } else {
             model.addAttribute("error_msg", "请输入正确得参数！");
         }
-        return "shopkeeper/shopadd_outline";
+        return "systemmanager/shopadd_outline";
     }
 
     /**
