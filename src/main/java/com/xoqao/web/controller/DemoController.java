@@ -606,8 +606,8 @@ public class DemoController {
     public ModelAndView Product(int cid, APage page, Model model,HttpSession httpSession) throws Exception {
         ModelAndView productmodelAndView = new ModelAndView();
         //动态添加商品分类
-        ArrayList<BigCategory> list = categoryService.select123List();
-        model.addAttribute("List", list);
+        ArrayList<BigCategory> shoplist = categoryService.selectShopBycid(cid);
+        model.addAttribute("ShopList", shoplist);
         //基本信息填充（包括评论信息）
         if (cid != -1) {
             //热销商品

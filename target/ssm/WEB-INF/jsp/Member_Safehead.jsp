@@ -35,34 +35,7 @@ overflow:hidden; margin-top:10px; padding-bottom:30px; margin-bottom:0px; border
     <!--Begin 用户中心 Begin -->
 	<div class="m_content">
    		<div class="m_left">
-            <div class="left_n">个人中心</div>
-            <div class="left_m">
-                <div class="left_m_t t_bg2">会员中心</div>
-                <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_User">个人信息</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Safehead" class="now">修改个人信息</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Collect">我的收藏</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Msg">我的评价</a></li>
-                </ul>
-            </div>
-            <div class="left_m">
-                <div class="left_m_t t_bg1">订单中心</div>
-                <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_Order">我的订单</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Address">收货地址</a></li>
-                    <li><a href="#">我的购物车</a></li>
-                    <li><a href="#">已买到的商品</a></li>
-                </ul>
-            </div>
-
-            <div class="left_m">
-                <div class="left_m_t t_bg3">账户中心</div>
-                <ul>
-                    <li><a href="<%= request.getContextPath()%>/Member_Safe">账户安全</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Packet">我的红包</a></li>
-                    <li><a href="<%= request.getContextPath()%>/Member_Money">资金管理</a></li>
-                </ul>
-            </div>
+            <jsp:include page="/public_jsp/Member_left.jsp"></jsp:include>
         </div>
 		<div class="m_right">
             <p></p> 

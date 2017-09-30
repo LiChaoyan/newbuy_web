@@ -17,16 +17,9 @@
                 <dd>
                     <ul>
                         <li><a href="<%=request.getContextPath()%>/boss/admin/index" title="概览查看">概览查看</a></li>
+                        <li><a href="<%=request.getContextPath()%>/shop/indexShopManager" title="店铺监控">店铺监控</a></li>
                     </ul>
                 </dd>
-            </dl>
-        <dl id="menu-tongji">
-            <dt><i class="Hui-iconfont">&#xe616;</i> 监控中心<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="<%=request.getContextPath()%>/boss/admin/index" title="概览查看">概览查看</a></li>
-                </ul>
-            </dd>
         </dl>
         <dl id="menu-article">
             <dt><i class="Hui-iconfont">&#xe616;</i> 店铺管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
@@ -42,6 +35,7 @@
             <dd>
                 <ul>
                     <li><a href="<%=request.getContextPath()%>/boss/product_list" title="产品管理">查看商品</a></li>
+
                 </ul>
             </dd>
         </dl>

@@ -94,10 +94,10 @@
 }
     /*宝贝分类*/
 .box{ width:208px; height: auto; border: solid 1px #48A5D4;}
-.Collapsing{ width: 100%;padding:0; margin:0; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat: no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #f6f6f6; color: #fff; }
+.Collapsing{ width: 100%;padding:0; margin:0; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat: no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #f6f6f6; color: #1a2ae1; }
 .coll_body{display: none; }
 .coll_body a{display:block; margin:10px; text-align: center; background: #f5f4f4;}
-.coll_body h4{ width: 100%; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat:  no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #f6f6f6; color: #fff; }
+.coll_body h4{ width: 100%; height: 30px; line-height: 30px; cursor: pointer; border-bottom: 1px solid white; text-align: center; background-repeat:  no-repeat;  background-position: center right no-repeat; background-image: url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_left.png); background-color: #f6f6f6; color:#2015cb; }
 .boxcurrent{background-image:url(<%=request.getContextPath()%>/back/assets/dpfl/images/pro_down.png);}
  /*多省略号代替出来的文字以*/
  .slh-text {
